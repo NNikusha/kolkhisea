@@ -1,12 +1,15 @@
 import React from 'react'
+import ApartmentSection from './components/organisms/apartmentSection/ApartmentSection'
 
 const page = () => {
   return (
-    <div className="container flex flex-col justify-center px-4 mx-auto h-full">
-      mobrdzandi
-
-    </div>
+    <>
+    <ApartmentSection />
+    </>
   )
 }
 
 export default page
+
+
+// container flex flex-col justify-center h-full w-[68%] m-auto
