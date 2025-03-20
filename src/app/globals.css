@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @font-face {
   font-family: 'PP Neue Machina';
   src: url('/fonts/PPNeueMachina-Regular.otf') format('opentype');
@@ -12,7 +11,7 @@
 :root {
   --reddish-orange: #CB684D;
   --reddish-Gray: rgba(255, 255, 255, 0.2);;
-  --foreground: #171717;
+  --foreground: #F3F6FB;
 }
 
 @theme inline {
@@ -24,7 +23,7 @@
 
 
 body{
-  background-color: black;
+  background-color:#F3F6FB;
   color: white;
   font-family: 'PP Neue Machina', sans-serif;
 }
