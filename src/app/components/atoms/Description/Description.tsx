@@ -1,0 +1,15 @@
+import React from 'react';
+import Button from '../Button/Button';
+
+const Description = () => (
+  <div className="flex flex-col justify-center w-full md:w-1/2 py-6 px-4 md:px-0 md:pl-8 text-center md:text-left">
+    <p className="text-[#3D3D3D] text-sm md:text-base mb-8">
+      Experience the perfect blend of elegance and comfort with our premium seaside apartment hotel. Designed for those who seek breathtaking views and modern living, this 10-story masterpiece offers unparalleled oceanfront luxury.
+    </p>
+    <div className="hidden md:flex justify-start">
+      <Button text="See the project" />
+    </div>
+  </div>
+);
+
+export default Description;

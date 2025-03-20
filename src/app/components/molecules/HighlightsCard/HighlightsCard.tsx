@@ -7,15 +7,16 @@ import { SectionTitle } from '../../atoms/SectionTitle/SectionTitle';
 
 export const HighlightsCard: React.FC = () => {
   return (
-    <section className="bg-[#F3F6FB] py-24 flex flex-col items-center justify-center ">
-      <div className="w-full">
+
+    <div className="bg-[#F3F6FB] py-16 flex flex-col items-center justify-center rounded-[48px]">
+      <div className="w-full ">
         <SectionTitle 
           mainText="COMPREHENSIVE"
           highlightedText="INSIGHTS AND HIGHLIGHTS"
           subtitle="A DETAILED EXAMINATION OF THE REAL ESTATE LANDSCAPE"
         />
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-7">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4  mt-12">
           <FeatureCard 
             bgColor="bg-white"
             textColor="text-gray-800"
@@ -40,13 +41,13 @@ export const HighlightsCard: React.FC = () => {
             title="HIGH-QUALITY STANDARDS"
             number="03"
             description="Experts in premium coastal developments with breathtaking views."
-            highlightSvg={HighlightLine3}
-
+            highlightSvg={HighlightLine3} 
             borderColor="border-white border-opacity-30"
+            svgOpacity="mt-[27px]"
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
