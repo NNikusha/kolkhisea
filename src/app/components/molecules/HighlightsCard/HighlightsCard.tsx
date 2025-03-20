@@ -7,6 +7,7 @@ import { SectionTitle } from '../../atoms/SectionTitle/SectionTitle';
 
 export const HighlightsCard: React.FC = () => {
   return (
+
     <div className="bg-[#F3F6FB] py-16 flex flex-col items-center justify-center rounded-[48px]">
       <div className="w-full ">
         <SectionTitle 

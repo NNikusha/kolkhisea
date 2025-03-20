@@ -29,3 +29,31 @@ body{
 }
 
 
+/* 
+.test::after {
+  content: "";
+  position: absolute;
+  width: 104px;
+  height: 56px;
+  background-image: url('./assets/InsideView.svg');
+} */
+
+
+.test {
+  display: inline-block; 
+  position: relative; 
+  bottom: 5px;
+  left: 5px;
+}
+
+.test::after {
+  content: "";
+  display: inline-block;
+  width: 104px;
+  height: 56px;
+  background-image: url('./assets/InsideView.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  vertical-align: middle; 
+}
