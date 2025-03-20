@@ -1,15 +1,20 @@
-import React from 'react'
-import ApartmentSection from './components/organisms/apartmentSection/ApartmentSection'
+import React from 'react';
+import ApartmentSection from './components/organisms/apartmentSection/ApartmentSection';
+import HighlightsCard from './components/molecules/HighlightsCard/HighlightsCard';
 
-const page = () => {
+const Page = () => {
   return (
-    <>
-    <ApartmentSection />
-    </>
-  )
-}
+    <div className="flex flex-col w-full">
+      <section className="relative h-[110vh] w-full">
+        <ApartmentSection />
+      </section>
+      <div className='container mx-auto px-4'>
+        <section className="w-full">
+          <HighlightsCard />
+        </section>
+      </div>
+    </div>
+  );
+};
 
-export default page
-
-
-// container flex flex-col justify-center h-full w-[68%] m-auto
+export default Page;
