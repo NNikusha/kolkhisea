@@ -15,7 +15,7 @@ export const HighlightsCard: React.FC = () => {
           subtitle="A DETAILED EXAMINATION OF THE REAL ESTATE LANDSCAPE"
         />
 
-        <div className="flex flex-col md:flex-row justify-between items-center  mt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4  mt-12">
           <FeatureCard 
             bgColor="bg-white"
             textColor="text-gray-800"

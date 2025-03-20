@@ -12,7 +12,7 @@ export default function ApartmentSection() {
   return (
     <>
       <Header />
-      <section className="w-[68%] m-auto mt-[200px]">
+      <section className="container px-[150px] mx-auto mt-[200px]">
         <div className="relative">
           <Image
             className="absolute  left-[20%] top-[105px] "
