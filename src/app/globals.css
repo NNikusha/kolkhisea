@@ -12,11 +12,13 @@
   --reddish-orange: #CB684D;
   --reddish-Gray: rgba(255, 255, 255, 0.2);;
   --foreground: #F3F6FB;
+  --grayMixGreen: #285260;
 }
 
 @theme inline {
   --main-button-color: var(--reddish-orange);
   --gray-button-color: var(--reddish-Gray);
+  --grayMixGreen-Info-color: var(--reddish-Gray);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
