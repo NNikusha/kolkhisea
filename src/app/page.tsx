@@ -27,7 +27,7 @@ const Page = () => {
           <SubscribeSection />
         </section>
 
-        <section className="w-full lg:pt-11  ">
+        <section className="w-full ">
           <Footer />
         </section>
       </div>
