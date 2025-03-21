@@ -54,10 +54,10 @@ export default function HeaderNav() {
         </div>
         <div className="flex items-center gap-[19px]">
           <OrangeButton text="choose apartment" />
-          <div className="flex xl:hidden flex-col gap-3 ">
-            <div className="h-[1px] w-[13px] bg-white"></div>
-            <div className="h-[1px] w-[26px] bg-white"></div>
-            <div className="h-[1px] w-[13px] bg-white"></div>
+          <div className="flex xl:hidden flex-col gap-[11px] ">
+            <div className="h-[1px] w-[19px] h-[3px] rounded-[16px] bg-white"></div>
+            <div className="h-[1px] w-[26px] h-[3px] rounded-[16px] bg-white"></div>
+            <div className="h-[1px] w-[15px] h-[3px] rounded-[16px] bg-white"></div>
           </div>
         </div>
       </div>
