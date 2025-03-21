@@ -11,7 +11,7 @@ export default function SubscribeSection() {
           src={SubscribeProject}
           alt="Subscription Background"
           layout="fill"
-          className="rounded-b-[60px]"
+          className="rounded-b-[60px] object-cover 2xl:object-fill"
         />
       </div>
 

@@ -23,11 +23,11 @@ const Page = () => {
       </div>
 
       <div>
-        <section className="relative h-[80vh] w-full">
+        <section className="relative h-[90vh] lg:h-[80vh] w-full">
           <SubscribeSection />
         </section>
 
-        <section className="w-full pt-2 md:pt-6 lg:pt-11  ">
+        <section className="w-full lg:pt-11  ">
           <Footer />
         </section>
       </div>

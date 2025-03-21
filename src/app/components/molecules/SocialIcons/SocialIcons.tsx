@@ -7,7 +7,7 @@ import InstagramLogo from '@/app/assets/Instagram-Logo.svg'
 const SocialIcons = () => {
   return (
     <div>
-        <div className='flex flex-col space-y-4 pt-[55px]'>
+        <div className='flex flex-col space-y-4 lg:pt-[55px]'>
             <div className=' font-medium'>
                 <p>Social media</p>
             </div>
