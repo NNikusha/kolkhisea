@@ -1,7 +1,6 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import ArrowRight from "@/app/assets/arrow-up-right.svg";
 
 interface OpacityButtonProps {
   text: string;
