@@ -12,16 +12,18 @@ export default function WhyUsSection() {
   return (
     <>
       <section>
-        <div className="py-[14px] px-5 bg-[#285260]/5 inline-block rounded-4xl">
-          <h3 className="text-[var(--grayMixGreen)]">Why Us?</h3>
+        <div className="px-4 py-3 flex justify-center items-center py-3 bg-[#285260]/5 inline-block rounded-4xl">
+          <h3 className="text-[var(--grayMixGreen)] text-center">Why Us?</h3>
         </div>
- 
+
         <div className="flex mt-5 flex-wrap">
           <div className=" flex-1">
             <div>
               <h2 className="text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
                 Building the Future with{" "}
-                <span className="text-[#1C1C1E]">Quality <br /> and Precision</span>
+                <span className="text-[#1C1C1E]">
+                  Quality <br /> and Precision
+                </span>
               </h2>
             </div>
             <div className="mt-[30px]">
@@ -68,10 +70,7 @@ export default function WhyUsSection() {
                   </div>
                 </div>
                 <div className="w-[250px] mt-4">
-                    <Button 
-                    className="gap-4"
-                    text="Learn more"
-                    />
+                  <Button className="gap-4" text="Learn more" />
                 </div>
               </div>
             </div>
@@ -86,18 +85,22 @@ export default function WhyUsSection() {
                 renovate, or invest, we&apos;re here to make it happen.
               </p>
             </div>
-            <div className="mt-14 w-[640px] h-[384px] relative">
-                <Image alt="testImage" src={MainApartment} className="rounded-[48px] absolute -z-10"  />
-                <div className="flex gap-4 w-full absolute bottom-10 left-4">
-                    <OpacityButton 
-                    text="quality craftsmanship"
-                    className="mt-10 bg-white/0 rounded-[48px]"
-                    />
-                    <OpacityButton 
-                    text="innovative solutions"
-                    className="mt-10 bg-white/0 rounded-[48px]"
-                    />
-                </div>
+            <div className="mt-14 w-[648px] h-[384px] relative">
+              <Image
+                alt="testImage"
+                src={MainApartment}
+                className="rounded-[48px] absolute -z-10"
+              />
+              <div className="flex gap-4 w-full absolute bottom-10 left-4">
+                <OpacityButton
+                  text="quality craftsmanship"
+                  className="mt-10 bg-white/0 rounded-[48px]  px-6 py-3 text-center justify-center"
+                />
+                <OpacityButton
+                  text="innovative solutions"
+                  className="mt-10 bg-white/0 rounded-[48px] px-6 py-3"
+                />
+              </div>
             </div>
           </div>
         </div>
