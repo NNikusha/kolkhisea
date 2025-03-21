@@ -7,7 +7,8 @@ interface SubscribeInputProps {
 const SubscribeInput: React.FC<SubscribeInputProps> = ({ placeholder }) => {
   return (
     <input 
-      type="email"  
+      type="email"
+      placeholder={placeholder}  
       className=" px-28 py-4 pb-[8px] rounded-lg bg-[#FFFFFF80] focus:outline-none"
     />
   );
