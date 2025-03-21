@@ -6,6 +6,7 @@ import DownScrollArrow from "@/app/assets/DownScrollArrow.svg";
 import OpacityButton from "../../atoms/opacityButton/OpacityButton";
 import MainParagraph from "../../atoms/mainParagraph/MainParagraph";
 import MainHeadLine from "../../atoms/MainHeadLine/mainHeadLine";
+import ArrowRight from "@/app/assets/arrow-up-right.svg";
 import ModalInfo from "../../molecules/modalInfo/ModalInfo";
 import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollAnimation";
 
@@ -26,6 +27,7 @@ export default function ApartmentSection() {
         />
         <OpacityButton 
         text="See the project"
+        image={ArrowRight}
         />
         <ModalInfo />
         <DownScrollAnimation 
