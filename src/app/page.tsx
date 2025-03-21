@@ -2,6 +2,8 @@ import React from 'react';
 import ApartmentSection from './components/organisms/apartmentSection/ApartmentSection';
 import HighlightsCard from './components/molecules/HighlightsCard/HighlightsCard';
 import LuxuryCard from './components/molecules/LuxuryCard/LuxuryCard';
+import Footer from './components/organisms/Footer/Footer';
+import SubscribeSection from './components/organisms/SubscribeSection/SubscribeSection'; 
 
 const Page = () => {
   return (
@@ -19,6 +21,17 @@ const Page = () => {
           <LuxuryCard />
         </section>
       </div>
+
+      <div>
+        <section className="relative h-[80vh] w-full">
+          <SubscribeSection />
+        </section>
+
+        <section className="w-full pt-2 md:pt-6 lg:pt-11  ">
+          <Footer />
+        </section>
+      </div>
+
     </div>
   );
 };
