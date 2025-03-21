@@ -22,28 +22,24 @@ export default function DownScrollAnimation({
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="absolute left-1/2 -translate-x-1/2  top-[860px]">
+    <div className="absolute left-1/2 -translate-x-1/2 top-[740px] xl:top-[860px]">
       <div className="flex flex-col items-center relative">
         <motion.div
-          className=""
           animate={{ rotate: rotation }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <Image
             alt="Downscroll to see new content"
             src={DownScroll}
-            className="bg-white/15 shadow-inner backdrop-blur-[3px] rounded-[50%]"
-            width={109}
-            height={109}
+            className="bg-white/15 shadow-inner backdrop-blur-[3px] rounded-[50%] w-[79px] h-[79px]  xl:w-[109px] xl:h-[109px]"
+            
           />
         </motion.div>
 
         <Image
           alt="InsideView"
-          className="absolute top-[60%]"
+          className="absolute top-[60%] xl:w-[10] xl:h-[64]"
           src={DownScrollArrow}
-          width={10}
-          height={64}
         />
       </div>
     </div>

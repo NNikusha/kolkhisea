@@ -3,6 +3,8 @@ import ApartmentSection from './components/organisms/apartmentSection/ApartmentS
 import HighlightsCard from './components/molecules/HighlightsCard/HighlightsCard';
 import LuxuryCard from './components/molecules/LuxuryCard/LuxuryCard';
 import WhyUsSection from './components/organisms/whyUsSection/WhyUsSection';
+import Footer from './components/organisms/Footer/Footer';
+import SubscribeSection from './components/organisms/SubscribeSection/SubscribeSection'; 
 
 const Page = () => {
   return (
@@ -24,6 +26,17 @@ const Page = () => {
           <LuxuryCard />
         </section>
       </div>
+
+      <div>
+        <section className="relative h-fit lg:h-fit w-full">
+          <SubscribeSection />
+        </section>
+
+        <section className="w-full ">
+          <Footer />
+        </section>
+      </div>
+
     </div>
   );
 };

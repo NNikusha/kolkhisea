@@ -59,3 +59,12 @@ body{
   background-position: left;
   vertical-align: middle; 
 }
+
+@media (width <=1280px){
+  .test{
+    bottom:4px
+  }
+  .test::after{
+    width: 64px;
+  }
+}
