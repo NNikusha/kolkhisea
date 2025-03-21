@@ -1,21 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 import SubscriptionForm from '../../molecules/SubscriptionForm/SubscriptionForm';
-import SubscribeProject from '@/app/assets/Subscribe-Project.svg'
+import FooterPhoto from "@/app/assets/footerphoto.svg";
 
 export default function SubscribeSection() {
   return (
-    <div className="relative w-full h-[110vh] flex flex-col  justify-center  space-y-6">
+    <div className="relative w-full h-[444px] md:h-[556px] flex flex-col justify-center space-y-6">
       <div className="absolute inset-0 -z-10 w-full h-full">
         <Image 
-          src={SubscribeProject}
+          src={FooterPhoto}
           alt="Subscription Background"
-          layout="fill"
-          className="rounded-b-[60px] object-cover 2xl:object-fill"
+          fill
+          className="object-cover"
         />
       </div>
 
-      <div className="relative z-10  ">
+      <div className="relative z-10">
         <div>
           <SubscriptionForm />
         </div>

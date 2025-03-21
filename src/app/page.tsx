@@ -23,7 +23,7 @@ const Page = () => {
       </div>
 
       <div>
-        <section className="relative h-[90vh] lg:h-[80vh] w-full">
+        <section className="relative h-fit lg:h-fit w-full">
           <SubscribeSection />
         </section>
 
