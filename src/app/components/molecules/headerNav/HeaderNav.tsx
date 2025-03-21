@@ -5,6 +5,7 @@ import NavList from "../../atoms/navList/NavList";
 import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
 
 
+
 const NavBar = [
     {
         id:1,
@@ -30,14 +31,14 @@ const NavBar = [
 
 export default function HeaderNav() {
   return (
-    <div className="flex items-center justify-between w-[68%] m-auto mt-4">
+    <div className="flex items-center justify-between container px-[16px] lg:px-[150px]  m-auto mt-4">
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-full bg-white"></div>
         <h2 className="tracking-[1px]">LOGO</h2>
       </div>
       <div>
-        <nav>
-          <ul className="flex gap-12 leading-[100%]  tracking-[0%] font-medium">
+        <nav className="hidden xl:flex">
+          <ul className="flex gap-12 leading-[100%]  tracking-[0%] font-medium cursor-pointer">
           {NavBar.map((item) => (
           <NavList key={item.id} text={item.text} link={item.link} />
         ))}
@@ -45,12 +46,19 @@ export default function HeaderNav() {
         </nav>
       </div>
       <div className="flex items-center gap-6">
+        <div className="hidden xl:flex">
         <ChangeLangHeader 
         lang="Eng"
         image={DownArrow}
         />
-        <div>
+        </div>
+        <div className="flex items-center gap-[19px]">
           <OrangeButton text="choose apartment" />
+          <div className="flex xl:hidden flex-col gap-3 ">
+            <div className="h-[1px] w-[13px] bg-white"></div>
+            <div className="h-[1px] w-[26px] bg-white"></div>
+            <div className="h-[1px] w-[13px] bg-white"></div>
+          </div>
         </div>
       </div>
     </div>

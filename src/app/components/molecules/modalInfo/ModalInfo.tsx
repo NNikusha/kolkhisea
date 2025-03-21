@@ -6,7 +6,7 @@ import ModalParagraph from "../../atoms/modalParagraph/ModalParagraph";
 
 export default function ModalInfo() {
   return (
-    <div className="absolute  right-[17.9%] top-[480px]">
+    <div className="hidden xl:flex absolute  right-[17.9%] top-[480px]">
       <div className="relative">
         <Image alt="InsideView" src={infoApartment} width={379} height={238} />
         <ModalHeadline firstText="SUSTAINABLE, ECO-FRIENDLY materials" />
