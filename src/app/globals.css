@@ -43,7 +43,7 @@ body{
   display: inline-block; 
   position: relative; 
   bottom: 5px;
-  left: 5px;
+  left: 2px;
 }
 
 .test::after {
@@ -60,7 +60,8 @@ body{
 
 @media (width <=1280px){
   .test{
-    bottom:4px
+    bottom:3px;
+    left:2px;
   }
   .test::after{
     width: 64px;
