@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import MainApartment from "@/app/assets/Main-Apartment.svg";
 import MobileMainApartment from "@/app/assets/MobileMainImageKolkhi.svg";
-import HeaderNav from "../../molecules/headerNav/HeaderNav";
 
 export default function Header() {
   return (
@@ -25,7 +24,6 @@ export default function Header() {
               objectFit="cover"
             />
           </div>
-          <HeaderNav />
         </section>
       </header>
     </>

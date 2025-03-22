@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/organisms/header/Header";
+import HeaderNav from "./components/molecules/headerNav/HeaderNav";
 
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
-        <Header />
+        <HeaderNav />
         {children}
       </body>
     </html>
