@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Header from "../header/Header";
 import DownScroll from "@/app/assets/DownScroll.svg";
 import DownScrollArrow from "@/app/assets/DownScrollArrow.svg";
 import OpacityButton from "../../atoms/opacityButton/OpacityButton";
@@ -15,7 +14,7 @@ export default function ApartmentSection() {
 
   return (
     <>
-      <Header />
+      
       <section className=" container px-[20px]  lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
         <MainHeadLine
         firstText="Crafting Excellence, One PR"
