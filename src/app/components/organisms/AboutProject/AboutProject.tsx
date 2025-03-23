@@ -7,7 +7,7 @@ import OverviewSection from '@/app/components/atoms/OverviewSection/OverviewSect
 const AboutProject = () => {
   return (
     <div className="flex flex-col w-full">
-    <section className="relative h-[90vh] w-full">
+    <section className="relative h-[632px] md:h-[90vh] w-full">
         <header className="w-full relative">
             <section className="flex justify-between items-center relative w-full">
                 <div className="absolute -z-10 w-full h-full top-0 left-0 border-b-[50%]">
@@ -19,7 +19,7 @@ const AboutProject = () => {
                         objectFit="cover"
                     />
                     <Image
-                        className="sm:hidden min-h-[900px] rounded-b-[45px]"
+                        className="sm:hidden min-h-[900px] h-[632px] rounded-b-[45px]"
                         alt="MainApartment"
                         src={MainPhoto}
                         layout="fill"
