@@ -3,6 +3,7 @@ import Image from 'next/image';
 import MainPhoto from "@/app/assets/aboutproject.svg";
 import ProjectInfoSection from '@/app/components/atoms/ProjectSection/ProjectSection';
 import OverviewSection from '@/app/components/atoms/OverviewSection/OverviewSection';
+import FinishingApartment from '../../atoms/FinishingApartment/FinishingApartment';
 
 const AboutProject = () => {
   return (
@@ -33,6 +34,8 @@ const AboutProject = () => {
     <ProjectInfoSection />
 
     <OverviewSection />
+    
+    <FinishingApartment />
 
 </div>
   )
