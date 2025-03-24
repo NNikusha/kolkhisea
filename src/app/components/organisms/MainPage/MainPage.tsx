@@ -10,7 +10,7 @@ import WhyUsSection from '../whyUsSection/WhyUsSection';
 const  MainPage = () => {
   return (
     <div className="flex flex-col w-full">
-      <section className="relative h-[110vh] w-full">
+      <section className="relative h-[100vh] md:h-[110vh] w-full">
         <ApartmentSection />
       </section>
 
