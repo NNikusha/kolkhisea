@@ -4,7 +4,7 @@ import AboutProject from '@/app/components/organisms/AboutProject/AboutProject';
 const page = () => {
     return (
      <>
-     <AboutProject/>
+        <AboutProject/>
      </>
     );
 };
