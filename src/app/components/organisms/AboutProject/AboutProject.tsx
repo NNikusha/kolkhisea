@@ -36,7 +36,7 @@ const AboutProject = () => {
 
             <OverviewSection />
 
-            <FeaturesSection
+            <FeaturesSection/>
 
             <ApartmentTypes />
         </div>
