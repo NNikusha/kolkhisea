@@ -1,8 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Swiper as SwiperType } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import { ApartmentType } from '@/app/types/type';
 import DesktopGrid from '../../molecules/DesktopGrid/DesktopGrid';
 import MobileSwiper from '../../molecules/MobileSwiper/MobileSwiper';
