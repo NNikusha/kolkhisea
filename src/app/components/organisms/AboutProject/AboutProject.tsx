@@ -33,13 +33,10 @@ const AboutProject = () => {
             </section>
 
             <ProjectInfoSection />
-
-    <OverviewSection />
-    
-    <FinishingApartment />
             <OverviewSection />
-
+            <OverviewSection />
             <ApartmentTypes />
+            <FinishingApartment />
         </div>
     )
 }

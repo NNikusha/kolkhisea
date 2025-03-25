@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import TestSlide1 from "@/app/assets/TestSlide1.jpg";
 import TestSlide2 from "@/app/assets/TestSlide2.jpg";
 import TestSlide3 from "@/app/assets/TestSlide3.jpg";
@@ -28,13 +28,6 @@ const FinishingApartment = () => {
       setActiveIndex(index);
     }
   };
-
-  useEffect(() => {
-    buttonRefs.current[activeIndex]?.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-    });
-  }, [activeIndex]);
 
   const slideLabels = ['Living Room', 'Kitchen', 'Dining Area', 'Bedroom', 'Bathroom'];
 
