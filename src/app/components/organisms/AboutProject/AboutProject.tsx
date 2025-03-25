@@ -42,4 +42,4 @@ const AboutProject = () => {
     )
 }
 
-export default AboutProject
+export default AboutProject

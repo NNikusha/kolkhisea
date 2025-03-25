@@ -33,7 +33,7 @@ const ApartmentTypesIntegrated: React.FC = () => {
     ];
 
     return (
-        <section className="w-full py-12 bg-[#FAFAFA] relative overflow-hidden">
+        <section className="w-full py-12  relative overflow-hidden">
             <div className="container mx-auto px-4 lg:px-[150px] relative">
                 <SectionHeader 
                     isMobile={isMobile}

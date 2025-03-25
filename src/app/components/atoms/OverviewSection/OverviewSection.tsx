@@ -5,7 +5,7 @@ import MainPhoto from "@/app/assets/aboutproject.svg";
 
 const OverviewSection = () => {
   return (
-    <div className="w-full bg-white rounded-t-[30px]  relative z-10 pt-[20px] pb-[72px] md:py-16">
+    <div className="w-full rounded-t-[30px]  relative z-10 pt-[20px] pb-[72px] md:py-16">
       <div className="container mx-auto pt-[50px] md:pt-[52px] px-4 lg:px-[150px]">
         <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12 mb-12">
           <div className=" text-center lg:w-1/4 mb-6 lg:mb-0">
