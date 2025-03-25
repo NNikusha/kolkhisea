@@ -29,13 +29,6 @@ const FinishingApartment = () => {
     }
   };
 
-  useEffect(() => {
-    buttonRefs.current[activeIndex]?.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-    });
-  }, [activeIndex]);
-
   const slideLabels = ['Living Room', 'Kitchen', 'Dining Area', 'Bedroom', 'Bathroom'];
 
   return (
