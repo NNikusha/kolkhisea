@@ -69,3 +69,101 @@ body{
     width: 64px;
   }
 }
+
+.custom-prev,
+.custom-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  display: none;
+}
+
+@media (width >= 768px){
+  .custom-prev,
+  .custom-next {
+  display: flex;
+}}
+
+.custom-prev.inactive,
+.custom-next.inactive {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.custom-prev.active,
+.custom-next.active {
+  opacity: 1;
+}
+
+.extra-next,
+.extra-prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #1C1C1E;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+@media (width > 768px) {
+  .extra-next,
+  .extra-prev {
+    display: none;
+  }
+}
+
+.extra-next.inactive,
+.extra-prev.inactive {
+  background-color: #DADADA;
+  cursor: not-allowed;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.extra-next.active,
+.extra-prev.active {
+  background-color: #1C1C1E;
+  opacity: 1;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-pagination {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 88px;
+  height: 8px;
+  background-color: white;
+  opacity: 0.4;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+@media (width <= 768px){
+  .custom-pagination .swiper-pagination-bullet {
+    width: 24px;
+  }
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: white;
+  opacity: 1;
+}
+
+.w-full::-webkit-scrollbar {
+  display: none; 
+}
