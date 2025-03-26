@@ -31,7 +31,7 @@ const NavBar = [
 
 export default function HeaderNav() {
   return (
-    <div className="flex items-center absolute left-1/2 -translate-x-1/2 justify-between container px-[16px] lg:px-[150px]  m-auto mt-4">
+    <div className="flex items-center absolute left-1/2 -translate-x-1/2 justify-between container px-[16px] lg:px-[108px]  m-auto mt-4">
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-full bg-white"></div>
         <h2 className="tracking-[1px]">LOGO</h2>

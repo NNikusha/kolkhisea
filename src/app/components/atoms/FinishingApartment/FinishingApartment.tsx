@@ -33,7 +33,7 @@ const FinishingApartment = () => {
 
   return (
     <div className="w-full">
-      <div className="container mx-auto px-4 lg:px-[150px]">
+      <div className="container mx-auto px-4 lg:px-[108px]">
         <div className="max-w-[690px]">
           <div className="px-4 py-3 md:py-4 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
             <h3 className="text-[var(--grayMixGreen)] text-center">

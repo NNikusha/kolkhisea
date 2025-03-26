@@ -28,7 +28,7 @@ const features = [
 const FeaturesSection: React.FC = () => {
   return (
     <div className="w-full  md:pt-[168px] mt-[72px] h-fit mb-[72px]  md:mb-[168px]">
-      <div className="container mx-auto px-4 lg:px-[150px]">
+      <div className="container mx-auto px-4 lg:px-[108px]">
         
         <div className="text-center md:text-start">
           <span className="text-[12px] md:text-[16px] font-normal text-[#285260] bg-[#2852600D] inline-block rounded-[200px] p-4">
