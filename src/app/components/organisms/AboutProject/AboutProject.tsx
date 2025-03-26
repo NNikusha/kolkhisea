@@ -39,7 +39,10 @@ const AboutProject = () => {
             <OverviewSection />
             <ApartmentTypes />
             <FinishingApartment />
+
             <TheJourneyMerg/>
+
+            
         </div>
     )
 }
