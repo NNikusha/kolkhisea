@@ -14,7 +14,7 @@ export default function ApartmentSection() {
   return (
     <>
       <Header />
-      <section className=" container px-[20px]  lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
+      <section className=" container px-[20px]  lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]">
         <MainHeadLine
           firstText="Crafting Excellence, One PR"
           secondText="ject at a Time"
