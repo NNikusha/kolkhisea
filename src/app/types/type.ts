@@ -17,5 +17,5 @@ export interface Task {
     status: string;
     tasks: Task[];
     progress: string;
-    image: any;
+    image: string;
   }
