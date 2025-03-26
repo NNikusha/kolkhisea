@@ -15,7 +15,7 @@ const  MainPage = () => {
       </section>
 
 
-      <div className='container px-[16px] lg:px-[150px] mx-auto'>
+      <div className='container px-[16px] lg:px-[108px] mx-auto'>
         <section className="w-full py-12 md:py-16 lg:py-24">
           <HighlightsCard />
         </section>
