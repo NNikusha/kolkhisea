@@ -1,9 +1,14 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-import MainApartment from "@/app/assets/Main-Apartment.svg";
-import MobileMainApartment from "@/app/assets/MobileMainImageKolkhi.svg";
+import { StaticImageData } from "next/image";
 
-export default function Header() {
+interface HeaderProps {
+  mainImage: StaticImageData;
+  mobileMainImage: StaticImageData;
+}
+
+export default function Header({ mainImage, mobileMainImage }: HeaderProps) {
   return (
     <>
       <header className="w-full relative">
@@ -12,16 +17,18 @@ export default function Header() {
             <Image
               className="hidden sm:flex min-h-[1080px] rounded-b-[45px] xl:rounded-b-[60px]"
               alt="MainApartment"
-              src={MainApartment}
-              layout="fill"
-              objectFit="cover"
+              src={mainImage}
+              fill
+              style={{ objectFit: "cover" }}
+              priority
             />
             <Image
-              className=" sm:hidden min-h-[900px] rounded-b-[45px] sm:hidden"
+              className="sm:hidden min-h-[900px] rounded-b-[45px]"
               alt="MainApartment"
-              src={MobileMainApartment}
-              layout="fill"
-              objectFit="cover"
+              src={mobileMainImage}
+              fill
+              style={{ objectFit: "cover" }}
+              priority
             />
           </div>
         </section>

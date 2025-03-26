@@ -1,8 +1,11 @@
+import AboutUs from '@/app/components/organisms/AboutUs/AboutUs'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <AboutUs/>
+    </div>
   )
 }
 

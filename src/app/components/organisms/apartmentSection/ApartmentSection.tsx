@@ -1,8 +1,11 @@
 "use client";
+
 import React from "react";
 import Header from "../header/Header";
 import DownScroll from "@/app/assets/DownScroll.svg";
 import DownScrollArrow from "@/app/assets/DownScrollArrow.svg";
+import MainApartment from "@/app/assets/Main-Apartment.svg";
+import MobileMainApartment from "@/app/assets/MobileMainImageKolkhi.svg";
 import OpacityButton from "../../atoms/opacityButton/OpacityButton";
 import MainParagraph from "../../atoms/mainParagraph/MainParagraph";
 import MainHeadLine from "../../atoms/MainHeadLine/mainHeadLine";
@@ -13,15 +16,19 @@ import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollA
 export default function ApartmentSection() {
   return (
     <>
-      <Header />
-      <section className=" container px-[20px]  lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]">
+      <Header
+        mainImage={MainApartment}
+        mobileMainImage={MobileMainApartment}
+      />
+      <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
         <MainHeadLine
           firstText="Crafting Excellence, One PR"
           secondText="ject at a Time"
         />
-        <MainParagraph
+       <MainParagraph
           paragraph="From premium apartments to commercial spaces, we bring your vision
             to life with quality craftsmanship and innovative solutions."
+          centered={false}
         />
         <OpacityButton text="See the project" image={ArrowRight} />
         <ModalInfo />
