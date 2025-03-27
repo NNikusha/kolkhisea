@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 import GrayBlueButton from '../GrayBlueButton/GrayBlueButton';
 import Button from '../Button/Button';
@@ -11,6 +11,29 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
+
+    useEffect(() => {
+        if (!swiper) return;
+
+        const updateNavigationState = (): void => {
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+        };
+        swiper.on('init', updateNavigationState);
+        swiper.on('slideChange', updateNavigationState);
+
+        if (swiper.isBeginning || swiper.isEnd) {
+            updateNavigationState();
+        }
+
+        return () => {
+            swiper.off('init', updateNavigationState);
+            swiper.off('slideChange', updateNavigationState);
+        };
+    }, [swiper]);
+
     return (
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <div className='w-full'>
@@ -29,18 +52,24 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                     {isMobile ? (
                         <div className="flex space-x-2">
                             <button 
-                                className="w-[32px] h-[32px] rounded-full bg-[#E6E6E6] flex items-center justify-center z-10"
+                                className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${
+                                    isBeginning ? 'bg-gray-300' : 'bg-[#1C1C1E]'
+                                }`}
                                 aria-label="Previous slide"
                                 onClick={() => swiper?.slidePrev()}
+                                disabled={isBeginning}
                             >
-                              <LeftArrow/>
+                                <LeftArrow fill="white" />
                             </button>
                             <button 
-                                className="w-[32px] h-[32px] rounded-full bg-[#1C1C1E] flex items-center justify-center z-10"
+                                className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${
+                                    isEnd ? 'bg-gray-300' : 'bg-[#1C1C1E]'
+                                }`}
                                 aria-label="Next slide"
                                 onClick={() => swiper?.slideNext()}
+                                disabled={isEnd}
                             >
-                              <RightArrow/>
+                                <RightArrow fill="white" BgFill="none" />
                             </button>
                         </div>
                     ) : (
