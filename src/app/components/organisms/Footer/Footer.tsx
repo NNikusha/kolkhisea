@@ -7,17 +7,19 @@ import SocialIcons from '../../molecules/SocialIcons/SocialIcons';
 const Footer = () => {
   return (
     <footer className="bg-[#1C1C1E] w-full lg:pt-[55px]">
-      <div className="container mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-6 lg:space-y-0 px-[16px] lg:px-[110px]">
-        <Logo />
-        <FooterLinks />
-        <ContactInfo />
-        <SocialIcons />
-      </div>
+      <div className="container mx-auto px-4 lg:px-[108px]">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-6 lg:space-y-0">
+          <Logo />
+          <FooterLinks />
+          <ContactInfo />
+          <SocialIcons />
+        </div>
 
-      <div className="flex-1 flex pt-[56px] pb-[24px] justify-center text-[#9F9F9F] font-normal ">
-        <p>© 2025 [Company Name]. All Rights Reserved.</p>
+        <div className="flex pt-[56px] pb-[24px] text-[14px] md:text-[16px] justify-between text-[#9F9F9F] font-normal">
+          <p className="flex-1 md:text-center text-start w-[50%]">© 2025 [Company Name]. All Rights Reserved.</p>
+          <p className="text-right flex md:items-center items-end">made by NcodeX</p>
+        </div>
       </div>
-      
     </footer>
   );
 };
