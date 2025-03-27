@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
 
         <div className="flex pt-[56px] pb-[24px] text-[14px] md:text-[16px] justify-between text-[#9F9F9F] font-normal">
-          <p className="flex-1 text-center w-[50%]">© 2025 [Company Name]. All Rights Reserved.</p>
+          <p className="flex-1 md:text-center text-start w-[50%]">© 2025 [Company Name]. All Rights Reserved.</p>
           <p className="text-right flex md:items-center items-end">made by NcodeX</p>
         </div>
       </div>
