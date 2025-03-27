@@ -21,9 +21,9 @@ const ChooseUsCard: React.FC<ChooseUsCardProps> = ({ title, description, imageSr
         </div>
       </div>
 
-      <div className="lg:px-[24px] px-[16px] lg:pb-[40px] pb-[30px] flex flex-col flex-grow">
+      <div className="lg:px-[24px] px-[16px] lg:pb-[40px] pb-[30px] flex flex-col">
         <h3 className="lg:text-[24px] text-[18px] font-normal text-[#1C1C1E]">{title}</h3>
-        <p className="lg:text-[16px] text-[14px] font-normal leading-[150%] text-[#7E7E7E] pt-[24px]">{description}</p>
+        <p className="lg:text-[16px] text-[14px] font-normal leading-[150%] text-[#7E7E7E] pt-[24px] min-h-[100px]">{description}</p>
       </div>
     </div>
   );
