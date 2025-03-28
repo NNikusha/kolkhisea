@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
 import AboutUsSection from '../../molecules/AboutUsSection/AboutUsSection'
-import OurMissionSection from '../../molecules/OurMissionSection/OurMissionSection'
+import ChooseUsSection from '../../molecules/ChooseUsSection/ChooseUsSection'
 
 const AboutUs = () => {
     return (
@@ -9,8 +9,8 @@ const AboutUs = () => {
             <section className="relative h-[100vh] md:h-[110vh] w-full">
                 <AboutUsSection />
             </section>
-
-            <OurMissionSection />
+            
+            <ChooseUsSection />
 
             <section className="w-full ">
                 <Footer />
