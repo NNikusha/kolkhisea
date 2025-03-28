@@ -1,48 +1,30 @@
-import React from 'react';
-import Image from 'next/image';
+import MissionImage from '../../atoms/MissionImage/MissionImage';
 import GrayBlueButton from '../../atoms/GrayBlueButton/GrayBlueButton';
 import OurMissionTop from '@/app/assets/our-mission-top.svg';
 import OurMissionBottom from '@/app/assets/our-mission-bottom.svg';
 
 const OurMissionSection = () => {
   return (
-    <div className="w-full md:mt-[80px] md:pb-[200px]">
-        <h2 className="text-[#1C1C1E]">LUXURY</h2>
-      <div className="container mx-auto px-4 lg:px-[108px] md:mt-[80px]">
-        <div className="flex flex-col-reverse 2xl:flex-row gap-[136px]">
-          <div className="w-full h-[280px] relative rounded-[32px] overflow-hidden">
-            <Image
-              src={OurMissionTop}
-              alt="Luxury space"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+    <div className="w-full md:pt-[80px] md:pb-[200px] bg-[#FFFFFF]">
+      <div className="container mx-auto px-4 lg:px-[108px]">
+        <div className="flex flex-col-reverse 2xl:flex-row 2xl:gap-[136px] gap-[32px]">
+          <MissionImage src={OurMissionTop} alt="Luxury space" heightClass="md:h-[280px] h-[184px]" />
 
           <div className="flex flex-col items-start pr-[100px] w-full lg:w-auto">
             <GrayBlueButton text="Our Mission" />
-            <div className="text-[48px] pt-4 font-normal leading-[130%]">
-              <h2 className="text-[#1C1C1E]">LUXURY</h2>
-              <h2>
-                <span className="text-[#B4B4B4] pr-[20px]">WITH</span>
-                <span className="text-[#1C1C1E]">RESPONSIBILITY</span>
-              </h2>
-            </div>
-            <p className="font-normal text-[#7E7E7E] leading-[150%] w-[110%]  pt-[24px]">
+            <h2 className="md:text-[48px] text-[24px] pt-4 font-normal leading-[130%]">
+              <span className="text-[#1C1C1E] pr-[10px] md:block">LUXURY</span>
+              <span className="text-[#B4B4B4] pr-[10px]">WITH</span>
+              <span className="text-[#1C1C1E] block md:inline">RESPONSIBILITY</span>
+            </h2>
+            <p className="font-normal md:text-[16px] text-[14px] text-[#7E7E7E] leading-[150%] lg:w-[105%] md:w-[115%] w-[120%] pt-[24px]">
               To develop premium, high-quality living and commercial spaces that meet the needs of modern lifestyles while upholding the highest standards of design and construction.
             </p>
           </div>
         </div>
-      </div>
 
-      <div className="container mx-auto px-4 lg:px-[108px] pt-[40px]">
-        <div className="w-full h-[544px] relative rounded-[32px] overflow-hidden">
-          <Image
-            src={OurMissionBottom}
-            alt="Reception area"
-            layout="fill"
-            objectFit="cover"
-          />
+        <div className="md:pt-[40px] pt-[24px] pb-[72px]">
+          <MissionImage src={OurMissionBottom} alt="Reception area" heightClass="xl:h-[544px] h-[248px]" />
         </div>
       </div>
     </div>
