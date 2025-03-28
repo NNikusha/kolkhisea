@@ -6,6 +6,7 @@ import OverviewSection from '@/app/components/atoms/OverviewSection/OverviewSect
 import FinishingApartment from '../../atoms/FinishingApartment/FinishingApartment';
 import ApartmentTypes from '../../atoms/ApartmentTypes/ApartmentTypes';
 import FeaturesSection from '../../molecules/FeaturesSection/FeaturesSection';
+import OurFuture from '../../molecules/OurFuture/OurFuture';
 
 const AboutProject = () => {
     return (
@@ -38,6 +39,7 @@ const AboutProject = () => {
             <OverviewSection />
             <ApartmentTypes />
             <FinishingApartment />
+            <OurFuture />
         </div>
     )
 }
