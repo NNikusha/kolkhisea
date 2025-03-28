@@ -1,38 +1,34 @@
-import React from 'react'
-import Image from 'next/image'
-
+import React from 'react';
+import Image from 'next/image';
 interface TheJourneyProps {
-    imageBg: string,
-    about: string,
-    title: string,
-    titleSpan: string,
-    text: string
+  title: string;
+  imageBg: string;
+  about: string;
+  titleSpan?:string;
+  text?:string;
 }
 
-const TheJourney = ({ imageBg, about, title, titleSpan, text }: TheJourneyProps) => {
-    return (
-        <div className='relative h-[497px] lg:h-[581px] bg-[#F3F6FB] rounded-[25px] text-[#3D3D3D]'>
-            <div>
-             <Image className='w-[343px] lg:w-[350px] xl:w-[480px]' src={imageBg} width={480} height={400} alt='TheJourneyBg' objectFit='responsive' />  
-             <div className='absolute w-[100%] h-[90px] top-[25%] xl:top-[36%] bg-gradient-to-t from-[#F3F6FB] via-[#DEE6ED] to-transparent'>
-                    <p className='inline ml-[16px] lg:ml-[32px] rounded-[200px] px-[16px] py-[10px] lg:py-[16.5px] bg-white text-[#285260]'>
-                        {about}
-                    </p>
-                    <h3 className='pl-[16px] lg:pl-[32px] pt-[16px] pb-[24px] text-[18px] lg:text-[24px] text-[#1c1c1e]'>
-                        {title}
-                        <span className='text-[#cb684d]'>
-                            {titleSpan}
-                        </span>
-                    </h3>
-                </div>             
-            </div>
-            <div>
-                <p className='lg:pt-[24px] lg:pb-[40px] lg:px-[32px] pt-[16px] pb-[24px] px-[16px] lg:text-[16px] text-[14px] w-[311px] lg:w-[350px] xl:w-[480px] '>
-                    {text}
-                </p>
+const TheJourney: React.FC<TheJourneyProps> = ({ title, text, titleSpan, imageBg, about }) => {
+  return (
+    <div className="flex flex-col items-center text-start bg-[#F3F6FB] xl:w-full lg:w-[424px] w-[343px] lg:h-[591px] h-[497px] rounded-[32px]">
+        <div className="relative w-full 2xl:h-[350px] lg:h-[315px] h-[232px] rounded-t-[32px] overflow-hidden">
+            <Image src={imageBg} alt={title} fill className="object-cover" />
+            <div className="absolute bottom-0 left-0 w-full h-[92px] bg-gradient-to-t from-[#F3F6FB] to-transparent"></div>
+                <div className="absolute bottom-[0px] left-[24px] rounded-full ">
+                <p className='inline rounded-[200px] px-[16px] py-[10px] lg:py-[16.5px] bg-white text-[#285260]'>{about}</p>
+                <h3 className="mt-[16px] lg:text-[24px] text-[18px] font-normal text-[#1C1C1E]">
+                    {title}
+                    <span className='text-[#cb684d]'>
+                        {titleSpan}
+                    </span>
+                </h3>
             </div>
         </div>
-    )
-}
+        <div className="lg:px-[24px] px-[16px] lg:pb-[40px] pb-[30px] flex flex-col">
+            <p className="lg:text-[16px] text-[14px] font-normal leading-[150%] text-[#3D3D3D] pt-[24px] min-h-[100px]">{text}</p>
+        </div>
+    </div>
+  );
+};
 
-export default TheJourney
+export default TheJourney;

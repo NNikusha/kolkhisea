@@ -2,6 +2,7 @@ import React from 'react'
 import TheJourney from '../../atoms/TheJourney/TheJourney'
 import TheJourneyBg from '@/app/assets/TheJourneyBg.svg'
 import TheJourneyBg2 from '@/app/assets/TheJourneyBg2.svg'
+import LineSvg from '@/app/assets/LineSvg'
 
 const TheJourneyMerg = () => {
     return (
@@ -10,12 +11,7 @@ const TheJourneyMerg = () => {
                 <h1 className='flex flex-col lg:flex-row uppercase justify-between items-center lg:text-4xl text-[24px] text-[#B4B4B4]'>
                     <span>The Journey</span>
                     <span className='pt-[15px] pb-[15px] lg:pt-[0] lg:pb-[0]'>                    
-                        <svg className='hidden lg:block w-[150px] xl:w-[424px]'  height="5" viewBox="0 0 424 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line y1="0.5" x2="424" y2="0.5" stroke="#C2C2C2"/>
-                        </svg>
-                        <svg className="block lg:hidden"  width="89" height="1" viewBox="0 0 89 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line opacity="0.5" x1="0.5" y1="0.5" x2="88.5" y2="0.500008" stroke="#C2C2C2"/>
-                        </svg>
+                        <LineSvg/>
                     </span>
                     <span className='text-[#1C1C1E]'>of Creation</span>
                 </h1> 
