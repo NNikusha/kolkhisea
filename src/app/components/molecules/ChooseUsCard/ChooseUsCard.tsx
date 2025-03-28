@@ -14,9 +14,9 @@ const ChooseUsCard: React.FC<ChooseUsCardProps> = ({ title, description, imageSr
       <div className="relative w-full lg:h-[373px] h-[186px] rounded-t-[32px] overflow-hidden">
         <Image src={imageSrc} alt={title} fill className="object-cover" />
 
-        <div className="absolute bottom-0 left-0 w-full h-[92px] bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[82px] md:h-[92px]  bg-gradient-to-t from-white to-transparent"></div>
 
-        <div className="absolute top-[24px] right-[24px] bg-[#F4EDE633] text-[#FFFFFF] lg:text-[16px] text-[14px] font-normal lg:px-[16px] lg:py-[14px] px-[11px] py-[9px] rounded-full backdrop-blur-[8px]">
+        <div className="absolute top-[24px] right-[24px] bg-[#F4EDE633] text-[#FFFFFF] text-[14px] md:text-[16px] md:w-[56px] md:h-[56px] h-[40px] w-[40px] flex items-center justify-center rounded-full backdrop-blur-[8px]">
           {number}
         </div>
       </div>
