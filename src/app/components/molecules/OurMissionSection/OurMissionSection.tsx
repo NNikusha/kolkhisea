@@ -1,0 +1,34 @@
+import MissionImage from '../../atoms/MissionImage/MissionImage';
+import GrayBlueButton from '../../atoms/GrayBlueButton/GrayBlueButton';
+import OurMissionTop from '@/app/assets/our-mission-top.svg';
+import OurMissionBottom from '@/app/assets/our-mission-bottom.svg';
+
+const OurMissionSection = () => {
+  return (
+    <div className="w-full md:pt-[80px] md:pb-[200px] bg-[#FFFFFF]">
+      <div className="container mx-auto px-4 lg:px-[108px]">
+        <div className="flex flex-col-reverse 2xl:flex-row 2xl:gap-[136px] gap-[32px]">
+          <MissionImage src={OurMissionTop} alt="Luxury space" heightClass="md:h-[280px] h-[184px]" />
+
+          <div className="flex flex-col items-start pr-[100px] w-full lg:w-auto">
+            <GrayBlueButton text="Our Mission" />
+            <h2 className="md:text-[48px] text-[24px] pt-4 font-normal leading-[130%]">
+              <span className="text-[#1C1C1E] pr-[10px] md:block">LUXURY</span>
+              <span className="text-[#B4B4B4] pr-[10px]">WITH</span>
+              <span className="text-[#1C1C1E] block md:inline">RESPONSIBILITY</span>
+            </h2>
+            <p className="font-normal md:text-[16px] text-[14px] text-[#7E7E7E] leading-[150%] lg:w-[105%] md:w-[115%] w-[120%] pt-[24px]">
+              To develop premium, high-quality living and commercial spaces that meet the needs of modern lifestyles while upholding the highest standards of design and construction.
+            </p>
+          </div>
+        </div>
+
+        <div className="md:pt-[40px] pt-[24px] pb-[72px]">
+          <MissionImage src={OurMissionBottom} alt="Reception area" heightClass="xl:h-[544px] h-[248px]" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default OurMissionSection;
