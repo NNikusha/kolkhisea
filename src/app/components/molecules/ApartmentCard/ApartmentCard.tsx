@@ -16,7 +16,7 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
     availableFlats
 }) => {
     return (
-        <div className="bg-[#FFFFFF] rounded-[20px] overflow-hidden w-full max-w-[295px] h-[468px] flex flex-col mx-auto" style={{ boxShadow: '0px 4px 18.8px 0px #0000001A' }}>
+        <div className="bg-[#FFFFFF] rounded-[32px] overflow-hidden w-full max-w-[295px] h-[468px] flex flex-col mx-auto" style={{ boxShadow: '0px 4px 18.8px 0px #0000001A' }}>
             <div className="p-6 flex flex-col h-full">
                 <div className="py-[12.5px] px-[14px] text-[12px] md:-[16px] text-center text-[#1C1C1E] bg-[#F0F0F0] rounded-[200px] mb-[24px] self-start">
                     Available: {availableFlats} flats
