@@ -10,8 +10,8 @@ interface ChooseUsCardProps {
 
 const ChooseUsCard: React.FC<ChooseUsCardProps> = ({ title, description, imageSrc, number }) => {
   return (
-    <div className="flex flex-col items-center text-start lg:w-[424px] w-[343px] lg:h-[520px] h-[304px] bg-white rounded-[32px] shadow-md">
-      <div className="relative w-full lg:h-[373px] h-[186px] rounded-t-[32px] overflow-hidden">
+    <div className="flex flex-col items-center text-start 2xl:w-[424px]  w-[343px] 2xl:h-[520px] bg-white rounded-[32px] shadow-md">
+      <div className="relative w-full 2xl:h-[373px] xl:h-[204px] h-[186px] rounded-t-[32px] overflow-hidden">
         <Image src={imageSrc} alt={title} fill className="object-cover" />
 
         <div className="absolute bottom-0 left-0 w-full h-[82px] md:h-[92px]  bg-gradient-to-t from-white to-transparent"></div>
@@ -21,9 +21,9 @@ const ChooseUsCard: React.FC<ChooseUsCardProps> = ({ title, description, imageSr
         </div>
       </div>
 
-      <div className="lg:px-[24px] px-[16px] lg:pb-[40px] pb-[30px] flex flex-col">
-        <h3 className="lg:text-[24px] text-[18px] font-normal text-[#1C1C1E]">{title}</h3>
-        <p className="lg:text-[16px] text-[14px] font-normal leading-[150%] text-[#7E7E7E] pt-[24px] min-h-[100px]">{description}</p>
+      <div className="2xl:px-[24px] px-[16px] 2xl:pb-[40px] xl:pb-[24px] pb-[30px] flex flex-col">
+        <h3 className="2xl:text-[24px] xl:text-[16px] text-[18px] font-normal text-[#1C1C1E]">{title}</h3>
+        <p className="2xl:text-[16px] text-[14px] font-normal leading-[150%] text-[#7E7E7E] 2xl:pt-[24px] pt-[16px]  2xl:min-h-[100px]">{description}</p>
       </div>
     </div>
   );
