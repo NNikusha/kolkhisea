@@ -8,6 +8,7 @@ import ApartmentTypes from '../../atoms/ApartmentTypes/ApartmentTypes';
 import FeaturesSection from '../../molecules/FeaturesSection/FeaturesSection';
 import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg';
 import OurFuture from '../../molecules/OurFuture/OurFuture';
+import SuggestApartment from '../../atoms/SuggestApartment/SuggestApartment';
 
 const AboutProject = () => {
     return (
@@ -65,6 +66,7 @@ const AboutProject = () => {
             <ProjectInfoSection />
             <FeaturesSection />
             <OverviewSection />
+            <SuggestApartment />
             <ApartmentTypes />
             <FinishingApartment />
             <TheJourneyMerg/>
