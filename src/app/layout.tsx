@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import HeaderNav from "./components/molecules/headerNav/HeaderNav";
+import Footer from "./components/organisms/Footer/Footer";
 
 
 export const metadata: Metadata = {
@@ -20,6 +21,10 @@ export default function RootLayout({
         <HeaderNav />
 
         {children}
+
+
+
+                <Footer />
       </body>
     </html>
   );

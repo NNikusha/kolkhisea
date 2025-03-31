@@ -5,7 +5,7 @@ import OurMissionBottom from '@/app/assets/our-mission-bottom.svg';
 
 const OurMissionSection = () => {
   return (
-    <div className="w-full md:pt-[80px] md:pb-[200px] bg-[#FFFFFF]">
+    <div className="w-full md:pt-[80px] md:pb-[200px] mt-[80px] bg-[#FFFFFF]">
       <div className="container mx-auto px-4 lg:px-[108px]">
         <div className="flex flex-col-reverse 2xl:flex-row 2xl:gap-[136px] gap-[32px]">
           <MissionImage src={OurMissionTop} alt="Luxury space" heightClass="md:h-[280px] h-[184px]" />

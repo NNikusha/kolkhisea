@@ -1,7 +1,6 @@
 import React from 'react';
 import HighlightsCard from '../../molecules/HighlightsCard/HighlightsCard';
 import LuxuryCard from '../../molecules/LuxuryCard/LuxuryCard';
-import Footer from '../Footer/Footer';
 import SubscribeSection from '../SubscribeSection/SubscribeSection';
 import ApartmentSection from '../apartmentSection/ApartmentSection';
 import WhyUsSection from '../whyUsSection/WhyUsSection';
@@ -30,10 +29,6 @@ const  MainPage = () => {
       <div>
         <section className="relative h-fit lg:h-fit w-full">
           <SubscribeSection />
-        </section>
-
-        <section className="w-full ">
-          <Footer />
         </section>
       </div>
 
