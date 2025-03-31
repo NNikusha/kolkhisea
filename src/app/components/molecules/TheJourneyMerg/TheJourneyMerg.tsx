@@ -6,7 +6,7 @@ import LineSvg from '@/app/assets/LineSvg'
 
 const TheJourneyMerg = () => {
     return (
-        <div className='relative container lg:px-[150px] mx-auto w-full mb-[200px]'>
+        <div className='relative container lg:px-[150px] mx-auto w-full mb-[50px] md:mb-[200px]'>
             <div>
                 <h1 className='flex flex-col lg:flex-row uppercase justify-between items-center lg:text-4xl text-[24px] text-[#B4B4B4]'>
                     <span>The Journey</span>

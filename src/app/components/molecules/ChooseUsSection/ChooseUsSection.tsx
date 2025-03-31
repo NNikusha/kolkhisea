@@ -27,7 +27,7 @@ const chooseUsData = [
 
 const ChooseUsSection: React.FC = () => {
   return (
-    <div className="w-full py-[168px]">
+    <div className="w-full pt-[168px]  pb-[72px] md:pb-[100px]">
       <div className="container mx-auto px-4 xl:px-[108px]">
         <div className="flex xl:flex-row flex-col pb-[72px] xl:text-start text-center ">
           <h2 className="2xl:text-[48px] xl:text-[36px] text-[24px] font-normal leading-[130%] xl:pr-[106px] pr-[0px]">

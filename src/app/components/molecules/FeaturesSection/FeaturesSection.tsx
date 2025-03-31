@@ -27,7 +27,7 @@ const features = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <div className="w-full  md:pt-[168px] mt-[72px] h-fit mb-[72px]  md:mb-[168px]">
+    <div className="w-full  xl:pt-[138px]  h-fit mb-[72px]  md:mb-[168px]">
       <div className="container mx-auto px-4 lg:px-[108px]">
         
         <div className="text-center md:text-start">
