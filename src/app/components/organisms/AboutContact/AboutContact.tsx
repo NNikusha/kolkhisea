@@ -1,25 +1,26 @@
 "use client";
 
 import React from "react";
-import DownScroll from "@/app/assets/DownScroll.svg";
-import DownScrollArrow from "@/app/assets/DownScrollArrow.svg";
-import MainApartment from "@/app/assets/Main-Apartment.svg";
-import MobileMainApartment from "@/app/assets/MobileMainImageKolkhi.svg";
-import MainHeadLine from "../../atoms/MainHeadLine/mainHeadLine";
-import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollAnimation";
-import Header from "../../organisms/header/Header";
-import Elipse from "@/app/assets/Elipse";
-import faceIcon from "../../../assets/faceIcone.svg"
-import Image from "next/image";
+// import DownScroll from "@/app/assets/DownScroll.svg";
+// import DownScrollArrow from "@/app/assets/DownScrollArrow.svg";
+// import MainApartment from "@/app/assets/Main-Apartment.svg";
+// import MobileMainApartment from "@/app/assets/MobileMainImageKolkhi.svg";
+// import MainHeadLine from "../../atoms/MainHeadLine/mainHeadLine";
+// import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollAnimation";
+// import Header from "../../organisms/header/Header";
+// import Elipse from "@/app/assets/Elipse";
+// import faceIcon from "../../../assets/faceIcone.svg"
+// import Image from "next/image";
+import ContactUsMarge from "../../molecules/ContactUsMarge/ContactUsMarge";
 
 export default function AboutContact() {
     return (
         <>
-            <Header
+            {/* <Header
                 mainImage={MainApartment}
                 mobileMainImage={MobileMainApartment}
-            />
-            <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
+            /> */}
+            {/* <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
                 
               
                 <div className="relative mt-[25%] flex flex-col flex justify-center items-center">
@@ -59,6 +60,9 @@ export default function AboutContact() {
                     DownScroll={DownScroll}
                     DownScrollArrow={DownScrollArrow}
                 />
+            </section> */}
+            <section  className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px] pt-[112px]">
+                <ContactUsMarge/>
             </section>
         </>
     );
