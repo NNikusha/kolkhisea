@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import OrangeButton from "../../atoms/orangeButton/OrangeButton";
-import DownArrow from "@/app/assets/arrow-down-small.svg"
 import NavList from "../../atoms/navList/NavList";
 import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
 
@@ -33,41 +32,54 @@ export default function HeaderNav() {
   const pathname = usePathname();
 
   const isAboutProjectPage = pathname === "/about-project";
+  const isFlatDetailPage = pathname === "/flat-detail-page"; // Check at"/about-project"
 
   return (
-    <div className="flex items-center absolute left-1/2 -translate-x-1/2 justify-between container px-[16px] lg:px-[108px] m-auto mt-4">
-      <div className="flex items-center gap-4">
-        <div className="w-10 h-10 rounded-full bg-white"></div>
-        <h2 className="tracking-[1px]">LOGO</h2>
-      </div>
-      <div>
-        <nav className="hidden xl:flex">
-          <ul className="flex gap-12 leading-[100%] tracking-[0%] font-medium cursor-pointer">
-            {NavBar.map((item) => (
-              <NavList key={item.id} text={item.text} link={item.link} />
-            ))}
-          </ul>
-        </nav>
-      </div>
-      <div className="flex items-center gap-6">
-        <div className="hidden xl:flex">
-          <ChangeLangHeader
-            lang="Eng"
-            image={DownArrow}
-          />
+    <div
+      className={`w-full ${
+        isFlatDetailPage
+          ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between"
+          : "absolute left-1/2 -translate-x-1/2 mt-4"
+      }`}
+    >
+      <div className="flex items-center justify-between container px-[16px] lg:px-[108px] m-auto">
+        <div className="flex items-center gap-4">
+          <div
+            className={`w-10 h-10 rounded-full ${
+              isFlatDetailPage ? "bg-black" : "bg-white"
+            }`}
+          ></div>
+          <h2 className="tracking-[1px]">LOGO</h2>
         </div>
-        <div className="flex items-center gap-[19px]">
-          {isAboutProjectPage ? (
-            <div className="hidden xl:flex">
+        <div>
+          <nav className="hidden xl:flex">
+            <ul className="flex gap-12 leading-[100%] tracking-[0%] font-medium cursor-pointer">
+              {NavBar.map((item) => (
+                <NavList key={item.id} text={item.text} link={item.link} />
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <div className="flex items-center gap-6">
+          <div className="hidden xl:flex">
+            <ChangeLangHeader
+              lang="Eng"
+              fillColor={isFlatDetailPage ? "#000000" : "#FFFFFF"}
+            />
+          </div>
+          <div className="flex items-center gap-[19px]">
+            {isAboutProjectPage ? (
+              <div className="hidden xl:flex">
+                <OrangeButton text="choose apartment" />
+              </div>
+            ) : (
               <OrangeButton text="choose apartment" />
+            )}
+            <div className="flex xl:hidden flex-col gap-[11px] ">
+              <div className={`h-[1px] w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+              <div className={`h-[1px] w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+              <div className={`h-[1px] w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
             </div>
-          ) : (
-            <OrangeButton text="choose apartment" />
-          )}
-          <div className="flex xl:hidden flex-col gap-[11px] ">
-            <div className="h-[1px] w-[19px] h-[3px] rounded-[16px] bg-white"></div>
-            <div className="h-[1px] w-[26px] h-[3px] rounded-[16px] bg-white"></div>
-            <div className="h-[1px] w-[15px] h-[3px] rounded-[16px] bg-white"></div>
           </div>
         </div>
       </div>
