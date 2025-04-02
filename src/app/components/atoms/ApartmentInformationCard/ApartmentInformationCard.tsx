@@ -4,8 +4,8 @@ import FloorIcon from '@/app/assets/FloorIcon.svg';
 import ApartmentIcon from '@/app/assets/ApartmentIcon.svg';
 import TypeIcon from '@/app/assets/TypeIcon.svg';
 import LivingRoomIcon from '@/app/assets/LivingRoomIcon.svg';
-import BedroomIcon from '@/app/assets/BedroomIcon.svg';
-import BathroomIcon from '@/app/assets/BathroomIcon.svg';
+import BedroomIcon from '@/app/assets/BedRoomIcon.svg';
+import BathroomIcon from '@/app/assets/BathRoomIcon.svg';
 import BalconyIcon from '@/app/assets/BalconyIcon.svg';
 import DownloadIcon from '@/app/assets/DownloadIcon.svg';
 
