@@ -106,8 +106,9 @@ const ApartmentInformationCard = () => {
         <Image src={DownloadIcon} alt="Download Icon" width={24} height={24} />
         <p className="underline">Download PDF</p>
       </button>
-      <button className="w-full flex justify-center bg-[#CB684D] rounded-[16px] py-[20px] text-[#F2F2F2] cursor-pointer">
-        Consultation
+      <button className="relative w-full flex justify-center bg-[#CB684D] rounded-[16px] py-[20px] text-[#F2F2F2] cursor-pointer overflow-hidden group">
+        <span className="relative z-10">Consultation</span>
+        <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
     </div>
   );

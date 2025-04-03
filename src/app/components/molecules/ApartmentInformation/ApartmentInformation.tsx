@@ -14,15 +14,15 @@ const ApartmentInformation = () => {
   const [activeButton, setActiveButton] = useState<'2D' | '3D'>('2D');
 
   return (
-    <div className="container mx-auto min-h-[500px] px-4 lg:px-[108px] flex flex-col">
-         <div className='flex items-center gap-[16px] mt-[32px] mb-[68px] hidden lg:flex'>
-            <div className='flex justify-center items-center text-[#B4B4B4]'>Main Page</div>
+    <div className="container mx-auto min-h-[500px] px-4 lg:px-[108px] flex flex-col mt-[110px] lg:mt-[136px]">
+         <div className='flex items-center gap-[16px] mb-[68px] hidden lg:flex'>
+            <div className='flex justify-center items-center text-[#B4B4B4] cursor-pointer hover:text-[#8A8A8A] transition duration-300 ease-in-out'>Main Page</div>
             <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
-            <div className='flex justify-center items-center text-[#B4B4B4]'>About Project</div>
+            <div className='flex justify-center items-center text-[#B4B4B4] cursor-pointer hover:text-[#8A8A8A] transition duration-300 ease-in-out'>About Project</div>
             <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
-            <div className='flex justify-center items-center text-[#B4B4B4]'>Stare Plan</div>
+            <div className='flex justify-center items-center text-[#B4B4B4] cursor-pointer hover:text-[#8A8A8A] transition duration-300 ease-in-out'>Stare Plan</div>
             <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
-            <div className='flex justify-center items-center text-[#1C1C1E]'>Apartment 52</div>
+            <div className='flex justify-center items-center text-[#1C1C1E] cursor-pointer'>Apartment 52</div>
         </div>
       <div className="flex justify-center lg:justify-between items-center gap-[32px]">
         <div className='flex flex-col xl:flex xl:flex-row items-center w-full xl:w-auto mt-[32px] xl:mt-0'>
@@ -71,12 +71,12 @@ const ApartmentInformation = () => {
                     />
             </div>
             <div className="flex justify-between lg:justify-center items-center w-full lg:w-[230px] h-[56px] gap-[4px] lg:p-[8px] bg-[#F3F6FB] lg:bg-[#ECF0F8] rounded-[40px] mt-[16px] lg:mt-[33px] w-full lg:w-auto">
-                <button className={`flex gap-[10px] justify-center items-center w-[169px] lg:w-[105px] h-[40px] rounded-[20px] transition duration-300 ease-in-out cursor-pointer ${activeButton === '2D' ? 'bg-white' : 'bg-[#ECF0F8] lg:bg-transparent'}`} onClick={() => setActiveButton('2D')}>
+                <button className={`flex gap-[10px] justify-center items-center w-[169px] lg:w-[105px] h-[40px] rounded-[20px] transition duration-300 ease-in-out cursor-pointer ${activeButton === '2D' ? 'bg-white' : 'bg-[#ECF0F8] lg:bg-transparent hover:bg-white/50 active:border-[1px] active:border-[#E0EAFE] lg:border-none'}`} onClick={() => setActiveButton('2D')}>
                     <Icon2D fill={activeButton === '2D' ? '#CB684D' : '#7E7E7E'} />
                     <p className={`transition duration-300 ease-in-out ${activeButton === '2D' ? 'text-[#CB684D]' : 'text-[#7E7E7E]'}`}>2D</p>
                 </button>
 
-                <button className={`flex gap-[10px] justify-center items-center w-[169px] lg:w-[105px] h-[40px] rounded-[20px] transition duration-300 ease-in-out cursor-pointer ${activeButton === '3D' ? 'bg-white' : 'bg-[#ECF0F8] lg:bg-transparent'}`} onClick={() => setActiveButton('3D')}>
+                <button className={`flex gap-[10px] justify-center items-center w-[169px] lg:w-[105px] h-[40px] rounded-[20px] transition duration-300 ease-in-out cursor-pointer ${activeButton === '3D' ? 'bg-white' : 'bg-[#ECF0F8] lg:bg-transparent hover:bg-white/50 active:border-[1px] active:border-[#E0EAFE] lg:border-none'}`} onClick={() => setActiveButton('3D')}>
                     <Icon3D fill={activeButton === '3D' ? '#CB684D' : '#7E7E7E'} stroke={activeButton === '3D' ? '#CB684D' : '#7E7E7E'} />
                     <p className={`transition duration-300 ease-in-out ${activeButton === '3D' ? 'text-[#CB684D]' : 'text-[#7E7E7E]'}`}>3D</p>
                 </button>

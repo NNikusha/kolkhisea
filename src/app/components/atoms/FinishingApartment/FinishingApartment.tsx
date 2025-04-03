@@ -18,7 +18,7 @@ import LeftArrow from '@/app/assets/LeftArrow';
 import RightArrow from '@/app/assets/RightArrow';
 
 interface FinishingApartmentProps {
-  gradientColor?: string; // Add a prop for the gradient color
+  gradientColor?: string;
 }
 
 const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentProps) => {
