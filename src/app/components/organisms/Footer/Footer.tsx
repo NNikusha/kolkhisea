@@ -6,7 +6,7 @@ import SocialIcons from '../../molecules/SocialIcons/SocialIcons';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1C1C1E] w-full lg:pt-[55px]">
+    <footer className="bg-[#1C1C1E] w-full">
       <div className="container mx-auto px-4 lg:px-[108px]">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-6 lg:space-y-0">
           <Logo />

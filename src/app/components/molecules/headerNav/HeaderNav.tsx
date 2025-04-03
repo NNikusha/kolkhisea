@@ -32,7 +32,7 @@ export default function HeaderNav() {
   const pathname = usePathname();
 
   const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage = pathname === "/flat-detail-page"; // Check at"/about-project"
+  const isFlatDetailPage = pathname === "/apartment-types"; 
 
   return (
     <div
