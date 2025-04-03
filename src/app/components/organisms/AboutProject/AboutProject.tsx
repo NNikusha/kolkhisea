@@ -43,7 +43,7 @@ const AboutProject = () => {
             <OverviewSection />
             <FeaturesSection />
             <ApartmentTypes />
-            <FinishingApartment />
+            <FinishingApartment gradientColor="#F3F6FB" />
             <OurFuture />
         </div>
     )

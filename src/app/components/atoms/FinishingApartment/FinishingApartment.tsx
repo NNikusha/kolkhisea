@@ -17,7 +17,11 @@ import 'swiper/css/effect-fade';
 import LeftArrow from '@/app/assets/LeftArrow';
 import RightArrow from '@/app/assets/RightArrow';
 
-const FinishingApartment = () => {
+interface FinishingApartmentProps {
+  gradientColor?: string; // Add a prop for the gradient color
+}
+
+const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -67,7 +71,7 @@ const FinishingApartment = () => {
                   className={`cursor-pointer transition duration-300 ${
                     activeIndex === index
                       ? 'text-[#CB684D] font-[700] border-b-[3px] border-[#CB684D] pb-[5px]'
-                      : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-[#F3F6FB]'
+                      : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-transparent'
                   }`}
                   onClick={() => handleSlideChange(index)}
                 >
@@ -77,7 +81,10 @@ const FinishingApartment = () => {
             </div>
           </div>
           {/* Gradient Overlay */}
-          <div className="absolute top-0 right-0 h-full w-18 pointer-events-none bg-gradient-to-l from-[#F3F6FB] to-transparent block md:hidden"></div>
+          <div
+            className="absolute top-0 right-0 h-full w-18 pointer-events-none bg-gradient-to-l to-transparent block md:hidden"
+            style={{ background: `linear-gradient(to left, ${gradientColor}, transparent)` }}
+          ></div>
         </div>
 
         <div className='relative h-[200px] md:h-[300px] xl:h-[400px] w-full mb-[16px] rounded-[32px]'>
