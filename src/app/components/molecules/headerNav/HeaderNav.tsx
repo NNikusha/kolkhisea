@@ -32,13 +32,13 @@ export default function HeaderNav() {
   const pathname = usePathname();
 
   const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage = pathname === "/apartment-types"; 
+  const isFlatDetailPage = pathname === "/flat-detail-page"; 
 
   return (
     <div
       className={`w-full ${
         isFlatDetailPage
-          ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between"
+          ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between fixed top-0 left-0 z-20"
           : "absolute left-1/2 -translate-x-1/2 mt-4"
       }`}
     >
