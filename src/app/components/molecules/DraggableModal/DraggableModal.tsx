@@ -1,5 +1,4 @@
-"use client"
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 interface DraggableModalProps {
   isOpen: boolean;
@@ -35,12 +34,12 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
     };
   }, [isOpen]);
 
-  const handleClose = (): void => {
+  const handleClose = useCallback((): void => {
     setIsClosing(true);
     setTimeout(() => {
       onClose();
     }, 300);
-  };
+  }, [onClose]);
 
   const handleDragStart = (e: React.TouchEvent | React.MouseEvent): void => {
     setIsDragging(true);
@@ -52,7 +51,7 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
     }
   };
 
-  const handleDrag = (e: TouchEvent | MouseEvent): void => {
+  const handleDrag = useCallback((e: TouchEvent | MouseEvent): void => {
     if (!isDragging) return;
     
     let currentY: number;
@@ -67,9 +66,9 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
     if (diff > 0) {
       setOffsetY(diff);
     }
-  };
+  }, [isDragging, startY]);
 
-  const handleDragEnd = (): void => {
+  const handleDragEnd = useCallback((): void => {
     setIsDragging(false);
     
     if (offsetY > 150) {
@@ -77,7 +76,7 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
     } else {
       setOffsetY(0);
     }
-  };
+  }, [offsetY, handleClose]);
 
   useEffect(() => {
     if (isDragging) {
@@ -93,14 +92,14 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
       window.removeEventListener('mouseup', handleDragEnd);
       window.removeEventListener('touchend', handleDragEnd);
     };
-  }, [isDragging]);
+  }, [isDragging, handleDrag, handleDragEnd]);
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50">
       <div 
-        className="absolute   inset-0 bg-black/50 transition-opacity duration-300"
+        className="absolute inset-0 bg-black/50 transition-opacity duration-300"
         style={{ opacity: isClosing ? 0 : 1 }}
         onClick={handleClose}
       />
