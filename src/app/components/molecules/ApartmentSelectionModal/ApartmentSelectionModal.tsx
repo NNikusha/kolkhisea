@@ -16,7 +16,6 @@ interface ApartmentModalProps {
 
 const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClose }) => {
     const [isClosing, setIsClosing] = useState<boolean>(false);
-    const [currentFloor, setCurrentFloor] = useState<number>(4);
 
     useEffect(() => {
         if (isOpen) {
@@ -36,11 +35,6 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
         setTimeout(() => {
             onClose();
         }, 300);
-    };
-
-    const handleFloorChange = (floor: number) => {
-        setCurrentFloor(floor);
-        console.log(`Floor changed to: ${floor}`);
     };
 
     if (!isOpen) return null;
@@ -74,15 +68,10 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                         
                         <div className='flex w-full justify-between items-center'>
                             <div className='flex items-center gap-[30px]  border border-[#E7E7E7] rounded-[32px] py-[60px] px-[24px] w-[35%]'>
-                                {/* <div className='text-lg text-gray-700 mb-2'>
-                                    {currentFloor}th Floor
-                                </div> */}
-                                <div className='text-[#6A6A6A] leading-[150%] font-normal '>
+                                <div className='text-[#6A6A6A] leading-[150%] font-normal'>
                                     Select an apartment from the plan on the right
                                 </div>
                                 <ArrowRightApartment />
-                               
-
                             </div>
                             
                             <div className="flex w-full justify-between items-center pt-[50px]">
@@ -94,7 +83,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                                         alt="PDF icon"
                                         className='fill-black'
                                     />
-
+                                    
                                     <div className="flex justify-center items-center gap-[8px] mt-4">
                                         <SelectApartmentSeaLogo />
                                         <h3 className="font-normal text-[#1C1C1E]">Sea</h3>
@@ -103,7 +92,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                             </div>
                             
                             <div className='flex-1 flex justify-end'>
-                                <VerticalPagination onFloorChange={handleFloorChange} />
+                                <VerticalPagination />
                             </div>
                         </div>
                         
@@ -117,7 +106,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                                     alt="PDF icon"
                                     className='fill-black'
                                 />
-                                <span className='font-normal underline'>Download PDF plan</span>
+                                <span className='font-normal underline pr-[24px]'>Download PDF plan</span>
                                 <Compas />
                             </div>
                         </div>
