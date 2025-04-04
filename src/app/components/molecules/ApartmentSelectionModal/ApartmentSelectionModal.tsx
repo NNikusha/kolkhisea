@@ -87,7 +87,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                             
                             <div className="flex w-full justify-between items-center pt-[50px]">
                                 <div className='flex flex-col items-center justify-center'>
-                                    {/* The image remains as it is */}
+                                    
                                     <Image
                                         src={SelectApartmentTopView}
                                         width={872}
@@ -95,7 +95,6 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                                         className='fill-black'
                                     />
 
-                                    {/* The SelectApartmentSeaLogo and text are now under the image */}
                                     <div className="flex justify-center items-center gap-[8px] mt-4">
                                         <SelectApartmentSeaLogo />
                                         <h3 className="font-normal text-[#1C1C1E]">Sea</h3>
