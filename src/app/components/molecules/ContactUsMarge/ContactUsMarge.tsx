@@ -8,7 +8,7 @@ import socialLinks from '../../../assets/socialLinks.svg'
 const ContactUsMarge = () => {
     return (
         <>
-            <div className='flex flex-col lg:items-start items-center lg:text-left text-center pb-[24px] lg:pb-[0px]'>
+            <div className='flex flex-col lg:items-start items-center lg:text-left text-center pb-[24px] lg:b-[0px] '>
                 <p className="inline px-[16px] py-[14px] lg:py-[16.5px] lg:text-[16px] text-[12px] text-[#285260] bg-[#2852600D] rounded-[200px]">Reach Out to Us</p>
                 <h1 className="pt-[16px] pb-[16px] lg:pb-[24px] uppercase text-[#1C1C1E] lg:text-[40px] text-[24px]">We’d love to hear from you</h1>
                 <p className="text-[#3D3D3D] lg:text-[16px] text-[14px]">Get in touch with us  for any enquiries and questions.</p>
