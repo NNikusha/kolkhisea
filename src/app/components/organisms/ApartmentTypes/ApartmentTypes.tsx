@@ -7,7 +7,8 @@ import { useState } from "react";
 import FilterItem from "../../molecules/FilterItem/FilterItem";
 import FilterDropdown from "../../atoms/FilterDropDown/FilterDropDown";
 import CleanFilterBtn from "../../atoms/CleanFilterBtn/CleanFilterBtn";
-
+import HouseMobile from "../../../assets/ModernHouseMobile.svg";
+import MobileResetFilterBtn from "../../atoms/MobileResetFilterBtn/MobileResetFilterBtn";
 const ApartmentTypes = () => {
   const apartments = [
     {
@@ -96,7 +97,7 @@ const ApartmentTypes = () => {
 
   return (
     <div className="flex flex-col w-full select-none">
-      <div className="absolute inset-0 -z-10 h-[40%] md:h-[80%] blur-[2px] md:blur-[1px]">
+      <div className="absolute inset-0 -z-10 h-[50%] md:h-[80%] blur-[2px] md:blur-[1px]">
         <Image
           src={House}
           alt="House Background"
@@ -104,16 +105,26 @@ const ApartmentTypes = () => {
           objectFit="cover"
           objectPosition="center"
           quality={100}
+          className="hidden md:flex"
+        />
+        <Image
+          src={HouseMobile}
+          alt="House Mobile Background"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          quality={100}
+          className="flex md:hidden"
         />
       </div>
-      <section className="relative h-full w-full container mx-auto px-2 lg:px-27 pt-[32px] pb-[56px]">
+      <section className="relative h-full w-full container mx-auto px-4 md:px-2 lg:px-27 pt-[32px] pb-8  md:pb-14">
         <div className="h-full w-full flex flex-col gap-14">
           <div className="flex gap-4 text-[14px] lg:text-[16px] items-center">
             <p>Main Page</p>
             <div className="rounded-full h-[8px] w-[8px] bg-white"></div>
             <p>About Page</p>
             <div className="rounded-full h-[8px] w-[8px] bg-white"></div>
-            <p> Apartment Types</p>
+            <p>Apartment Types</p>
           </div>
           <div className="flex flex-col gap-12">
             <div className="flex items-center justify-between">
@@ -121,6 +132,7 @@ const ApartmentTypes = () => {
                 Apartment types
               </p>
               <CleanFilterBtn ResetFilters={ResetFilters} />
+              <MobileResetFilterBtn />
             </div>
             <div className="hidden md:flex justify-between">
               <div className="flex justify-between w-[65%] gap-2 xl:gap-4">
