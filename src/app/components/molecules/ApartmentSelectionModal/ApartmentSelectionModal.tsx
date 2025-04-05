@@ -1,7 +1,7 @@
 "use client"
 import CloseIcon from '@/app/assets/CloseIcon';
 import Compas from '@/app/assets/Compas';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import VerticalPagination from '../VerticalPagination/VerticalPagination';
 import Image from 'next/image'
 import SelectApartmentTopView from "@/app/assets/SelectApartmentTopView.svg"
@@ -16,6 +16,21 @@ interface ApartmentModalProps {
 
 const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClose }) => {
     const [isClosing, setIsClosing] = useState<boolean>(false);
+    const [isRendered, setIsRendered] = useState<boolean>(false);
+    const [isAnimating, setIsAnimating] = useState<boolean>(false);
+    const modalRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (isOpen && !isRendered) {
+            setIsRendered(true);
+            setTimeout(() => {
+                setIsAnimating(true);
+            }, 10);
+        } else if (!isOpen) {
+            setIsRendered(false);
+            setIsAnimating(false);
+        }
+    }, [isOpen, isRendered]);
 
     useEffect(() => {
         if (isOpen) {
@@ -32,25 +47,27 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
 
     const handleClose = (): void => {
         setIsClosing(true);
+        setIsAnimating(false);
         setTimeout(() => {
             onClose();
         }, 300);
     };
 
-    if (!isOpen) return null;
+    if (!isOpen && !isRendered) return null;
 
     return (
         <div className="fixed inset-0 z-50">
             <div
                 className="absolute inset-0 bg-black/50 transition-opacity duration-300"
-                style={{ opacity: isClosing ? 0 : 1 }}
+                style={{ opacity: isClosing ? 0 : (isAnimating ? 1 : 0) }}
                 onClick={handleClose}
             />
 
             <div
+                ref={modalRef}
                 className="absolute top-[5vh] rounded-t-[56px] left-0 right-0 bottom-0 bg-white transition-all duration-300"
                 style={{
-                    transform: isClosing ? 'translateY(100%)' : 'translateY(0)',
+                    transform: isClosing ? 'translateY(100%)' : (isAnimating ? 'translateY(0)' : 'translateY(100%)'),
                     opacity: isClosing ? 0 : 1
                 }}
             >
