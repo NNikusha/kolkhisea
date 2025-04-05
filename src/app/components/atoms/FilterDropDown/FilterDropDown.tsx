@@ -17,13 +17,13 @@ const FilterDropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-6 w-[30%] cursor-pointer select-none">
+    <div className="flex flex-col gap-6 w-[23%] lg:w-[27%] cursor-pointer select-none">
       <p>{title}</p>
       <div
-        className="flex relative items-center px-8 py-5 lg:py-6 justify-between px-4 py-2 rounded-[16px] bg-white text-gray-700 cursor-pointer"
+        className="flex relative items-center px-5 xl:px-8 py-5 xl:py-6 justify-between px-4 py-2 rounded-[16px] bg-white text-gray-700 cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-black">{value}</span>
+        <span className="text-black text-[12px] xl:text-[16px]">{value}</span>
         <Image
           src={arrowDown}
           alt="arrow svg"
@@ -32,7 +32,7 @@ const FilterDropdown: React.FC<DropdownProps> = ({
           }`}
         />
         <div
-          className={`absolute w-full top-20 left-0 bg-white shadow-lg rounded-[16px] z-10 transition-all duration-300 ease-in-out ${
+          className={`absolute w-full top-18 xl:top-20 left-0 bg-white shadow-lg rounded-[16px] z-10 transition-all duration-300 ease-in-out ${
             isOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-2 pointer-events-none"
@@ -41,7 +41,7 @@ const FilterDropdown: React.FC<DropdownProps> = ({
           {options.map((option) => (
             <div
               key={option}
-              className="px-8 py-6 hover:text-[#868686] active:text-[#B4B4B4] duration-300 transition-all text-black cursor-pointer"
+              className="px-5 xl:px-8 py-6 hover:text-[#868686] text-[12px] xl:text-[16px] active:text-[#B4B4B4] duration-300 transition-all text-black cursor-pointer"
               onClick={() => handleSelect(option)}
             >
               {option}

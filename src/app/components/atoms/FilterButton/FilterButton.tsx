@@ -14,13 +14,13 @@ const FilterButton: React.FC<ExtendedButtonProps> = ({
   padding = "default",
 }) => {
   const paddingClasses = {
-    default: "px-4.5 py-5 lg:p-6",
-    large: "px-8 py-5 lg:px-10 lg:py-6",
+    default: "px-4.5 py-5 xl:p-6",
+    large: "px-8 py-5 xl:px-10 xl:py-6",
   };
 
   return (
     <button
-      className={`rounded-[16px] cursor-pointer border-0 duration-300 ease-in ${
+      className={`rounded-[16px] text-[15px] lg:text-[16px] cursor-pointer border-0 duration-300 ease-in ${
         paddingClasses[padding]
       } ${
         active

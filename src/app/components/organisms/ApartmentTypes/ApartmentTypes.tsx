@@ -3,10 +3,10 @@ import React from "react";
 import ApartmentCard from "../../molecules/ApartmentCard/ApartmentCard";
 import House from "../../../assets/ModernHouseRender.svg";
 import Image from "next/image";
-import FilterTimes from "../../../assets/filter-times.svg";
 import { useState } from "react";
 import FilterItem from "../../molecules/FilterItem/FilterItem";
 import FilterDropdown from "../../atoms/FilterDropDown/FilterDropDown";
+import CleanFilterBtn from "../../atoms/CleanFilterBtn/CleanFilterBtn";
 
 const ApartmentTypes = () => {
   const apartments = [
@@ -96,7 +96,7 @@ const ApartmentTypes = () => {
 
   return (
     <div className="flex flex-col w-full select-none">
-      <div className="absolute inset-0 -z-10 h-[70%] blur-[1px]">
+      <div className="absolute inset-0 -z-10 h-[40%] md:h-[80%] blur-[2px] md:blur-[1px]">
         <Image
           src={House}
           alt="House Background"
@@ -106,9 +106,9 @@ const ApartmentTypes = () => {
           quality={100}
         />
       </div>
-      <section className="relative h-full w-full container mx-auto px-4 lg:px-27 pt-[32px] pb-[56px]">
+      <section className="relative h-full w-full container mx-auto px-2 lg:px-27 pt-[32px] pb-[56px]">
         <div className="h-full w-full flex flex-col gap-14">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 text-[14px] lg:text-[16px] items-center">
             <p>Main Page</p>
             <div className="rounded-full h-[8px] w-[8px] bg-white"></div>
             <p>About Page</p>
@@ -116,20 +116,14 @@ const ApartmentTypes = () => {
             <p> Apartment Types</p>
           </div>
           <div className="flex flex-col gap-12">
-            <div className="flex justify-between">
-              <p className="text-[48px] font-normal uppercase">
+            <div className="flex items-center justify-between">
+              <p className="text-[24px] md:text-[40px] lg:text-[48px] font-normal uppercase">
                 Apartment types
               </p>
-              <button
-                className="underline bg-white text-black rounded-[16px] hover:bg-[#ECF0F8] duration-300 p-6 cursor-pointer flex gap-1"
-                onClick={ResetFilters}
-              >
-                <Image src={FilterTimes} alt="filterTimesIcon" />
-                Clean Filter
-              </button>
+              <CleanFilterBtn ResetFilters={ResetFilters} />
             </div>
-            <div className="flex justify-between">
-              <div className="flex justify-between w-[65%] gap-2">
+            <div className="hidden md:flex justify-between">
+              <div className="flex justify-between w-[65%] gap-2 xl:gap-4">
                 <FilterItem
                   label="The number of rooms"
                   options={["All", "Studio", "1BR"]}

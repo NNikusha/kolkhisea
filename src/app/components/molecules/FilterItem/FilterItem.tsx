@@ -11,16 +11,17 @@ const FilterItem: React.FC<FilterItemProps> = ({
   return (
     <div className="flex flex-col gap-6">
       <p>{label}</p>
-      <div className="flex gap-4">
+      <div className="flex gap-2 xl:gap-4">
         {options.map((option) => (
-          <FilterButton
-            key={option}
-            active={option === activeOption}
-            onClick={() => onSelect(option)}
-            padding={label === "The number of rooms" ? "large" : "default"}
-          >
-            {option}
-          </FilterButton>
+          <div key={option}>
+            <FilterButton
+              active={option === activeOption}
+              onClick={() => onSelect(option)}
+              padding={label === "The number of rooms" ? "large" : "default"}
+            >
+              {option}
+            </FilterButton>
+          </div>
         ))}
       </div>
     </div>
