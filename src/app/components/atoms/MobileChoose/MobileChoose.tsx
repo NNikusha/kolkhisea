@@ -1,15 +1,16 @@
 "use client";
+
 import React, { useState } from "react";
 import DraggableModal from "../../molecules/DraggableModal/DraggableModal";
 
-const floors: number[] = [3, 4, 5, 6, 7, 8, 9, 10];
+const FLOORS: number[] = [3, 4, 5, 6, 7, 8, 9, 10];
 
 interface FlatsAvailable {
   [key: number]: number;
 }
 
 const MobileChoose: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
 
   const flatsAvailable: FlatsAvailable = {
@@ -21,7 +22,6 @@ const MobileChoose: React.FC = () => {
   };
 
   const handleSelect = (): void => {
-    console.log(`Selected floor: ${selectedFloor}`);
     setIsOpen(false);
   };
 
@@ -35,26 +35,24 @@ const MobileChoose: React.FC = () => {
           <div
             className="absolute inset-0 bg-white/30 backdrop-blur-[4px] z-0"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-          ></div>
+          />
           <div
             className="absolute inset-0 rounded-full border border-dashed border-white/80 z-10"
             style={{ borderWidth: "1px" }}
-          ></div>
-          <div className="z-20 text-white text-center">
-            <div className="text-[14px]">Select</div>
-            <div className="text-[14px]">Flat</div>
+          />
+          <div className="z-20 text-white text-center text-[14px]">
+            <div>Select</div>
+            <div>Flat</div>
           </div>
         </button>
       </div>
 
       <DraggableModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className="p-6">
-          <h2 className="text-2xl text-black font-semibold mb-6">
-            SELECT THE FLOOR
-          </h2>
+          <h2 className="text-2xl text-black font-semibold mb-6">SELECT THE FLOOR</h2>
 
           <div className="grid grid-cols-4 gap-3 mb-6">
-            {floors.map((floor) => (
+            {FLOORS.map((floor) => (
               <button
                 key={floor}
                 className={`w-[72px] h-[72px] rounded-2xl flex items-center justify-center text-xl ${

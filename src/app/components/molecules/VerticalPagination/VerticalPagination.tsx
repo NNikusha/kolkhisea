@@ -1,4 +1,6 @@
 "use client"
+import ArrowDownApartment from '@/app/assets/ArrowDownApartment';
+import ArrowUpApartment from '@/app/assets/ArrowUpApartment';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 interface VerticalPaginationProps {
@@ -68,29 +70,27 @@ const VerticalPagination: React.FC<VerticalPaginationProps> = ({
   const canGoDown = selectedFloor > Math.min(...allFloors);
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center gap-[24px]">
       {/* Up arrow */}
       <button 
-        className={`w-10 h-10 flex items-center justify-center rounded-lg ${
+        className={`w-[56px] h-[56px] flex items-center justify-center rounded-[8px] ${
           canGoUp ? 'bg-[#F8F8F8] cursor-pointer' : 'bg-[#F8F8F8] opacity-50 cursor-not-allowed'
         }`}
         onClick={handleUpClick}
         disabled={!canGoUp}
       >
-       <svg  className='rotate-180' width="28" height="16" viewBox="0 0 28 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.0098 14.9898L0.409763 2.38976C0.136764 2.11676 -0.000392991 1.7584 -0.000392975 1.4C-0.000392959 1.0416 0.136764 0.683244 0.409763 0.410244C0.957165 -0.137156 1.84205 -0.137156 2.38945 0.410244L13.9996 12.0204L25.6098 0.410245C26.1572 -0.137155 27.0421 -0.137155 27.5894 0.410245C28.1368 0.957645 28.1368 1.84236 27.5894 2.38976L14.9894 14.9898C14.442 15.5372 13.5572 15.5372 13.0098 14.9898Z" fill="#1C1C1E"/>
-</svg>
+       <ArrowUpApartment />
 
       </button>
       
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-[24px]">
         {visibleFloors.map((floor) => (
           <button
             key={floor}
-            className={`w-10 h-10 flex items-center justify-center rounded-lg ${
+            className={`w-[56px] h-[56px] flex items-center justify-center rounded-[8px] ${
               selectedFloor === floor
                 ? 'bg-[#CB684D] text-white'
-                : 'bg-[#F8F8F8] text-[#1C1C1E]'
+                : 'bg-[#F7F7F7] text-[#1C1C1E]'
             }`}
             onClick={() => handleFloorClick(floor)}
           >
@@ -101,15 +101,13 @@ const VerticalPagination: React.FC<VerticalPaginationProps> = ({
       
       {/* Down arrow */}
       <button 
-        className={`w-10 h-10 flex items-center justify-center rounded-lg ${
+        className={`w-[56px] h-[56px] flex items-center justify-center rounded-[8px] ${
           canGoDown ? 'bg-[#F8F8F8] cursor-pointer' : 'bg-[#F8F8F8] opacity-50 cursor-not-allowed'
         }`}
         onClick={handleDownClick}
         disabled={!canGoDown}
       >
-       <svg width="28" height="16" viewBox="0 0 28 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.0098 14.9898L0.409763 2.38976C0.136764 2.11676 -0.000392991 1.7584 -0.000392975 1.4C-0.000392959 1.0416 0.136764 0.683244 0.409763 0.410244C0.957165 -0.137156 1.84205 -0.137156 2.38945 0.410244L13.9996 12.0204L25.6098 0.410245C26.1572 -0.137155 27.0421 -0.137155 27.5894 0.410245C28.1368 0.957645 28.1368 1.84236 27.5894 2.38976L14.9894 14.9898C14.442 15.5372 13.5572 15.5372 13.0098 14.9898Z" fill="#1C1C1E"/>
-</svg>
+       <ArrowDownApartment />
 
       </button>
     </div>
