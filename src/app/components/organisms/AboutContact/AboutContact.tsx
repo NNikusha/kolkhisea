@@ -65,7 +65,7 @@ export default function AboutContact() {
 
           <MainHeadLineAnimation />
           
-          <div className="flex justify-start items-center gap-2 pb-[24px]">
+          <div className="flex justify-start items-center gap-2 pb-[24px] ">
             <Image
               className=""
               src={faceIcon}
