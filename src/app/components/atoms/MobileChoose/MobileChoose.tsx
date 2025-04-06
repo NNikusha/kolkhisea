@@ -21,7 +21,6 @@ const MobileChoose: React.FC = () => {
   };
 
   const handleSelect = (): void => {
-    console.log(`Selected floor: ${selectedFloor}`);
     setIsOpen(false);
   };
 
