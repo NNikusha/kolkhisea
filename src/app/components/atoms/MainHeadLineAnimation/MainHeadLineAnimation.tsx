@@ -8,7 +8,7 @@ const MainHeadLineAnimation = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 3600);
+    }, 1700);
 
     return () => clearInterval(interval);
   }, []);
