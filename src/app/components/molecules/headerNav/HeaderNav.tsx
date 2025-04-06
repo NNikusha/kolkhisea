@@ -8,38 +8,38 @@ import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
 import FullscreenApartmentModal from '../ApartmentSelectionModal/ApartmentSelectionModal';
 
 const NavBar = [
-    {
-        id: 1,
-        link: "/",
-        text: "Main Page"
-    },
-    {
-        id: 2,
-        link: "/",
-        text: "About Project"
-    },
-    {
-        id: 3,
-        link: "/",
-        text: "About Us"
-    },
-    {
-        id: 4,
-        link: "/",
-        text: "Contacts"
-    },
+  {
+    id: 1,
+    link: "/",
+    text: "Main Page"
+  },
+  {
+    id: 2,
+    link: "/about-project",
+    text: "About Project"
+  },
+  {
+    id: 3,
+    link: "/about-us",
+    text: "About Us"
+  },
+  {
+    id: 4,
+    link: "/contacts",
+    text: "Contacts"
+  },
 ];
 
 export default function HeaderNav() {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  // const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage = pathname === "/flat-detail-page"; 
+  const isAboutProjectPage = pathname === "/about-project";
+  const isFlatDetailPage = pathname === "/flat-detail-page" || pathname === "/apartment-types";
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
-    console.log("its oppening")
+    console.log("its opening");
   };
 
   const handleCloseModal = () => {
@@ -64,6 +64,7 @@ export default function HeaderNav() {
             ></div>
             <h2 className="tracking-[1px]">LOGO</h2>
           </div>
+
           <div>
             <nav className="hidden xl:flex">
               <ul className="flex gap-12 leading-[100%] tracking-[0%] font-medium cursor-pointer">
@@ -73,6 +74,7 @@ export default function HeaderNav() {
               </ul>
             </nav>
           </div>
+
           <div className="flex items-center gap-6">
             <div className="hidden xl:flex">
               <ChangeLangHeader
@@ -81,13 +83,15 @@ export default function HeaderNav() {
               />
             </div>
             <div className="flex items-center gap-[19px]">
-              <div onClick={handleOpenModal}>
-                <OrangeButton text="choose apartment" />
-              </div>
-              <div className="flex xl:hidden flex-col gap-[11px] ">
-                <div className={`h-[1px] w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
-                <div className={`h-[1px] w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
-                <div className={`h-[1px] w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+              {!isAboutProjectPage && (
+                <div onClick={handleOpenModal}>
+                  <OrangeButton text="choose apartment" />
+                </div>
+              )}
+              <div className="flex xl:hidden flex-col gap-[11px]">
+                <div className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+                <div className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+                <div className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
               </div>
             </div>
           </div>

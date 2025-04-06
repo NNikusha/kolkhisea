@@ -9,9 +9,9 @@ const FilterItem: React.FC<FilterItemProps> = ({
   onSelect,
 }) => {
   return (
-    <div className="flex flex-col gap-6">
-      <p>{label}</p>
-      <div className="flex gap-2 xl:gap-4">
+    <div className="flex flex-col  gap-4 md:gap-6">
+      <p className="text-black md:text-white">{label}</p>
+      <div className="flex gap-2 justify-between xl:gap-4 w-[90%]">
         {options.map((option) => (
           <div key={option}>
             <FilterButton
