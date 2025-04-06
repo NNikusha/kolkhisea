@@ -26,7 +26,7 @@ const MobileChoose: React.FC = () => {
   };
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center ">
       <div className="relative inline-flex flex xl:hidden">
         <button
           className="relative w-[102px] h-[102px] rounded-full flex flex-col items-center justify-center cursor-pointer overflow-hidden group"

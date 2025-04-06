@@ -2,8 +2,8 @@ import React from 'react';
 
 const links = [
   { name: 'Main Page', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'About Project', href: '/project' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'About Project', href: '/about-project' },
   { name: 'Contacts', href: '/contact' }
 ];
 

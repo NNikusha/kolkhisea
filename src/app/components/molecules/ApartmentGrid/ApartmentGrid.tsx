@@ -3,6 +3,7 @@ import Image from "next/image";
 import ApartmentCard from "../../molecules/ApartmentCard/ApartmentCard";
 import SeeMoreApartment from "@/app/assets/MoreApartment.svg";
 import { ApartmentType } from "@/app/types/type";
+import Link from "next/link";
 
 interface ApartmentGridProps {
   apartments: ApartmentType[];
@@ -38,9 +39,11 @@ const ApartmentGrid: React.FC<ApartmentGridProps> = ({ apartments, isTablet }) =
               Save to favorites<br />for easy comparison
             </p>
           </div>
-          <button className="bg-[#285260] text-[#F2F2F2] rounded-[16px] h-[56px] mt-[18px]">
+          <Link href="/apartment-types">
+          <div className="bg-[#285260] flex items-center justify-center text-[#F2F2F2] rounded-[16px] h-[56px] mt-[18px]">
             View similar
-          </button>
+          </div>
+          </Link>
         </div>
       </div>
     </div>

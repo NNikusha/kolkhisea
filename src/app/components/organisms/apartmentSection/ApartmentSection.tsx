@@ -25,12 +25,17 @@ export default function ApartmentSection() {
           firstText="Crafting Excellence, One PR"
           secondText="ject at a Time"
         />
-       <MainParagraph
+        <MainParagraph
           paragraph="From premium apartments to commercial spaces, we bring your vision
             to life with quality craftsmanship and innovative solutions."
           centered={false}
         />
-        <OpacityButton text="See the project" image={ArrowRight} />
+        <OpacityButton
+          text="See the project"
+          image={ArrowRight}
+          href="/about-project"
+        />
+
         <ModalInfo />
         <DownScrollAnimation
           DownScroll={DownScroll}
