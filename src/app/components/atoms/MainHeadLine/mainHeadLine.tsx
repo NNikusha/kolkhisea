@@ -32,7 +32,7 @@ export default function MainHeadLine({
   return (
     <div className={`relative ${centered ? 'flex justify-center w-full' : ''}`}>
       <h1
-        className={`uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] ${widthClass} xl:text-[48px] ${className}`}
+        className={`uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] ${widthClass} xl:text-[64px] ${className}`}
       >
         <span style={{ color: firstTextColor || 'inherit' }}>{firstText}</span>{" "}
         {showTestSpan && <span className="test"></span>}{" "}
