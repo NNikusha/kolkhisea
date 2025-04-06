@@ -7,6 +7,7 @@ import { Swiper as SwiperType } from "swiper";
 import ApartmentCard from "../../molecules/ApartmentCard/ApartmentCard";
 import NavigationButton from "../../atoms/NavigationButton/NavigationButton";
 import { ApartmentType } from "@/app/types/type";
+import Link from "next/link";
 
 interface ApartmentSwiperProps {
   apartments: ApartmentType[];
@@ -107,9 +108,11 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
       </Swiper>
 
       <div className="mt-6 text-center w-full">
+        <Link href="/apartment-types">
         <button className="bg-[#285260] text-[#F2F2F2] rounded-[16px] h-[58px] px-8 w-full">
           View similar
         </button>
+        </Link>
       </div>
     </div>
   );

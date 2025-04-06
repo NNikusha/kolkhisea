@@ -48,23 +48,21 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                         <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">1BR</button>
                         <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">Studio</button>
                     </div>
-                    
+
                     {isMobile ? (
                         <div className="flex space-x-2">
-                            <button 
-                                className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${
-                                    isBeginning ? 'bg-gray-300' : 'bg-[#1C1C1E]'
-                                }`}
+                            <button
+                                className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${isBeginning ? 'bg-gray-300' : 'bg-[#1C1C1E]'
+                                    }`}
                                 aria-label="Previous slide"
                                 onClick={() => swiper?.slidePrev()}
                                 disabled={isBeginning}
                             >
                                 <LeftArrow fill="white" />
                             </button>
-                            <button 
-                                className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${
-                                    isEnd ? 'bg-gray-300' : 'bg-[#1C1C1E]'
-                                }`}
+                            <button
+                                className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${isEnd ? 'bg-gray-300' : 'bg-[#1C1C1E]'
+                                    }`}
                                 aria-label="Next slide"
                                 onClick={() => swiper?.slideNext()}
                                 disabled={isEnd}
@@ -74,7 +72,8 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                         </div>
                     ) : (
                         <div className='pb-[30px]'>
-                            <Button text='See All Suggestions' />
+                            <Button text='See All Suggestions'
+                                href='/apartment-types' />
                         </div>
                     )}
                 </div>

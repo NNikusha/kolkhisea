@@ -41,7 +41,8 @@ const MobileSwiper: React.FC<MobileSwiperProps> = ({ apartmentTypes, isMobile, s
             </Swiper>
 
             <div className="mt-10">
-                <Button className='w-full text-center items-center justify-center' text='See All Suggestions'/>
+                <Button className='w-full text-center items-center justify-center' text='See All Suggestions'
+                href='/apartment-types'/>
             </div>
         </div>
     );

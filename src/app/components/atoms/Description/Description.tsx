@@ -7,7 +7,9 @@ const Description = () => (
       Experience the perfect blend of elegance and comfort with our premium seaside apartment hotel. Designed for those who seek breathtaking views and modern living, this 10-story masterpiece offers unparalleled oceanfront luxury.
     </p>
     <div className="hidden md:flex justify-start">
-      <Button text="See the project" />
+      <Button text="See the project"
+                href="/about-project"
+                />
     </div>
   </div>
 );

@@ -10,14 +10,14 @@ import Elipse from "@/app/assets/Elipse";
 import faceIcon from "../../../assets/faceIcone.svg";
 import Image from "next/image";
 import ContactUsMarge from "../../molecules/ContactUsMarge/ContactUsMarge";
-import GoogleMap from "../../molecules/GoogleMap/GoogleMap"; // Import the GoogleMap component
+import GoogleMap from "../../molecules/GoogleMap/GoogleMap"; 
 import MainHeadLineAnimation from "../../atoms/MainHeadLineAnimation/MainHeadLineAnimation";
 
 export default function AboutContact() {
   return (
     <>
       <Header mainImage={MainApartment} mobileMainImage={MobileMainApartment} />
-      <section className="container px-[16px] lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]">
+      <section className="container px-[16px] lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]  z-[-1]">
         <div className="relative lg:mt-[40%] xl:mt-[30%] 2xl:mt-[25%] flex flex-col justify-center items-center">
           <div className="hidden lg:block absolute lg:bottom-[-100px] xl:bottom-[-75px] 2xl:bottom-[-60px]" style={{ zIndex: 20 }}>
             <Elipse />

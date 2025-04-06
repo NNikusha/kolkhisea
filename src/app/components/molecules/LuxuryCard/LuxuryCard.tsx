@@ -14,7 +14,9 @@ const LuxuryCard = () => {
       </div>
       <ProjectImage />
       <div className="md:hidden px-4 py-6">
-        <Button text="See the project" />
+        <Button text="See the project"
+          href="/about-project"
+        />
       </div>
     </div>
   );

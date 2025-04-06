@@ -6,29 +6,13 @@ import OrangeButton from "../../atoms/orangeButton/OrangeButton";
 import NavList from "../../atoms/navList/NavList";
 import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
 import FullscreenApartmentModal from '../ApartmentSelectionModal/ApartmentSelectionModal';
-
 const NavBar = [
-  {
-    id: 1,
-    link: "/",
-    text: "Main Page"
-  },
-  {
-    id: 2,
-    link: "/about-project",
-    text: "About Project"
-  },
-  {
-    id: 3,
-    link: "/about-us",
-    text: "About Us"
-  },
-  {
-    id: 4,
-    link: "/contacts",
-    text: "Contacts"
-  },
+  { id: 1, link: "/", text: "Main Page" },
+  { id: 2, link: "/about-project", text: "About Project" },
+  { id: 3, link: "/about-us", text: "About Us" },
+  { id: 4, link: "/contact", text: "Contacts" },
 ];
+
 
 export default function HeaderNav() {
   const pathname = usePathname();
@@ -49,9 +33,9 @@ export default function HeaderNav() {
   return (
     <>
       <div
-        className={`w-full ${
+        className={`w-full z-[11] ${
           isFlatDetailPage
-            ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between fixed top-0 left-0 z-20"
+            ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between fixed top-0 left-0 z-50"
             : "absolute left-1/2 -translate-x-1/2 mt-4"
         }`}
       >

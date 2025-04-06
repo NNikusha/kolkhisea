@@ -89,6 +89,7 @@ export default function WhyUsSection() {
                   <Button
                     className="gap-4 text-center flex justify-center w-full items-center "
                     text="Learn more"
+                    href="/about-us"
                   />
                 </div>
               </div>
