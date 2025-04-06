@@ -17,7 +17,7 @@ const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
 }) => {
   return (
     <section className="relative h-full w-full container mx-auto px-4 mt-20 md:px-2 lg:px-27 pt-2 md:pt-8 pb-8 md:pb-14">
-      <div className="h-full w-full flex flex-col gap-8 md:gap-14">
+      <div className="h-full w-full flex flex-col gap-8 md:gap-14 mt-[30px] md:mt-[20px]">
         <div className="flex gap-2 md:gap-4 text-[12px] sm:text-[14px] lg:text-[16px] items-center">
           <p>Main Page</p>
           <div className="rounded-full h-[8px] w-[8px] bg-white"></div>
