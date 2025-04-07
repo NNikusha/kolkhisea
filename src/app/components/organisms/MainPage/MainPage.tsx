@@ -4,6 +4,10 @@ import LuxuryCard from '../../molecules/LuxuryCard/LuxuryCard';
 import SubscribeSection from '../SubscribeSection/SubscribeSection';
 import ApartmentSection from '../apartmentSection/ApartmentSection';
 import WhyUsSection from '../whyUsSection/WhyUsSection';
+import BackGroundLine1 from '@/app/assets/BackGroundLine1';
+import BackGroundLine2 from '@/app/assets/BackGroundLine2';
+import BackGroundLine3 from '@/app/assets/BackGroundLine3';
+import BackGroundLine4 from '@/app/assets/BackGroundLine4';
 
 
 const  MainPage = () => {
@@ -12,22 +16,30 @@ const  MainPage = () => {
       <section className="relative h-[900px] md:h-[1100px] lg:h-[1000px] w-full ">
         <ApartmentSection />
       </section>
+      <div className='relative'>
 
-      <div className='container px-[16px] lg:px-[108px] mx-auto'>
-        <section className="w-full py-12 md:py-16 lg:py-24">
-          <HighlightsCard />
-        </section>
-        <section className="w-full py-12 md:py-16 lg:py-24 ">
-          <WhyUsSection />
-        </section>
-      
-        <section className="w-full py-12 md:py-16 lg:py-24">
-          <LuxuryCard />
-        </section>
+          <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+            <BackGroundLine1 className="absolute bottom-[10%] w-full h-auto max-w-none" />
+            <BackGroundLine2 className="absolute bottom-[5%] w-full h-auto max-w-none" />
+            <BackGroundLine3 className="absolute top-[20%] w-full h-auto max-w-none" />
+            <BackGroundLine4 className="absolute top-[5%] w-full h-auto max-w-none" />
+          </div>
+
+          <div className='container px-[16px] lg:px-[108px] mx-auto'>
+          <section className="w-full py-12 md:py-16 lg:py-24">
+            <HighlightsCard />
+          </section>
+          <section className="w-full py-12 md:py-16 lg:py-24 ">
+            <WhyUsSection />
+          </section>
+          <section className="w-full py-12 md:py-16 lg:py-24">
+            <LuxuryCard />
+          </section>
+        </div>
       </div>
 
       <div>
-        <section className="relative h-fit lg:h-fit w-full">
+        <section className="relative h-fit lg:h-fit w-full z-[10]">
           <SubscribeSection />
         </section>
       </div>

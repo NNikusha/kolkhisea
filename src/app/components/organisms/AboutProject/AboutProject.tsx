@@ -8,6 +8,10 @@ import ApartmentTypes from '../../atoms/ApartmentTypes/ApartmentTypes';
 import FeaturesSection from '../../molecules/FeaturesSection/FeaturesSection';
 import OurFuture from '../../molecules/OurFuture/OurFuture';
 import MobileChoose from '../../atoms/MobileChoose/MobileChoose';
+import BackGroundLine5 from '@/app/assets/BackGroundLine5';
+import BackGroundLine6 from '@/app/assets/BackGroundLine6';
+import BackGroundLine7 from '@/app/assets/BackGroundLine7';
+import BackGroundLine8 from '@/app/assets/BackGroundLine8';
 
 const AboutProject = () => {
     return (
@@ -40,10 +44,19 @@ const AboutProject = () => {
             </section>
 
             <ProjectInfoSection />
-            <OverviewSection />
-            <FeaturesSection />
-            <ApartmentTypes />
-            <FinishingApartment gradientColor="#F3F6FB" />
+            <div className='relative'>
+
+                <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+                    <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none" />
+                    <BackGroundLine7 className="absolute bottom-[5%] w-full h-auto max-w-none" />
+                    <BackGroundLine5 className="absolute top-[30%] w-full h-auto max-w-none" />
+                    <BackGroundLine8 className="absolute top-[5%] w-full h-auto max-w-none" />
+                </div>
+                <OverviewSection />
+                <FeaturesSection />
+                <ApartmentTypes />
+                <FinishingApartment gradientColor="#F3F6FB" />
+            </div>
             <OurFuture />
         </div>
     )

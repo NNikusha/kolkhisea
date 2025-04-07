@@ -13,6 +13,8 @@ import ContactUsMarge from "../../molecules/ContactUsMarge/ContactUsMarge";
 import GoogleMap from "../../molecules/GoogleMap/GoogleMap"; 
 import MainHeadLineAnimation from "../../atoms/MainHeadLineAnimation/MainHeadLineAnimation";
 import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/ContactPageElipseButtons";
+import BackGroundLine6 from "@/app/assets/BackGroundLine6";
+import BackGroundLine7 from "@/app/assets/BackGroundLine7";
 
 export default function AboutContact() {
   return (
@@ -47,12 +49,20 @@ export default function AboutContact() {
           DownScrollArrow={DownScrollArrow}
         />
         
-        
-        <div className="mt-[350px] sm:mt-[600px] xl:mt-[400px] my-[200px] pt-[112px]">
-          <ContactUsMarge />
-        <GoogleMap />
+        </section>
+        <div className="relative">
+
+          <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+            <BackGroundLine6 className="absolute bottom-[10%] w-full h-auto max-w-none z-[-10]" />
+            <BackGroundLine7 className="absolute top-[8%] w-full h-auto max-w-none z-[-10]" />
+          </div>
+
+          <div className="container px-[16px] lg:px-[108px] mx-auto mt-[350px] sm:mt-[600px] xl:mt-[400px] my-[200px] pt-[112px]">
+            <ContactUsMarge />
+            <GoogleMap />
+          </div>
         </div>
-      </section>
+      
     </>
   );
 }
