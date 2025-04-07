@@ -3,10 +3,10 @@ import ShareSvg from '@/app/assets/ShareSvg';
 
 const ProjectInfoSection = () => {
     return (
-        <div className="w-full z-[11]">
+        <div className="w-full absolute bottom-[-100px]">
             <div className="relative">
                 <div className="bg-[#1C1C1E] text-white rounded-t-[30px] h-[283px] md:h-[197px] mb-[-25px] relative">
-                    <div className="container mx-auto px-4 lg:px-[108px] h-full ">
+                    <div className="container mx-auto px-4 lg:px-[108px] h-full">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between p-[18px] h-full">
 
                             <div className="flex items-center justify-between">

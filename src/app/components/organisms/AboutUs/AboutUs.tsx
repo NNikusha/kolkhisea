@@ -9,19 +9,24 @@ import OurMission from '../../atoms/OurMission/OurMission'
 const AboutUs = () => {
     return (
         <div className="flex flex-col w-full">
-            <section className="relative h-[100vh]  md:h-[110vh] w-full  z-[-1]">
+            <section className="relative w-full h-screen">
                 <AboutUsSection />
             </section>
-            <WhoWeAre />
-            <ChooseUsSection />
-            <div className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">
+            
+            <section className="w-full mt-16 sm:mt-24 md:mt-32">
+                <WhoWeAre />
+            </section>
+            
+            <section className="w-full">
+                <ChooseUsSection />
+            </section>
+            
+            <section className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">
                 <OurMission />
                 <OurMissionSection />
                 <TheJourneyMerg />
-            </div>
-
+            </section>
         </div>
-
     )
 }
 
