@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import MainPhoto from "@/app/assets/aboutproject.svg";
@@ -12,7 +13,7 @@ import MobileChoose from '../../atoms/MobileChoose/MobileChoose';
 const AboutProject = () => {
     return (
         <div className="flex flex-col w-full">
-            <section className="relative  h-[90vh] md:h-[110vh] w-full">
+            <section className="relative h-[90vh] md:h-[110vh] w-full">
                 <header className="w-full relative h-full">
                     <section className="flex justify-between items-center relative w-full h-full">
                         <div className="absolute -z-10 w-full h-full top-0 left-0 border-b-[50%]">
@@ -33,14 +34,11 @@ const AboutProject = () => {
                                 priority
                             />
                         </div>
-
+                        
                         <MobileChoose />
-
-
-                <ProjectInfoSection />
+                        <ProjectInfoSection />
                     </section>
                 </header>
-
             </section>
 
             <OverviewSection />
@@ -52,4 +50,4 @@ const AboutProject = () => {
     )
 }
 
-export default AboutProject
+export default AboutProject;
