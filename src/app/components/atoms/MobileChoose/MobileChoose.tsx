@@ -9,9 +9,22 @@ interface FlatsAvailable {
   [key: number]: number;
 }
 
-const MobileChoose: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface MobileChooseProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+  showButton?: boolean; 
+}
+
+const MobileChoose: React.FC<MobileChooseProps> = ({ 
+  isOpen: propIsOpen, 
+  onClose: propOnClose,
+  showButton = true 
+}) => {
+  const [localIsOpen, setLocalIsOpen] = useState<boolean>(false);
   const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
+
+  const isOpen = propIsOpen !== undefined ? propIsOpen : localIsOpen;
+  const handleClose = propOnClose || (() => setLocalIsOpen(false));
 
   const flatsAvailable: FlatsAvailable = {
     4: 3,
@@ -22,32 +35,34 @@ const MobileChoose: React.FC = () => {
   };
 
   const handleSelect = (): void => {
-    setIsOpen(false);
+    handleClose();
   };
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center ">
-      <div className="relative inline-flex flex xl:hidden">
-        <button
-          className="relative w-[102px] h-[102px] rounded-full flex flex-col items-center justify-center cursor-pointer overflow-hidden group"
-          onClick={() => setIsOpen(true)}
-        >
-          <div
-            className="absolute inset-0 bg-white/30 backdrop-blur-[4px] z-0"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-          />
-          <div
-            className="absolute inset-0 rounded-full border border-dashed border-white/80 z-10"
-            style={{ borderWidth: "1px" }}
-          />
-          <div className="z-20 text-white text-center text-[14px]">
-            <div>Select</div>
-            <div>Flat</div>
-          </div>
-        </button>
-      </div>
+    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+      {showButton && (
+        <div className="relative inline-flex flex xl:hidden">
+          <button
+            className="relative w-[102px] h-[102px] rounded-full flex flex-col items-center justify-center cursor-pointer overflow-hidden group"
+            onClick={() => setLocalIsOpen(true)}
+          >
+            <div
+              className="absolute inset-0 bg-white/30 backdrop-blur-[4px] z-0"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
+            />
+            <div
+              className="absolute inset-0 rounded-full border border-dashed border-white/80 z-10"
+              style={{ borderWidth: "1px" }}
+            />
+            <div className="z-20 text-white text-center text-[14px]">
+              <div>Select</div>
+              <div>Flat</div>
+            </div>
+          </button>
+        </div>
+      )}
 
-      <DraggableModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <DraggableModal isOpen={isOpen} onClose={handleClose}>
         <div className="p-6">
           <h2 className="text-2xl text-black font-semibold mb-6">SELECT THE FLOOR</h2>
 
@@ -98,7 +113,7 @@ const MobileChoose: React.FC = () => {
             </button>
             <button
               className="h-[56px] rounded-lg bg-[#E8E8E8] text-[#1C1C1E] font-medium text-center"
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
             >
               Close
             </button>

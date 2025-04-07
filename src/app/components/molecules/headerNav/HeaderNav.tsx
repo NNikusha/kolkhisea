@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import OrangeButton from "../../atoms/orangeButton/OrangeButton";
 import NavList from "../../atoms/navList/NavList";
 import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
 import FullscreenApartmentModal from '../ApartmentSelectionModal/ApartmentSelectionModal';
+import MobileChoose from '../../atoms/MobileChoose/MobileChoose';
+
 const NavBar = [
   { id: 1, link: "/", text: "Main Page" },
   { id: 2, link: "/about-project", text: "About Project" },
@@ -13,17 +15,29 @@ const NavBar = [
   { id: 4, link: "/contact", text: "Contacts" },
 ];
 
-
 export default function HeaderNav() {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const isAboutProjectPage = pathname === "/about-project";
   const isFlatDetailPage = pathname === "/flat-detail-page" || pathname === "/apartment-types";
 
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 1280);
+    };
+
+    checkIsMobile();
+
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   const handleOpenModal = () => {
     setIsModalOpen(true);
-    console.log("its opening");
+    console.log("its opening", isMobile ? "mobile" : "desktop");
   };
 
   const handleCloseModal = () => {
@@ -82,10 +96,18 @@ export default function HeaderNav() {
         </div>
       </div>
 
-      <FullscreenApartmentModal 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
-      />
+      {isMobile ? (
+        <MobileChoose 
+          isOpen={isModalOpen} 
+          onClose={handleCloseModal} 
+          showButton={false} 
+        />
+      ) : (
+        <FullscreenApartmentModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      )}
     </>
   );
 }
