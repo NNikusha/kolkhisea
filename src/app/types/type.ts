@@ -65,3 +65,15 @@ export interface ApartmentTypeSectionProps {
 export interface MobileFilterBtnProps {
   onClick: () => void;
 }
+
+export interface NavItem {
+  id: number;
+  link: string;
+  text: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen: boolean;
+  handleCloseBurgerMenu: () => void;
+  navItems: NavItem[];
+}
