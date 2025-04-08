@@ -82,6 +82,7 @@ export default function HeaderNav() {
               </ul>
             </nav>
           </div>
+          
 
           <div className="flex items-center gap-6">
             <div className="hidden xl:flex">
