@@ -22,8 +22,8 @@ export default function HeaderNav() {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
 
   const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage =
-    pathname === "/flat-detail-page" || pathname === "/apartment-types";
+
+  const isFlatDetailPage = pathname === "/flat-detail-page" || pathname === "/apartment-types" || pathname === "/apartment-choose";
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -59,7 +59,7 @@ export default function HeaderNav() {
       <div
         className={`w-full z-[11] ${
           isFlatDetailPage
-            ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between fixed top-0 left-0 z-50"
+            ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between fixed top-0 left-0 z-50 drop-shadow-md"
             : "absolute left-1/2 -translate-x-1/2 mt-4"
         }`}
       >
@@ -97,25 +97,11 @@ export default function HeaderNav() {
                   <OrangeButton text="choose apartment" />
                 </div>
               )}
-              <div
-                className="flex xl:hidden flex-col gap-[11px]"
-                onClick={handleOpenBurgerMenu}
-              >
-                <div
-                  className={`w-[19px] h-[3px] rounded-[16px] ${
-                    isFlatDetailPage ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-                <div
-                  className={`w-[26px] h-[3px] rounded-[16px] ${
-                    isFlatDetailPage ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
-                <div
-                  className={`w-[15px] h-[3px] rounded-[16px] ${
-                    isFlatDetailPage ? "bg-black" : "bg-white"
-                  }`}
-                ></div>
+
+              <div className="flex xl:hidden flex-col gap-[11px]">
+                <div className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black " : "bg-white"}`}></div>
+                <div className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+                <div className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
               </div>
             </div>
           </div>
