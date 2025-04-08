@@ -47,9 +47,6 @@ const BurgerMenu = ({
         }}
       >
         <div className="w-full flex flex-col cursor-grab px-4 text-black">
-          <div className="h-7 w-full flex justify-center">
-            <span className="text-white w-[49%] bg-black rounded-bl-[24px] rounded-br-[24px]"></span>
-          </div>
           <div className="flex flex-col py-5 gap-10">
             <div className="w-full flex items-center justify-between">
               <p className="font-normal text-[#7E7E7E]">Menu</p>
