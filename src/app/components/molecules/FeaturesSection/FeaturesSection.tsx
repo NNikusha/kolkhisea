@@ -31,19 +31,19 @@ const FeaturesSection: React.FC = () => {
       <div className="container mx-auto px-4 lg:px-[108px]">
         
         <div className="text-center md:text-start">
-          <span className="text-[12px] md:text-[16px] font-normal text-[#285260] bg-[#2852600D] inline-block rounded-[200px] p-4">
+          <span className="text-[12px] lg:text-[16px] font-normal text-[#285260] bg-[#2852600D] inline-block rounded-[200px] p-4">
             Key Features
           </span>
         </div>
 
         <div className="text-center md:text-start pt-4">
-          <h2 className="text-[24px] md:text-[48px] font-normal text-[#B4B4B4]">
+          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#B4B4B4]">
             MODERN COVENIENCES
           </h2>
         </div>
 
         <div className="text-center md:text-start">
-          <h2 className="text-[24px] md:text-[48px] font-normal text-[#1C1C1E]">
+          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#1C1C1E]">
             & PREMIUM FACILITIES
           </h2>
         </div>
