@@ -1,12 +1,12 @@
 "use client";
-
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import OrangeButton from "../../atoms/orangeButton/OrangeButton";
 import NavList from "../../atoms/navList/NavList";
 import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
-import FullscreenApartmentModal from '../ApartmentSelectionModal/ApartmentSelectionModal';
-import MobileChoose from '../../atoms/MobileChoose/MobileChoose';
+import FullscreenApartmentModal from "../ApartmentSelectionModal/ApartmentSelectionModal";
+import MobileChoose from "../../atoms/MobileChoose/MobileChoose";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const NavBar = [
   { id: 1, link: "/", text: "Main Page" },
@@ -19,9 +19,14 @@ export default function HeaderNav() {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
 
   const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage = pathname === "/flat-detail-page" || pathname === "/apartment-types" || pathname === "/apartment-choose";
+
+  const isFlatDetailPage =
+    pathname === "/flat-detail-page" ||
+    pathname === "/apartment-types" ||
+    pathname === "/apartment-choose";
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -30,10 +35,18 @@ export default function HeaderNav() {
 
     checkIsMobile();
 
-    window.addEventListener('resize', checkIsMobile);
+    window.addEventListener("resize", checkIsMobile);
 
-    return () => window.removeEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
+
+  const handleOpenBurgerMenu = () => {
+    setIsBurgerMenuOpen(true);
+  };
+
+  const handleCloseBurgerMenu = () => {
+    setIsBurgerMenuOpen(false);
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -86,21 +99,43 @@ export default function HeaderNav() {
                   <OrangeButton text="choose apartment" />
                 </div>
               )}
-              <div className="flex xl:hidden flex-col gap-[11px]">
-                <div className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black " : "bg-white"}`}></div>
-                <div className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
-                <div className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+
+              <div
+                className="flex xl:hidden flex-col gap-[11px]"
+                onClick={handleOpenBurgerMenu}
+              >
+                <div
+                  className={`w-[19px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black " : "bg-white"
+                  }`}
+                ></div>
+                <div
+                  className={`w-[26px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
+                <div
+                  className={`w-[15px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <BurgerMenu
+        isOpen={isBurgerMenuOpen}
+        handleCloseBurgerMenu={handleCloseBurgerMenu}
+        navItems={NavBar}
+      />
+
       {isMobile ? (
-        <MobileChoose 
-          isOpen={isModalOpen} 
-          onClose={handleCloseModal} 
-          showButton={false} 
+        <MobileChoose
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          showButton={false}
         />
       ) : (
         <FullscreenApartmentModal
