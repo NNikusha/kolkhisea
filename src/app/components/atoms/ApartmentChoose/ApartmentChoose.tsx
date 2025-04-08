@@ -36,7 +36,7 @@ const ApartmentChoose = () => {
             <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
             <div className='flex justify-center items-center text-[#1C1C1E] cursor-pointer '>4th Floor</div>
         </div>
-        <div className='px-4 bg-white pb-[32px] w-full'>
+        <div className='px-4 flex  bg-white justify-center pb-[32px] w-full'>
         <Image
             src={SelectApartmentTopView}
             alt="Picture of the author"
