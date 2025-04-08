@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import DraggableModal from "../../molecules/DraggableModal/DraggableModal";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import DraggableModal from '../../molecules/DraggableModal/DraggableModal';
 
 const FLOORS: number[] = [3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -12,13 +13,13 @@ interface FlatsAvailable {
 interface MobileChooseProps {
   isOpen?: boolean;
   onClose?: () => void;
-  showButton?: boolean; 
+  showButton?: boolean;
 }
 
-const MobileChoose: React.FC<MobileChooseProps> = ({ 
-  isOpen: propIsOpen, 
+const MobileChoose: React.FC<MobileChooseProps> = ({
+  isOpen: propIsOpen,
   onClose: propOnClose,
-  showButton = true 
+  showButton = true
 }) => {
   const [localIsOpen, setLocalIsOpen] = useState<boolean>(false);
   const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
@@ -30,12 +31,15 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
     4: 3,
   };
 
+  const router = useRouter();
+
   const handleSelectFloor = (floor: number): void => {
     setSelectedFloor(floor);
   };
 
   const handleSelect = (): void => {
     handleClose();
+    router.push('/apartment-choose');
   };
 
   return (
@@ -48,11 +52,11 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
           >
             <div
               className="absolute inset-0 bg-white/30 backdrop-blur-[4px] z-0"
-              style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
             />
             <div
               className="absolute inset-0 rounded-full border border-dashed border-white/80 z-10"
-              style={{ borderWidth: "1px" }}
+              style={{ borderWidth: '1px' }}
             />
             <div className="z-20 text-white text-center text-[14px]">
               <div>Select</div>
@@ -64,7 +68,9 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
 
       <DraggableModal isOpen={isOpen} onClose={handleClose}>
         <div className="p-6">
-          <h2 className="text-2xl text-black font-semibold mb-6">SELECT THE FLOOR</h2>
+          <h2 className="text-2xl text-black font-semibold mb-6">
+            SELECT THE FLOOR
+          </h2>
 
           <div className="grid grid-cols-4 gap-3 mb-6">
             {FLOORS.map((floor) => (
@@ -72,8 +78,8 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
                 key={floor}
                 className={`w-[72px] h-[72px] rounded-2xl flex items-center justify-center text-xl ${
                   selectedFloor === floor
-                    ? "bg-[#CB684D] text-white"
-                    : "bg-[#F3F6FB] text-[#1C1C1E]"
+                    ? 'bg-[#CB684D] text-white'
+                    : 'bg-[#F3F6FB] text-[#1C1C1E]'
                 }`}
                 onClick={() => handleSelectFloor(floor)}
               >
@@ -103,8 +109,8 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
             <button
               className={`h-[56px] rounded-lg text-center font-medium ${
                 selectedFloor
-                  ? "bg-[#CB684D] text-white"
-                  : "bg-[#F8EDE8] text-[#CB684D]"
+                  ? 'bg-[#CB684D] text-white'
+                  : 'bg-[#F8EDE8] text-[#CB684D]'
               }`}
               onClick={handleSelect}
               disabled={!selectedFloor}
