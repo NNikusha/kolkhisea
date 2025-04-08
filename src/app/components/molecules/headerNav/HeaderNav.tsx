@@ -23,7 +23,10 @@ export default function HeaderNav() {
 
   const isAboutProjectPage = pathname === "/about-project";
 
-  const isFlatDetailPage = pathname === "/flat-detail-page" || pathname === "/apartment-types" || pathname === "/apartment-choose";
+  const isFlatDetailPage =
+    pathname === "/flat-detail-page" ||
+    pathname === "/apartment-types" ||
+    pathname === "/apartment-choose";
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -82,7 +85,6 @@ export default function HeaderNav() {
               </ul>
             </nav>
           </div>
-          
 
           <div className="flex items-center gap-6">
             <div className="hidden xl:flex">
@@ -98,10 +100,25 @@ export default function HeaderNav() {
                 </div>
               )}
 
-              <div className="flex xl:hidden flex-col gap-[11px]">
-                <div className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black " : "bg-white"}`}></div>
-                <div className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
-                <div className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`}></div>
+              <div
+                className="flex xl:hidden flex-col gap-[11px]"
+                onClick={handleOpenBurgerMenu}
+              >
+                <div
+                  className={`w-[19px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black " : "bg-white"
+                  }`}
+                ></div>
+                <div
+                  className={`w-[26px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
+                <div
+                  className={`w-[15px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                ></div>
               </div>
             </div>
           </div>
