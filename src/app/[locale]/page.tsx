@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPage from './components/organisms/MainPage/MainPage';
+import MainPage from '../components/organisms/MainPage/MainPage';
 
 const Page = () => {
   return (
