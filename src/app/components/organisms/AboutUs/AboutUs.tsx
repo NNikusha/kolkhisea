@@ -7,6 +7,7 @@ import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg'
 import OurMission from '../../atoms/OurMission/OurMission'
 import BackGroundLine6 from '@/app/assets/BackGroundLine6'
 import BackGroundLine1 from '@/app/assets/BackGroundLine1'
+import BackGroundLine9 from '@/app/assets/BackGroundLine9'
 
 const AboutUs = () => {
     return (
@@ -23,7 +24,8 @@ const AboutUs = () => {
                 <WhoWeAre />
                 <ChooseUsSection />
             </div>
-            <div className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">
+            <div className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px] relative">
+                <BackGroundLine9 className="absolute 2xl:bottom-[-10%] lg:bottom-[0%] bottom-[40%] w-full h-auto max-w-none z-[1]" />
                 <OurMission />
                 <OurMissionSection />
                 <TheJourneyMerg />
