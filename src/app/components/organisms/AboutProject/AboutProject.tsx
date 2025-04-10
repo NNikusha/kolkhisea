@@ -45,7 +45,6 @@ const AboutProject = () => {
                 </header>
             </section>
 
-            <ProjectInfoSection />
             <div className='relative'>
 
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">

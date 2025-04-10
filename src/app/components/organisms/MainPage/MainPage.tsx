@@ -9,7 +9,7 @@ import BackGroundLine2 from '@/app/assets/BackGroundLine2';
 import BackGroundLine4 from '@/app/assets/BackGroundLine4';
 import { fetchMain } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
-import { Locale,} from '@/app/types/type';
+import { Locale } from '@/app/types/type';
 
 const MainPage = async () => {
   const locale = await getLocale() as Locale;
@@ -25,59 +25,45 @@ const MainPage = async () => {
           lang={locale}
         />
       </section>
-      <div className='relative'>
+      <div className="relative">
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+          <BackGroundLine1 className="absolute bottom-[10%] w-full h-auto max-w-none" />
+          <BackGroundLine2 className="absolute bottom-[5%] w-full h-auto max-w-none" />
+          <BackGroundLine2 className="absolute lg:top-[35%] top-[47%] w-full h-auto max-w-none" />
+          <BackGroundLine4 className="absolute xl:top-[5%] lg:top-[20%] top-[35%] w-full h-auto max-w-none" />
+        </div>
 
-          <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-            <BackGroundLine1 className="absolute bottom-[10%] w-full h-auto max-w-none" />
-            <BackGroundLine2 className="absolute bottom-[5%] w-full h-auto max-w-none" />
-            <BackGroundLine2 className="absolute lg:top-[35%] top-[47%] w-full h-auto max-w-none" />
-            <BackGroundLine4 className="absolute xl:top-[5%] lg:top-[20%] top-[35%] w-full h-auto max-w-none" />
-          </div>
+        <div className="container px-[16px] lg:px-[108px] mx-auto">
+          <section className="w-full py-12 md:py-16 lg:py-24">
+            <HighlightsCard
+              insights={data?.insights}
+              lang={locale}
+            />
+          </section>
 
-          <div className='container px-[16px] lg:px-[108px] mx-auto'>
           <section className="w-full py-12 md:py-16 lg:py-24">
-            <HighlightsCard />
+            <WhyUsSection
+              title={data?.why_us_title_secondary}
+              image={data?.why_us_img}
+              imageText={data?.why_us_img_text}
+              lang={locale}
+            />
           </section>
-          <section className="w-full py-12 md:py-16 lg:py-24 ">
-            <WhyUsSection />
-          </section>
+
           <section className="w-full py-12 md:py-16 lg:py-24">
-            <LuxuryCard />
+            <LuxuryCard
+              title={data?.our_project_title_secondary}
+              image={data?.our_project_img}
+              imageText={data?.our_project_img_text}
+              lang={locale}
+            />
           </section>
         </div>
-      <div className='container px-[16px] lg:px-[108px] mx-auto'>
-        <section className="w-full py-12 md:py-16 lg:py-24">
-          <HighlightsCard
-            insights={data?.insights}
-            lang={locale}
-          />
-        </section>
 
-        <section className="w-full py-12 md:py-16 lg:py-24">
-          <WhyUsSection
-            title={data?.why_us_title_secondary}
-            image={data?.why_us_img}
-            imageText={data?.why_us_img_text}
-            lang={locale}
-          />
-        </section>
-
-        <section className="w-full py-12 md:py-16 lg:py-24">
-          <LuxuryCard
-            title={data?.our_project_title_secondary}
-            image={data?.our_project_img}
-            imageText={data?.our_project_img_text}
-            lang={locale}
-          />
-        </section>
-      </div>
-
-      <div>
         <section className="relative h-fit lg:h-fit w-full z-[10]">
           <SubscribeSection />
         </section>
       </div>
-    </div>
     </div>
   );
 };

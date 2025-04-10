@@ -19,10 +19,10 @@ const AboutUs = () => {
                     <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none z-[-1]" />
                     <BackGroundLine1 className="absolute top-[10%] w-full h-auto max-w-none z-[0]" />
                 </div>
-                <section className="w-full mt-16 sm:mt-24 md:mt-32">
+                <section className="w-full mt-[0px]  sm:mt-[169px]">
                     <WhoWeAre />
                 </section>
-                
+
                 <section className="w-full">
                     <ChooseUsSection />
                 </section>
@@ -36,4 +36,4 @@ const AboutUs = () => {
     )
 }
 
-export default AboutUs
+export default AboutUs
