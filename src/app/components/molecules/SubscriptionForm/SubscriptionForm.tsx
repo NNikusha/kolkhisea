@@ -1,7 +1,4 @@
 import React from "react";
-import Input from "../../atoms/SubscribeInput/SubscribeInput";
-import Button from "../../atoms/SubscribeButton/SubscribeButton";
-import arrowIcon from "@/app/assets/arrow-up-right.svg";
 
 const SubscriptionForm = () => {
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import HighlightsCard from '../../molecules/HighlightsCard/HighlightsCard';
 import LuxuryCard from '../../molecules/LuxuryCard/LuxuryCard';
-import SubscribeSection from '../SubscribeSection/SubscribeSection';
 import ApartmentSection from '../apartmentSection/ApartmentSection';
 import WhyUsSection from '../whyUsSection/WhyUsSection';
 import BackGroundLine1 from '@/app/assets/BackGroundLine1';
