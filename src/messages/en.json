@@ -1,6 +1,10 @@
 {
-    "HomePage": {
-      "title": "Hello!",
-      "about": "Go to the about page"
+    "Language": {
+      "MainPage": "Main Page",
+      "AboutProject": "About Project",
+      "AboutUs": "About Us",
+      "Contacts": "Contacts",
+      "ChooseApartment": "choose apartment",
+      "SeeTheProject": "See The Project"
     }
   }
