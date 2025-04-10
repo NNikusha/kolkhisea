@@ -78,6 +78,7 @@ const MainPage = async () => {
         </section>
       </div>
     </div>
+    </div>
   );
 };
 
