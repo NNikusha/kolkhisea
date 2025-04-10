@@ -1,6 +1,10 @@
 {
-    "HomePage": {
-      "title": "Hello world!",
-      "about": "Go to the about page"
+    "Language": {
+      "MainPage": "Главная",
+      "AboutProject": "О Проекте",
+      "AboutUs": "О Нас",
+      "Contacts": "Контакты",
+      "ChooseApartment": "выбрать квартиру",
+      "SeeTheProject": "Посмотреть проект"
     }
   }

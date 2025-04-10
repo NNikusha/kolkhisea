@@ -1,6 +1,10 @@
 {
-    "HomePage": {
-      "title": "სალამი!",
-      "about": "Go to the about page"
+    "Language": {
+      "MainPage": "მთავარი",
+      "AboutProject": "პროექტის შესახებ",
+      "AboutUs": "ჩვენ შესახებ",
+      "Contacts": "კონტაქტები",
+      "ChooseApartment": "აირჩიეთ ბინა",
+      "SeeTheProject": "იხილეთ პროექტი"
     }
   }

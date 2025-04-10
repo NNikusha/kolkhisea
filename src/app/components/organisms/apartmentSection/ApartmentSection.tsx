@@ -12,8 +12,11 @@ import MainHeadLine from "../../atoms/MainHeadLine/mainHeadLine";
 import ArrowRight from "@/app/assets/arrow-up-right.svg";
 import ModalInfo from "../../molecules/modalInfo/ModalInfo";
 import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollAnimation";
+import { useTranslations } from "next-intl";
 
 export default function ApartmentSection() {
+  const t = useTranslations('Language');
+
   return (
     <>
       <Header
@@ -31,7 +34,7 @@ export default function ApartmentSection() {
           centered={false}
         />
         <OpacityButton
-          text="See the project"
+          text={t('SeeTheProject')}
           image={ArrowRight}
           href="/about-project"
         />
