@@ -1,14 +1,24 @@
-export interface ApartmentType {
-  id: number;
-  type: string;
-  size: number;
-  isRenovated: boolean;
-  availableFlats: number;
+export type Locale = 'en' | 'ka' | 'ru';
+
+export interface LocalizedContent {
+  en?: string;
+  ka?: string;
+  ru?: string;
 }
+
+export interface ApartmentType {
+  id?: number;
+  type?: string;
+  size?: number;
+  isRenovated?: boolean;
+  availableFlats?: number;
+}
+
 export interface Task {
-  id: number;
-  title: string;
-  description: string;
+  id: string;
+  name: string;
+  description?: string;
+  title?: string;
 }
 
 export interface Phase {
@@ -16,52 +26,143 @@ export interface Phase {
   phase: string;
   status: string;
   tasks: Task[];
-  progress: string;
   image: string;
+  progress: string;
 }
 
 export interface DropdownProps {
-  title: string;
-  value: string;
-  onChange: (value: string) => void;
-  options: string[];
+  title?: string;
+  value?: string;
+  onChange?: (option: string) => void;
+  options?: string[];
 }
 
 export interface FilterItemProps {
-  label: string;
-  options: string[];
+  label?: string;
+  options?: string[];
   activeOption?: string;
-  onSelect: (option: string) => void;
+  onSelect?: (option: string) => void;
 }
 
 export interface ButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   active?: boolean;
   onClick?: () => void;
 }
 
 export interface Apartment {
-  type: string;
-  size: number;
-  isRenovated: boolean;
-  availableFlats: number;
+  type?: string;
+  size?: number;
+  isRenovated?: boolean;
+  availableFlats?: number;
 }
 
 export interface ApartmentCardSectionProps {
-  apartments: Apartment[];
+  apartments?: Apartment[];
 }
 
 export interface ApartmentTypeSectionProps {
-  ResetFilters: () => void;
-  handleOpenModal: () => void;
-  room: string;
-  setRoom: (value: string) => void;
-  area: string;
-  setArea: (value: string) => void;
-  delivery: string;
-  setDelivery: (value: string) => void;
+  ResetFilters?: () => void;
+  handleOpenModal?: () => void;
+  room?: string;
+  setRoom?: (value: string) => void;
+  area?: string;
+  setArea?: (value: string) => void;
+  delivery?: string;
+  setDelivery?: (value: string) => void;
 }
 
 export interface MobileFilterBtnProps {
-  onClick: () => void;
+  onClick?: () => void;
+}
+
+export interface NavItem {
+  id?: number;
+  link?: string;
+  text?: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen?: boolean;
+  handleCloseBurgerMenu?: () => void;
+  navItems?: NavItem[];
+}
+
+// Main page section props
+export interface ApartmentSectionProps {
+  secondaryTitle?: LocalizedContent;
+  cloudText?: LocalizedContent;
+  cloudTextSecondary?: LocalizedContent;
+  lang?: Locale;
+}
+
+export interface ModalInfoProps {
+  cloudText?: LocalizedContent;
+  cloudTextSecondary?: LocalizedContent;
+  lang?: Locale;
+}
+
+export interface Insight {
+  title?: LocalizedContent;
+  insight?: LocalizedContent;
+}
+
+export interface HighlightsCardProps {
+  insights?: Insight[]; // Now, it expects an array of `Insight` objects
+  lang?: Locale;
+}
+
+export interface WhyUsSectionProps {
+  title?: LocalizedContent;
+  image?: string;
+  imageText?: LocalizedContent[];
+  lang?: Locale;
+}
+
+export interface LuxuryCardProps {
+  title?: LocalizedContent;
+  image?: string;
+  imageText?: LocalizedContent;
+  lang?: Locale;
+}
+
+export interface DescriptionProps {
+  title?: LocalizedContent;
+  lang?: Locale;
+}
+
+export interface ProjectImageProps {
+  image?: string;
+  imageText?: LocalizedContent;
+  lang?: Locale;
+}
+
+// Helper UI components
+export interface MainHeadLineProps {
+  firstText?: string;
+  secondText?: string;
+}
+
+export interface MainParagraphProps {
+  paragraph?: string;
+  centered?: boolean;
+}
+
+export interface ModalHeadlineProps {
+  firstText?: string;
+}
+
+export interface ModalParagraphProps {
+  paragraph?: string;
+}
+
+export interface OpacityButtonProps {
+  text?: string;
+  image?: string | React.ReactNode; // Changed from 'any' to string or ReactNode
+  href?: string;
+}
+
+export interface HeaderProps {
+  mainImage?: string | React.ReactNode; // Changed from 'any' to string or ReactNode
+  mobileMainImage?: string | React.ReactNode; // Changed from 'any' to string or ReactNode
 }

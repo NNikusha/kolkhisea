@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface ModalParagraphProp{
-    paragraph:string
+    paragraph?:string
 }
 export default function ModalParagraph({paragraph}:ModalParagraphProp) {
   return (

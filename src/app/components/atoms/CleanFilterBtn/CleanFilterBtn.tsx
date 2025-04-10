@@ -3,7 +3,7 @@ import Image from "next/image";
 import FilterTimes from "../../../assets/filter-times.svg";
 
 interface CleanFilterBtnProps {
-  ResetFilters: () => void;
+  ResetFilters?: () => void;
 }
 
 const CleanFilterBtn: React.FC<CleanFilterBtnProps> = ({ ResetFilters }) => {

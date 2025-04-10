@@ -3,10 +3,10 @@ import Image from 'next/image';
 import ApartmentImage from "@/app/assets/FlatType.svg";
 
 export interface ApartmentCardProps {
-    type: string;
-    size: number;
-    isRenovated: boolean;
-    availableFlats: number;
+    type?: string;
+    size?: number;
+    isRenovated?: boolean;
+    availableFlats?: number;
 }
 
 const ApartmentCard: React.FC<ApartmentCardProps> = ({
