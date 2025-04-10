@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const MainHeadLineAnimation = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const texts = ['Contact Us', 'Write Us', 'Call Us'];
+  const texts = ["Contact Us", "Write Us", "Call Us"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,7 +15,7 @@ const MainHeadLineAnimation = () => {
 
   return (
     <div className="relative flex flex-col justify-center items-center w-full">
-      <h1 className="uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] xl:w-[70.5%] xl:text-[48px] text-center">
+      <h1 className="uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] xl:text-[48px] text-center">
         If you have any Questions
       </h1>
 
