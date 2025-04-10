@@ -13,7 +13,7 @@ const AboutUs = () => {
                 <AboutUsSection />
             </section>
             
-            <section className="w-full mt-[76px]  sm:mt-[256px]">
+            <section className="w-full mt-16 sm:mt-24 md:mt-32">
                 <WhoWeAre />
             </section>
             
@@ -30,4 +30,4 @@ const AboutUs = () => {
     )
 }
 
-export default AboutUs
+export default AboutUs
