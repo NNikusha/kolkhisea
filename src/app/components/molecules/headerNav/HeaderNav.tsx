@@ -36,9 +36,9 @@ export default function HeaderNav() {
     { id: "4", link: "/contact", text: t('Contacts') },
   ];
   const isFlatDetailPage =
-    pathname === "/flat-detail-page" ||
-    pathname === "/apartment-types" ||
-    pathname === "/apartment-choose";
+    pathname.endsWith("/flat-detail-page") ||
+    pathname.endsWith("/apartment-types") ||
+    pathname.endsWith("/apartment-choose");
 
   useEffect(() => {
     const checkIsMobile = () => {
