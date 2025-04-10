@@ -5,7 +5,8 @@ import mainBlock from '@/app/assets/mainBlock.svg'
 
 const WhoWeAre = () => {
     return (
-        <div className='relative container px-[16px] lg:px-[108px] mx-auto w-full bg-[#F3F6FB] py-16'>
+        <div className='container px-[16px] lg:px-[108px] mx-auto w-full bg-[#F3F6FB] mt-[100px]  sm:mt-[250px] 2xl:mt-0'>
+
             <div className='flex flex-col md:flex-row justify-between pb-[48px] gap-8'>
                 <div className='md:w-[40%]'>
                     <h1 className='text-[#1C1C1E] text-[48px] md:text-[64px] font-normal pb-[24px]'>
