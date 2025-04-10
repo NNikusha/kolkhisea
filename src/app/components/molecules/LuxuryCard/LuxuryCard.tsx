@@ -19,8 +19,9 @@ const LuxuryCard: React.FC<LuxuryCardProps> = ({
         <Description title={title} lang={lang} />
       </div>
       <ProjectImage image={image} imageText={imageText} lang={lang} />
-      <div className="md:hidden px-4 py-6">
-        <Button 
+      <div className="md:hidden py-6">
+        <Button
+          className="gap-4 text-center flex justify-center w-full items-center" 
           text="See the project"
           href="/about-project"
         />
