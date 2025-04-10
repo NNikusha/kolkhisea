@@ -12,7 +12,7 @@ import BackGroundLine9 from '@/app/assets/BackGroundLine9'
 const AboutUs = () => {
     return (
         <div className="flex flex-col w-full">
-            <section className="relative h-[100vh]  md:h-[110vh] w-full  z-[-1]">
+            <section className="relative w-full h-screen">
                 <AboutUsSection />
             </section>
             <div className='relative'>
@@ -26,13 +26,12 @@ const AboutUs = () => {
             </div>
             <div className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px] relative">
                 <BackGroundLine9 className="absolute 2xl:bottom-[-10%] lg:bottom-[0%] bottom-[40%] w-full h-auto max-w-none z-[1]" />
+
                 <OurMission />
                 <OurMissionSection />
                 <TheJourneyMerg />
-            </div>
-
+            </section>
         </div>
-
     )
 }
 
