@@ -3,7 +3,7 @@ import ApartmentCard from "../ApartmentCard/ApartmentCard";
 import { ApartmentCardSectionProps } from "@/app/types/type";
 
 const ApartmentCardSection: React.FC<ApartmentCardSectionProps> = ({
-  apartments,
+  apartments = [],
 }) => {
   return (
     <section className="w-full bg-white rounded-t-[56px] py-[32px] lg:py-[45px] 2xl:py-[80px]">
