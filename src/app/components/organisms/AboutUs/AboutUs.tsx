@@ -7,6 +7,7 @@ import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg'
 import OurMission from '../../atoms/OurMission/OurMission'
 import BackGroundLine1 from '@/app/assets/BackGroundLine1'
 import BackGroundLine6 from '@/app/assets/BackGroundLine6'
+import SubscribeSection from '../SubscribeSection/SubscribeSection'
 
 const AboutUs = () => {
     return (
@@ -31,6 +32,9 @@ const AboutUs = () => {
                 <OurMission />
                 <OurMissionSection />
                 <TheJourneyMerg />
+            </section>
+            <section className="relative h-fit lg:h-fit w-full z-[10]">
+                <SubscribeSection />
             </section>
         </div>
     )
