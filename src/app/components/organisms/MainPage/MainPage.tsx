@@ -60,9 +60,7 @@ const MainPage = async () => {
           </section>
         </div>
 
-        <section className="relative h-fit lg:h-fit w-full z-[10]">
-          <SubscribeSection />
-        </section>
+        
       </div>
     </div>
   );
