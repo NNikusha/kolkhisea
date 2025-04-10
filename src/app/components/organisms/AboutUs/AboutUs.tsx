@@ -13,7 +13,7 @@ const AboutUs = () => {
                 <AboutUsSection />
             </section>
             
-            <section className="w-full mt-[0px]  sm:mt-[169px]">
+            <section className="w-full mt-[76px]  sm:mt-[256px]">
                 <WhoWeAre />
             </section>
             
