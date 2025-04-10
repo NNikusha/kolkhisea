@@ -1,13 +1,13 @@
 import React from "react";
 
 interface MainParagraphProp {
-  paragraph: string;
+  paragraph?: string; 
   centered?: boolean;
   className?: string; 
 }
 
 export default function MainParagraph({ 
-  paragraph, 
+  paragraph = "", 
   centered = false, 
   className = "" 
 }: MainParagraphProp) {

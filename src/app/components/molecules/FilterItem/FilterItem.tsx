@@ -4,12 +4,12 @@ import { FilterItemProps } from "@/app/types/type";
 
 const FilterItem: React.FC<FilterItemProps> = ({
   label,
-  options,
+  options = [],
   activeOption,
-  onSelect,
+  onSelect = () => {}, 
 }) => {
   return (
-    <div className="flex flex-col  gap-4 md:gap-6">
+    <div className="flex flex-col gap-4 md:gap-6">
       <p className="text-black md:text-white">{label}</p>
       <div className="flex gap-2 justify-between xl:gap-4 w-[90%]">
         {options.map((option) => (

@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface OpacityButtonProps {
-  text: string;
+  text?: string;
   className?: string;
   image?: StaticImageData | string;
   href?: string; 

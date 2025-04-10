@@ -4,12 +4,22 @@ import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import CloseIcon from "../../../assets/CloseIcon.svg";
 import LanguageDropDown from "../../atoms/LanguageDropDown/LanguageDropDown";
-import { BurgerMenuProps } from "@/app/types/type";
+export interface NavItem {
+  id: string;
+  text: string;
+  link: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen?: boolean;
+  handleCloseBurgerMenu?: () => void;
+  navItems?: NavItem[];
+}
 
 const BurgerMenu = ({
-  isOpen,
-  handleCloseBurgerMenu,
-  navItems,
+  isOpen = false,
+  handleCloseBurgerMenu = () => {},
+  navItems = [],
 }: BurgerMenuProps) => {
   useEffect(() => {
     if (isOpen) {

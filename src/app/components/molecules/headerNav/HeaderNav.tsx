@@ -10,8 +10,6 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LanguageModal from "../../atoms/LanguageModal/LanguageModa";
 import { useTranslations } from "next-intl";
 
-
-
 const LANGUAGE_LABELS: Record<string, string> = {
   "EN": "ENG",
   "KA": "GEO",
@@ -32,10 +30,10 @@ export default function HeaderNav() {
   const isAboutProjectPage = pathname === "/about-project";
 
   const NavBar = [
-    { id: 1, link: "/", text: t('MainPage') },
-    { id: 2, link: "/about-project", text: t('AboutProject') },
-    { id: 3, link: "/about-us", text: t('AboutUs') },
-    { id: 4, link: "/contact", text: t('Contacts') },
+    { id: "1", link: "/", text: t('MainPage') },
+    { id: "2", link: "/about-project", text: t('AboutProject') },
+    { id: "3", link: "/about-us", text: t('AboutUs') },
+    { id: "4", link: "/contact", text: t('Contacts') },
   ];
   const isFlatDetailPage =
     pathname === "/flat-detail-page" ||
