@@ -1,35 +1,29 @@
+"use client";
+
 import React from 'react';
 import FeatureCard from '../FeatureCard/FeatureCard';
-import SpaciousApartments from '../../../assets/SpaciousApartments.svg';
-import ModernDesign from '../../../assets/ModernDesign.svg';
-import HighQuality from '../../../assets/HighQuality.svg';
+import { Locale, LocalizedContent } from '@/app/types/type';
 
-const features = [
-  {
-    number: '01',
-    title: 'SPACIOUS APARTMENTS WITH PANORAMIC VIEWS',
-    description: 'Enjoy breathtaking views of the sea and city skyline from your private balcony. Each apartment is designed to provide an open, airy feel, offering ample space for comfortable living.',
-    imageSrc: SpaciousApartments,
-  },
-  {
-    number: '02',
-    title: 'MODERN ARCHITECTURE & DESIGN',
-    description: 'Our project blends contemporary aesthetics with functional layouts, ensuring a sophisticated living experience. Every detail is crafted to maximize space, natural light, and seamless integration with the surroundings.',
-    imageSrc: ModernDesign,
-  },
-  {
-    number: '03',
-    title: 'HIGH-QUALITY MATERIALS & FINISHES',
-    description: 'From premium flooring to elegant fixtures, we use only top-tier materials to ensure durability and timeless elegance. Expect superior craftsmanship in every corner of your home.',
-    imageSrc: HighQuality,
-  }
-];
+interface FeaturesSectionProps {
+  features: Array<{
+    title?: LocalizedContent;
+    description?: LocalizedContent;
+    image_url?: string;
+  }>;
+  lang?: Locale;
+}
 
-const FeaturesSection: React.FC = () => {
+const FeaturesSection = ({ features, lang = 'en' }: FeaturesSectionProps) => {
+  const displayFeatures = features.map((feature, index) => ({
+    number: `0${index + 1}`,
+    title: feature.title?.[lang] || '',
+    description: feature.description?.[lang] || '',
+    imageSrc: feature.image_url || '',
+  }));
+
   return (
-    <div className="w-full  xl:pt-[138px]  h-fit mb-[72px]  md:mb-[168px]">
+    <div className="w-full xl:pt-[138px] h-fit mb-[72px] md:mb-[168px]">
       <div className="container mx-auto px-4 lg:px-[108px]">
-        
         <div className="text-center md:text-start">
           <span className="text-[12px] lg:text-[16px] font-normal text-[#285260] bg-[#2852600D] inline-block rounded-[200px] p-4">
             Key Features
@@ -38,7 +32,7 @@ const FeaturesSection: React.FC = () => {
 
         <div className="text-center md:text-start pt-4">
           <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#B4B4B4]">
-            MODERN COVENIENCES
+            MODERN CONVENIENCES
           </h2>
         </div>
 
@@ -49,11 +43,10 @@ const FeaturesSection: React.FC = () => {
         </div>
 
         <div className="pt-[40px] flex flex-col gap-4">
-          {features.map((feature, index) => (
+          {displayFeatures.map((feature, index) => (
             <FeatureCard key={feature.number} {...feature} index={index} />
           ))}
         </div>
-
       </div>
     </div>
   );
