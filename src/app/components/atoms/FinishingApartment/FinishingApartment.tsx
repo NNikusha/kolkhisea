@@ -4,11 +4,6 @@ import { Navigation, Pagination, Scrollbar, A11y, EffectFade } from 'swiper/modu
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { useRef, useState } from 'react';
-import TestSlide1 from "@/app/assets/TestSlide1.jpg";
-import TestSlide2 from "@/app/assets/TestSlide2.jpg";
-import TestSlide3 from "@/app/assets/TestSlide3.jpg";
-import TestSlide4 from "@/app/assets/TestSlide4.jpg";
-import TestSlide5 from "@/app/assets/TestSlide5.jpg";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,12 +11,29 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-fade';
 import LeftArrow from '@/app/assets/LeftArrow';
 import RightArrow from '@/app/assets/RightArrow';
+import { Locale, LocalizedContent } from '@/app/types/type';
 
 interface FinishingApartmentProps {
   gradientColor?: string;
+  finishingText?: LocalizedContent;
+  livingRoomImage?: string;
+  kitchenImage?: string;
+  diningAreaImage?: string;
+  bedroomImage?: string;
+  bathroomImage?: string;
+  lang?: Locale;
 }
 
-const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentProps) => {
+const FinishingApartment = ({
+  gradientColor = '#F3F6FB',
+  finishingText,
+  livingRoomImage,
+  kitchenImage,
+  diningAreaImage,
+  bedroomImage,
+  bathroomImage,
+  lang = 'en'
+}: FinishingApartmentProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -34,6 +46,14 @@ const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentPro
   };
 
   const slideLabels = ['Living Room', 'Kitchen', 'Dining Area', 'Bedroom', 'Bathroom'];
+
+  const slideImages = [
+    livingRoomImage,
+    kitchenImage,
+    diningAreaImage,
+    bedroomImage,
+    bathroomImage
+  ];
 
   return (
     <div className="w-full">
@@ -52,7 +72,9 @@ const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentPro
             FINISHING OF APARTMENTS
           </h1>
           <p className="text-[#7E7E7E] text-sm md:text-base mb-6 hidden md:block">
-            Our premium apartments are designed with high-quality materials and elegant finishes to provide maximum comfort and luxury. Each unit is thoughtfully crafted with modern aesthetics and durable components, ensuring a stylish yet functional living space.
+            {finishingText && finishingText[lang]
+              ? finishingText[lang]
+              : "Our premium apartments are designed with high-quality materials and elegant finishes to provide maximum comfort and luxury. Each unit is thoughtfully crafted with modern aesthetics and durable components, ensuring a stylish yet functional living space."}
           </p>
         </div>
 
@@ -68,11 +90,10 @@ const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentPro
                   ref={(el) => {
                     buttonRefs.current[index] = el;
                   }}
-                  className={`cursor-pointer transition duration-300 ${
-                    activeIndex === index
+                  className={`cursor-pointer transition duration-300 ${activeIndex === index
                       ? 'text-[#CB684D] font-[700] border-b-[3px] border-[#CB684D] pb-[5px]'
                       : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-transparent'
-                  }`}
+                    }`}
                   onClick={() => handleSlideChange(index)}
                 >
                   {label}
@@ -89,75 +110,64 @@ const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentPro
 
         <div className='relative h-[200px] md:h-[300px] xl:h-[400px] w-full mb-[16px] rounded-[32px]'>
           <Swiper
-              className="h-[200px] md:h-[300px] xl:h-[400px] w-full mb-[16px] rounded-[32px]"
-              modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
-              spaceBetween={50}
-              slidesPerView={1}
-              effect="fade"
-              fadeEffect={{ crossFade: true }}
-              speed={1500}
-              pagination={{
-                clickable: true,
-                el: '.custom-pagination',
-              }}
-              navigation={{
-                nextEl: '.custom-next',
-                prevEl: '.custom-prev',
-              }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            >
+            className="h-[200px] md:h-[300px] xl:h-[400px] w-full mb-[16px] rounded-[32px]"
+            modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
+            spaceBetween={50}
+            slidesPerView={1}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            speed={1500}
+            pagination={{
+              clickable: true,
+              el: '.custom-pagination',
+            }}
+            navigation={{
+              nextEl: '.custom-next',
+              prevEl: '.custom-prev',
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          >
 
             {/* Custom Arrows */}
             <div
-              className={`custom-prev bg-white text-[#1C1C1E] w-10 h-10 rounded-full hidden md:flex justify-center items-center absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer z-10 ${
-                activeIndex === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-100'
-              }`}
+              className={`custom-prev bg-white text-[#1C1C1E] w-10 h-10 rounded-full hidden md:flex justify-center items-center absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer z-10 ${activeIndex === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-100'
+                }`}
             >
               <LeftArrow />
             </div>
             <div
-              className={`custom-next bg-white text-[#1C1C1E] w-10 h-10 rounded-full hidden md:flex justify-center items-center absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer z-10 ${
-                activeIndex === slideLabels.length - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-100'
-              }`}
+              className={`custom-next bg-white text-[#1C1C1E] w-10 h-10 rounded-full hidden md:flex justify-center items-center absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer z-10 ${activeIndex === slideLabels.length - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-100'
+                }`}
             >
               <RightArrow />
             </div>
 
-            {/* Swiper Slides */}
-            <SwiperSlide className="select-none">
-              <Image alt="TestSlide1" src={TestSlide1} className="h-auto" />
-            </SwiperSlide>
-
-            <SwiperSlide className="select-none">
-              <Image alt="TestSlide2" src={TestSlide2} className="h-auto" />
-            </SwiperSlide>
-
-            <SwiperSlide className="select-none">
-              <Image alt="TestSlide3" src={TestSlide3} className="h-auto" />
-            </SwiperSlide>
-
-            <SwiperSlide className="select-none">
-              <Image alt="TestSlide4" src={TestSlide4} className="h-auto" />
-            </SwiperSlide>
-
-            <SwiperSlide className="select-none">
-              <Image alt="TestSlide5" src={TestSlide5} className="h-auto" />
-            </SwiperSlide>
+            {slideLabels.map((label, index) => (
+              <SwiperSlide key={index} className="select-none">
+                <div className="relative w-full h-full">
+                  <Image
+                    alt={label}
+                    src={slideImages[index] || `/default-${label.toLowerCase().replace(' ', '-')}.jpg`}
+                    className="object-cover"
+                    fill
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
 
-            {/* Custom Pagination */}
-            <div className="custom-pagination mt-4 absolute bottom-[10px] z-10 flex"></div>
-            </div>
+          {/* Custom Pagination */}
+          <div className="custom-pagination mt-4 absolute bottom-[10px] z-10 flex"></div>
+        </div>
 
         {/* Extra Previous Arrow */}
         <div className="h-[40px] w-full flex justify-center items-center gap-[16px]">
           <div
-            className={`extra-prev ${
-              activeIndex === 0 ? 'inactive' : 'active'
-            }`}
+            className={`extra-prev ${activeIndex === 0 ? 'inactive' : 'active'
+              }`}
             onClick={() => swiperRef.current?.slidePrev()}
           >
             <LeftArrow fill="white" />
@@ -165,9 +175,8 @@ const FinishingApartment = ({ gradientColor = '#F3F6FB' }: FinishingApartmentPro
 
           {/* Extra Next Arrow */}
           <div
-            className={`extra-next ${
-              activeIndex === slideLabels.length - 1 ? 'inactive' : 'active'
-            }`}
+            className={`extra-next ${activeIndex === slideLabels.length - 1 ? 'inactive' : 'active'
+              }`}
             onClick={() => swiperRef.current?.slideNext()}
           >
             <RightArrow fill="white" BgFill="none" />

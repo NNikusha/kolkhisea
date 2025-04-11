@@ -111,15 +111,17 @@ export default function WhyUsSection({
               </p>
             </div>
             <div className="w-full h-[288px] lg:h-[375px] 2xl:h-[384px] 2xl:w-[648px] mt-10 relative">
-              <div className="w-full h-full overflow-hidden rounded-[48px] relative">
-                <Image
-                  alt="Why Us Image"
-                  src={image || MainApartment}
-                  fill
-                  className="rounded-[48px] object-cover"
-                  priority
-                />
-              </div>
+            <div className="w-full h-full overflow-hidden rounded-[48px] relative">
+  <Image
+    alt="Why Us Image"
+    src={image || MainApartment}
+    fill
+    sizes="100vw"
+    quality={100}
+    className="rounded-[48px] object-cover"
+    priority
+  />
+</div>
               <div className="hidden 2xl:flex gap-4 w-full absolute bottom-10 left-4">
                 <OpacityButton
                   text={imageText && imageText[0] ? imageText[0][lang] : defaultImageText[0] || ''}

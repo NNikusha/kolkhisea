@@ -1,10 +1,11 @@
 import { Phase } from '@/app/types/type';
-
 import Image from 'next/image';
 import StatusBadge from '../StatusBadge/StatusBadge';
 import TaskItem from '../TaskItem/TaskItem';
 
 const PhaseItem = ({ phase }: { phase: Phase }) => {
+  const imageSource = phase.image ;
+  
   return (
     <div className="flex justify-between items-center">
       <div className='w-[32px] h-[522px] lg:w-[32px] lg:h-[330px] 2xl:w-[112px] 2xl:h-[336px] flex items-center justify-center pl-[7px] pr-[13px] 2xl:pl-0 2xl:pr-0'>
@@ -26,7 +27,13 @@ const PhaseItem = ({ phase }: { phase: Phase }) => {
           </ul>
         </div>
         <div className="relative w-[315px] h-auto lg:w-[470px] lg:h-[307px] 2xl:w-[536px] 2xl:h-[256px] 2xl:pl-[5px] rounded-[16px]">
-          <Image src={phase.image} alt={phase.phase} className="rounded-[16px] mb-[32px] lg:mb-0 2xl:mb-10 object-cover w-full h-full" />
+          <Image 
+            src={imageSource} 
+            alt={phase.phase} 
+            className="rounded-[16px] mb-[32px] lg:mb-0 2xl:mb-10 object-cover w-full h-full"
+            width={536}
+            height={256}
+          />
           <div className='inline-block lg:px-[24px] px-[16px] lg:py-[12px] py-[7px] bg-[#F4EDE666] bg-opacity-40 bg-blur-[10px] rounded-[200px] absolute top-[16px] left-[16px] 2xl:top-[24px] 2xl:left-[24px]'>
             <p className='text-white text-[12px] lg:text-[16px]'>{phase.progress}</p>
           </div>

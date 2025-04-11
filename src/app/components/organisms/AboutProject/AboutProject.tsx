@@ -1,4 +1,3 @@
-"use client"
 import React from 'react';
 import Image from 'next/image';
 import MainPhoto from "@/app/assets/aboutproject.svg";
@@ -13,8 +12,14 @@ import BackGroundLine5 from '@/app/assets/BackGroundLine5';
 import BackGroundLine6 from '@/app/assets/BackGroundLine6';
 import BackGroundLine7 from '@/app/assets/BackGroundLine7';
 import BackGroundLine8 from '@/app/assets/BackGroundLine8';
+import { fetchProjectAbout } from '@/app/hooks/axios';
+import { getLocale } from 'next-intl/server';
+import { Locale } from '@/app/types/type';
 
-const AboutProject = () => {
+const AboutProject = async () => {
+    const locale = await getLocale() as Locale;
+    const data = await fetchProjectAbout();
+    
     return (
         <div className="flex flex-col w-full">
             <section className="relative h-[90vh] md:h-[110vh] w-full">
@@ -40,25 +45,45 @@ const AboutProject = () => {
                         </div>
                         
                         <MobileChoose />
-                        <ProjectInfoSection />
+                        <ProjectInfoSection building={data?.building} />
                     </section>
                 </header>
             </section>
-
+            
             <div className='relative'>
-
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                     <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none" />
                     <BackGroundLine7 className="absolute bottom-[5%] w-full h-auto max-w-none" />
                     <BackGroundLine5 className="absolute top-[30%] w-full h-auto max-w-none" />
                     <BackGroundLine8 className="absolute top-[5%] w-full h-auto max-w-none" />
                 </div>
-                <OverviewSection />
-                <FeaturesSection />
+                <OverviewSection 
+                    overviewText={data?.overview_text_secondary}
+                    overviewImage={data?.overview_image}
+                    lang={locale}
+                />
+                <FeaturesSection 
+                    features={data?.features}
+                    lang={locale}
+                />
                 <ApartmentTypes />
-                <FinishingApartment gradientColor="#F3F6FB" />
+                <FinishingApartment 
+                    gradientColor="#F3F6FB"
+                    finishingText={data?.finishing_secondary}
+                    livingRoomImage={data?.living_room_image}
+                    kitchenImage={data?.kitchen_image}
+                    diningAreaImage={data?.dining_area_image}
+                    bedroomImage={data?.bedroom_image}
+                    bathroomImage={data?.bathroom_image}
+                    lang={locale}
+                />
             </div>
-            <OurFuture />
+            <OurFuture 
+                timelineTitle={data?.timeline_title}
+                timelineDescription={data?.timeline_description}
+                timelinePhases={data?.timeline_phases}
+                lang={locale}
+            />
         </div>
     )
 }

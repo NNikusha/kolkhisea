@@ -14,8 +14,10 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
       <Image
         src={image || MyImage}
         alt="Luxury oceanfront"
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="100vw"
+        quality={100}
+        className="rounded-[32px] md:rounded-[48px] object-cover"
         priority
       />
       <div className="absolute top-8 left-8 hidden md:flex backdrop-blur-[10px] bg-[#F4EDE666] bg-opacity-[40%] text-white px-5 py-3 rounded-full">
