@@ -28,10 +28,9 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
         <Image 
           src={highlightSvg}
           alt="Background pattern"
-          layout="fill"
-          objectFit="center"
+          fill
           priority
-          className={svgOpacity}
+          className={`${svgOpacity} object-center`}
         />
       </div>
       

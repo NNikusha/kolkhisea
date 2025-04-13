@@ -9,7 +9,7 @@ interface MissionImageProps {
 const MissionImage = ({ src, alt, heightClass = 'h-[248px]' }: MissionImageProps) => {
   return (
     <div className={`w-full ${heightClass} relative rounded-[32px] overflow-hidden`}>
-      <Image src={src} alt={alt} layout="fill" objectFit="cover" />
+        <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
 };
