@@ -40,7 +40,7 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
   }, [swiper]);
 
   useEffect(() => {
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.innerHTML = `
       .apartment-swiper {
         overflow: visible !important;
@@ -53,7 +53,7 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
       }
     `;
     document.head.appendChild(style);
-    
+
     return () => {
       document.head.removeChild(style);
     };
@@ -64,22 +64,28 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
       <div className="flex justify-between w-full items-center mb-[32px]">
         <div className="flex items-center space-x-8 block">
           <div className="relative">
-            <button className="font-[800] text-[#CB684D] text-[16px] pb-1">All</button>
+            <button className="font-[800] text-[#CB684D] text-[16px] pb-1">
+              All
+            </button>
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
           </div>
-          <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">1BR</button>
-          <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">Studio</button>
+          <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">
+            1BR
+          </button>
+          <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">
+            Studio
+          </button>
         </div>
         <div className="flex gap-4">
-          <NavigationButton 
-            direction="prev" 
-            onClick={() => swiper?.slidePrev()} 
-            isDisabled={isBeginning} 
+          <NavigationButton
+            direction="prev"
+            onClick={() => swiper?.slidePrev()}
+            isDisabled={isBeginning}
           />
-          <NavigationButton 
-            direction="next" 
-            onClick={() => swiper?.slideNext()} 
-            isDisabled={isEnd} 
+          <NavigationButton
+            direction="next"
+            onClick={() => swiper?.slideNext()}
+            isDisabled={isEnd}
           />
         </div>
       </div>
@@ -99,8 +105,8 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
           <SwiperSlide key={apartment.id} className="py-2">
             <ApartmentCard
               type={apartment.type}
-              size={apartment.size}
-              isRenovated={apartment.isRenovated}
+              total_area={apartment.total_area}
+              status={apartment.status}
               availableFlats={apartment.availableFlats}
             />
           </SwiperSlide>
@@ -109,9 +115,9 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
 
       <div className="mt-6 text-center w-full">
         <Link href="/apartment-types">
-        <button className="bg-[#285260] text-[#F2F2F2] rounded-[16px] h-[58px] px-8 w-full">
-          View similar
-        </button>
+          <button className="bg-[#285260] text-[#F2F2F2] rounded-[16px] h-[58px] px-8 w-full">
+            View similar
+          </button>
         </Link>
       </div>
     </div>
