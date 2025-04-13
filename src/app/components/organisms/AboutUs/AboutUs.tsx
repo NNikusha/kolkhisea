@@ -9,11 +9,11 @@ import OurMission from '../../atoms/OurMission/OurMission'
 const AboutUs = () => {
     return (
         <div className="flex flex-col w-full">
-            <section className="relative w-full h-screen">
+            <section className="relative w-full">
                 <AboutUsSection />
             </section>
             
-            <section className="w-full mt-[76px]  sm:mt-[256px]">
+            <section className="w-full mt-[424px] sm:mt-[604px] xl:mt-[228px] 2xl:mt-[340px] ">
                 <WhoWeAre />
             </section>
             
