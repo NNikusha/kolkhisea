@@ -1,92 +1,33 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DraggableModal from "../../molecules/DraggableModal/DraggableModal";
 import ApartmentTypeSection from "../../molecules/ApartmentTypeSection/ApartmentTypeSection";
 import FilterDropdown from "../../atoms/FilterDropDown/FilterDropDown";
 import FilterItem from "../../molecules/FilterItem/FilterItem";
 import ApartmentCardSection from "../../molecules/ApartmentCardSection/ApartmentCardSection";
 import ApartmentTypeBackground from "../../atoms/ApartmentTypeBackground/ApartmentTypeBackground";
+import { fetchApartmentTypes } from "@/app/hooks/axios";
+import { Apartment } from "@/app/types/type";
 
 const ApartmentTypes = () => {
-  const apartments = [
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-    {
-      type: "Studio",
-      size: 48,
-      isRenovated: true,
-      availableFlats: 458,
-    },
-  ];
-
+  const [apartments, setApartments] = useState<Apartment[]>([]);
   const [room, setRoom] = useState<string>("All");
   const [area, setArea] = useState<string>("30");
   const [delivery, setDelivery] = useState<string>("Any");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const FetchData = async () => {
+      try {
+        const data = await fetchApartmentTypes();
+        console.log(data);
+        setApartments(data);
+      } catch (error) {
+        console.error("Failed to load apartments:", error);
+      }
+    };
+    FetchData();
+  }, []);
 
   const ResetFilters = () => {
     setRoom("All");

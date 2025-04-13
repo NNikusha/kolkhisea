@@ -20,10 +20,34 @@ const SuggestApartment: React.FC = () => {
   }, []);
 
   const apartmentTypes: ApartmentType[] = [
-    { id: 1, type: "Studio", size: 40, isRenovated: true, availableFlats: 450 },
-    { id: 2, type: "One Bedroom", size: 60, isRenovated: true, availableFlats: 120 },
-    { id: 3, type: "Two Bedroom", size: 80, isRenovated: true, availableFlats: 80 },
-    { id: 4, type: "Three Bedroom", size: 100, isRenovated: true, availableFlats: 50 },
+    {
+      id: 1,
+      type: "Studio",
+      total_area: "40",
+      status: "Renovated",
+      availableFlats: 450,
+    },
+    {
+      id: 2,
+      type: "Studio",
+      total_area: "40",
+      status: "Renovated",
+      availableFlats: 45,
+    },
+    {
+      id: 3,
+      type: "Studio",
+      total_area: "40",
+      status: "Renovated",
+      availableFlats: 50,
+    },
+    {
+      id: 4,
+      type: "Studio",
+      total_area: "40",
+      status: "Renovated",
+      availableFlats: 50,
+    },
   ];
 
   return (
@@ -32,9 +56,9 @@ const SuggestApartment: React.FC = () => {
         <div className="md:text-start pb-[14px] md:pb-0 ">
           <GrayBlueButton text="Apartment Options" />
           <h2 className="text-[24px] md:text-[32px] lg:text-[48px] md:pb-0 md:pt-[16px] font-bold text-[#1C1C1E] uppercase lg:mb-[54px] mt-[16px]">
-            Apartments <br /> <span className="text-[#CB684D]">you may like</span>
+            Apartments <br />{" "}
+            <span className="text-[#CB684D]">you may like</span>
           </h2>
-
         </div>
 
         {isMobile ? (

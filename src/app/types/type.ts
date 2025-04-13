@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'ka' | 'ru';
+export type Locale = "en" | "ka" | "ru";
 
 export interface LocalizedContent {
   en?: string;
@@ -9,8 +9,8 @@ export interface LocalizedContent {
 export interface ApartmentType {
   id?: number;
   type?: string;
-  size?: number;
-  isRenovated?: boolean;
+  total_area?: string;
+  status?: string;
   availableFlats?: number;
 }
 
@@ -54,7 +54,10 @@ export interface Apartment {
   type?: string;
   size?: number;
   isRenovated?: boolean;
-  availableFlats?: number;
+  available_flats?: number;
+  total_area?: string;
+  status?: string;
+  image?: string;
 }
 
 export interface ApartmentCardSectionProps {
@@ -165,4 +168,12 @@ export interface OpacityButtonProps {
 export interface HeaderProps {
   mainImage?: string | React.ReactNode; // Changed from 'any' to string or ReactNode
   mobileMainImage?: string | React.ReactNode; // Changed from 'any' to string or ReactNode
+}
+
+export interface ApartmentCardProps {
+  type?: string;
+  total_area?: string;
+  status?: string;
+  availableFlats?: number;
+  image?: string;
 }

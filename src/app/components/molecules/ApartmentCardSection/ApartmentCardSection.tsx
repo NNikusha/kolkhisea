@@ -13,9 +13,10 @@ const ApartmentCardSection: React.FC<ApartmentCardSectionProps> = ({
             <div key={index} className="flex justify-center">
               <ApartmentCard
                 type={apartment.type}
-                size={apartment.size}
-                isRenovated={apartment.isRenovated}
-                availableFlats={apartment.availableFlats}
+                total_area={apartment.total_area}
+                status={apartment.status}
+                availableFlats={apartment.available_flats}
+                image={apartment.image}
               />
             </div>
           ))}
