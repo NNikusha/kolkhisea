@@ -9,9 +9,9 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
   status = "Unknown",
   availableFlats = 0,
   image = ApartmentImage,
+  
 }) => {
   const size = parseFloat(total_area) || 0;
-  //   const flats = parseFloat(availableFlats) || 0;
   return (
     <div
       className="bg-[#FFFFFF] rounded-[32px] overflow-hidden w-full max-w-[295px] h-[468px] flex flex-col mx-auto"
@@ -28,8 +28,9 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
               src={image}
               alt={`${type} apartment`}
               fill
-              style={{ objectFit: "contain" }}
-              className="p-2"
+              style={{ objectFit: "cover",
+                       borderRadius: "32px"
+               }}
             />
           </div>
         </div>
@@ -39,7 +40,7 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
             {type} • {size} m²
           </div>
 
-          <div className="inline-block bg-[#F0F0F0] text-[#1C1C1E] text-[12px] md:text-[14px] py-[12.5px] px-[14px] rounded-full">
+          <div className="inline-block bg-[#F0F0F0] text-[#1C1C1E] text-[12px] md:text-[14px] py-[12.5px] px-[14px] rounded-full capitalize">
             {status}
           </div>
         </div>

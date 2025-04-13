@@ -11,7 +11,10 @@ export interface ApartmentType {
   type?: string;
   total_area?: string;
   status?: string;
-  availableFlats?: number;
+  available_flats?: number;
+  availableFlats: number;
+  is_favourite?: number;
+  image?: string;
 }
 
 export interface Task {

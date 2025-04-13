@@ -5,10 +5,12 @@ import { ApartmentType } from "@/app/types/type";
 import DesktopGrid from "../../molecules/DesktopGrid/DesktopGrid";
 import MobileSwiper from "../../molecules/MobileSwiper/MobileSwiper";
 import SectionHeader from "../SectionHeader/SectionHeader";
+import { fetchApartmentTypes } from "@/app/hooks/axios";
 
 const ApartmentTypesIntegrated: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
+  const [apartmentTypes, setApartmentTypes] = useState<ApartmentType[]>([]);
 
   useEffect(() => {
     const checkIsMobile = (): void => {
@@ -25,36 +27,18 @@ const ApartmentTypesIntegrated: React.FC = () => {
     }
   }, [swiper]);
 
-  const apartmentTypes: ApartmentType[] = [
-    {
-      id: 1,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 450,
-    },
-    {
-      id: 2,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 45,
-    },
-    {
-      id: 3,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 50,
-    },
-    {
-      id: 4,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 50,
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchApartmentTypes();
+        setApartmentTypes(data);
+      } catch (error) {
+        console.error("Error fetching apartment types:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="w-full py-12  relative overflow-hidden">
@@ -62,7 +46,6 @@ const ApartmentTypesIntegrated: React.FC = () => {
         <SectionHeader isMobile={isMobile} swiper={swiper} />
 
         <DesktopGrid isMobile={isMobile} apartmentTypes={apartmentTypes} />
-
         <MobileSwiper
           isMobile={isMobile}
           apartmentTypes={apartmentTypes}
