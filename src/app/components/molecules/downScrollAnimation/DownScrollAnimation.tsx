@@ -21,18 +21,20 @@ export default function DownScrollAnimation({
 
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 top-[740px] xl:top-[860px]">
+    <div className="absolute left-1/2 -translate-x-1/2 top-[740px] sm:top-[880px] md:top-[880px] lg:top-[740px] xl:top-[860px]">
       <div className="flex flex-col items-center relative">
         <motion.div
+          className="flex items-center justify-center w-[109px] h-[109px] xl:w-[109px] xl:h-[109px]"
+          style={{ transformOrigin: "center", willChange: "transform" }}
           animate={{ rotate: rotation }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <Image
             alt="Downscroll to see new content"
             src={DownScroll}
-            className="bg-white/15 shadow-inner backdrop-blur-[3px] rounded-[50%] w-[79px] h-[79px]  xl:w-[109px] xl:h-[109px]"
-            
+            className="bg-white/15 shadow-inner backdrop-blur-[3px] rounded-[50%] w-[79px] h-[79px] xl:w-[109px] xl:h-[109px]"
           />
         </motion.div>
 

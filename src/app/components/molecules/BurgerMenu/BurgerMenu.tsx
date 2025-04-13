@@ -4,12 +4,22 @@ import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import CloseIcon from "../../../assets/CloseIcon.svg";
 import LanguageDropDown from "../../atoms/LanguageDropDown/LanguageDropDown";
-import { BurgerMenuProps } from "@/app/types/type";
+export interface NavItem {
+  id: string;
+  text: string;
+  link: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen?: boolean;
+  handleCloseBurgerMenu?: () => void;
+  navItems?: NavItem[];
+}
 
 const BurgerMenu = ({
-  isOpen,
-  handleCloseBurgerMenu,
-  navItems,
+  isOpen = false,
+  handleCloseBurgerMenu = () => {},
+  navItems = [],
 }: BurgerMenuProps) => {
   useEffect(() => {
     if (isOpen) {
@@ -39,11 +49,12 @@ const BurgerMenu = ({
       }`}
     >
       <div
-        className={`absolute bottom-0 h-[100vh] left-0 right-0 bg-white rounded-t-3xl transition-transform duration-300 ease-out ${
+        className={`absolute bottom-0 h-[100dvh] left-0 right-0 bg-white rounded-t-3xl transition-transform duration-300 ease-out ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
         style={{
           boxShadow: "0px -4px 25px rgba(0, 0, 0, 0.1)",
+          paddingBottom: "env(safe-area-inset-bottom)",
         }}
       >
         <div className="w-full flex flex-col cursor-grab px-4 text-black">

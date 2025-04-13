@@ -7,12 +7,14 @@ const FilterDropdown: React.FC<DropdownProps> = ({
   title,
   value,
   onChange,
-  options,
+  options=[],
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleSelect = (option: string) => {
-    onChange(option);
+    if (onChange) {
+      onChange(option); 
+    }
     setIsOpen(false);
   };
 
