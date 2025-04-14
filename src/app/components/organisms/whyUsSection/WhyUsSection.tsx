@@ -55,7 +55,7 @@ export default function WhyUsSection({
                     <Image
                       alt="SeasideImage"
                       src={SeasideLocation}
-                      className="w-[32px] w-[32px] lg:min-w-[50px] min-w-[28px] min-h-[31px] lg:min-h-[50px]"
+                      className="w-[32px] h-[32px] lg:min-w-[50px] min-w-[28px] min-h-[31px] lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] w-[50%] sm:w-[100%] lg:text-[16px] ">
                       Seaside Location
@@ -65,7 +65,7 @@ export default function WhyUsSection({
                     <Image
                       alt="BreathtakingviewImage"
                       src={Breathtakingview}
-                      className="w-[32px] w-[32px] lg:min-w-[50px] min-w-[28px] min-h-[31px] lg:min-h-[50px]"
+                      className="w-[32px] h-[32px] lg:min-w-[50px] min-w-[28px] min-h-[31px] lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] w-[50%] sm:w-[100%] lg:text-[16px]">
                       Breathtaking view
@@ -77,7 +77,7 @@ export default function WhyUsSection({
                     <Image
                       alt="WaterSupplyImage"
                       src={WaterSupply}
-                      className="w-[32px] w-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
+                      className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] lg:text-[16px]">
                       Water Supply
@@ -87,7 +87,7 @@ export default function WhyUsSection({
                     <Image
                       alt="HeatingandCoolingImage"
                       src={HeatingandCooling}
-                      className="w-[32px] w-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
+                      className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
                       Heating and Cooling

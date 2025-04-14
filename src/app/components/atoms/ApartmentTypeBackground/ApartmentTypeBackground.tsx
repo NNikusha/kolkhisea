@@ -9,20 +9,16 @@ const ApartmentTypeBackground = () => {
       <Image
         src={House}
         alt="House Background"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
+        fill
         quality={100}
-        className="hidden md:flex"
+        className="hidden md:flex object-cover object-center"
       />
       <Image
         src={HouseMobile}
         alt="House Mobile Background"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
+        fill
         quality={100}
-        className="flex md:hidden"
+        className="flex md:hidden object-cover object-center"
       />
     </div>
   );

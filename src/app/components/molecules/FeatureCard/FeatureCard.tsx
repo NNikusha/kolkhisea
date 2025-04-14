@@ -29,14 +29,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ number, title, description, i
         <h3 className="text-[16px] lg:text-[24px] xl:text-[32px] font-normal text-[#1C1C1E] w-[62%] md:w-[85%] xl:w-[80%]">{title}</h3>
         <p className="text-[#7E7E7E] font-normal text-[14px] xl:text-[16px] pt-[16px] 2xl:pt-[24px] w-[90%] xl:w-[80%]">{description}</p>
       </div>
-
       <div className="mt-[24px] md:mt-0 w-[295px] h-[162px] xl:w-[329px] xl:h-[205px] 2xl:w-[384px]  2xl:h-[256px] relative">
         <Image
           src={imageSrc}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-[32px]"
+          fill
+          className="rounded-[32px] object-cover"
         />
       </div>
     </div>
