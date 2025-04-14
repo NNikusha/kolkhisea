@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import ApartmentInformationCard from '../../atoms/ApartmentInformationCard/ApartmentInformationCard';
 import Image from 'next/image';

@@ -101,13 +101,14 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments }) => {
         onSwiper={setSwiper}
         className="apartment-swiper"
       >
-        {apartments.map((apartment) => (
+        {apartments.slice(0, 4).map((apartment) => (
           <SwiperSlide key={apartment.id} className="py-2">
             <ApartmentCard
               type={apartment.type}
               total_area={apartment.total_area}
               status={apartment.status}
-              availableFlats={apartment.availableFlats}
+              availableFlats={apartment.available_flats}
+              image={apartment.image}
             />
           </SwiperSlide>
         ))}
