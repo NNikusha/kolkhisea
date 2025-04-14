@@ -12,15 +12,17 @@ import SubscribeSection from '../SubscribeSection/SubscribeSection'
 const AboutUs = () => {
     return (
         <div className="flex flex-col w-full">
-            <section className="relative w-full h-screen">
+            <section className="relative w-full">
                 <AboutUsSection />
             </section>
-            <div className='relative'>
+
+            <div className="relative">
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                     <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none z-[-1]" />
                     <BackGroundLine1 className="absolute top-[10%] w-full h-auto max-w-none z-[0]" />
                 </div>
-                <section className="w-full mt-[0px]  sm:mt-[169px]">
+
+                <section className="w-full mt-[424px] sm:mt-[604px] xl:mt-[228px] 2xl:mt-[340px]">
                     <WhoWeAre />
                 </section>
 
@@ -28,6 +30,7 @@ const AboutUs = () => {
                     <ChooseUsSection />
                 </section>
             </div>
+
             <section className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">
                 <OurMission />
                 <OurMissionSection />
