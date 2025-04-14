@@ -110,12 +110,14 @@ export default function HeaderNav() {
                 <ChangeLangHeader
                   lang={LANGUAGE_LABELS[currentLang] || "ENG"}
                   fillColor={isFlatDetailPage ? "#000000" : "#FFFFFF"}
+                  isLangModalOpen={isLangModalOpen}
                 />
               </div>
               <LanguageModal
                 isOpen={isLangModalOpen}
                 onClose={() => setIsLangModalOpen(false)}
                 onSelectLang={handleSelectLang}
+                selectedLang={currentLang}
               />
             </div>
 
