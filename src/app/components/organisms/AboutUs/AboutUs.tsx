@@ -21,7 +21,7 @@ const AboutUs = () => {
                     <BackGroundLine1 className="absolute top-[10%] w-full h-auto max-w-none z-[0]" />
                 </div>
 
-                <section className="w-full mt-[424px] sm:mt-[604px] xl:mt-[228px] 2xl:mt-[340px]">
+                <section className="w-full mt-[424px] sm:mt-[604px] xl:mt-[228px] 2xl:mt-[440px]">
                     <WhoWeAre />
                 </section>
 
