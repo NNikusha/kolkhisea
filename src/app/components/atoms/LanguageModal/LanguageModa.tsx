@@ -19,8 +19,8 @@ export default function LanguageModal({ isOpen, onClose, onSelectLang, selectedL
   const filteredLanguages = languageOptions.filter(({ code }) => code !== selectedLang);
 
   return (
-    <div className="absolute top-full right-0 mt-2 bg-white rounded-md shadow-xl z-50 border border-gray-200">
-      <ul className="flex flex-col px-[24px] text-sm text-gray-800">
+    <div className="absolute top-full right-0 mt-2 bg-white rounded-[16px] shadow-xl z-50 border border-gray-200">
+      <ul className="flex flex-col px-[24px] text-sm text-gray-800 text-center w-[96px] h-[128px]">
         {filteredLanguages.map(({ code, label }, index) => (
           <li
             key={code}
@@ -28,7 +28,7 @@ export default function LanguageModal({ isOpen, onClose, onSelectLang, selectedL
               onSelectLang(code);
               onClose();
             }}
-            className={`cursor-pointer py-[24px] hover:bg-gray-100 ${index === 0 ? "border-b border-[#B4B4B4]" : ""}`}
+            className={`cursor-pointer py-[24px]  ${index === 0 ? "border-b border-[#B4B4B4]" : ""}`}
           >
             {label}
           </li>
