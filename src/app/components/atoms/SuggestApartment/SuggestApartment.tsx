@@ -4,10 +4,13 @@ import GrayBlueButton from "../GrayBlueButton/GrayBlueButton";
 import { ApartmentType } from "@/app/types/type";
 import ApartmentGrid from "../../molecules/ApartmentGrid/ApartmentGrid";
 import ApartmentSwiper from "../../molecules/ApartmentSwiper/ApartmentSwiper";
+import { fetchApartmentTypes } from "@/app/hooks/axios";
 
 const SuggestApartment: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
+  const [apartmentTypes, setApartmentTypes] = useState<ApartmentType[]>([]);
+  
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -19,36 +22,18 @@ const SuggestApartment: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const apartmentTypes: ApartmentType[] = [
-    {
-      id: 1,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 450,
-    },
-    {
-      id: 2,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 45,
-    },
-    {
-      id: 3,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 50,
-    },
-    {
-      id: 4,
-      type: "Studio",
-      total_area: "40",
-      status: "Renovated",
-      availableFlats: 50,
-    },
-  ];
+useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchApartmentTypes();
+        setApartmentTypes(data);
+      } catch (error) {
+        console.error("Error fetching apartment types:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="w-full py-12 overflow-hidden">

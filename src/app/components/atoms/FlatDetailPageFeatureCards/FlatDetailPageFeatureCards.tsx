@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { FeatureCard } from '../FeatureCard/FeatureCard'
 import HighlightLine from "@/app/assets/HighLightLine.svg";

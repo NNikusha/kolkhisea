@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import FinishingApartment from '../../atoms/FinishingApartment/FinishingApartment';
 import SuggestApartment from '../../atoms/SuggestApartment/SuggestApartment';
@@ -8,9 +6,14 @@ import ApartmentInformation from '../../molecules/ApartmentInformation/Apartment
 import ApartmentInformationCard from '../../atoms/ApartmentInformationCard/ApartmentInformationCard';
 import BackGroundLine6 from '@/app/assets/BackGroundLine6';
 import BackGroundLine7 from '@/app/assets/BackGroundLine7';
+import { Locale } from '@/app/types/type';
+import { fetchProjectAbout } from '@/app/hooks/axios';
+import { getLocale } from 'next-intl/server';
 
 
-const FlatDetailPage = () => {
+const FlatDetailPage = async() => {
+  const locale = await getLocale() as Locale;
+  const data = await fetchProjectAbout();
   return (
     <div className='w-full bg-[#F3F6FB]'>
         <ApartmentInformation/>
@@ -24,7 +27,16 @@ const FlatDetailPage = () => {
                   <ApartmentInformationCard/>
                 </div>
                 <FlatDetailPageFeatureCards/>
-                <FinishingApartment gradientColor="#FFFFFF" />
+                <FinishingApartment
+                  gradientColor="#FFFFFF" 
+                  finishingText={data?.finishing_secondary}
+                  livingRoomImage={data?.living_room_image}
+                  kitchenImage={data?.kitchen_image}
+                  diningAreaImage={data?.dining_area_image}
+                  bedroomImage={data?.bedroom_image}
+                  bathroomImage={data?.bathroom_image}
+                  lang={locale}
+              />  
                 <SuggestApartment/>
             </div>
         </div>
