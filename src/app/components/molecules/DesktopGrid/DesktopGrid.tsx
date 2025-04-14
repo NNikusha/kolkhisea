@@ -11,10 +11,14 @@ const DesktopGrid: React.FC<DesktopGridProps> = ({
   apartmentTypes,
   isMobile,
 }) => {
+  const favoriteApartments = apartmentTypes.filter(
+    (apartment) => apartment.is_favourite === 1
+  );
+
   return (
     <div className={`${isMobile ? "hidden" : "block"}`}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 sm:max-w-2xl lg:max-w-4xl 2xl:max-w-none mx-auto">
-        {apartmentTypes.map((apartment, index) => (
+        {favoriteApartments.map((apartment, index) => (
           <div
             key={apartment.id}
             className={index === 3 ? "hidden 2xl:block" : ""}
@@ -23,7 +27,8 @@ const DesktopGrid: React.FC<DesktopGridProps> = ({
               type={apartment.type}
               total_area={apartment.total_area}
               status={apartment.status}
-              availableFlats={apartment.availableFlats}
+              availableFlats={apartment.available_flats}
+              image={apartment.image}
             />
           </div>
         ))}

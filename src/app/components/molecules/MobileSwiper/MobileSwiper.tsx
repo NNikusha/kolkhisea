@@ -19,6 +19,10 @@ const MobileSwiper: React.FC<MobileSwiperProps> = ({
   isMobile,
   setSwiper,
 }) => {
+  const favoriteApartments = apartmentTypes.filter(
+    (apartment) => apartment.is_favourite === 1
+  );
+
   return (
     <div className={`${isMobile ? "block" : "hidden"}`}>
       <Swiper
@@ -32,13 +36,14 @@ const MobileSwiper: React.FC<MobileSwiperProps> = ({
         onSwiper={setSwiper}
         className="apartment-swiper mt-6"
       >
-        {apartmentTypes.map((apartment) => (
+        {favoriteApartments.map((apartment) => (
           <SwiperSlide key={apartment.id} className="py-2">
             <ApartmentCard
               type={apartment.type}
               total_area={apartment.total_area}
               status={apartment.status}
-              availableFlats={apartment.availableFlats}
+              availableFlats={apartment.available_flats}
+              image={apartment.image}
             />
           </SwiperSlide>
         ))}
