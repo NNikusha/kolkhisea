@@ -20,7 +20,6 @@ const ApartmentTypes = () => {
     const FetchData = async () => {
       try {
         const data = await fetchApartmentTypes();
-        console.log(data);
         setApartments(data);
       } catch (error) {
         console.error("Failed to load apartments:", error);
