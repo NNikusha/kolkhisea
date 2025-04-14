@@ -99,7 +99,7 @@ export default function HeaderNav() {
           <nav className="hidden xl:flex">
             <ul className="flex gap-12 leading-[100%] tracking-[0%] font-medium cursor-pointer">
               {NavBar.map((item) => (
-                <NavList key={item.id} text={item.text} link={item.link} />
+                <NavList key={item.id} text={item.text} link={item.link} isFlatDetailPage={isFlatDetailPage}/>
               ))}
             </ul>
           </nav>
