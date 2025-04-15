@@ -11,7 +11,7 @@ export default function ChangeLangHeader({ lang, fillColor, isLangModalOpen }: C
   return (
     <div className="flex gap-[15px] cursor-pointer">
       <h3>{lang}</h3>
-      <div className={`flex items-center justify-center ${isLangModalOpen ? "rotate-180" : ""}`}>
+      <div className={`flex items-center justify-center duration-700 ${isLangModalOpen ? "rotate-180" : ""}`}>
         <ArrowDownSmall fill={fillColor} />
       </div>
     </div>
