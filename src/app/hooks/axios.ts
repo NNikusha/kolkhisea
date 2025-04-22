@@ -28,6 +28,8 @@ export const fetchFlats = async (filters = {}) => {
   try {
     const query = new URLSearchParams(filters as Record<string, string>).toString();
     const url = query ? `${requests.fetchFlats}?${query}` : requests.fetchFlats;
+    
+    console.log("Fetching flats from URL:", url);
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
@@ -36,13 +38,12 @@ export const fetchFlats = async (filters = {}) => {
   }
 };
 
-
 export const fetchFlatDetails = async (id: number | string) => {
   try {
     const response = await axios.get(requests.fetchFlatDetails(id));
     return response.data;
   } catch (error) {
-    console.error("Error fetching flat details:", error);
+    console.error(`Error fetching details for flat ${id}:`, error);
     throw error;
   }
 };

@@ -1,13 +1,16 @@
 import React from 'react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 interface ApartmentCardProps {
   apartmentNumber: string;
   size: string;
-  block: string;
+  type?: string; 
+  block?: string; 
   status: string;
-  imageSrc: StaticImageData;
+  imageSrc: string; 
+  onClick?: () => void;
 }
+
 
 const ApartmentCard: React.FC<ApartmentCardProps> = ({
   apartmentNumber,
@@ -21,8 +24,10 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
       <div className="flex justify-center">
         <Image
           src={imageSrc}
+          width={500}
+          height={500}
           alt={`Apartment ${apartmentNumber}`}
-          className="w-full object-cover rounded-lg"
+          className="w-full object-cover rounded-lg h-[168px]"
         />
       </div>
       <div className="pt-4">
