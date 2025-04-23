@@ -9,7 +9,6 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
   status = "Unknown",
   availableFlats = 0,
   image = ApartmentImage,
-  
 }) => {
   const size = parseFloat(total_area) || 0;
   return (
@@ -28,9 +27,7 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
               src={image}
               alt={`${type} apartment`}
               fill
-              style={{ objectFit: "cover",
-                       borderRadius: "32px"
-               }}
+              style={{ objectFit: "cover", borderRadius: "32px" }}
             />
           </div>
         </div>

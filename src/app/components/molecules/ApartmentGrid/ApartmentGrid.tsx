@@ -8,11 +8,13 @@ import Link from "next/link";
 interface ApartmentGridProps {
   apartments: ApartmentType[];
   isTablet: boolean;
+  lang: string; // Pass the language prop
 }
 
 const ApartmentGrid: React.FC<ApartmentGridProps> = ({
   apartments,
   isTablet,
+  lang, // Get lang prop
 }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 sm:max-w-2xl lg:max-w-4xl 2xl:max-w-none mx-auto">
@@ -22,11 +24,11 @@ const ApartmentGrid: React.FC<ApartmentGridProps> = ({
           className={`${index >= (isTablet ? 2 : 3) ? "hidden" : "block"}`}
         >
           <ApartmentCard
-              type={apartment.type}
-              total_area={apartment.total_area}
-              status={apartment.status}
-              availableFlats={apartment.available_flats}
-              image={apartment.image}
+            type={apartment.type[lang]} // Access type based on the locale
+            total_area={apartment.total_area}
+            status={apartment.status[lang]} // Access status based on the locale
+            availableFlats={apartment.available_flats}
+            image={apartment.image}
           />
         </div>
       ))}

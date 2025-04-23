@@ -12,12 +12,14 @@ interface MobileSwiperProps {
   apartmentTypes: ApartmentType[];
   isMobile: boolean;
   setSwiper: (swiper: SwiperType) => void;
+  lang: string;
 }
 
 const MobileSwiper: React.FC<MobileSwiperProps> = ({
   apartmentTypes,
   isMobile,
   setSwiper,
+  lang,
 }) => {
   const favoriteApartments = apartmentTypes.filter(
     (apartment) => apartment.is_favourite === 1
@@ -39,9 +41,9 @@ const MobileSwiper: React.FC<MobileSwiperProps> = ({
         {favoriteApartments.map((apartment) => (
           <SwiperSlide key={apartment.id} className="py-2">
             <ApartmentCard
-              type={apartment.type}
+              type={apartment.type[lang]} // Access type based on the locale
               total_area={apartment.total_area}
-              status={apartment.status}
+              status={apartment.status[lang]} // Access status based on the locale
               availableFlats={apartment.available_flats}
               image={apartment.image}
             />

@@ -6,16 +6,17 @@ export interface LocalizedContent {
   ru?: string;
 }
 
+
 export interface ApartmentType {
-  id?: number;
-  type?: string;
-  total_area?: string;
-  status?: string;
-  available_flats?: number;
-  availableFlats: number;
-  is_favourite?: number;
-  image?: string;
+  id: number;
+  type: { [key: string]: string }; 
+  status: { [key: string]: string }; 
+  total_area: string;
+  available_flats: string;
+  is_favourite: number;
+  image: string;
 }
+
 
 export interface Task {
   id: string;
@@ -54,19 +55,29 @@ export interface ButtonProps {
 }
 
 export interface Apartment {
-  type?: string;
-  size?: number;
-  isRenovated?: boolean;
-  available_flats?: number;
-  total_area?: string;
-  status?: string;
-  image?: string;
+  id: number;
+  type: { [key: string]: string }; 
+  status: { [key: string]: string }; 
+  total_area: string;
+  available_flats: string;
+  is_favourite: number;
+  image: string;
 }
 
+export interface ApartmentType {
+  id: number;
+  type: { [key: string]: string }; 
+  status: { [key: string]: string }; 
+  total_area: string;
+  available_flats: string;
+  image: string;
+}
+
+// Define the props for ApartmentCardSection
 export interface ApartmentCardSectionProps {
-  apartments?: Apartment[];
+  apartments: Apartment[] | ApartmentType[]; // Allow both types
+  lang: string; 
 }
-
 export interface ApartmentTypeSectionProps {
   ResetFilters?: () => void;
   handleOpenModal?: () => void;
@@ -177,6 +188,6 @@ export interface ApartmentCardProps {
   type?: string;
   total_area?: string;
   status?: string;
-  availableFlats?: number;
+  availableFlats?: number | string ;
   image?: string;
 }

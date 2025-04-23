@@ -8,6 +8,7 @@ import ApartmentCardSection from "../../molecules/ApartmentCardSection/Apartment
 import ApartmentTypeBackground from "../../atoms/ApartmentTypeBackground/ApartmentTypeBackground";
 import { fetchApartmentTypes } from "@/app/hooks/axios";
 import { Apartment } from "@/app/types/type";
+import { useLocale } from "next-intl";  // Importing to get current locale    
 
 const ApartmentTypes = () => {
   const [apartments, setApartments] = useState<Apartment[]>([]);
@@ -15,6 +16,8 @@ const ApartmentTypes = () => {
   const [area, setArea] = useState<string>("30");
   const [delivery, setDelivery] = useState<string>("Any");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const locale = useLocale();  // Get the current locale (language)
 
   useEffect(() => {
     const FetchData = async () => {
@@ -100,7 +103,7 @@ const ApartmentTypes = () => {
           </div>
         </div>
       </DraggableModal>
-      <ApartmentCardSection apartments={apartments} />
+      <ApartmentCardSection apartments={apartments} lang={locale} />
     </div>
   );
 };

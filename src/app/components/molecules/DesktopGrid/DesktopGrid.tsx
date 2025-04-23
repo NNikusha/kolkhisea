@@ -5,11 +5,13 @@ import ApartmentCard from "../ApartmentCard/ApartmentCard";
 interface DesktopGridProps {
   apartmentTypes: ApartmentType[];
   isMobile: boolean;
+  lang: string; 
 }
 
 const DesktopGrid: React.FC<DesktopGridProps> = ({
   apartmentTypes,
   isMobile,
+  lang,
 }) => {
   const favoriteApartments = apartmentTypes.filter(
     (apartment) => apartment.is_favourite === 1
@@ -24,9 +26,9 @@ const DesktopGrid: React.FC<DesktopGridProps> = ({
             className={index === 3 ? "hidden 2xl:block" : ""}
           >
             <ApartmentCard
-              type={apartment.type}
+              type={apartment.type?.[lang]}
               total_area={apartment.total_area}
-              status={apartment.status}
+              status={apartment.status?.[lang]}
               availableFlats={apartment.available_flats}
               image={apartment.image}
             />
