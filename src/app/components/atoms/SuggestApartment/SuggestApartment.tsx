@@ -5,12 +5,14 @@ import { ApartmentType } from "@/app/types/type";
 import ApartmentGrid from "../../molecules/ApartmentGrid/ApartmentGrid";
 import ApartmentSwiper from "../../molecules/ApartmentSwiper/ApartmentSwiper";
 import { fetchApartmentTypes } from "@/app/hooks/axios";
+import { useLocale } from "next-intl"; 
 
 const SuggestApartment: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
   const [apartmentTypes, setApartmentTypes] = useState<ApartmentType[]>([]);
   
+  const lang = useLocale(); 
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -22,7 +24,7 @@ const SuggestApartment: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchApartmentTypes();
@@ -47,9 +49,9 @@ useEffect(() => {
         </div>
 
         {isMobile ? (
-          <ApartmentSwiper apartments={apartmentTypes} />
+          <ApartmentSwiper apartments={apartmentTypes} lang={lang} />
         ) : (
-          <ApartmentGrid apartments={apartmentTypes} isTablet={isTablet} />
+          <ApartmentGrid apartments={apartmentTypes} isTablet={isTablet} lang={lang} /> 
         )}
       </div>
     </section>

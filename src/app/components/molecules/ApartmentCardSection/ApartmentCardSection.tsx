@@ -4,6 +4,7 @@ import { ApartmentCardSectionProps } from "@/app/types/type";
 
 const ApartmentCardSection: React.FC<ApartmentCardSectionProps> = ({
   apartments = [],
+  lang,
 }) => {
   return (
     <section className="w-full bg-white rounded-t-[56px] py-[32px] lg:py-[45px] 2xl:py-[80px]">
@@ -12,10 +13,10 @@ const ApartmentCardSection: React.FC<ApartmentCardSectionProps> = ({
           {apartments.map((apartment, index) => (
             <div key={index} className="flex justify-center">
               <ApartmentCard
-                type={apartment.type}
+                type={apartment.type?.[lang] || "Unknown"} 
                 total_area={apartment.total_area}
-                status={apartment.status}
-                availableFlats={apartment.available_flats}
+                status={apartment.status?.[lang] || "Unknown"} 
+                availableFlats={parseInt(apartment.available_flats, 10)}
                 image={apartment.image}
               />
             </div>

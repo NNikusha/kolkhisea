@@ -6,11 +6,14 @@ import DesktopGrid from "../../molecules/DesktopGrid/DesktopGrid";
 import MobileSwiper from "../../molecules/MobileSwiper/MobileSwiper";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import { fetchApartmentTypes } from "@/app/hooks/axios";
+import { useLocale } from "next-intl";  // Importing to get current locale    
 
 const ApartmentTypesIntegrated: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [apartmentTypes, setApartmentTypes] = useState<ApartmentType[]>([]);
+
+  const locale = useLocale();  // Get the current locale (language)
 
   useEffect(() => {
     const checkIsMobile = (): void => {
@@ -41,15 +44,20 @@ const ApartmentTypesIntegrated: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full py-12  relative overflow-hidden">
+    <section className="w-full py-12 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-[108px] relative">
         <SectionHeader isMobile={isMobile} swiper={swiper} />
 
-        <DesktopGrid isMobile={isMobile} apartmentTypes={apartmentTypes} />
+        <DesktopGrid
+          isMobile={isMobile}
+          apartmentTypes={apartmentTypes}
+          lang={locale}  
+        />
         <MobileSwiper
           isMobile={isMobile}
           apartmentTypes={apartmentTypes}
           setSwiper={setSwiper}
+          lang={locale}
         />
       </div>
     </section>
