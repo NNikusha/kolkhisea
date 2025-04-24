@@ -8,6 +8,10 @@ import { ApartmentType } from "@/app/types/type";
 import ApartmentCard from "../ApartmentCard/ApartmentCard";
 import Button from "../../atoms/Button/Button";
 
+interface ExtendedApartmentType extends ApartmentType {
+  is_favourite?: number;
+}
+
 interface MobileSwiperProps {
   apartmentTypes: ApartmentType[];
   isMobile: boolean;
@@ -21,7 +25,7 @@ const MobileSwiper: React.FC<MobileSwiperProps> = ({
   setSwiper,
   lang,
 }) => {
-  const favoriteApartments = apartmentTypes.filter(
+  const favoriteApartments = (apartmentTypes as ExtendedApartmentType[]).filter(
     (apartment) => apartment.is_favourite === 1
   );
 
@@ -38,12 +42,12 @@ const MobileSwiper: React.FC<MobileSwiperProps> = ({
         onSwiper={setSwiper}
         className="apartment-swiper mt-6"
       >
-        {favoriteApartments.map((apartment) => (
-          <SwiperSlide key={apartment.id} className="py-2">
+        {favoriteApartments.map((apartment, index) => (
+          <SwiperSlide key={index} className="py-2">
             <ApartmentCard
-              type={apartment.type[lang]} // Access type based on the locale
-              total_area={apartment.total_area}
-              status={apartment.status[lang]} // Access status based on the locale
+              type={apartment.type?.[lang] || "Unknown"}
+              total_area={apartment.total_area?.toString()}
+              status={apartment.status?.[lang] || "Unknown"}
               availableFlats={apartment.available_flats}
               image={apartment.image}
             />

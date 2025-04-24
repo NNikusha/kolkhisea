@@ -13,9 +13,9 @@ const ApartmentCardSection: React.FC<ApartmentCardSectionProps> = ({
           {apartments.map((apartment, index) => (
             <div key={index} className="flex justify-center">
               <ApartmentCard
-                type={apartment.type?.[lang] || "Unknown"} 
-                total_area={apartment.total_area}
-                status={apartment.status?.[lang] || "Unknown"} 
+                type={apartment.type?.[lang] || "Unknown"}
+                total_area={apartment.total_area?.toString()}
+                status={apartment.status?.[lang] || "Unknown"}
                 availableFlats={parseInt(apartment.available_flats, 10)}
                 image={apartment.image}
               />

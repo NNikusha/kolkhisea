@@ -8,15 +8,16 @@ export interface LocalizedContent {
 
 
 export interface ApartmentType {
-  id: number;
-  type: { [key: string]: string }; 
-  status: { [key: string]: string }; 
-  total_area: string;
+  type?: {
+    [key: string]: string;
+  };
+  total_area: number;
+  status?: {
+    [key: string]: string;
+  };
   available_flats: string;
-  is_favourite: number;
   image: string;
 }
-
 
 export interface Task {
   id: string;
@@ -55,20 +56,13 @@ export interface ButtonProps {
 }
 
 export interface Apartment {
-  id: number;
-  type: { [key: string]: string }; 
-  status: { [key: string]: string }; 
-  total_area: string;
-  available_flats: string;
-  is_favourite: number;
-  image: string;
-}
-
-export interface ApartmentType {
-  id: number;
-  type: { [key: string]: string }; 
-  status: { [key: string]: string }; 
-  total_area: string;
+  type?: {
+    [key: string]: string;
+  };
+  total_area: string | undefined;
+  status?: {
+    [key: string]: string;
+  };
   available_flats: string;
   image: string;
 }
