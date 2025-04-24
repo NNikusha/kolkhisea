@@ -55,7 +55,7 @@ const CountrySelector = ({ countries, selectedCountry, onSelect }: Props) => {
       </button>
 
       <div
-        className={`absolute left-0 top-[40px] bg-white border border-[#E3E3E3] rounded-md shadow-md z-20 w-[190px] transition-all duration-300 ease-in-out transform origin-top
+        className={`absolute left-0 top-[35px] bg-white border border-[#E3E3E3] rounded-md shadow-md z-20 w-[190px] transition-all duration-300 ease-in-out transform origin-top
           ${isOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}
         `}
       >

@@ -18,7 +18,7 @@ type InputFieldProps = {
     className = '',
   }: InputFieldProps) => (
     <div className="pb-[24px]">
-      <label htmlFor={id} className="block font-normal text-[#1C1C1E] pb-[8px]">
+      <label htmlFor={id} className="block font-normal text-[#1C1C1E] pb-[8px] sm:text-[16px] text-[14px]">
         {label}
       </label>
       <div className="w-full border border-[#E3E3E3] rounded-[8px] px-4 py-3 focus-within:border-[#1C1C1E] transition-colors duration-200">
