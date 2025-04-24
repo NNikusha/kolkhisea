@@ -9,6 +9,7 @@ import BackGroundLine4 from '@/app/assets/BackGroundLine4';
 import { fetchMain } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
+import GetInTouchSection from '../../molecules/GetInTouchSection/GetInTouchSection';
 
 const MainPage = async () => {
   const locale = await getLocale() as Locale;
@@ -58,6 +59,9 @@ const MainPage = async () => {
             />
           </section>
         </div>
+        <section className="w-full pt-12 md:pt-16 lg:pt-24">
+          <GetInTouchSection />
+        </section>
 
         
       </div>
