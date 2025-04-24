@@ -1,5 +1,4 @@
 import React from 'react'
-import GetInTouchForm from '@/app/components/atoms/GetInTouchForm/GetInTouchForm'
 import Button from '@/app/components/atoms/Button/Button'
 import PopUpForm from '../PopUpForm/PopUpForm'
 
