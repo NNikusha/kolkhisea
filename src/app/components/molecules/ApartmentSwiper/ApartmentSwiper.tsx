@@ -11,7 +11,7 @@ import Link from "next/link";
 
 interface ApartmentSwiperProps {
   apartments: ApartmentType[];
-  lang: string; 
+  lang: string;
 }
 
 const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments, lang }) => {
@@ -102,12 +102,12 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments, lang }) =
         onSwiper={setSwiper}
         className="apartment-swiper"
       >
-        {apartments.slice(0, 4).map((apartment) => (
-          <SwiperSlide key={apartment.id} className="py-2">
+        {apartments.slice(0, 4).map((apartment, index) => (
+          <SwiperSlide key={index} className="py-2">
             <ApartmentCard
-              type={apartment.type[lang]} 
-              total_area={apartment.total_area}
-              status={apartment.status[lang]} 
+              type={apartment.type?.[lang] || "Unknown"}
+              total_area={apartment.total_area?.toString()}
+              status={apartment.status?.[lang] || "Unknown"}
               availableFlats={apartment.available_flats}
               image={apartment.image}
             />

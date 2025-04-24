@@ -1,6 +1,5 @@
 import requests from "./links";
-import axios from "axios"
-
+import axios from "axios";
 
 export const fetchBuildings = async () => {
   try {
@@ -12,7 +11,6 @@ export const fetchBuildings = async () => {
   }
 };
 
-
 export const fetchBuildingDetails = async (id: number | string) => {
   try {
     const response = await axios.get(requests.fetchBuildingDetails(id));
@@ -22,7 +20,6 @@ export const fetchBuildingDetails = async (id: number | string) => {
     throw error;
   }
 };
-
 
 export const fetchFlats = async (filters = {}) => {
   try {
@@ -48,6 +45,16 @@ export const fetchFlatDetails = async (id: number | string) => {
   }
 };
 
+export const fetchFlatById = async (id: number | string) => {
+  try {
+    console.log(`Fetching flat data for ID: ${id}`);
+    const response = await axios.get(requests.fetchFlatDetails(id));
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching flat with ID ${id}:`, error);
+    throw error;
+  }
+};
 
 export const fetchSectors = async () => {
   try {
@@ -59,7 +66,6 @@ export const fetchSectors = async () => {
   }
 };
 
-
 export const fetchSectorDetails = async (id: number | string) => {
   try {
     const response = await axios.get(requests.fetchSectorDetails(id));
@@ -69,7 +75,6 @@ export const fetchSectorDetails = async (id: number | string) => {
     throw error;
   }
 };
-
 
 export const fetchAboutUs = async () => {
   try {
@@ -81,7 +86,6 @@ export const fetchAboutUs = async () => {
   }
 };
 
-
 export const fetchMain = async () => {
   try {
     const response = await axios.get(requests.fetchMain);
@@ -91,7 +95,6 @@ export const fetchMain = async () => {
     throw error;
   }
 };
-
 
 export const fetchProjectAbout = async () => {
   try {
@@ -103,7 +106,6 @@ export const fetchProjectAbout = async () => {
   }
 };
 
-
 export const fetchFloorPlans = async () => {
   try {
     const response = await axios.get(requests.fetchFloorPlans);
@@ -113,7 +115,6 @@ export const fetchFloorPlans = async () => {
     throw error;
   }
 };
-
 
 export const fetchFloorPlanDetails = async (id: number | string) => {
   try {
@@ -125,7 +126,6 @@ export const fetchFloorPlanDetails = async (id: number | string) => {
   }
 };
 
-
 export const fetchApartmentTypes = async () => {
   try {
     const response = await axios.get(requests.fetchApartmentTypes);
@@ -135,7 +135,6 @@ export const fetchApartmentTypes = async () => {
     throw error;
   }
 };
-
 
 export const fetchApartmentTypeDetails = async (id: number | string) => {
   try {

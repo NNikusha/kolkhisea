@@ -99,7 +99,24 @@ const ApartmentChoose: React.FC = () => {
   }, [floor]);
 
   const handleFlatClick = (flatId: number) => {
-    router.push(`/apartment-details/${flatId}`);
+    console.log(`Navigating to flat ID: ${flatId}`); // Debug log
+    
+    try {
+      // Get locale from URL path
+      const pathname = window.location.pathname;
+      const localeMatch = pathname.match(/^\/([a-z]{2})\//);
+      const locale = localeMatch ? localeMatch[1] : 'ka';
+      
+      // Correct URL format as specified
+      const targetUrl = `/${locale}/flat-detail-page/${flatId}`;
+      console.log(`Navigating to: ${targetUrl}`); // Debug log
+      
+      router.push(targetUrl);
+    } catch (err) {
+      console.error("Navigation error:", err);
+      // Fallback direct navigation
+      window.location.href = `/ka/flat-detail-page/${flatId}`;
+    }
   };
   
   const transformedApartmentData: ApartmentCardProps[] = flats
@@ -161,15 +178,23 @@ const ApartmentChoose: React.FC = () => {
           ) : transformedApartmentData.length > 0 ? (
             <div className="flex flex-col gap-4">
               {transformedApartmentData.map((apartment, index) => (
-                <ApartmentCard
+                <div 
                   key={index}
-                  apartmentNumber={apartment.apartmentNumber}
-                  size={apartment.size}
-                  type={apartment.type}
-                  status={apartment.status}
-                  imageSrc={apartment.imageSrc}
-                  onClick={apartment.onClick}
-                />
+                  className="cursor-pointer hover:opacity-90 transition-opacity"
+                  onClick={() => {
+                    const flatId = flats.find(flat => flat.number.toString() === apartment.apartmentNumber)?.id;
+                    if (flatId) handleFlatClick(flatId);
+                  }}
+                >
+                  <ApartmentCard
+                    apartmentNumber={apartment.apartmentNumber}
+                    size={apartment.size}
+                    type={apartment.type}
+                    status={apartment.status}
+                    imageSrc={apartment.imageSrc}
+                    onClick={apartment.onClick}
+                  />
+                </div>
               ))}
             </div>
           ) : (

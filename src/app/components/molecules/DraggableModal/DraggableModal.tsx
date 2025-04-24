@@ -97,7 +97,7 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50">
+    <div className="fixed inset-0 z-[11]">
       <div 
         className="absolute inset-0 bg-black/50 transition-opacity duration-300"
         style={{ opacity: isClosing ? 0 : 1 }}
@@ -106,7 +106,7 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
       
       <div 
         ref={sheetRef}
-        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl transition-all duration-300 ease-out"
+        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl transition-all duration-300 ease-out z-[11]"
         style={{ 
           boxShadow: '0px -4px 25px rgba(0, 0, 0, 0.1)',
           transform: isClosing 
