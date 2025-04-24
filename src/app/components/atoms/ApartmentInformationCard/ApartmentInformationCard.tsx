@@ -11,7 +11,6 @@ import DownloadIcon from '@/app/assets/DownloadIcon.svg';
 
 const flatData = [
   { key: "title", value: "Flat 75 m2" },
-  { key: "block", value: "B" },
   { key: "status", value: "Renovated" },
   { key: "floor", value: 4 },
   { key: "apartment", value: 52 },
@@ -28,7 +27,6 @@ const ApartmentInformationCard = () => {
       <div className="flex justify-between items-center w-full pb-[32px] border-b border-[#D3D3D3] border-b-[1px]">
         <div>
           <h1 className="text-[32px]">{flatData.find((item) => item.key === "title")?.value}</h1>
-          <p className="text-[#7E7E7E]">Block: {flatData.find((item) => item.key === "block")?.value}</p>
         </div>
         <div className="p-[16px] bg-[#2852600D] rounded-[25px] text-[#285260]">
           {flatData.find((item) => item.key === "status")?.value}
