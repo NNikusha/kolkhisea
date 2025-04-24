@@ -40,7 +40,6 @@ const OverviewSection = ({ overviewText, overviewImage, lang = 'en' }: OverviewS
               alt="Apartment Overview"
               width={900}
               height={400}
-              layout="responsive"
               className="w-full object-cover rounded-3xl"
             />
           </div>
