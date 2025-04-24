@@ -9,6 +9,9 @@ import MobileChoose from "../../atoms/MobileChoose/MobileChoose";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LanguageModal from "../../atoms/LanguageModal/LanguageModa";
 import { useTranslations } from "next-intl";
+import Logo from "@/app/assets/Logo";
+import LogoDark from "@/app/assets/LogoDark";
+import Link from "next/link";
 
 const LANGUAGE_LABELS: Record<string, string> = {
   "EN": "ENG",
@@ -88,13 +91,13 @@ export default function HeaderNav() {
           }`}
       >
         <div className="flex items-center justify-between container px-[16px] lg:px-[108px] m-auto">
-          <div className="flex items-center gap-4">
-            <div
-              className={`w-10 h-10 rounded-full ${isFlatDetailPage ? "bg-black" : "bg-white"
-                }`}
-            ></div>
-            <h2 className="tracking-[1px]">LOGO</h2>
-          </div>
+          <Link href="/">
+            {isFlatDetailPage ? (
+              <LogoDark className="w-[120px] h-[32px] sm:w-[204px] sm:h-[40px]" />
+            ) : (
+              <Logo className="w-[120px] h-[32px] sm:w-[204px] sm:h-[40px]" />
+            )}
+          </Link>
 
           <nav className="hidden xl:flex">
             <ul className="flex gap-12 leading-[100%] tracking-[0%] font-medium cursor-pointer">

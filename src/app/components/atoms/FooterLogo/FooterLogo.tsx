@@ -1,11 +1,15 @@
 import React from 'react';
+import Logo from '@/app/assets/Logo'
+import Link from 'next/link';
+
 
 const FooterLogo = () => {
   return (
     <div className="flex items-center space-x-3 pt-[83px]">
-      <div className="w-10 h-10 rounded-full bg-white"></div>
-      <h2 className="tracking-[1px] text-white text-lg font-semibold">LOGO</h2>
-    </div>
+    <Link href="/">
+        <Logo className="w-[244px] h-[64px] sm:w-[204px] sm:h-[40px]" />
+    </Link>
+  </div>
   );
 };
 
