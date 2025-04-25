@@ -2,7 +2,7 @@ import React from "react";
 import FilterItem from "../FilterItem/FilterItem";
 import CleanFilterBtn from "../../atoms/CleanFilterBtn/CleanFilterBtn";
 import MobileResetFilterBtn from "../../atoms/MobileResetFilterBtn/MobileResetFilterBtn";
-import FilterDropdown from "../../atoms/FilterDropDown/FilterDropDown";
+// import FilterDropdown from "../../atoms/FilterDropDown/FilterDropDown";
 import { ApartmentTypeSectionProps } from "@/app/types/type";
 
 const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
@@ -12,8 +12,8 @@ const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
   setRoom,
   area,
   setArea,
-  delivery,
-  setDelivery,
+  // delivery,
+  // setDelivery,
 }) => {
   return (
     <section className="relative h-full w-full container mx-auto px-4 mt-20 md:px-2 lg:px-27 pt-2 md:pt-8 pb-8 md:pb-14">
@@ -30,10 +30,9 @@ const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
             <p className="text-[24px] md:text-[40px] lg:text-[48px] font-normal uppercase">
               Apartment types
             </p>
-            <CleanFilterBtn ResetFilters={ResetFilters} />
             <MobileResetFilterBtn onClick={handleOpenModal} />
           </div>
-          <div className="hidden md:flex justify-between">
+          <div className="hidden md:flex justify-between items-end">
             <div className="flex justify-between w-[65%] gap-2 xl:gap-4">
               <FilterItem
                 label="The number of rooms"
@@ -48,7 +47,8 @@ const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
                 onSelect={setArea}
               />
             </div>
-            <FilterDropdown
+            <CleanFilterBtn ResetFilters={ResetFilters} />
+            {/* <FilterDropdown
               title="Date of delivery"
               value={delivery}
               onChange={setDelivery}
@@ -57,7 +57,7 @@ const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
                 "2nd quarter 2026",
                 "3rd quarter 2026",
               ]}
-            />
+            /> */}
           </div>
         </div>
       </div>
