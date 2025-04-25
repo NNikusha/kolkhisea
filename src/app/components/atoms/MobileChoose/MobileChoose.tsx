@@ -83,7 +83,7 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
   };
 
   return (
-    <div className={`${isOpen && 'absolute'} top-0 left-0 w-full h-full flex items-center justify-center z-51`}>
+    <div className={`${isOpen && 'absolute'} top-0 left-0 w-full h-full flex items-center justify-center z-25`}>
       {showButton && (
         <div className="relative inline-flex flex xl:hidden">
           <button
