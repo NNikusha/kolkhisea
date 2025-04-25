@@ -85,7 +85,7 @@ export default function HeaderNav() {
       <div
         className={`w-full absolute z-[30] ${
           isFlatDetailPage
-            ? "h-[104px]  bg-white fixed top-0 left-0 rounded-b-[32px] text-[#1C1C1E] flex justify-between drop-shadow-md"
+            ? "h-[104px] bg-white fixed top-0 left-0 rounded-b-[32px] text-[#1C1C1E] flex justify-between drop-shadow-md"
             : "mt-4"
         }`}
       >

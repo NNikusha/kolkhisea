@@ -84,27 +84,29 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
 
   return (
     <>
-      {showButton && (
-        <div className="fixed inset-0 flex items-center justify-center xl:hidden z-50">
-          <button
-            className="relative w-[102px] h-[102px] rounded-full flex flex-col items-center justify-center cursor-pointer overflow-hidden group"
-            onClick={() => setLocalIsOpen(true)}
-          >
-            <div
-              className="absolute inset-0 bg-white/30 backdrop-blur-[4px] z-0"
-              style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
-            />
-            <div
-              className="absolute inset-0 rounded-full border border-dashed border-white/80 z-10"
-              style={{ borderWidth: '1px' }}
-            />
-            <div className="z-20 text-white text-center text-[14px]">
-              <div>Select</div>
-              <div>Flat</div>
-            </div>
-          </button>
-        </div>
-      )}
+    <div className='top-0 left-0 w-full h-full flex items-center justify-center'>
+        {showButton && (
+          <div className="relative flex inline-flex  xl:hidden z-50">
+            <button
+              className="relative w-[102px] h-[102px] rounded-full flex flex-col items-center justify-center cursor-pointer overflow-hidden group"
+              onClick={() => setLocalIsOpen(true)}
+            >
+              <div
+                className="absolute inset-0 bg-white/30 backdrop-blur-[4px] z-0"
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
+              />
+              <div
+                className="absolute inset-0 rounded-full border border-dashed border-white/80 z-10"
+                style={{ borderWidth: '1px' }}
+              />
+              <div className="z-20 text-white text-center text-[14px]">
+                <div>Select</div>
+                <div>Flat</div>
+              </div>
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* Fullscreen modal wrapper with z-index and pointer control */}
       {isOpen && (
