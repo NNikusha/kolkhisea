@@ -108,81 +108,77 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
         )}
       </div>
 
-      {/* Fullscreen modal wrapper with z-index and pointer control */}
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full z-[60] flex items-center justify-center pointer-events-auto">
-          {/* Modal Backdrop */}
           <div className="absolute inset-0 pointer-events-none" />
+            <div className="z-10 pointer-events-auto w-full">
+              <DraggableModal isOpen={isOpen} onClose={handleClose}>
+                <div className="p-6">
+                  <h2 className="text-2xl text-black font-semibold mb-6">
+                    SELECT THE FLOOR
+                  </h2>
 
-          {/* Modal Content */}
-          <div className="z-10 pointer-events-auto w-full">
-            <DraggableModal isOpen={isOpen} onClose={handleClose}>
-              <div className="p-6">
-                <h2 className="text-2xl text-black font-semibold mb-6">
-                  SELECT THE FLOOR
-                </h2>
-
-                {loading ? (
-                  <div className="flex justify-center items-center">
-                    <span>Loading...</span>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-4 gap-3 mb-6">
-                    {FLOORS.map((floor) => (
-                      <button
-                        key={floor}
-                        className={`w-[72px] h-[72px] rounded-2xl flex items-center justify-center text-xl ${
-                          selectedFloor === floor
-                            ? 'bg-[#CB684D] text-white'
-                            : 'bg-[#F3F6FB] text-[#1C1C1E]'
-                        }`}
-                        onClick={() => handleSelectFloor(floor)}
-                      >
-                        {floor}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                <div className="border-t border-gray-200 py-4 flex justify-between items-center">
-                  <div>
-                    {selectedFloor ? (
-                      <span className="text-xl text-black font-medium uppercase">
-                        {selectedFloor}TH FLOOR
-                      </span>
-                    ) : (
-                      <span className="text-gray-500 uppercase">NO FLOOR CHOSEN</span>
-                    )}
-                  </div>
-                  {selectedFloor && flatsAvailable[selectedFloor] && (
-                    <div className="text-green-500 font-medium">
-                      {flatsAvailable[selectedFloor]} flats are available
+                  {loading ? (
+                    <div className="flex justify-center items-center">
+                      <span>Loading...</span>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-4 gap-3 mb-6">
+                      {FLOORS.map((floor) => (
+                        <button
+                          key={floor}
+                          className={`w-[72px] h-[72px] rounded-2xl flex items-center justify-center text-xl ${
+                            selectedFloor === floor
+                              ? 'bg-[#CB684D] text-white'
+                              : 'bg-[#F3F6FB] text-[#1C1C1E]'
+                          }`}
+                          onClick={() => handleSelectFloor(floor)}
+                        >
+                          {floor}
+                        </button>
+                      ))}
                     </div>
                   )}
-                </div>
 
-                <div className="grid grid-cols-2 gap-4 mt-4">
-                  <button
-                    className={`h-[56px] rounded-lg font-medium ${
-                      selectedFloor
-                        ? 'bg-[#CB684D] text-white'
-                        : 'bg-[#F8EDE8] text-[#CB684D]'
-                    }`}
-                    onClick={handleSelect}
-                    disabled={!selectedFloor}
-                  >
-                    Select
-                  </button>
-                  <button
-                    className="h-[56px] rounded-lg bg-[#E8E8E8] text-[#1C1C1E] font-medium"
-                    onClick={handleClose}
-                  >
-                    Close
-                  </button>
+                  <div className="border-t border-gray-200 py-4 flex justify-between items-center">
+                    <div>
+                      {selectedFloor ? (
+                        <span className="text-xl text-black font-medium uppercase">
+                          {selectedFloor}TH FLOOR
+                        </span>
+                      ) : (
+                        <span className="text-gray-500 uppercase">NO FLOOR CHOSEN</span>
+                      )}
+                    </div>
+                    {selectedFloor && flatsAvailable[selectedFloor] && (
+                      <div className="text-green-500 font-medium">
+                        {flatsAvailable[selectedFloor]} flats are available
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 mt-4">
+                    <button
+                      className={`h-[56px] rounded-lg font-medium ${
+                        selectedFloor
+                          ? 'bg-[#CB684D] text-white'
+                          : 'bg-[#F8EDE8] text-[#CB684D]'
+                      }`}
+                      onClick={handleSelect}
+                      disabled={!selectedFloor}
+                    >
+                      Select
+                    </button>
+                    <button
+                      className="h-[56px] rounded-lg bg-[#E8E8E8] text-[#1C1C1E] font-medium"
+                      onClick={handleClose}
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </DraggableModal>
-          </div>
+              </DraggableModal>
+            </div>
         </div>
       )}
     </>

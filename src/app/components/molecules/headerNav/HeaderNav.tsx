@@ -81,7 +81,6 @@ export default function HeaderNav() {
 
   return (
     <>
-      {/* HEADER CONTAINER */}
       <div
         className={`w-full absolute z-[30] ${
           isFlatDetailPage
@@ -142,14 +141,12 @@ export default function HeaderNav() {
         </div>
       </div>
 
-      {/* BURGER MENU */}
       <BurgerMenu
         isOpen={isBurgerMenuOpen}
         handleCloseBurgerMenu={handleCloseBurgerMenu}
         navItems={NavBar}
       />
 
-      {/* MODALS */}
       {isMobile ? (
         <MobileChoose
           isOpen={isModalOpen}
