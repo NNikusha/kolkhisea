@@ -21,9 +21,9 @@ const LANGUAGE_LABELS: Record<string, string> = {
 
 export default function HeaderNav() {
   const t = useTranslations('Language');
-
   const pathname = usePathname();
   const router = useRouter();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
@@ -31,6 +31,7 @@ export default function HeaderNav() {
   const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">("EN");
 
   const isAboutProjectPage = pathname === "/about-project";
+  const isFlatDetailPage = /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
 
   const NavBar = [
     { id: "1", link: "/", text: t('MainPage') },
@@ -38,11 +39,6 @@ export default function HeaderNav() {
     { id: "3", link: "/about-us", text: t('AboutUs') },
     { id: "4", link: "/contact", text: t('Contacts') },
   ];
-  
-  const isFlatDetailPage = 
-    pathname.includes("/flat-detail-page") ||
-    pathname.includes("/apartment-types") ||
-    pathname.includes("/apartment-choose");
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -86,10 +82,11 @@ export default function HeaderNav() {
   return (
     <>
       <div
-        className={`w-full z-[100] ${isFlatDetailPage
-          ? "h-[104px] bg-white rounded-b-[32px] text-[#1C1C1E] flex items-center justify-between fixed top-0 left-0 z-50 drop-shadow-md"
-          : "absolute left-1/2 -translate-x-1/2 mt-4"
-          }`}
+        className={`w-full absolute z-[30] ${
+          isFlatDetailPage
+            ? "h-[104px] bg-white fixed top-0 left-0 rounded-b-[32px] text-[#1C1C1E] flex justify-between drop-shadow-md"
+            : "mt-4"
+        }`}
       >
         <div className="flex items-center justify-between container px-[16px] lg:px-[108px] m-auto">
           <Link href="/">
@@ -101,9 +98,9 @@ export default function HeaderNav() {
           </Link>
 
           <nav className="hidden xl:flex">
-            <ul className="flex gap-12 leading-[100%] tracking-[0%] font-medium cursor-pointer">
+            <ul className="flex gap-12 font-medium">
               {NavBar.map((item) => (
-                <NavList key={item.id} text={item.text} link={item.link} isFlatDetailPage={isFlatDetailPage}/>
+                <NavList key={item.id} text={item.text} link={item.link} isFlatDetailPage={isFlatDetailPage} />
               ))}
             </ul>
           </nav>
@@ -135,18 +132,9 @@ export default function HeaderNav() {
                 className="flex xl:hidden flex-col gap-[11px]"
                 onClick={handleOpenBurgerMenu}
               >
-                <div
-                  className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black " : "bg-white"
-                    }`}
-                ></div>
-                <div
-                  className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"
-                    }`}
-                ></div>
-                <div
-                  className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"
-                    }`}
-                ></div>
+                <div className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`} />
+                <div className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`} />
+                <div className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`} />
               </div>
             </div>
           </div>
