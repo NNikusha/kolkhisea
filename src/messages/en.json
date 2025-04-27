@@ -1,10 +1,19 @@
 {
-    "Language": {
-      "MainPage": "Main Page",
-      "AboutProject": "About Project",
-      "AboutUs": "About Us",
-      "Contacts": "Contacts",
-      "ChooseApartment": "choose apartment",
-      "SeeTheProject": "See The Project"
-    }
+  "Language": {
+    "MainPage": "Main Page",
+    "AboutProject": "About Project",
+    "AboutUs": "About Us",
+    "Contacts": "Contacts",
+    "ChooseApartment": "choose apartment",
+    "SeeTheProject": "See The Project",
+    "OVERVIEW": "Overview",
+    "InvestmentHighlights": "Key Investment Highlights",
+    "BuildingFuture": "Building the future with quality and precision",
+    "OurStory": "Our Story and gallery",
+    "ProjectOverview": "Project overview",
+    "ProjectCharacteristics": "Project characteristics",
+    "InteriorAesthetics": "Interior Aesthetics",
+    "BehindTheVision": "Behind the Vision: Our Team",
+    "WhyKobuleti": "Why Kobuleti?"
   }
+}

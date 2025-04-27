@@ -1,10 +1,19 @@
 {
-    "Language": {
-      "MainPage": "მთავარი",
-      "AboutProject": "პროექტის შესახებ",
-      "AboutUs": "ჩვენ შესახებ",
-      "Contacts": "კონტაქტები",
-      "ChooseApartment": "აირჩიეთ ბინა",
-      "SeeTheProject": "იხილეთ პროექტი"
-    }
+  "Language": {
+    "MainPage": "მთავარი",
+    "AboutProject": "პროექტის შესახებ",
+    "AboutUs": "ჩვენ შესახებ",
+    "Contacts": "კონტაქტები",
+    "ChooseApartment": "აირჩიეთ ბინა",
+    "SeeTheProject": "იხილეთ პროექტი",
+    "OVERVIEW": "შეფასება",
+    "InvestmentHighlights": "მთავარი საინვესტიციო ხაზი",
+    "BuildingFuture": "მომავლის აშენება ხარისხით და სიზუსტით",
+    "OurStory": "ჩვენი ისტორია და გალერეა",
+    "ProjectOverview": "პროექტის მიმოხილვა",
+    "ProjectCharacteristics": "პროექტის მახასიათებლები",
+    "InteriorAesthetics": "შიდა ესთეტიკა",
+    "BehindTheVision": "გვერდით ხედვა: ჩვენი გუნდი",
+    "WhyKobuleti": "რატომ ქობულეთი?"
   }
+}
