@@ -7,6 +7,7 @@ import Image from "next/image";
 import Button from "../../atoms/Button/Button";
 import OpacityButton from "../../atoms/opacityButton/OpacityButton";
 import { WhyUsSectionProps } from "@/app/types/type"; // Import the types
+import { useTranslations } from "next-intl";
 
 const MainApartment = "/assets/Main-Apartment.svg";
 const defaultImageText = ["quality craftsmanship", "innovative solutions"];
@@ -17,6 +18,9 @@ export default function WhyUsSection({
   imageText = [],
   lang = 'en'
 }: WhyUsSectionProps) {
+
+  const t = useTranslations('Language');
+
   return (
     <>
       <section>
@@ -28,9 +32,9 @@ export default function WhyUsSection({
 
         <div className="lg:hidden mt-4">
           <h2 className="text-[24px] text-center w-[80%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300">
-            Building the Future with{" "}
+            {t('BuildingTheFutureWith')}{" "}
             <span className="text-[#1C1C1E]">
-              Quality <br /> and Precision
+              {t('Quality')} <br /> {t('AndPrecision')}
             </span>
           </h2>
         </div>
@@ -39,9 +43,9 @@ export default function WhyUsSection({
           <div className="order-2 flex-1">
             <div className="hidden lg:flex">
               <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
-                Building the Future with{" "}
+                {t('BuildingTheFutureWith')}{" "}
                 <span className="text-[#1C1C1E]">
-                  Quality <br /> and Precision
+                  {t('Quality')} <br /> {t('AndPrecision')}
                 </span>
               </h2>
             </div>
