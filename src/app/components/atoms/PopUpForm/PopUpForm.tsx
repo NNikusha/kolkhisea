@@ -18,7 +18,7 @@ const PopUpForm = () => {
   return (
     <form className="pt-[40px] w-full">
       <InputField
-        label="Full name"
+        label="Your name"
         id="fullName"
         placeholder=""
         inputMode="text"

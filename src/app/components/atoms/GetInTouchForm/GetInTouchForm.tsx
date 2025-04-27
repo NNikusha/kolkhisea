@@ -16,9 +16,9 @@ const GetInTouchForm = () => {
   const [selectedCountry, setSelectedCountry] = useState<null | typeof countries[0]>(null)
 
   return (
-    <form className="pt-[40px] max-w-[425px]">
+    <form className="sm:pt-[40px] pt-[32px] sm:max-w-[425px] sm:text-[16px] text-[14px]">
       <InputField
-        label="Full name"
+        label="Your name"
         id="fullName"
         placeholder=""
         inputMode="text"
@@ -28,7 +28,7 @@ const GetInTouchForm = () => {
       />
 
       <div className="pb-[32px]">
-        <label htmlFor="telephone" className="block font-normal text-[#1C1C1E] pb-[8px]">
+        <label htmlFor="telephone" className="block sm:text-[16px] text-[14px] font-normal text-[#1C1C1E] pb-[8px]">
           Telephone number
         </label>
         <div className="flex items-center border border-[#E3E3E3] rounded-[8px] px-4 py-3 bg-white focus-within:border-[#1C1C1E]">
