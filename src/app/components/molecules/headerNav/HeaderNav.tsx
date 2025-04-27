@@ -31,7 +31,7 @@ export default function HeaderNav() {
   const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">("EN");
 
   const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage = /flat-detail-page|about-project|apartment-types|apartment-choose/.test(pathname);
+  const isFlatDetailPage = /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
 
   const NavBar = [
     { id: "1", link: "/", text: t('MainPage') },

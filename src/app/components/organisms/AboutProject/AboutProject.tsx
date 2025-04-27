@@ -16,7 +16,6 @@ import { fetchProjectAbout, fetchFlats } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
 
-
 interface MediaItem {
     id: number;
     model_type: string;
@@ -51,11 +50,10 @@ const AboutProject = async () => {
 
     const shapeData = flatsData[0]?.building?.shape_data || [];
 
-
     return (
         <div className="flex flex-col w-full">
             <section className="relative w-full">
-                <header className="w-full relative h-[90vh] md:h-[110vh]">
+                <header className="w-full relative h-[90vh] md:h-[110vh] xl:h-[calc(120vh-197px)]">
                     <section className="flex justify-between items-center relative w-full h-full">
                         <div className="absolute z-1 w-full h-full top-0 left-0 border-b-[50%]">
                             <div className="relative w-full hidden xl:block">
@@ -79,11 +77,10 @@ const AboutProject = async () => {
                                 </div>
                             </div>
 
-
                             {/* Mobile */}
                             <div className="relative w-full h-full block xl:hidden">
                                 <Image
-                                    className="min-h-[900px] h-[632px] rounded-b-[45px]"
+                                    className="min-h-[900px] h-[632px]"
                                     alt="MainApartment"
                                     src={buildingMainImage}
                                     fill
@@ -97,10 +94,8 @@ const AboutProject = async () => {
                     </section>
                 </header>
 
-                {/* ProjectInfoSection outside but pulled UP */}
                 <ProjectInfoSection building={data?.building} />
             </section>
-
 
             <div className="relative">
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
