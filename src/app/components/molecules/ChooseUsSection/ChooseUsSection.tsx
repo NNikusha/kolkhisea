@@ -21,6 +21,8 @@ const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
   whyChooseUsText,
   lang = 'en'
 }) => {
+  const t = useTranslations('Language');
+
   if (!whyChooseUs || whyChooseUs.length === 0) {
     return null;
   }
@@ -31,8 +33,6 @@ const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
     description: item.why_choose_us[lang] || '',
     imageSrc: item.image_url
   }));
-
-  const t = useTranslations('Language');
 
   return (
     <div className="w-full pt-[168px] pb-[72px] md:pb-[100px]">
