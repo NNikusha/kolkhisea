@@ -3,6 +3,7 @@
 import React from 'react';
 import FeatureCard from '../FeatureCard/FeatureCard';
 import { Locale, LocalizedContent } from '@/app/types/type';
+import { useTranslations } from 'next-intl';
 
 interface FeaturesSectionProps {
   features: Array<{
@@ -21,6 +22,8 @@ const FeaturesSection = ({ features, lang = 'en' }: FeaturesSectionProps) => {
     imageSrc: feature.image_url || '',
   }));
 
+  const t = useTranslations('Language');
+
   return (
     <div className="w-full xl:pt-[138px] h-fit mb-[72px] md:mb-[168px]">
       <div className="container mx-auto px-4 lg:px-[108px]">
@@ -31,14 +34,14 @@ const FeaturesSection = ({ features, lang = 'en' }: FeaturesSectionProps) => {
         </div>
 
         <div className="text-center md:text-start pt-4">
-          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#B4B4B4]">
-            MODERN CONVENIENCES
+          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#B4B4B4] uppercase">
+            {t('Project')}
           </h2>
         </div>
 
         <div className="text-center md:text-start">
-          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#1C1C1E]">
-            & PREMIUM FACILITIES
+          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#1C1C1E] uppercase">
+            {t('Characteristics')}
           </h2>
         </div>
 

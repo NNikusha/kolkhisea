@@ -2,6 +2,7 @@
 import React from 'react';
 import ChooseUsCard from '../ChooseUsCard/ChooseUsCard';
 import { Locale, LocalizedContent } from '@/app/types/type';
+import { useTranslations } from 'next-intl';
 
 interface ChooseUsItem {
   title: LocalizedContent;
@@ -31,14 +32,16 @@ const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
     imageSrc: item.image_url
   }));
 
+  const t = useTranslations('Language');
+
   return (
     <div className="w-full pt-[168px] pb-[72px] md:pb-[100px]">
       <div className="container mx-auto px-4 xl:px-[108px]">
         <div className="flex xl:flex-row flex-col pb-[72px] xl:text-start text-center">
           <h2 className="2xl:text-[48px] xl:text-[36px] text-[24px] font-normal leading-[130%] xl:pr-[106px] pr-[0px]">
-            <span className="text-[#ABABAB]">WHY</span>
-            <span className="text-[#1C1C1E]"> YOU SHOULD</span>
-            <span className="text-[#CB684D]"> CHOOSE US?</span>
+            <span className="text-[#ABABAB] uppercase pr-4">{t('Why')}</span>
+            {/* <span className="text-[#1C1C1E]"> YOU SHOULD</span> */}
+            <span className="text-[#CB684D] uppercase">{t('Kobuleti')}?</span>
           </h2>
           
           {whyChooseUsText && whyChooseUsText[lang] ? (
