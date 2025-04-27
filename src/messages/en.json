@@ -1,19 +1,29 @@
 {
-  "Language": {
-    "MainPage": "Main Page",
-    "AboutProject": "About Project",
-    "AboutUs": "About Us",
-    "Contacts": "Contacts",
-    "ChooseApartment": "choose apartment",
-    "SeeTheProject": "See The Project",
-    "OVERVIEW": "Overview",
-    "InvestmentHighlights": "Key Investment Highlights",
-    "BuildingFuture": "Building the future with quality and precision",
-    "OurStory": "Our Story and gallery",
-    "ProjectOverview": "Project overview",
-    "ProjectCharacteristics": "Project characteristics",
-    "InteriorAesthetics": "Interior Aesthetics",
-    "BehindTheVision": "Behind the Vision: Our Team",
-    "WhyKobuleti": "Why Kobuleti?"
+    "Language": {
+      "MainPage": "Main Page",
+      "AboutProject": "About Project",
+      "AboutUs": "About Us",
+      "Contacts": "Contacts",
+      "ChooseApartment": "choose apartment",
+      "SeeTheProject": "See The Project",
+      "Key": "Key",
+      "Investment": "Investment",
+      "Highlights": "Highlights",
+      "BuildingTheFutureWith": "Building the future with",
+      "Quality": "Quality",
+      "AndPrecision": "and Precision",
+      "OurStory": "Our Story",
+      "AndGallery": "and gallery",
+      "ProjectOverview": "Project overview",
+      "Project": "Project",
+      "Characteristics": "characteristics",
+      "InteriorAesthetics": "Interior Aesthetics",
+      "BehindTheVision": "Behind the Vision",
+      "OurTeam": "Our Team",
+      "Why": "Why",
+      "Kobuleti": "Kobuleti",
+      "Our": "Our",
+      "Story": "Story"
+    }
   }
-}
+

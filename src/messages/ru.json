@@ -1,19 +1,29 @@
 {
-  "Language": {
-    "MainPage": "Главная",
-    "AboutProject": "О Проекте",
-    "AboutUs": "О Нас",
-    "Contacts": "Контакты",
-    "ChooseApartment": "выбрать квартиру",
-    "SeeTheProject": "Посмотреть проект",
-    "OVERVIEW": "русский",
-    "InvestmentHighlights": "Основные инвестиционные моменты",
-    "BuildingFuture": "Строим будущее с качеством и точностью",
-    "OurStory": "Наша история и галерея",
-    "ProjectOverview": "Обзор проекта",
-    "ProjectCharacteristics": "Характеристики проекта",
-    "InteriorAesthetics": "Интерьерная эстетика",
-    "BehindTheVision": "За видением: наша команда",
-    "WhyKobuleti": "Почему Кобулети?"
+    "Language": {
+      "MainPage": "Главная",
+      "AboutProject": "О Проекте",
+      "AboutUs": "О Нас",
+      "Contacts": "Контакты",
+      "ChooseApartment": "выбрать квартиру",
+      "SeeTheProject": "Посмотреть проект",
+      "Key": "ключевые",
+      "Investment": "инвестиционные",
+      "Highlights": "моменты",
+      "BuildingTheFutureWith": "Строим будущее",
+      "Quality": "с качеством",
+      "AndPrecision": "и точностью",
+      "OurStory": "Наша история",
+      "AndGallery": "и галерея",
+      "ProjectOverview": "Обзор проекта",
+      "Project": "Характеристики",
+      "Characteristics": "проекта",
+      "InteriorAesthetics": "Интерьерная эстетика",
+      "BehindTheVision": "За видением",
+      "OurTeam": "наша команда",
+      "Why": "Почему",
+      "Kobuleti": "Кобулети",
+      "Our": "Наша",
+      "Story": "история"
+    }
   }
-}
+

@@ -12,6 +12,7 @@ import 'swiper/css/effect-fade';
 import LeftArrow from '@/app/assets/LeftArrow';
 import RightArrow from '@/app/assets/RightArrow';
 import { Locale, LocalizedContent } from '@/app/types/type';
+import { useTranslations } from 'next-intl';
 
 interface FinishingApartmentProps {
   gradientColor?: string;
@@ -55,6 +56,8 @@ const FinishingApartment = ({
     bathroomImage
   ];
 
+  const t = useTranslations('Language');
+
   return (
     <div className="w-full">
       <div className="container mx-auto px-4 lg:px-[108px]">
@@ -65,11 +68,11 @@ const FinishingApartment = ({
             </h3>
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-[48px] font-medium text-[#1C1C1E] mb-6 md:hidden">
-            FINISHING <br />OF APARTMENTS
+            {t('InteriorAesthetics')}
           </h1>
 
           <h1 className="text-3xl md:text-4xl lg:text-[48px] font-medium text-[#1C1C1E] mb-6 hidden md:block">
-            FINISHING OF APARTMENTS
+            {t('InteriorAesthetics')}
           </h1>
           <p className="text-[#7E7E7E] text-sm md:text-base mb-6 hidden md:block">
             {finishingText && finishingText[lang]

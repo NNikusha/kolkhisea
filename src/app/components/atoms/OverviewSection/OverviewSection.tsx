@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import MainPhoto from "@/app/assets/aboutproject.svg";
 import { Locale } from '@/app/types/type';
+import { useTranslations } from 'next-intl';
 
 interface OverviewSectionProps {
   overviewText?: {
@@ -16,12 +17,15 @@ interface OverviewSectionProps {
 }
 
 const OverviewSection = ({ overviewText, overviewImage, lang = 'en' }: OverviewSectionProps) => {
+
+  const t = useTranslations('Language');
+
   return (
     <div className="w-full rounded-t-[30px] relative z-10 pt-[20px] pb-[72px] md:py-16 mt-[150px]">
       <div className="container mx-auto pt-[50px] md:pt-[52px] px-4 lg:px-[108px]">
         <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12 mb-12">
           <div className="text-center lg:w-1/4 mb-6 lg:mb-0">
-            <h2 className="text-[24px] md:text-[48px] text-[#1C1C1E]">OVERVIEW</h2>
+            <h2 className="text-[24px] md:text-[48px] text-[#1C1C1E] uppercase">{t('ProjectOverview')}</h2>
           </div>
           
           <div className="lg:w-3/4">

@@ -1,19 +1,29 @@
 {
-  "Language": {
-    "MainPage": "მთავარი",
-    "AboutProject": "პროექტის შესახებ",
-    "AboutUs": "ჩვენ შესახებ",
-    "Contacts": "კონტაქტები",
-    "ChooseApartment": "აირჩიეთ ბინა",
-    "SeeTheProject": "იხილეთ პროექტი",
-    "OVERVIEW": "შეფასება",
-    "InvestmentHighlights": "მთავარი საინვესტიციო ხაზი",
-    "BuildingFuture": "მომავლის აშენება ხარისხით და სიზუსტით",
-    "OurStory": "ჩვენი ისტორია და გალერეა",
-    "ProjectOverview": "პროექტის მიმოხილვა",
-    "ProjectCharacteristics": "პროექტის მახასიათებლები",
-    "InteriorAesthetics": "შიდა ესთეტიკა",
-    "BehindTheVision": "გვერდით ხედვა: ჩვენი გუნდი",
-    "WhyKobuleti": "რატომ ქობულეთი?"
+    "Language": {
+      "MainPage": "მთავარი",
+      "AboutProject": "პროექტის შესახებ",
+      "AboutUs": "ჩვენ შესახებ",
+      "Contacts": "კონტაქტები",
+      "ChooseApartment": "აირჩიეთ ბინა",
+      "SeeTheProject": "იხილეთ პროექტი",
+      "Key": "ძირითადი",
+      "Investment": "საინვესტიციო",
+      "Highlights": "მიმოხილვები",
+      "BuildingTheFutureWith": "ვაშენებთ მომავალს",
+      "Quality": "ხარისხითა",
+      "AndPrecision": "და სიზუსტით",
+      "OurStory": "ჩვენი ისტორია",
+      "AndGallery": "და გალერეა",
+      "ProjectOverview": "პროექტის მიმოხილვა",
+      "Project": "პროექტის",
+      "Characteristics": "მახასიათებლები",
+      "InteriorAesthetics": "ინტერიერის ესთეტიკა",
+      "BehindTheVision": "ხედვის უკან",
+      "OurTeam": "ჩვენი გუნდი",
+      "Why": "რატომ",
+      "Kobuleti": "ქობულეთი",
+      "Our": "ჩვენი",
+      "Story": "ისტორია"
+    }
   }
-}
+

@@ -5,6 +5,7 @@ import HighlightLine3 from "@/app/assets/HighLightLine2.svg";
 import { FeatureCard } from '../../atoms/FeatureCard/FeatureCard';
 import { SectionTitle } from '../../atoms/SectionTitle/SectionTitle';
 import { HighlightsCardProps, Insight } from '@/app/types/type';
+import { useTranslations } from 'next-intl';
 
 const highlightSvgs = [HighlightLine, HighlightLine2, HighlightLine3];
 const bgColors = ["bg-white", "bg-[#CB684D]", "bg-[#285260]"];
@@ -12,13 +13,16 @@ const borderColors = ["border-[#E3E3E3]", "border-white border-opacity-30", "bor
 const textColors = ["text-gray-800", "", ""];
 
 export const HighlightsCard: React.FC<HighlightsCardProps> = ({ insights = [], lang = 'en' }) => {
+
+  const t = useTranslations('Language');
+
   return (
     <div className="bg-[#F3F6FB] py-16 flex flex-col items-center justify-center rounded-[48px]">
       <div className="w-full">
         <SectionTitle 
-          mainText="COMPREHENSIVE"
-          highlightedText="INSIGHTS AND HIGHLIGHTS"
-          subtitle="A DETAILED EXAMINATION OF THE REAL ESTATE LANDSCAPE"
+          mainText={t('Key')}
+          highlightedText={t('Investment')}
+          subtitle={t('Highlights')}
         />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-12">
           {insights.slice(0, 3).map((item: Insight, index: number) => (
