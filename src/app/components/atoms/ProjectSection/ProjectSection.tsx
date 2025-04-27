@@ -46,14 +46,14 @@ const ProjectInfoSection: React.FC<ProjectInfoSectionProps> = ({ building }) => 
               {/* Right Side Info */}
               <div className="flex flex-col md:flex-row gap-[12px] md:gap-0 pt-[24px] md:pt-0 md:space-x-16">
                 <div className="flex flex-col">
-                  <span className="text-[#FFFFFF] text-[12px] md:text-base uppercase mb-1"></span>
+                  <span className="text-[#FFFFFF] text-[12px] md:text-base uppercase mb-1">LOCATION</span>
                   <span className="text-[#BFBFBF] text-[12px] md:text-base">
                     {building?.location?.[locale] || 'Kobuleti, Georgia'}
                   </span>
                 </div>
 
                 <div className="flex flex-col">
-                  <span className="text-[#FFFFFF] text-[12px] md:text-base uppercase mb-1">{t('OVERVIEW')}</span>
+                  <span className="text-[#FFFFFF] text-[12px] md:text-base uppercase mb-1">STATUS</span>
                   <span className="text-[#BFBFBF] text-[12px] md:text-base">
                     {building?.status || 'Under Construction'}
                   </span>

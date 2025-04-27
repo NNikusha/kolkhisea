@@ -97,7 +97,6 @@ const AboutProject = async () => {
                     </section>
                 </header>
 
-                {/* ProjectInfoSection outside but pulled UP */}
                 <ProjectInfoSection building={data?.building} />
             </section>
 
