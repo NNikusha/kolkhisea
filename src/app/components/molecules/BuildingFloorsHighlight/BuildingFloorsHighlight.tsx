@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface ShapeData {
   points: number[][];
@@ -8,31 +8,21 @@ interface ShapeData {
   building_id: number;
 }
 
+interface Flat {
+  floor: number;
+  status: {
+    en: string;
+  };
+}
+
 interface FloorHoverOverlayProps {
   shapeData: ShapeData[];
-  flatsData: any[]; // full fetched flats array
+  flatsData: Flat[];
 }
 
 const FloorHoverOverlay = ({ shapeData, flatsData }: FloorHoverOverlayProps) => {
   const [hoveredShape, setHoveredShape] = useState<ShapeData | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const [containerDimensions, setContainerDimensions] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    const updateDimensions = () => {
-      if (containerRef.current) {
-        setContainerDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight
-        });
-      }
-    };
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
 
   const getScaledPoints = (points: number[][]) => points.map(point => [point[0], point[1]]);
 

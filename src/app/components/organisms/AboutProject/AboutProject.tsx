@@ -15,7 +15,7 @@ import BackGroundLine8 from '@/app/assets/BackGroundLine8';
 import { fetchProjectAbout, fetchFlats } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
-import { useTranslations } from 'next-intl';
+
 
 interface MediaItem {
     id: number;
@@ -29,10 +29,10 @@ interface MediaItem {
     disk: string;
     conversions_disk: string;
     size: number;
-    manipulations: any[];
-    custom_properties: any[];
-    generated_conversions: any[];
-    responsive_images: any[];
+    manipulations: Array<{ key: string; value: string }>;
+    custom_properties: Array<{ property: string; value: string }>;
+    generated_conversions: Array<{ conversion: string; path: string }>;
+    responsive_images: Array<string>;
     order_column: number;
     created_at: string;
     updated_at: string;
