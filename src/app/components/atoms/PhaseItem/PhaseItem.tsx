@@ -26,16 +26,19 @@ const PhaseItem = ({ phase }: { phase: Phase }) => {
             ))}
           </ul>
         </div>
-        <div className="relative w-[315px] h-auto lg:w-[470px] lg:h-[307px] 2xl:w-[536px] 2xl:h-[256px] 2xl:pl-[5px] rounded-[16px]">
-          <Image 
-            src={imageSource} 
-            alt={phase.phase} 
-            className="rounded-[16px] mb-[32px] lg:mb-0 2xl:mb-10 object-cover w-full h-full"
-            width={536}
-            height={256}
-          />
-          <div className='inline-block lg:px-[24px] px-[16px] lg:py-[12px] py-[7px] bg-[#F4EDE666] bg-opacity-40 bg-blur-[10px] rounded-[200px] absolute top-[16px] left-[16px] 2xl:top-[24px] 2xl:left-[24px]'>
-            <p className='text-white text-[12px] lg:text-[16px]'>{phase.progress}</p>
+        <div className="relative w-[315px] lg:w-[470px] 2xl:w-[536px] rounded-[16px] overflow-hidden">
+          <div className="relative w-full h-auto aspect-[536/256]">
+            <Image 
+              src={imageSource} 
+              alt={phase.phase} 
+              className="object-cover w-full h-full"
+              width={536}
+              height={256}
+            />
+            <div className="absolute inset-0 bg-black/20 pointer-events-none rounded-[16px]"></div>
+          </div>
+          <div className="inline-block lg:px-[24px] px-[16px] lg:py-[12px] py-[7px] bg-[#F4EDE6]/40 backdrop-blur-[10px] rounded-[200px] absolute top-[16px] left-[16px] 2xl:top-[24px] 2xl:left-[24px] z-20">
+            <p className="text-white text-[12px] lg:text-[16px]">{phase.progress}</p>
           </div>
         </div>
       </div>
