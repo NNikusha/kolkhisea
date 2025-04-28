@@ -43,11 +43,27 @@ const GetInTouchForm = () => {
             name="telephone"
             inputMode="numeric"
             pattern="[0-9]*"
+            maxLength={selectedCountry?.name === 'Georgia' ? 12 : undefined}
             onInput={(e) => {
-              e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '')
+              const input = e.currentTarget;
+              let value = input.value.replace(/\D/g, '');
+            
+              if (selectedCountry?.name === 'Georgia') {
+                value = value.slice(0, 9);
+            
+                const parts = [];
+                if (value.length > 0) parts.push(value.slice(0, 3));
+                if (value.length > 3) parts.push(value.slice(3, 5));
+                if (value.length > 5) parts.push(value.slice(5, 7));
+                if (value.length > 7) parts.push(value.slice(7, 9));
+            
+                input.value = parts.join(' ');
+              } else {
+                input.value = value;
+              }
             }}
             className="flex-1 border-none outline-none pl-4 text-[#1C1C1E] placeholder-[#D3D3D3]"
-            placeholder="(000) 000 00 00"
+            placeholder={selectedCountry?.name === 'Georgia' ? '5xx xx xx xx' : '(000) 000 00 00'}
           />
         </div>
       </div>

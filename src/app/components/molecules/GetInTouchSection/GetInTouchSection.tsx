@@ -12,8 +12,8 @@ const GetInTouchSection = () => {
 
   return (
     <div className='bg-[#FFFFFF] w-full relative'>
-      <div className='container mx-auto flex 2xl:flex-row flex-col justify-between'>
-        <div className='px-[16px] lg:px-[108px]'>
+      <div className='container mx-auto flex sm:flex-row flex-col justify-between'>
+        <div className='px-[16px] lg:pl-[108px] xl:pl-[108px]'>
           <h1 className='sm:text-[48px] text-[24px] font-normal text-[#1C1C1E] pt-[50px]'>GET IN TOUCH</h1>
           <p className='text-[#3D3D3D] font-normal pt-4 sm:text-[16px] text-[14px]'>
             Do you want to receive daily deals on your phone?
@@ -28,7 +28,7 @@ const GetInTouchSection = () => {
           </div>
         </div>
 
-        <div className='flex px-[0px] lg:px-[108px]'>
+        <div className='flex px-[0px] lg:pr-[108px] flex justify-center items-center'>
           <div className='bg-[#285260] h-full 2xl:flex hidden w-[24px]'></div>
           <div className=''>
             <div className='bg-[#285260] h-[20px] 2xl:hidden w-full'></div>
