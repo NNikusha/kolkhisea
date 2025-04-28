@@ -35,7 +35,7 @@ const PhaseItem = ({ phase }: { phase: Phase }) => {
               width={536}
               height={256}
             />
-            <div className="absolute inset-0 bg-black/30 pointer-events-none rounded-[16px]"></div>
+            <div className="absolute inset-0 bg-black/20 pointer-events-none rounded-[16px]"></div>
           </div>
           <div className="inline-block lg:px-[24px] px-[16px] lg:py-[12px] py-[7px] bg-[#F4EDE6]/40 backdrop-blur-[10px] rounded-[200px] absolute top-[16px] left-[16px] 2xl:top-[24px] 2xl:left-[24px] z-20">
             <p className="text-white text-[12px] lg:text-[16px]">{phase.progress}</p>
