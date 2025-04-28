@@ -178,9 +178,6 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       <div className="flex justify-between items-center w-full pb-[32px] border-b border-[#D3D3D3] border-b-[1px]">
         <div>
           <h1 className="text-[32px]">Flat {flatData.total_area} m²</h1>
-          <p className="text-[#7E7E7E]">
-            {flatData.building?.name?.[locale as keyof typeof flatData.building.name] || flatData.building?.name?.en || ""}
-          </p>
         </div>
         <div className="p-[16px] bg-[#2852600D] rounded-[25px] text-[#285260]">
           {getCondition()}
