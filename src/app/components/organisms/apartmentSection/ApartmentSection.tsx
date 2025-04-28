@@ -33,8 +33,8 @@ export default function ApartmentSection({
       />
       <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
         <MainHeadLine
-          firstText="Crafting Excellence, One PR"
-          secondText="ject at a Time"
+          firstText={t('InspiredByThePastBuiltF')}
+          secondText={t('RtheFuture')}
         />
         {secondaryTitle && secondaryTitle[locale] && (
           <MainParagraph
@@ -44,7 +44,7 @@ export default function ApartmentSection({
         )}
         
         <OpacityButton
-          text={t('SeeTheProject')}
+          text={t('DiscoverKolkhiSea')}
           image={ArrowRight}
           href="/about-project"
         />

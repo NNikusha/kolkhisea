@@ -4,6 +4,7 @@ import GrayBlueButton from '../GrayBlueButton/GrayBlueButton';
 import Button from '../Button/Button';
 import LeftArrow from '@/app/assets/LeftArrow';
 import RightArrow from '@/app/assets/RightArrow';
+import { useTranslations } from 'next-intl';
 
 interface SectionHeaderProps {
     isMobile: boolean;
@@ -11,6 +12,9 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
+
+    const t = useTranslations('Language');
+
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
 
@@ -37,7 +41,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
     return (
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <div className='w-full'>
-                <GrayBlueButton text="Apartment Options" />
+                <GrayBlueButton text={t('Collection')} />
                 <h2 className="text-[32px] pb-[14px] md:pb-0 md:pt-[16px] font-bold text-[#1C1C1E]">APARTMENT TYPES</h2>
                 <div className="flex justify-between w-full items-center">
                     <div className="flex items-center space-x-8">
