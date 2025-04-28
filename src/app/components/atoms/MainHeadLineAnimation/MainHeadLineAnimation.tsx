@@ -10,6 +10,7 @@ const MainHeadLineAnimation = () => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 1700);
 
+    
     return () => clearInterval(interval);
   }, []);
 
