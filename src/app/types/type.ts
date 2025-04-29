@@ -6,7 +6,6 @@ export interface LocalizedContent {
   ru?: string;
 }
 
-
 export interface ApartmentType {
   type?: {
     [key: string]: string;
@@ -70,7 +69,7 @@ export interface Apartment {
 // Define the props for ApartmentCardSection
 export interface ApartmentCardSectionProps {
   apartments: Apartment[] | ApartmentType[]; // Allow both types
-  lang: string; 
+  lang: string;
 }
 export interface ApartmentTypeSectionProps {
   ResetFilters?: () => void;
@@ -182,6 +181,6 @@ export interface ApartmentCardProps {
   type?: string;
   total_area?: string;
   status?: string;
-  availableFlats?: number | string ;
+  availableFlats?: number | string;
   image?: string;
 }

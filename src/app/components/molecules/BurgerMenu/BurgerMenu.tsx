@@ -4,13 +4,16 @@ import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import CloseIcon from "../../../assets/CloseIcon.svg";
 import LanguageDropDown from "../../atoms/LanguageDropDown/LanguageDropDown";
-export interface NavItem {
+import Kolkhisea from "../../../assets/Kolkhisea.svg";
+import flowers from "../../../assets/Layer_1.svg";
+
+interface NavItem {
   id: string;
   text: string;
   link: string;
 }
 
-export interface BurgerMenuProps {
+interface BurgerMenuProps {
   isOpen?: boolean;
   handleCloseBurgerMenu?: () => void;
   navItems?: NavItem[];
@@ -21,19 +24,15 @@ const BurgerMenu = ({
   handleCloseBurgerMenu = () => {},
   navItems = [],
 }: BurgerMenuProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
-
-  const router = useRouter();
-  const pathname = usePathname();
 
   const handleNavigation = (link: string) => {
     router.push(link);
@@ -42,46 +41,61 @@ const BurgerMenu = ({
 
   return (
     <div
-      className={`fixed inset-0 z-50 transition-opacity duration-300 ${
-        isOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
+      className={`fixed inset-0 z-60 transition-opacity duration-300 ${
+        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
       <div
-        className={`absolute bottom-0 h-[100dvh] left-0 right-0 bg-white rounded-t-3xl transition-transform duration-300 ease-out ${
+        className={`absolute bottom-0 left-0 right-0 h-[100dvh] bg-[#1C1C1E] transition-transform duration-300 ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
-        style={{
-          boxShadow: "0px -4px 25px rgba(0, 0, 0, 0.1)",
-          paddingBottom: "env(safe-area-inset-bottom)",
-        }}
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <div className="w-full flex flex-col cursor-grab px-4 text-black">
-          <div className="flex flex-col py-5 gap-10">
-            <div className="w-full flex items-center justify-between">
-              <p className="font-normal text-[#7E7E7E]">Menu</p>
-              <button className="text-black" onClick={handleCloseBurgerMenu}>
-                <Image src={CloseIcon} alt="CloseIcon" width={24} height={24} />
+        <div className="flex flex-col px-4 pt-6 text-black">
+          <div className="flex flex-col gap-12">
+            <div className="flex items-center justify-between">
+              <Image src={Kolkhisea} alt="logo" />
+              <button onClick={handleCloseBurgerMenu}>
+                <Image src={CloseIcon} alt="close" width={24} height={24} />
               </button>
             </div>
-            <div className="flex flex-col text-[24px] gap-10">
-              {navItems.map((item) => (
-                <p
-                  key={item.id}
-                  className={`cursor-pointer ${
-                    pathname === item.link
-                      ? "font-extrabold"
-                      : "font-extralight"
-                  }`}
-                  onClick={() => handleNavigation(item.link)}
-                >
-                  {item.text}
-                </p>
-              ))}
+            <div className="flex flex-col gap-8">
+              <p className="font-bold text-[#7E7E7E] uppercase">Menu</p>
+              <div className="flex flex-col gap-6 text-[24px]">
+                {navItems.map((item, index) => {
+                  const isActive =
+                    (pathname.replace(/^\/[^\/]+/, "") || "/").replace(
+                      /\/$/,
+                      ""
+                    ) === item.link.replace(/\/$/, "");
+                  return (
+                    <div key={item.id} className="flex flex-col gap-6">
+                      <p
+                        className={`cursor-pointer ${
+                          isActive
+                            ? "font-extrabold text-white"
+                            : "font-extralight text-[#818181]"
+                        }`}
+                        onClick={() => handleNavigation(item.link)}
+                      >
+                        {item.text}
+                      </p>
+                      {index < navItems.length - 1 && (
+                        <div className="h-[1px] bg-[#7E7E7E]" />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              {/* Now we just use the updated LanguageDropDown component */}
+              <LanguageDropDown />
             </div>
-            <LanguageDropDown options={["Geo", "Rus"]} />
           </div>
+          <Image
+            className="absolute bottom-0 right-0"
+            src={flowers}
+            alt="flowers"
+          />
         </div>
       </div>
     </div>
