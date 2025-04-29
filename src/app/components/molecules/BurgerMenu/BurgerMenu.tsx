@@ -87,6 +87,7 @@ const BurgerMenu = ({
                   );
                 })}
               </div>
+              {/* Now we just use the updated LanguageDropDown component */}
               <LanguageDropDown />
             </div>
           </div>
