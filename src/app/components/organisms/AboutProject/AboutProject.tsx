@@ -55,9 +55,9 @@ const AboutProject = async  () => {
     return (
         <div className="flex flex-col w-full">
             <section className="relative w-full">
-                <header className="w-full relative h-[90vh] md:h-[110vh] xl:h-[calc(120vh-197px)]">
+                <header className="w-full relative h-[90vh] xl:h-[calc(120vh-197px)]">
                     <section className="flex justify-between items-center relative w-full h-full">
-                        <div className="absolute z-1 w-full h-full top-0 left-0 border-b-[50%]">
+                        <div className="absolute z-1 w-full h-full md:h-[1000px] xl:h-full top-0 left-0 border-b-[50%]">
                             <div className="relative w-full hidden xl:block">
                                 <div className="relative w-full mt-[400px]" style={{ margin: "0 auto" }}>
                                     <Image
@@ -77,6 +77,9 @@ const AboutProject = async  () => {
                                     />
                                     <FloorHoverOverlay shapeData={shapeData} flatsData={flatsData} />
                                 </div>
+                                <div className='absolute bottom-[-240px] w-full hidden xl:block'>
+                                    <ProjectInfoSection building={data?.building} />
+                                </div>
                             </div>
 
                             {/* Mobile */}
@@ -89,6 +92,9 @@ const AboutProject = async  () => {
                                     style={{ objectFit: "cover" }}
                                     priority
                                 />
+                                <div className='absolute top-[780px] md:top-[900px] w-full xl:hidden block'>
+                                    <ProjectInfoSection building={data?.building} />
+                                </div>
                             </div>
                         </div>
 
@@ -96,7 +102,7 @@ const AboutProject = async  () => {
                     </section>
                 </header>
 
-                <ProjectInfoSection building={data?.building} />
+
             </section>
 
             <div className="relative">
@@ -104,7 +110,7 @@ const AboutProject = async  () => {
                     <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none" />
                     <BackGroundLine7 className="absolute bottom-[5%] w-full h-auto max-w-none" />
                     <BackGroundLine5 className="absolute top-[30%] w-full h-auto max-w-none" />
-                    <BackGroundLine8 className="absolute top-[5%] w-full h-auto max-w-none" />
+                    <BackGroundLine8 className="absolute top-[15%] w-full h-auto max-w-none" />
                 </div>
 
                 <OverviewSection

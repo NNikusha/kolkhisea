@@ -21,7 +21,7 @@ const OverviewSection = ({ overviewText, overviewImage, lang = 'en' }: OverviewS
   const t = useTranslations('Language');
 
   return (
-    <div className="w-full rounded-t-[30px] relative z-10 pt-[20px] pb-[72px] md:py-16 mt-[150px]">
+    <div className="w-full rounded-t-[30px] relative z-10 pt-[600px] pb-[72px] md:py-16 mt-[calc(600px-90vh)] md:mt-[calc(1140px-90vh)] xl:mt-[calc(340px+(55vw-120vh))]">
       <div className="container mx-auto pt-[50px] md:pt-[52px] px-4 lg:px-[108px]">
         <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12 mb-12">
           <div className="text-center lg:w-1/4 mb-6 lg:mb-0">
