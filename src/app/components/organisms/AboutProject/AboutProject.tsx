@@ -15,7 +15,6 @@ import BackGroundLine8 from '@/app/assets/BackGroundLine8';
 import { fetchProjectAbout, fetchFlats } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
-import { useTranslations } from 'next-intl';
 
 interface MediaItem {
     id: number;
@@ -40,9 +39,8 @@ interface MediaItem {
     preview_url: string;
 }
 
-const AboutProject = async () => {
+const AboutProject = async  () => {
 
-    const t = useTranslations('Language');
 
     const locale = await getLocale() as Locale;
     const data = await fetchProjectAbout();
