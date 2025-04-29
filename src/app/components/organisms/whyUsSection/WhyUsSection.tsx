@@ -24,17 +24,17 @@ export default function WhyUsSection({
   return (
     <>
       <section>
-        <div className="w-[83px] h-[40px] lg:w-[99px] lg:h-[48px] m-auto xl:m-0 py-3 bg-[#285260]/5 rounded-4xl lg:m-0">
+        <div className="w-[83px] h-[40px] lg:w-[140px] lg:h-[48px] m-auto xl:m-0 py-3 bg-[#285260]/5 rounded-4xl lg:m-0">
           <h3 className="text-[var(--grayMixGreen)] text-center text-[12px] lg:text-[16px]">
-            Why Us?
+            {t('OurProject')}
           </h3>
         </div>
 
         <div className="lg:hidden mt-4">
           <h2 className="text-[24px] text-center w-[80%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300">
-            {t('BuildingTheFutureWith')}{" "}
+            {t('WhereCraftsmanship')}{" "}
             <span className="text-[#1C1C1E]">
-              {t('Quality')} <br /> {t('AndPrecision')}
+              {t('MeetsComfort')} <br />
             </span>
           </h2>
         </div>
@@ -43,15 +43,15 @@ export default function WhyUsSection({
           <div className="order-2 flex-1">
             <div className="hidden lg:flex">
               <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
-                {t('BuildingTheFutureWith')}{" "}
+                {t('WhereCraftsmanship')}{" "}
                 <span className="text-[#1C1C1E]">
-                  {t('Quality')} <br /> {t('AndPrecision')}
+                  {t('MeetsComfort')} <br /> 
                 </span>
               </h2>
             </div>
             <div className="mt-[32px] lg:mt-[30px]">
               <div>
-                <h3 className="text-[#7E7E7E]">What we offer:</h3>
+                <h3 className="text-[#7E7E7E]">{t('WhatWeOffer')}</h3>
               </div>
               <div className="mt-5 flex flex-col">
                 <div className="flex items-center gap-[30px] lg:gap-10">
@@ -98,10 +98,10 @@ export default function WhyUsSection({
                     </h2>
                   </div>
                 </div>
-                <div className="w-full mt-10 lg:w-[250px] lg:mt-4 w-full m-auto flex justify-center lg:mt-10 lg:m-0 xl:mt-[67px]">
+                <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full m-auto flex justify-center lg:mt-10 lg:m-0 xl:mt-[67px]">
                   <Button
                     className="gap-4 text-center flex justify-center w-full items-center"
-                    text="Learn more"
+                    text={t('ExploreKolkhisea')}
                     href="/about-us"
                   />
                 </div>

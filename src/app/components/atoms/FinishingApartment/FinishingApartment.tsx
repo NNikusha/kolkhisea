@@ -64,7 +64,7 @@ const FinishingApartment = ({
         <div className="max-w-[690px]">
           <div className="px-4 py-3 md:py-4 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
             <h3 className="text-[var(--grayMixGreen)] text-center">
-              Finishing
+              {t('Details')}
             </h3>
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-[48px] font-medium text-[#1C1C1E] mb-6 md:hidden">

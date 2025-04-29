@@ -39,7 +39,9 @@ interface MediaItem {
     preview_url: string;
 }
 
-const AboutProject = async () => {
+const AboutProject = async  () => {
+
+
     const locale = await getLocale() as Locale;
     const data = await fetchProjectAbout();
     const flatsData = await fetchFlats();

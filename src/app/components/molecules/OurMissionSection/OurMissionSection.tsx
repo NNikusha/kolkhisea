@@ -34,7 +34,7 @@ const OurMissionSection: React.FC<OurMissionSectionProps> = ({
           )}
           
           <div className="flex flex-col items-start pr-[100px] w-full lg:w-auto">
-            <GrayBlueButton text="Our Mission" />
+            <GrayBlueButton text={t('OurVision')} />
             <h2 className="md:text-[48px] text-[24px] pt-4 font-normal leading-[130%]">
               <span className="text-[#1C1C1E] pr-[10px] uppercase">{t('Our')}</span>
               <span className="text-[#B4B4B4] pr-[10px] uppercase">{t('Story')}</span>

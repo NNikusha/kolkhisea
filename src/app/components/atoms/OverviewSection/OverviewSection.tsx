@@ -25,7 +25,7 @@ const OverviewSection = ({ overviewText, overviewImage, lang = 'en' }: OverviewS
       <div className="container mx-auto pt-[50px] md:pt-[52px] px-4 lg:px-[108px]">
         <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12 mb-12">
           <div className="text-center lg:w-1/4 mb-6 lg:mb-0">
-            <h2 className="text-[24px] md:text-[48px] text-[#1C1C1E] uppercase">{t('ProjectOverview')}</h2>
+            <h2 className="text-[24px] md:text-[48px] text-[#1C1C1E] uppercase text-start">{t('ProjectOverview')}</h2>
           </div>
           
           <div className="lg:w-3/4">

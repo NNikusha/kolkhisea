@@ -1,12 +1,16 @@
 import React from 'react';
 import Button from '../Button/Button';
 import { DescriptionProps } from '@/app/types/type';
+import { useTranslations } from 'next-intl';
 
 
 const Description: React.FC<DescriptionProps> = ({ 
   title,
   lang = 'en'
 }) => {
+
+  const t = useTranslations('Language');
+
   const defaultDescription = "Experience the perfect blend of elegance and comfort with our premium seaside apartment hotel. Designed for those who seek breathtaking views and modern living, this 10-story masterpiece offers unparalleled oceanfront luxury.";
 
   return (
@@ -16,7 +20,7 @@ const Description: React.FC<DescriptionProps> = ({
       </p>
       <div className="hidden md:flex justify-start">
         <Button 
-          text="See the project"
+          text={t('SeeTheGallery')}
           href="/about-project"
         />
       </div>
