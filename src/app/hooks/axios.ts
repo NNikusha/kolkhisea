@@ -106,9 +106,14 @@ export const fetchProjectAbout = async () => {
   }
 };
 
-export const fetchFloorPlans = async () => {
+export const fetchFloorPlans = async (floor?: number) => {
   try {
-    const response = await axios.get(requests.fetchFloorPlans);
+    let url = requests.fetchFloorPlans;
+  
+    if (floor !== undefined) {
+      url = `${url}?floor=${floor}`;
+    }
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error("Error fetching floor plans:", error);
