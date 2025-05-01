@@ -5,6 +5,7 @@ import FlowersImage from '@/app/assets/FlowersImage.png'
 import GetInTouchForm from '../../atoms/GetInTouchForm/GetInTouchForm'
 import Button from '../../atoms/Button/Button'
 import { saveContact } from '@/app/hooks/axios'
+import GetInTouchSuccess from '../GetInTouchSuccess/GetInTouchSuccess'
 
 const GetInTouchSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -95,6 +96,7 @@ const GetInTouchSection = () => {
           </div>
         </div>
       </div>
+      {isSuccess && <GetInTouchSuccess onClose={() => setIsSuccess(false)} />}
     </div>
   )
 }
