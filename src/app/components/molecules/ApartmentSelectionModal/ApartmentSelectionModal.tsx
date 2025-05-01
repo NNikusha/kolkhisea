@@ -248,17 +248,17 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({ isOpen, onClo
                                         <>
                                             <div className="relative">
                                             {currentPlan?.image && (
-  <Image
-    src={currentPlan.image}
-    width={872}
-    height={500}
-    alt={`Floor ${currentPlan.floor} Plan`}
-    className="fill-black"
-    onLoad={handleImageLoad}
-    style={{ display: 'block' }}
-    unoptimized={currentPlan.image.startsWith('data:')}
-  />
-)}
+                                            <Image
+                                                src={currentPlan.image}
+                                                width={872}
+                                                height={500}
+                                                alt={`Floor ${currentPlan.floor} Plan`}
+                                                className="fill-black"
+                                                onLoad={handleImageLoad}
+                                                style={{ display: 'block' }}
+                                                unoptimized={currentPlan.image.startsWith('data:')}
+                                            />
+                                            )}
                                                 
                                                 {imageLoaded && currentPlan.shape_data && currentPlan.shape_data.length > 0 && (
                                                     <svg
