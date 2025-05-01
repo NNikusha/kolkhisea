@@ -9,7 +9,6 @@ import gallery6 from "../../../assets/gallery6.svg";
 import gallery7 from "../../../assets/gallery7.svg";
 import gallery8 from "../../../assets/gallery8.svg";
 import gallery9 from "../../../assets/gallery9.svg";
-import Kolkhisea from "../../../assets/KolkhiseGallery.svg";
 import KolkhiseaGallery from "@/app/assets/KolkhiseaGallery";
 
 const Gallery = () => {
@@ -22,7 +21,6 @@ const Gallery = () => {
             <div className="bg-white/10 backdrop-blur-lg py-3 px-4 md:p-4 text-[12px] sm:text-[14px] md:text-[16px] rounded-full">
               Gallery
             </div>
-            {/* <Image src={Kolkhisea} alt="Kolkhisea" /> */}
             <KolkhiseaGallery className="w-[144px] h-[19px] md:w-[296px] md:h-[48px]" />
             <p className="text-[12px] sm:text-[14px] md:text-[16px]">
               IT IS NOT ONLY ABOUT BUILDING
