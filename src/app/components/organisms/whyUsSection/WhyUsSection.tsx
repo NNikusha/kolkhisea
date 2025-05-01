@@ -25,14 +25,20 @@ export default function WhyUsSection({
   return (
     <>
       <section>
-        <div className="flex mt-6 lg:mt-5 md:gap-10 2xl:gap-0 flex-col xl:flex-row">
-          <div className="order-2 flex-1">
-            <div className="hidden lg:flex">
+      <div className="block lg:hidden">
               <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
                 {t('OUR')}{" "}<br />
                 <span className="text-[#1C1C1E]">
                   {t('PROJECT')}  
                 </span>
+              </h2>
+            </div>
+        <div className="flex mt-6 lg:mt-5 md:gap-10 2xl:gap-0 flex-col xl:flex-row">
+          <div className="order-2 flex-1">
+            <div className="hidden lg:flex">
+              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
+                <p>{t('OUR')}</p>
+                <p className="text-[#1C1C1E]">{t('PROJECT')}</p>
               </h2>
             </div>
             <div className="mt-[32px] lg:mt-[30px]">
@@ -48,7 +54,7 @@ export default function WhyUsSection({
                       className="w-[32px] h-[32px] lg:min-w-[50px] min-w-[28px] min-h-[31px] lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] w-[50%] sm:w-[100%] lg:text-[16px] ">
-                      Restaurant & Bar
+                      {t('Restaurant&Bar')}
                     </h2>
                   </div>
                   <div className="flex items-center gap-3 w-[100%] sm:w-[260px]">
@@ -58,19 +64,19 @@ export default function WhyUsSection({
                       className="w-[32px] h-[32px] lg:min-w-[50px] min-w-[28px] min-h-[31px] lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] w-[110%] sm:w-[100%] lg:text-[16px]">
-                      Concierge & Reception
+                      {t('Concierge&Reception')}
                     </h2>
                   </div>
                 </div>
                 <div className="flex flex flex-col items-start sm:flex-row sm:items-center gap-[30px] mt-[25px] lg:mt-8 lg:gap-10">
-                  <div className="flex items-center gap-3 w-[142px] sm:w-[237px]">
+                  <div className="flex items-center gap-3 w-[100%] sm:w-[237px]">
                     <Image
                       alt="Security"
                       src={Security}
                       className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] lg:text-[16px]">
-                      24/7 Security
+                      {t('24/7Security')}
                     </h2>
                   </div>
                   <div className="flex items-center gap-3 w-[100%] sm:w-[237px]">
@@ -80,18 +86,18 @@ export default function WhyUsSection({
                       className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
-                      Heating and Cooling
+                      {t('HeatingAndCooling')}
                     </h2>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 mt-6 lg:mt-5 w-[100%] sm:w-[237px]">
+                <div className="flex items-center gap-3 mt-6 lg:mt-5 w-[100%]">
                     <Image
                       alt="Optional Rental Support"
                       src={Support}
                       className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
                     />
                     <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
-                      Optional Rental Support
+                    {t('OptionalRentalSupport')}
                     </h2>
                   </div>
                 <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full m-auto flex justify-center lg:mt-10 lg:m-0 xl:mt-[67px]">
