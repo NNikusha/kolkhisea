@@ -21,6 +21,9 @@ const requests = {
   
   fetchApartmentTypes: `${baseUrl}/apartment-types`,
   fetchApartmentTypeDetails: (id: number | string) => `${baseUrl}/apartment-types/${id}`,
+
+  saveContact: `${baseUrl}/save-contact`,
+
 };
 
 export default requests;

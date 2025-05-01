@@ -150,3 +150,13 @@ export const fetchApartmentTypeDetails = async (id: number | string) => {
     throw error;
   }
 };
+
+export const saveContact = async (contactData: { name: string; phone_number: string }) => {
+  try {
+    const response = await axios.post('/api/save-contact', contactData);
+    return response.data;
+  } catch (error) {
+    console.error("Error saving contact information:", error);
+    throw error;
+  }
+};

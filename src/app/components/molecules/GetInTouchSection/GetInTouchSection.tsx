@@ -1,14 +1,56 @@
-'use client'
+"use client"
 import React, { useState } from 'react'
 import Image from 'next/image'
 import FlowersImage from '@/app/assets/FlowersImage.png'
 import GetInTouchForm from '../../atoms/GetInTouchForm/GetInTouchForm'
 import Button from '../../atoms/Button/Button'
-import PopupModal from '@/app/components/atoms/PopupModal/PopupModal'
-import ModalContent from '@/app/components/atoms/ModalContent/ModalContent'
+import { saveContact } from '@/app/hooks/axios'
 
 const GetInTouchSection = () => {
-  const [isPopupOpen, setPopupOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [name, setName] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+  const handleSendRequest = async () => {
+    if (!name.trim()) {
+      alert('Please enter your name')
+      return
+    }
+
+    if (!phoneNumber.trim()) {
+      alert('Please enter a valid phone number')
+      return
+    }
+
+    const rawNumber = phoneNumber.replace(/\D/g, '');
+    if (rawNumber.length < 7) {
+      alert('Please enter a valid phone number with at least 7 digits')
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const formattedPhoneNumber = `+${phoneNumber}`
+
+      await saveContact({
+        name: name,
+        phone_number: formattedPhoneNumber
+      })
+
+      setIsSuccess(true)
+      setName('')
+      setPhoneNumber('')
+      setTimeout(() => {
+        setIsSubmitting(false)
+      }, 500)
+    } catch (error) {
+      console.error('Error sending contact request:', error)
+      alert('Failed to send your request. Please try again later.')
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className='bg-[#FFFFFF] w-full relative'>
@@ -18,16 +60,28 @@ const GetInTouchSection = () => {
           <p className='text-[#3D3D3D] font-normal pt-4 sm:text-[16px] text-[14px]'>
             Do you want to receive daily deals on your phone?
           </p>
-          <GetInTouchForm />
+          <GetInTouchForm 
+            nameValue={name}
+            onNameChange={setName}
+            phoneValue={phoneNumber}
+            onPhoneChange={setPhoneNumber}
+          />
           <div className='xl:pb-[64px] pb-[32px]'>
-            <Button 
-              text='Send a request'
-              className="gap-[10px] lg:text-[16px] text-[14px] sm:w-[203px] w-full sm:justify-start justify-center"
-              onClick={() => setPopupOpen(true)} 
-            />
+            {isSubmitting ? (
+              <div className="flex justify-center items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
+              </div>
+            ) : (
+              <Button
+                text={isSuccess ? 'Sent!' : 'Send a request'}
+                disabled={isSubmitting}
+                className="gap-[10px] lg:text-[16px] text-[14px] sm:w-[203px] w-full sm:justify-start justify-center"
+                onClick={handleSendRequest}
+              />
+            )}
           </div>
         </div>
-
+        
         <div className='flex px-[0px] lg:pr-[108px] flex justify-center items-center'>
           <div className='bg-[#285260] h-full 2xl:flex hidden w-[24px]'></div>
           <div className=''>
@@ -41,10 +95,6 @@ const GetInTouchSection = () => {
           </div>
         </div>
       </div>
-
-      <PopupModal isOpen={isPopupOpen} onClose={() => setPopupOpen(false)}>
-        <ModalContent />
-      </PopupModal>
     </div>
   )
 }
