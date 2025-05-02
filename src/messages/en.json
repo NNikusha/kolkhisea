@@ -46,7 +46,20 @@
       "OurVision": "Our Vision",
       "TheJourney": "The Journey",
       "ThroughTime": "Through Time",
-      "Language":"Lnaguage"
+      "Language": "Language",
+      "Title": "GET IN TOUCH",
+      "Description": "Do you want to receive daily deals on your phone?",
+      "ButtonText": "Send a request",
+      "SuccessTitle": "Thank you for request!",
+      "SuccessMessage": "Our team will check your request and get back to you soon!",
+      "NameError": "Please enter your name",
+      "PhoneError": "Please enter a valid phone number",
+      "ShortPhoneError": "Please enter a valid phone number with at least 7 digits",
+      "RequestError": "Failed to send your request. Please try again later.",
+      "NameLabel": "Your name",
+      "NamePlaceholder": "Enter your name",
+      "PhoneLabel": "Telephone number",
+      "PhonePlaceholder": "Enter your phone number" 
     }
   }
 
