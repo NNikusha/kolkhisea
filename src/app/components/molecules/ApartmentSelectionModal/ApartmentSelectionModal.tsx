@@ -232,7 +232,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
         className="absolute top-[5vh] rounded-t-[56px] left-0 right-0 bottom-0 bg-white transition-all duration-700"
         style={{
             transform: isJumping
-              ? "translateY(-40px)"
+              ? "translateY(0px)"
               : isClosing
               ? "translateY(100%)"
               : "translateY(0)",
@@ -279,124 +279,8 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                             {hoveredApartment.flat.lang_status.en}
                             </h1>
                         </div>
-                        
-                        <div className='flex w-full justify-between items-center'>
-                            <div className='flex items-center gap-[30px] border border-[#E7E7E7] rounded-[32px] py-[60px] px-[24px] w-[35%]'>
-                                {hoveredApartment ? (
-                                    <div className='text-[#1C1C1E] leading-[150%] font-normal'>
-                                        <h3 className="text-lg font-medium">Apartment {hoveredApartment.flat.number}</h3>
-                                        <p>Total area: {hoveredApartment.flat.total_area} m²</p>
-                                        <p>Price: ${hoveredApartment.flat.price_total}</p>
-                                        <p>Status: {hoveredApartment.flat.lang_status.en}</p>
-                                    </div>
-                                ) : (
-                                    <div className='text-[#6A6A6A] leading-[150%] font-normal'>
-                                        Select an apartment from the plan on the right
-                                    </div>
-                                )}
-                                {!hoveredApartment && <ArrowRightApartment />}
-                            </div>
-                            
-                            <div className="flex w-full justify-between items-center pt-[50px]">
-                                <div className='flex flex-col items-center justify-center relative'>
-                                    {loading ? (
-                                        <div className="text-center">Loading floor plan...</div>
-                                    ) : error ? (
-                                        <div className="text-red-500">{error}</div>
-                                    ) : currentPlan ? (
-                                        <>
-                                            <div className="relative">
-                                            {currentPlan?.image && (
-                                            <Image
-                                                src={currentPlan.image}
-                                                width={872}
-                                                height={500}
-                                                alt={`Floor ${currentPlan.floor} Plan`}
-                                                className="fill-black"
-                                                onLoad={handleImageLoad}
-                                                style={{ display: 'block' }}
-                                                unoptimized={currentPlan.image.startsWith('data:')}
-                                            />
-                                            )}
-                                                
-                                                {imageLoaded && currentPlan.shape_data && currentPlan.shape_data.length > 0 && (
-                                                    <svg
-                                                        ref={svgRef}
-                                                        className="absolute top-0 left-0"
-                                                        width="100%"
-                                                        height="100%"
-                                                        viewBox="0 0 100 100"
-                                                        preserveAspectRatio="none"
-                                                        style={{ position: 'absolute', top: 0, left: 0 }}
-                                                    >
-                                                        {currentPlan.shape_data.map((shape) => {
-                                                            const center = calculatePolygonCenter(shape.points);
-                                                            const isAvailable = isApartmentAvailable(shape);
-                                                            const bgColor = isAvailable ? '#CB684D' : '#5B5B5B';
-                                                            const isHovered = hoveredApartment?.shapeNumber === shape.shapeNumber;
-                                                            
-                                                            return (
-                                                                <g 
-                                                                    key={shape.shapeNumber}
-                                                                    onMouseEnter={() => handleMouseEnter(shape)}
-                                                                    onMouseLeave={handleMouseLeave}
-                                                                    onClick={() => handleApartmentClick(shape)}
-                                                                    style={{ cursor: 'pointer' }}
-                                                                >
-                                                                    <polygon
-                                                                        points={createPolygonPoints(shape.points)}
-                                                                        className={`${
-                                                                            isHovered
-                                                                            ? 'fill-[#FFFFFF66]'
-                                                                            : 'fill-transparent hover:fill-[#FFFFFF66]'
-                                                                        }`}
-                                                                        stroke="none"
-                                                                    />
-                                                                    
-                                                                    <g transform={`translate(${center.x - 3.5}, ${center.y - 3.5})`}>
-                                                                        <rect
-                                                                            width="7"
-                                                                            height="7"
-                                                                            rx="0.5"
-                                                                            fill={bgColor}
-                                                                        />
-                                                                        <text
-                                                                            x="3.5"
-                                                                            y="3.5"
-                                                                            fill="white"
-                                                                            fontSize="2.5"
-                                                                            fontWeight="bold"
-                                                                            textAnchor="middle"
-                                                                            dominantBaseline="middle"
-                                                                        >
-                                                                            {shape.flat.number}
-                                                                        </text>
-                                                                    </g>
-                                                                </g>
-                                                            );
-                                                        })}
-                                                    </svg>
-                                                )}
-                                            </div>
-                                            
-                                            <div className="flex justify-center items-center gap-[8px] mt-4">
-                                                <SelectApartmentSeaLogo />
-                                                <h3 className="font-normal text-[#1C1C1E]">Sea</h3>
-                                            </div>
-                                        </>
-                                    ) : (
-                                        <div className="text-center">No floor plan available for floor {currentFloor}</div>
-                                    )}
-                                </div>
-                            </div>
-                            
-                            <div className='flex-1 flex justify-end'>
-                                <VerticalPagination 
-                                    onFloorChange={handleFloorChange}
-                                    initialFloor={currentFloor}
-                                    key={`pagination-${currentFloor}`}
-                                />
-                            </div>
+                        <div className="min-w-[20px]">
+                            <ArrowRightApartment />
                         </div>
                         </div>
                     ) : (
@@ -478,42 +362,25 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
 
                               return (
                                 <div
-                                  key={`badge-${shape.shapeNumber}`}
-                                  className={`absolute flex items-center justify-center ${bgColor} text-white text-[12px] font-normal rounded-[8px] transition-all duration-900`}
-                                  style={{
+                                key={`badge-${shape.shapeNumber}`}
+                                className={`absolute flex items-center justify-center ${bgColor} text-white font-normal rounded-[8px] transition-all duration-500`}
+                                style={{
                                     left: `calc(${center.x}% - 0px)`,
                                     top: `calc(${center.y}% - -10px)`,
                                     transform: "translate(-50%, -50%)",
-                                    width:
-                                      hoveredApartment?.shapeNumber ===
-                                      shape.shapeNumber
-                                        ? "24px"
-                                        : "auto",
-                                    height:
-                                      hoveredApartment?.shapeNumber ===
-                                      shape.shapeNumber
-                                        ? "24px"
-                                        : "auto",
-                                    padding:
-                                      hoveredApartment?.shapeNumber ===
-                                      shape.shapeNumber
-                                        ? "0"
-                                        : "14px 12px",
-                                    fontSize:
-                                      hoveredApartment?.shapeNumber ===
-                                      shape.shapeNumber
-                                        ? "0"
-                                        : "12px",
+                                    width: hoveredApartment?.shapeNumber === shape.shapeNumber ? "24px" : "40px",
+                                    height: hoveredApartment?.shapeNumber === shape.shapeNumber ? "24px" : "40px",
+                                    padding: hoveredApartment?.shapeNumber === shape.shapeNumber ? "0" : "10px",
+                                    fontSize: hoveredApartment?.shapeNumber === shape.shapeNumber ? "0" : "12px",
                                     cursor: "pointer",
-                                  }}
-                                  onMouseEnter={() => handleMouseEnter(shape)}
-                                  onMouseLeave={handleMouseLeave}
-                                  onClick={() => handleApartmentClick(shape)}
+                                    lineHeight: "1",
+                                    textAlign: "center"
+                                }}
+                                onMouseEnter={() => handleMouseEnter(shape)}
+                                onMouseLeave={handleMouseLeave}
+                                onClick={() => handleApartmentClick(shape)}
                                 >
-                                  {hoveredApartment?.shapeNumber ===
-                                  shape.shapeNumber
-                                    ? ""
-                                    : shape.flat.number}
+                                {hoveredApartment?.shapeNumber === shape.shapeNumber ? "" : shape.flat.number}
                                 </div>
                               );
                             })}
