@@ -23,6 +23,7 @@ const MainPage = async () => {
           cloudText={data?.cloud_text}
           cloudTextSecondary={data?.cloud_text_secondary}
           lang={locale}
+          mainImg={data?.main_img} // Pass the main image from the fetched data
         />
       </section>
       <div className="relative">
@@ -32,7 +33,7 @@ const MainPage = async () => {
           <BackGroundLine2 className="absolute lg:top-[35%] top-[47%] w-full h-auto max-w-none" />
           <BackGroundLine4 className="absolute xl:top-[5%] lg:top-[20%] top-[35%] w-full h-auto max-w-none" />
         </div>
-
+        
         <div className="container px-[16px] lg:px-[108px] mx-auto">
           <section className="w-full py-12 md:py-16 lg:py-24">
             <HighlightsCard
@@ -40,7 +41,7 @@ const MainPage = async () => {
               lang={locale}
             />
           </section>
-
+          
           <section className="w-full py-12 md:py-16 lg:py-24">
             <WhyUsSection
               title={data?.why_us_title_secondary}
@@ -49,7 +50,7 @@ const MainPage = async () => {
               lang={locale}
             />
           </section>
-
+          
           <section className="w-full py-12 md:py-16 lg:py-24">
             <LuxuryCard
               title={data?.our_project_title_secondary}
@@ -62,8 +63,7 @@ const MainPage = async () => {
         <section className="w-full pt-12 md:pt-16 lg:pt-24">
           <GetInTouchSection />
         </section>
-
-        
+              
       </div>
     </div>
   );

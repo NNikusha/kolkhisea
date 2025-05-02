@@ -104,6 +104,8 @@ export interface ApartmentSectionProps {
   cloudText?: LocalizedContent;
   cloudTextSecondary?: LocalizedContent;
   lang?: Locale;
+  mainImg?: string; 
+
 }
 
 export interface ModalInfoProps {
