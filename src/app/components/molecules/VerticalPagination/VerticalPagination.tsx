@@ -71,13 +71,12 @@ const VerticalPagination: React.FC<VerticalPaginationProps> = ({
 
   return (
     <div className="flex flex-col items-center gap-[24px]">
-      {/* Up arrow */}
       <button 
         className={`w-[56px] h-[56px] flex items-center justify-center rounded-[8px] ${
-          canGoUp ? 'bg-[#F8F8F8] cursor-pointer' : 'bg-[#F8F8F8] opacity-50 cursor-not-allowed'
+          canGoDown ? 'bg-[#F8F8F8] cursor-pointer' : 'bg-[#F8F8F8] opacity-50 cursor-not-allowed'
         }`}
-        onClick={handleUpClick}
-        disabled={!canGoUp}
+        onClick={handleDownClick}
+        disabled={!canGoDown}
       >
        <ArrowUpApartment />
 
@@ -89,9 +88,10 @@ const VerticalPagination: React.FC<VerticalPaginationProps> = ({
             key={floor}
             className={`w-[56px] h-[56px] flex items-center justify-center rounded-[8px] ${
               selectedFloor === floor
-                ? 'bg-[#CB684D] text-white'
+                ? 'bg-[#CB684D] text-white shadow-lg'
                 : 'bg-[#F7F7F7] text-[#1C1C1E]'
             }`}
+            style={selectedFloor === floor ? { boxShadow: '0 4px 8px rgba(252, 177, 157, 0.302)' } : {}}
             onClick={() => handleFloorClick(floor)}
           >
             {floor}
@@ -99,13 +99,12 @@ const VerticalPagination: React.FC<VerticalPaginationProps> = ({
         ))}
       </div>
       
-      {/* Down arrow */}
       <button 
         className={`w-[56px] h-[56px] flex items-center justify-center rounded-[8px] ${
-          canGoDown ? 'bg-[#F8F8F8] cursor-pointer' : 'bg-[#F8F8F8] opacity-50 cursor-not-allowed'
+          canGoUp ? 'bg-[#F8F8F8] cursor-pointer' : 'bg-[#F8F8F8] opacity-50 cursor-not-allowed'
         }`}
-        onClick={handleDownClick}
-        disabled={!canGoDown}
+        onClick={handleUpClick}
+        disabled={!canGoUp}
       >
        <ArrowDownApartment />
 
