@@ -184,3 +184,10 @@ export interface ApartmentCardProps {
   availableFlats?: number | string;
   image?: string;
 }
+
+export interface GalleryItem {
+  id: number;
+  url: string;
+  title?: string;
+  description?: string;
+}

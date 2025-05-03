@@ -23,9 +23,11 @@ export const fetchBuildingDetails = async (id: number | string) => {
 
 export const fetchFlats = async (filters = {}) => {
   try {
-    const query = new URLSearchParams(filters as Record<string, string>).toString();
+    const query = new URLSearchParams(
+      filters as Record<string, string>
+    ).toString();
     const url = query ? `${requests.fetchFlats}?${query}` : requests.fetchFlats;
-    
+
     console.log("Fetching flats from URL:", url);
     const response = await axios.get(url);
     return response.data;
@@ -109,7 +111,7 @@ export const fetchProjectAbout = async () => {
 export const fetchFloorPlans = async (floor?: number) => {
   try {
     let url = requests.fetchFloorPlans;
-  
+
     if (floor !== undefined) {
       url = `${url}?floor=${floor}`;
     }
@@ -151,12 +153,25 @@ export const fetchApartmentTypeDetails = async (id: number | string) => {
   }
 };
 
-export const saveContact = async (contactData: { name: string; phone_number: string }) => {
+export const saveContact = async (contactData: {
+  name: string;
+  phone_number: string;
+}) => {
   try {
-    const response = await axios.post('/api/save-contact', contactData);
+    const response = await axios.post("/api/save-contact", contactData);
     return response.data;
   } catch (error) {
     console.error("Error saving contact information:", error);
+    throw error;
+  }
+};
+
+export const fetchGallery = async () => {
+  try {
+    const response = await axios.get(requests.fetchGallery);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching Gallery", error);
     throw error;
   }
 };
