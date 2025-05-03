@@ -169,16 +169,19 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
   const JUMP_DURATION = 500;
   const SETTLE_DELAY = 200;
 
-    useEffect(() => {
+  useEffect(() => {
     if (isOpen && !isRendered) {
       setIsRendered(true);
       setIsAnimating(true);
   
-      setIsJumping(true);
-  
+      // ADD THIS DELAY to allow rendering before animating
       setTimeout(() => {
-        setIsJumping(false);
-      }, JUMP_DURATION + SETTLE_DELAY);
+        setIsJumping(true);
+  
+        setTimeout(() => {
+          setIsJumping(false);
+        }, JUMP_DURATION + SETTLE_DELAY);
+      }, 50); // <- 50ms lets DOM render before animating
     } else if (!isOpen) {
       setIsRendered(false);
       setIsAnimating(false);
@@ -256,7 +259,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
             </div>
 
             <div className="flex w-full justify-between items-center">
-            <AnimatedHeight className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[35%]" trigger={hoveredApartment}>
+            <AnimatedHeight className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[35%]" trigger={`${hoveredApartment?.shapeNumber}-${currentFloor}-${imageLoaded}`}>
                 <div className="w-full">
                     {hoveredApartment ? (
                     isApartmentAvailable(hoveredApartment) ? (

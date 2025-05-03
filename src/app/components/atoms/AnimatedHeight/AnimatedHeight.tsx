@@ -6,6 +6,7 @@ interface AnimatedHeightProps {
   duration?: number;
   className?: string;
   trigger?: unknown;
+  maxRetries?: number;
 }
 
 const AnimatedHeight: React.FC<AnimatedHeightProps> = ({
@@ -13,52 +14,66 @@ const AnimatedHeight: React.FC<AnimatedHeightProps> = ({
   duration = 500,
   className = "",
   trigger,
+  maxRetries = 5,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const animateHeight = useCallback(() => {
-    const container = containerRef.current;
-    const content = contentRef.current;
-    if (!container || !content) return;
+  const animateHeight = useCallback(
+    (retryCount = 0) => {
+      const container = containerRef.current;
+      const content = contentRef.current;
+      if (!container || !content) return;
 
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
-    const startHeight = container.offsetHeight;
+      const startHeight = container.offsetHeight;
 
-    requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        const endHeight = content.offsetHeight;
+        requestAnimationFrame(() => {
+          const endHeight = content.offsetHeight;
 
-        if (startHeight === endHeight) return;
+          if (endHeight === 0 && retryCount < maxRetries) {
+            animateHeight(retryCount + 1);
+            return;
+          }
 
-        setIsAnimating(true);
-        container.style.transition = "none";
-        container.style.height = `${startHeight}px`;
-        void container.offsetHeight;
+          if (startHeight === endHeight) return;
 
-        container.style.transition = `height ${duration}ms ease`;
-        container.style.height = `${endHeight}px`;
+          setIsAnimating(true);
+          container.style.transition = "none";
+          container.style.height = `${startHeight}px`;
+          void container.offsetHeight; // Force reflow
 
-        timeoutRef.current = setTimeout(() => {
-          container.style.height = "auto";
-          container.style.transition = "";
-          setIsAnimating(false);
-        }, duration);
+          container.style.transition = `height ${duration}ms ease`;
+          container.style.height = `${endHeight}px`;
+
+          timeoutRef.current = setTimeout(() => {
+            container.style.height = "auto";
+            container.style.transition = "";
+            setIsAnimating(false);
+          }, duration);
+        });
       });
-    });
-  }, [duration]);
+    },
+    [duration, maxRetries] // ✅ Only include stable, primitive values
+  );
+
+  // 🚨 Avoid using complex objects directly in dependency array
+  const triggerKey = typeof trigger === "object" ? JSON.stringify(trigger) : String(trigger);
 
   useEffect(() => {
-    animateHeight();
+    const delay = setTimeout(() => {
+      animateHeight();
+    }, 10);
+
     return () => {
+      clearTimeout(delay);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [children, trigger, animateHeight]);
+  }, [triggerKey, animateHeight]); // ✅ Keep dependency array stable
 
   return (
     <div
