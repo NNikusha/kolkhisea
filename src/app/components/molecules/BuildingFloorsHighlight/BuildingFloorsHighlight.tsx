@@ -25,7 +25,7 @@ interface FloorHoverOverlayProps {
 const FloorHoverOverlay = ({ shapeData, flatsData }: FloorHoverOverlayProps) => {
   const [hoveredShape, setHoveredShape] = useState<ShapeData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedFloor, setSelectedFloor] = useState<number>(10); // Default floor
+  const [selectedFloor, setSelectedFloor] = useState<number>(10);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const getScaledPoints = (points: number[][]) => points.map(point => [point[0], point[1]]);
@@ -128,16 +128,13 @@ const FloorHoverOverlay = ({ shapeData, flatsData }: FloorHoverOverlayProps) => 
           </div>
         )}
       </div>
-
-      {isModalOpen && (
         <ModalPortal>
           <FullscreenApartmentModal 
-            isOpen={isModalOpen}
+            isOpen={isModalOpen} 
             onClose={handleCloseModal}
             initialFloor={selectedFloor}
           />
         </ModalPortal>
-      )}
     </>
   );
 };
