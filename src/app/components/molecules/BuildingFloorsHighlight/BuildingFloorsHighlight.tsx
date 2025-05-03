@@ -1,7 +1,6 @@
 "use client"
 import React, { useState, useRef } from 'react';
 import FullscreenApartmentModal from '../ApartmentSelectionModal/ApartmentSelectionModal';
-import ModalPortal from '../../atoms/ModalPortal/ModalPortal';
 
 interface ShapeData {
   points: number[][];
