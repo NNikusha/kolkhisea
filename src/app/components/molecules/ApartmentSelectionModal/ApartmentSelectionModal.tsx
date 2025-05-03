@@ -9,7 +9,7 @@ import ArrowRightApartment from "@/app/assets/ArrowRightApartment";
 import SelectApartmentSeaLogo from "@/app/assets/SelectApartmentSeaLogo";
 import { fetchFloorPlans } from "@/app/hooks/axios";
 import { useRouter } from "next/navigation";
-import AnimatedHeight from "../../atoms/AnimatedHeight/AnimatedHeight";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ApartmentModalProps {
   isOpen: boolean;
@@ -61,16 +61,11 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
   onClose,
   initialFloor = 10,
 }) => {
-  const [isClosing, setIsClosing] = useState<boolean>(false);
-  const [isRendered, setIsRendered] = useState<boolean>(false);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [currentFloor, setCurrentFloor] = useState<number>(initialFloor);
   const [floorPlans, setFloorPlans] = useState<FloorPlan[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [hoveredApartment, setHoveredApartment] = useState<ShapeData | null>(
-    null
-  );
+  const [hoveredApartment, setHoveredApartment] = useState<ShapeData | null>(null);
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -166,32 +161,10 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  const JUMP_DURATION = 500;
-  const SETTLE_DELAY = 200;
-
-  useEffect(() => {
-    if (isOpen && !isRendered) {
-      setIsRendered(true);
-      setIsAnimating(true);
-  
-      // ADD THIS DELAY to allow rendering before animating
-      setTimeout(() => {
-        setIsJumping(true);
-  
-        setTimeout(() => {
-          setIsJumping(false);
-        }, JUMP_DURATION + SETTLE_DELAY);
-      }, 50); // <- 50ms lets DOM render before animating
-    } else if (!isOpen) {
-      setIsRendered(false);
-      setIsAnimating(false);
-    }
-  }, [isOpen, isRendered]);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      setIsClosing(false);
     } else {
       document.body.style.overflow = "";
     }
@@ -201,24 +174,11 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
     };
   }, [isOpen]);
 
-  const [isJumping, setIsJumping] = useState(false);
-
   const handleClose = (): void => {
-    setIsJumping(true); 
-  
-    setTimeout(() => {
-      setIsJumping(false);
-      setIsClosing(true); 
-    }, 150); 
-  
-    setTimeout(() => {
-      onClose();
-    }, 350 + 600); 
+    onClose();
   };
 
-  
-
-  if (!isOpen && !isRendered) return null;
+  if (!isOpen) return null;
 
   const currentPlan = getCurrentFloorPlan();
 
@@ -226,23 +186,12 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
     <div className="fixed inset-0 z-50">
       <div
         className="absolute inset-0 bg-black/50 transition-opacity duration-300"
-        style={{ opacity: isClosing ? 0 : isAnimating ? 1 : 0 }}
         onClick={handleClose}
       />
 
       <div
         ref={modalRef}
-        className="absolute top-[5vh] rounded-t-[56px] left-0 right-0 bottom-0 bg-white transition-all duration-700"
-        style={{
-            transform: isJumping
-              ? "translateY(0px)"
-              : isClosing
-              ? "translateY(100%)"
-              : "translateY(0)",
-            transition: `transform ${JUMP_DURATION + SETTLE_DELAY}ms ease-out, opacity 900ms ease`,
-            opacity: isClosing ? 0 : 1,
-            height: isJumping ? "calc(100% + 40px)" : "100%",
-          }}
+        className="absolute top-[5vh] rounded-t-[56px] left-0 right-0 bottom-0 bg-white"
       >
         <div className="flex items-center justify-center h-[90%] w-full rounded-t-[56px] container mx-auto px-4 lg:px-[108px]">
           <div className="flex flex-col justify-between h-full w-full mt-[40px] font-bold text-gray-800">
@@ -259,56 +208,166 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
             </div>
 
             <div className="flex w-full justify-between items-center">
-            <AnimatedHeight className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[35%]" trigger={`${hoveredApartment?.shapeNumber}-${currentFloor}-${imageLoaded}`}>
-                <div className="w-full">
+              <div className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[35%]">
+                <motion.div
+                  className="w-full"
+                  layout
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <AnimatePresence mode="wait">
                     {hoveredApartment ? (
-                    isApartmentAvailable(hoveredApartment) ? (
-                        <div className="flex items-center justify-between w-full py-[32px]">
-                        <div className="text-[#1C1C1E] leading-[150%] font-normal flex-1 pr-6">
-                            <h3 className="text-[#6A6A6A] font-normal pb-4">Apartment</h3>
-                            <h1 className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words">
-                            {hoveredApartment.flat.number}
-                            </h1>
-                            <h3 className="text-[#6A6A6A] font-normal pb-4">Apartment area, m²</h3>
-                            <h1 className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words">
-                            {hoveredApartment.flat.total_area}
-                            </h1>
-                            <h3 className="text-[#6A6A6A] font-normal pb-4">Price: $</h3>
-                            <h1 className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words">
-                            {hoveredApartment.flat.price_total}
-                            </h1>
-                            <h3 className="text-[#6A6A6A] font-normal pb-4">Status</h3>
-                            <h1 className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words">
-                            {hoveredApartment.flat.lang_status.en}
-                            </h1>
-                        </div>
-                        <div className="min-w-[20px]">
+                      isApartmentAvailable(hoveredApartment) ? (
+                        <motion.div
+                          key="available"
+                          initial={{ height: 0 }}
+                          animate={{ height: "auto" }}
+                          exit={{ height: 0 }}
+                          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                          className="flex items-center justify-between w-full overflow-hidden"
+                        >
+                          <motion.div
+                            className="text-[#1C1C1E] leading-[150%] font-normal flex-1 pr-6 py-[32px]"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                          >
+                            <motion.h3
+                              className="text-[#6A6A6A] font-normal pb-4"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.1 }}
+                            >
+                              Apartment
+                            </motion.h3>
+                            <motion.h1
+                              className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.15 }}
+                            >
+                              {hoveredApartment.flat.number}
+                            </motion.h1>
+                            <motion.h3
+                              className="text-[#6A6A6A] font-normal pb-4"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.2 }}
+                            >
+                              Apartment area, m²
+                            </motion.h3>
+                            <motion.h1
+                              className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.25 }}
+                            >
+                              {hoveredApartment.flat.total_area}
+                            </motion.h1>
+                            <motion.h3
+                              className="text-[#6A6A6A] font-normal pb-4"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.3 }}
+                            >
+                              Price: $
+                            </motion.h3>
+                            <motion.h1
+                              className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.35 }}
+                            >
+                              {hoveredApartment.flat.price_total}
+                            </motion.h1>
+                            <motion.h3
+                              className="text-[#6A6A6A] font-normal pb-4"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.4 }}
+                            >
+                              Status
+                            </motion.h3>
+                            <motion.h1
+                              className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.2, delay: 0.45 }}
+                            >
+                              {hoveredApartment.flat.lang_status.en}
+                            </motion.h1>
+                          </motion.div>
+                          <motion.div
+                            className="min-w-[20px]"
+                            initial={{ opacity: 0, rotate: -90 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            transition={{ duration: 0.3, delay: 0.2 }}
+                          >
                             <ArrowRightApartment />
-                        </div>
-                        </div>
-                    ) : (
-                        <div className="flex items-center justify-between w-full py-[72px]">
-                        <div className="text-[#6A6A6A] leading-[150%] font-normal text-[20px]">
+                          </motion.div>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="sold"
+                          initial={{ height: 168 }}
+                          animate={{ height: 168 }}
+                          exit={{ height: 0 }}
+                          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                          className="flex items-center justify-between w-full overflow-hidden"
+                        >
+                          <motion.div
+                            className="text-[#6A6A6A] leading-[150%] font-normal text-[20px] py-[72px]"
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                          >
                             Sold
-                        </div>
-                        <ArrowRightApartment />
-                        </div>
-                    )
+                          </motion.div>
+                          <motion.div
+                            className="py-[72px]"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                          >
+                            <ArrowRightApartment />
+                          </motion.div>
+                        </motion.div>
+                      )
                     ) : (
-                    <div className="flex items-center justify-between w-full py-[60px]">
-                        <div className="text-[#6A6A6A] leading-[150%] font-normal">
-                        Select an apartment from the plan on the right
-                        </div>
-                        <ArrowRightApartment />
-                    </div>
+                      <motion.div
+                        key="default"
+                        initial={{ height: 152 }}
+                        animate={{ height: 152 }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        className="flex items-center justify-between w-full overflow-hidden"
+                      >
+                        <motion.div
+                          className="text-[#6A6A6A] leading-[150%] font-normal py-[60px]"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
+                          Select an apartment from the plan on the right
+                        </motion.div>
+                        <motion.div
+                          className="py-[60px]"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: 0.1 }}
+                        >
+                          <ArrowRightApartment />
+                        </motion.div>
+                      </motion.div>
                     )}
-                </div>
-                </AnimatedHeight>
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+
               <div className="flex w-full justify-between items-center pt-[50px] relative">
                 <div className="flex flex-col items-center justify-center">
                   {loading ? (
                     <div className="flex justify-center items-center w-full h-full absolute top-0 left-0">
-                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
+                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
                     </div>
                   ) : error ? (
                     <div className="text-red-500">{error}</div>
@@ -365,9 +424,9 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
 
                               return (
                                 <div
-                                key={`badge-${shape.shapeNumber}`}
-                                className={`absolute flex items-center justify-center ${bgColor} text-white font-normal rounded-[8px] transition-all duration-500`}
-                                style={{
+                                  key={`badge-${shape.shapeNumber}`}
+                                  className={`absolute flex items-center justify-center ${bgColor} text-white font-normal rounded-[8px] transition-all duration-500`}
+                                  style={{
                                     left: `calc(${center.x}% - 0px)`,
                                     top: `calc(${center.y}% - -10px)`,
                                     transform: "translate(-50%, -50%)",
@@ -378,12 +437,12 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                     cursor: "pointer",
                                     lineHeight: "1",
                                     textAlign: "center"
-                                }}
-                                onMouseEnter={() => handleMouseEnter(shape)}
-                                onMouseLeave={handleMouseLeave}
-                                onClick={() => handleApartmentClick(shape)}
+                                  }}
+                                  onMouseEnter={() => handleMouseEnter(shape)}
+                                  onMouseLeave={handleMouseLeave}
+                                  onClick={() => handleApartmentClick(shape)}
                                 >
-                                {hoveredApartment?.shapeNumber === shape.shapeNumber ? "" : shape.flat.number}
+                                  {hoveredApartment?.shapeNumber === shape.shapeNumber ? "" : shape.flat.number}
                                 </div>
                               );
                             })}
