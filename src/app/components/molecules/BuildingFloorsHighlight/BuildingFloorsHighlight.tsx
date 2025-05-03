@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useRef } from 'react';
 import FullscreenApartmentModal from '../ApartmentSelectionModal/ApartmentSelectionModal';
+import ModalPortal from '../../atoms/ModalPortal/ModalPortal';
 
 interface ShapeData {
   points: number[][];
@@ -24,7 +25,7 @@ interface FloorHoverOverlayProps {
 const FloorHoverOverlay = ({ shapeData, flatsData }: FloorHoverOverlayProps) => {
   const [hoveredShape, setHoveredShape] = useState<ShapeData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedFloor, setSelectedFloor] = useState<number>(10); // Default floor
+  const [selectedFloor, setSelectedFloor] = useState<number>(10);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const getScaledPoints = (points: number[][]) => points.map(point => [point[0], point[1]]);
@@ -127,14 +128,13 @@ const FloorHoverOverlay = ({ shapeData, flatsData }: FloorHoverOverlayProps) => 
           </div>
         )}
       </div>
-
-      {isModalOpen && (
-        <FullscreenApartmentModal 
-          isOpen={isModalOpen} 
-          onClose={handleCloseModal}
-          initialFloor={selectedFloor}
-        />
-      )}
+        <ModalPortal>
+          <FullscreenApartmentModal 
+            isOpen={isModalOpen} 
+            onClose={handleCloseModal}
+            initialFloor={selectedFloor}
+          />
+        </ModalPortal>
     </>
   );
 };

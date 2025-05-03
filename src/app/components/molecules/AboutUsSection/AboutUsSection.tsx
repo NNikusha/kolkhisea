@@ -22,8 +22,7 @@ export default function AboutUsSection({
     return (
         <>
             <Header
-                mainImage={mainImage || ''} 
-                mobileMainImage={mainImage || ''} 
+                dynamicImage={mainImage || ''} 
             />
             <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
                 <div className="flex justify-center w-full">

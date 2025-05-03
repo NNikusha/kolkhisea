@@ -3,7 +3,6 @@ import React from "react";
 import DownScroll from "@/app/assets/DownScroll.svg";
 import DownScrollArrow from "@/app/assets/DownScrollArrow.svg";
 import MainApartment from "@/app/assets/Main-Apartment.svg";
-import MobileMainApartment from "@/app/assets/MobileMainImageKolkhi.svg";
 import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollAnimation";
 import Header from "../../organisms/header/Header";
 import Elipse from "@/app/assets/Elipse";
@@ -19,7 +18,8 @@ import BackGroundLine7 from "@/app/assets/BackGroundLine7";
 export default function AboutContact() {
   return (
     <>
-      <Header mainImage={MainApartment} mobileMainImage={MobileMainApartment} />
+      <Header  dynamicImage={MainApartment || ''} 
+      />
       <section className="container px-[16px] lg:px-[108px] mx-auto z-[-1]">
         <div className="relative  flex flex-col justify-center items-center">
           <div className="mt-[200px] lg:mt-[300px] flex flex-col justify-center items-center">
