@@ -45,7 +45,7 @@ const AnimatedHeight: React.FC<AnimatedHeightProps> = ({
           setIsAnimating(true);
           container.style.transition = "none";
           container.style.height = `${startHeight}px`;
-          void container.offsetHeight; // Force reflow
+          void container.offsetHeight; 
 
           container.style.transition = `height ${duration}ms ease`;
           container.style.height = `${endHeight}px`;
@@ -58,10 +58,9 @@ const AnimatedHeight: React.FC<AnimatedHeightProps> = ({
         });
       });
     },
-    [duration, maxRetries] // ✅ Only include stable, primitive values
+    [duration, maxRetries]
   );
 
-  // 🚨 Avoid using complex objects directly in dependency array
   const triggerKey = typeof trigger === "object" ? JSON.stringify(trigger) : String(trigger);
 
   useEffect(() => {
@@ -73,7 +72,7 @@ const AnimatedHeight: React.FC<AnimatedHeightProps> = ({
       clearTimeout(delay);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [triggerKey, animateHeight]); // ✅ Keep dependency array stable
+  }, [triggerKey, animateHeight]);
 
   return (
     <div
