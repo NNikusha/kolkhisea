@@ -30,7 +30,7 @@ const AboutUs = async () => {
             <div className="relative">
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                     <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none z-[-1]" />
-                    <BackGroundLine1 className="absolute top-[10%] w-full h-auto max-w-none z-[0]" />
+                    <BackGroundLine1 className="absolute top-[30%] w-full h-auto max-w-none z-[0]" />
                 </div>
 
                 <section className="w-full mt-[424px] sm:mt-[604px] xl:mt-[228px] 2xl:mt-[540px]">

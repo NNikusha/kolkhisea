@@ -24,7 +24,7 @@ export default function AboutUsSection({
             <Header
                 dynamicImage={mainImage || ''} 
             />
-            <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
+            <section className="container px-[20px] lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]">
                 <div className="flex justify-center w-full">
                     <button className="bg-[#FFFFFF0D] text-[#FFFFFF] px-[16px] py-[16px] rounded-full mb-[40px]">
                         About us
