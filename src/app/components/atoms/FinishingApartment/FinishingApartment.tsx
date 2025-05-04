@@ -59,20 +59,20 @@ const FinishingApartment = ({
   const t = useTranslations('Language');
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-[50px]">
       <div className="container mx-auto px-4 lg:px-[108px]">
         <div className="max-w-[690px]">
-          <div className="px-4 py-3 md:py-4 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
+          {/* <div className="px-4 py-3 md:py-4 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
             <h3 className="text-[var(--grayMixGreen)] text-center">
               {t('Details')}
             </h3>
-          </div>
-          <h1 className="text-3xl md:text-4xl lg:text-[48px] font-medium text-[#1C1C1E] mb-6 md:hidden">
+          </div> */}
+          <h1 className="text-3xl md:text-4xl lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 md:hidden">
             {t('InteriorAesthetics')}
           </h1>
 
-          <h1 className="text-3xl md:text-4xl lg:text-[48px] font-medium text-[#1C1C1E] mb-6 hidden md:block">
-            {t('InteriorAesthetics')}
+          <h1 className="text-3xl md:text-4xl lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 hidden md:block">
+            {t('InteriorAesthetics')} 
           </h1>
           <p className="text-[#7E7E7E] text-sm md:text-base mb-6 hidden md:block">
             {finishingText && finishingText[lang]
