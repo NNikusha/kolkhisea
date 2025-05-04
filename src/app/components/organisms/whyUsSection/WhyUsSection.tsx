@@ -36,7 +36,7 @@ export default function WhyUsSection({
         <div className="flex mt-6 lg:mt-5 md:gap-10 2xl:gap-0 flex-col xl:flex-row">
           <div className="order-2 flex-1">
             <div className="hidden lg:flex">
-              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
+              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[80px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
                 <p>{t('OUR')}</p>
                 <p className="text-[#1C1C1E]">{t('PROJECT')}</p>
               </h2>

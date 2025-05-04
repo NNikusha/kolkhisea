@@ -42,8 +42,11 @@ const AboutUs = async () => {
                 </section>
 
                 <section className="w-full">
-                    <ChooseUsSection
-                        whyChooseUs={data?.why_choose_us}
+
+                    <OurMissionSection
+                        ourMissionTitle={data?.our_mission_title}
+                        ourMissionImage={data?.our_mission_image}
+                        ourMissionImageSecondary={data?.our_mission_image_secondary}
                         lang={locale}
                     />
                 </section>
@@ -51,12 +54,12 @@ const AboutUs = async () => {
 
             <section className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">
                 <OurMission />
-                <OurMissionSection
-                    ourMissionTitle={data?.our_mission_title}
-                    ourMissionImage={data?.our_mission_image}
-                    ourMissionImageSecondary={data?.our_mission_image_secondary}
+                
+                <ChooseUsSection
+                    whyChooseUs={data?.why_choose_us}
                     lang={locale}
                 />
+
                 <TheJourneyMerg
                     journeyOfCreationBefore={data?.journey_of_creation_before}
                     journeyOfCreationImageBefore={data?.journey_of_creation_image_before}

@@ -51,7 +51,7 @@ const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
           ) : null}
         </div>
         
-        <div className="flex lg:flex-row flex-col items-center justify-between 2xl:gap-[24px] xl:gap-[26px] gap-[24px]">
+        <div className="flex lg:flex-row flex-col items-center justify-between 2xl:gap-[24px] xl:gap-[26px] gap-[24px] lg:mb-[100px]">
           {transformedData.map((item, index) => (
             <ChooseUsCard key={index} {...item} />
           ))}
