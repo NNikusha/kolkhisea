@@ -12,6 +12,8 @@ import BathroomIcon from '@/app/assets/BathRoomIcon.svg';
 import BalconyIcon from '@/app/assets/BalconyIcon.svg';
 import DownloadIcon from '@/app/assets/DownloadIcon.svg';
 import { fetchFlatById } from '@/app/hooks/axios';
+import PopupModal from '../PopupModal/PopupModal';
+import ModalContent from '../ModalContent/ModalContent';
 
 interface Flat {
   id: number;
@@ -64,6 +66,8 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
   const [flatData, setFlatData] = useState<Flat | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  const [isPopupOpen, setPopupOpen] = useState(false)
 
   useEffect(() => {
     // If data is passed as prop, use it
@@ -255,10 +259,13 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         <Image src={DownloadIcon} alt="Download Icon" width={24} height={24} />
         <p className="underline">Download PDF</p>
       </button>
-      <button className="relative w-full flex justify-center bg-[#CB684D] rounded-[16px] py-[20px] text-[#F2F2F2] cursor-pointer overflow-hidden group">
+      <button className="relative w-full flex justify-center bg-[#CB684D] rounded-[16px] py-[20px] text-[#F2F2F2] cursor-pointer overflow-hidden group" onClick={() => setPopupOpen(true)}>
         <span className="relative z-10">Consultation</span>
         <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
+      <PopupModal isOpen={isPopupOpen} onClose={() => setPopupOpen(false)}>
+        <ModalContent />
+      </PopupModal>
     </div>
   );
 };

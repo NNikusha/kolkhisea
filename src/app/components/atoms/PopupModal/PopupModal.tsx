@@ -1,13 +1,14 @@
-'use client'
-import React, { useEffect } from 'react'
-import Image from 'next/image'
-import CloseIcon from '@/app/assets/CloseIcon.svg'
+'use client';
+import React, { useEffect } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
+import ModalCloseIcon from '@/app/assets/ModalCloseIcon.svg';
 
 type PopupModalProps = {
-  isOpen: boolean
-  onClose: () => void
-  children?: React.ReactNode
-}
+  isOpen: boolean;
+  onClose: () => void;
+  children?: React.ReactNode;
+};
 
 const PopupModal: React.FC<PopupModalProps> = ({ isOpen, onClose, children }) => {
   useEffect(() => {
@@ -20,29 +21,43 @@ const PopupModal: React.FC<PopupModalProps> = ({ isOpen, onClose, children }) =>
 
     return () => {
       body.style.overflow = '';
-    }
+    };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className='fixed inset-0 bg-[#0C0C0C99] flex items-center justify-center px-4  z-50'>
-      <div className='bg-white p-[24px] rounded-[16px] shadow-lg relative sm:max-w-[536px] w-full'>
-        <button
-          onClick={onClose}
-          className='absolute top-[24px] right-[24px] cursor-pointer'
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 bg-[#0C0C0C99] flex items-center justify-center px-4 z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
         >
-          <Image
-            src={CloseIcon}
-            alt="Close"
-            width={18}
-            height={18}
-          />
-        </button>
-        {children}
-      </div>
-    </div>
-  )
-}
+          <motion.div
+            className="bg-white p-[24px] rounded-[16px] shadow-lg relative sm:max-w-[536px] w-full"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.4 }}
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-[24px] right-[24px] cursor-pointer"
+            >
+              <Image
+                src={ModalCloseIcon}
+                alt="Close"
+                width={18}
+                height={18}
+              />
+            </button>
+            {children}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
-export default PopupModal
+export default PopupModal;
