@@ -104,8 +104,7 @@ export interface ApartmentSectionProps {
   cloudText?: LocalizedContent;
   cloudTextSecondary?: LocalizedContent;
   lang?: Locale;
-  mainImg?: string; 
-
+  mainImg?: string;
 }
 
 export interface ModalInfoProps {
@@ -192,4 +191,31 @@ export interface GalleryItem {
   url: string;
   title?: string;
   description?: string;
+}
+
+export interface GalleryItemProps {
+  url: string;
+  description?: string;
+  isMain?: boolean;
+  index?: number;
+  isMainImage?: boolean;
+  locale?: string;
+}
+
+export interface GalleryContentProps {
+  galleryData: {
+    gallery_main_image: string;
+    title: { [key: string]: string };
+    content: Array<{
+      image_url: string;
+      text: Record<string, string>;
+    }>;
+  };
+  locale: Locale;
+}
+
+export interface GallerySectionProps {
+  items: Array<{ image_url: string; text: Record<string, string> }>;
+  sectionIndex: number;
+  locale: Locale;
 }

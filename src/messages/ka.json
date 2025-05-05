@@ -63,6 +63,8 @@
     "NameLabel": "თქვენი სახელი",
     "NamePlaceholder": "შეიყვანეთ თქვენი სახელი",
     "PhoneLabel": "ტელეფონის ნომერი",
-    "PhonePlaceholder": "შეიყვანეთ ტელეფონის ნომერი"
+    "PhonePlaceholder": "შეიყვანეთ ტელეფონის ნომერი",
+    "GalleryTitle": "გალერეა",
+    "NotOnlyAboutBuilding": "მეტი ვიდრე შენობა"
   }
 }

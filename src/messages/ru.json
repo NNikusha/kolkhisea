@@ -59,6 +59,9 @@
     "NameLabel": "Ваше имя",
     "NamePlaceholder": "Введите ваше имя",
     "PhoneLabel": "Номер телефона",
-    "PhonePlaceholder": "Введите номер телефона"
+    "PhonePlaceholder": "Введите номер телефона",
+    "Gallery": "Галерея",
+    "GalleryTitle": "Галерея",
+    "NotOnlyAboutBuilding": "Это не только про строительство"
   }
 }

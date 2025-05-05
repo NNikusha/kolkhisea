@@ -63,6 +63,8 @@
     "NameLabel": "Your name",
     "NamePlaceholder": "Enter your name",
     "PhoneLabel": "Telephone number",
-    "PhonePlaceholder": "Enter your phone number"
+    "PhonePlaceholder": "Enter your phone number",
+    "GalleryTitle": "Gallery",
+    "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING"
   }
 }
