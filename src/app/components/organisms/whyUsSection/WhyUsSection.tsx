@@ -100,9 +100,9 @@ export default function WhyUsSection({
                     {t('OptionalRentalSupport')}
                     </h2>
                   </div>
-                <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full m-auto flex justify-center lg:mt-10 lg:m-0 xl:mt-[67px]">
+                <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full  m-auto flex justify-center md:justify-start lg:mt-10 lg:m-0 xl:mt-[67px]">
                   <Button
-                    className="gap-4 text-center flex justify-center w-full items-center"
+                    className="gap-4 text-center flex justify-center w-full lg:w-auto  items-center"
                     text={t('LearnMore')}
                     href="/about-us"
                   />
