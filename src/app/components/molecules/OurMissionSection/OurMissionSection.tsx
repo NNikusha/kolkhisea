@@ -28,7 +28,7 @@ const OurMissionSection: React.FC<OurMissionSectionProps> = ({
             <MissionImage 
               src={ourMissionImage} 
               alt="Luxury space" 
-              heightClass="md:h-[280px] h-[184px]" 
+              heightClass="2xl:w-[536px] md:h-[280px] h-[184px] flex-shrink-0" 
             />
           )}
           
