@@ -14,6 +14,7 @@ import DownloadIcon from '@/app/assets/DownloadIcon.svg';
 import { fetchFlatById } from '@/app/hooks/axios';
 import PopupModal from '../PopupModal/PopupModal';
 import ModalContent from '../ModalContent/ModalContent';
+import GetInTouchSuccess from '../../molecules/GetInTouchSuccess/GetInTouchSuccess';
 
 interface Flat {
   id: number;
@@ -68,6 +69,9 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
   const [error, setError] = useState<string | null>(null);
 
   const [isPopupOpen, setPopupOpen] = useState(false)
+
+  
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     // If data is passed as prop, use it
@@ -263,9 +267,29 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         <span className="relative z-10">Consultation</span>
         <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
-      <PopupModal isOpen={isPopupOpen} onClose={() => setPopupOpen(false)}>
-        <ModalContent />
+      <PopupModal
+        isOpen={isPopupOpen}
+        onClose={() => {
+          setPopupOpen(false);
+        }}
+      >
+        <ModalContent
+          onSuccess={() => {
+            setPopupOpen(false); 
+            setTimeout(() => {
+              setShowSuccessModal(true); 
+            }, 300); 
+          }}
+        />
       </PopupModal>
+
+      {showSuccessModal && (
+        <GetInTouchSuccess
+          onClose={() => {
+            setShowSuccessModal(false);
+          }}
+        />
+      )}
     </div>
   );
 };

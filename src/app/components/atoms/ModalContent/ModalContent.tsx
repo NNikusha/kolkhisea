@@ -1,11 +1,15 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import Button from '@/app/components/atoms/Button/Button'
-import PopUpForm from '../PopUpForm/PopUpForm'
-import { saveContact } from '@/app/hooks/axios'
+import React, { useState } from 'react';
+import Button from '@/app/components/atoms/Button/Button';
+import PopUpForm from '../PopUpForm/PopUpForm';
+import { saveContact } from '@/app/hooks/axios';
 
-const ModalContent = () => {
+interface ModalContentProps {
+  onSuccess: () => void;
+}
+
+const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState('+1');
@@ -35,10 +39,11 @@ const ModalContent = () => {
         phone_number: formattedPhone,
       });
 
-      alert("Form submitted successfully!");
       setName('');
       setPhoneNumber('');
       setCountryCode('+1');
+
+      onSuccess();
     } catch (error) {
       console.error("Error sending form:", error);
       alert("Something went wrong. Please try again.");
