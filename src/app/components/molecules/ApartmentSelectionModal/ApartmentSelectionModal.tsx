@@ -293,7 +293,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.3 }}
                                 >
-                                  Price: $
+                                  Type:
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -317,7 +317,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.45 }}
                                 >
-                                  {hoveredApartment.flat.lang_status.en}
+                                  {hoveredApartment.flat.flat_conditions}
                                 </motion.h1>
                               </motion.div>
                               <motion.div
