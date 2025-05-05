@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Calendar from '@/app/assets/Calendar.svg';
 import Location2 from '@/app/assets/Location2.svg';
 import Timecircle from '@/app/assets/TimeCircle.svg';
+import Compas from '@/app/assets/Compas';
 
 interface Building {
   name?: Record<Locale, string>;
@@ -38,7 +39,7 @@ const ProjectInfoSection: React.FC<ProjectInfoSectionProps> = ({ building }) => 
   <div className="relative">
     <div className="bg-[#1C1C1E] text-white min-h-[197px] md:h-[197px]">
       <div className="container mx-auto px-4 lg:px-[108px] h-full">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between p-[18px] h-full gap-4 xl:gap-8 2xl:gap-[40px]">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between h-full gap-4 xl:gap-8 2xl:gap-[40px]">
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-start">
               <div className="bg-[#FFFFFF0D] px-[16px] py-[14px] flex items-center justify-center rounded-full text-[12px] mb-[12px]">
@@ -113,6 +114,9 @@ const ProjectInfoSection: React.FC<ProjectInfoSectionProps> = ({ building }) => 
           </div>
         </div>
       </div>
+    </div>
+    <div className="xl:absolute top-[-230px] right-[18%] z-99 hidden xl:block"> 
+      <Compas />
     </div>
   </div>
   <div className="w-full h-[47px] bg-[#1C1C1E]">
