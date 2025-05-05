@@ -23,7 +23,7 @@ export default function ApartmentSection({
   return (
     <>
       <Header dynamicImage={mainImg} />
-      <section className="container px-[20px] lg:px-[150px] mx-auto mt-[146px] xl:mt-[200px]">
+      <section className="container px-[20px] lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]">
         <MainHeadLine
           firstText={t('InspiredByThePastBuiltF')}
           secondText={t('RtheFuture')}
