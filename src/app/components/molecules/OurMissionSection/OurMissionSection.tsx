@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import MissionImage from '../../atoms/MissionImage/MissionImage';
-import GrayBlueButton from '../../atoms/GrayBlueButton/GrayBlueButton';
 import { Locale, LocalizedContent } from '@/app/types/type';
 import { useTranslations } from 'next-intl';
 
@@ -22,19 +21,19 @@ const OurMissionSection: React.FC<OurMissionSectionProps> = ({
   const t = useTranslations('Language');
 
   return (
-    <div className="w-full md:pt-[80px] md:pb-[200px] mt-[80px] bg-[#FFFFFF] z-[2]">
+    <div className="w-full md:pt-[80px] md:pb-[50px] mt-[80px] z-[2]">
       <div className="container mx-auto px-4 lg:px-[108px] z-[2]">
         <div className="flex flex-col-reverse 2xl:flex-row 2xl:gap-[136px] gap-[32px]">
           {ourMissionImage && (
             <MissionImage 
               src={ourMissionImage} 
               alt="Luxury space" 
-              heightClass="md:h-[280px] h-[184px]" 
+              heightClass="2xl:w-[536px] md:h-[280px] h-[184px] flex-shrink-0" 
             />
           )}
           
           <div className="flex flex-col items-start pr-[100px] w-full lg:w-auto">
-            <GrayBlueButton text={t('OurVision')} />
+            {/* <GrayBlueButton text={t('OurVision')} /> */}
             <h2 className="md:text-[48px] text-[24px] pt-4 font-normal leading-[130%]">
               <span className="text-[#1C1C1E] pr-[10px] uppercase">{t('Our')}</span>
               <span className="text-[#B4B4B4] pr-[10px] uppercase">{t('Story')}</span>

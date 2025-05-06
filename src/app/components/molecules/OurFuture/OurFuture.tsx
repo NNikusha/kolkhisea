@@ -43,9 +43,9 @@ const OurFuture = ({
   return (
     <div className="w-full bg-white rounded-t-[56px] py-[32px] lg:py-[45px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">
       <div className="2xl:max-w-[1320px] mx-auto max-w-[343px] lg:max-w-[964px]">
-        <div className="px-4 py-[10px] lg:py-3 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
+        {/* <div className="px-4 py-[10px] lg:py-3 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
           <h3 className="text-[var(--grayMixGreen)] text-center text-[12px] lg:text-[16px]">History</h3>
-        </div>
+        </div> */}
         <div className="w-full flex flex-col lg:flex-row lg:items-start lg:justify-between">
           <h1 className="text-[24px] lg:text-[32px] 2xl:text-[40px] font-medium text-[#1C1C1E] mb-6 uppercase leading-[1.3] inline-block">
             {timelineTitle?.[lang] || "building our future:<br />step by step"}

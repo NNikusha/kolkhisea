@@ -27,11 +27,11 @@ const FeaturesSection = ({ features, lang = 'en' }: FeaturesSectionProps) => {
   return (
     <div className="w-full xl:pt-[138px] h-fit mb-[72px] md:mb-[168px]">
       <div className="container mx-auto px-4 lg:px-[108px]">
-        <div className="text-center md:text-start">
+        {/* <div className="text-center md:text-start">
           <span className="text-[12px] lg:text-[16px] font-normal text-[#285260] bg-[#2852600D] inline-block rounded-[200px] p-4">
             Key Features
           </span>
-        </div>
+        </div> */}
 
         <div className="text-center md:text-start pt-4">
           <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#B4B4B4] uppercase">

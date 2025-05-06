@@ -65,6 +65,10 @@
     "PhoneLabel": "Telephone number",
     "PhonePlaceholder": "Enter your phone number",
     "GalleryTitle": "Gallery",
-    "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING"
+    "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING",
+    "Who": "Who",
+    "WeAre": "WE ARE",
+    "WhatWeOffer": "What we offer:",
+    "HeatingAndCooling": "Heating and Cooling"
   }
 }

@@ -32,7 +32,7 @@
     "MeetsComfort": "ხვდება კომფორტს",
     "WhatWeOffer": "რას გთავაზობთ",
     "Restaurant&Bar": "რესტორანი და ბარი",
-    "Concierge&Reception": "კონსიერჟი და რესეფშენი",
+    "Concierge&Reception": "კონსიერჯი და რესეფშენი",
     "24/7Security": "24/7 უსაფრთხოება",
     "ProfessionalGardening": "პროფესიონალური მებაღეობა",
     "OptionalRentalSupport": "არჩევითი ქირაობის მხარდაჭერა",
@@ -64,7 +64,11 @@
     "NamePlaceholder": "შეიყვანეთ თქვენი სახელი",
     "PhoneLabel": "ტელეფონის ნომერი",
     "PhonePlaceholder": "შეიყვანეთ ტელეფონის ნომერი",
-    "GalleryTitle": "გალერეა",
-    "NotOnlyAboutBuilding": "მეტი ვიდრე შენობა"
+    "NotOnlyAboutBuilding": "მეტი ვიდრე შენობა",
+    "Who": "ვინ",
+    "WeAre": "ჩვენ ვართ",
+    "WhatWeOffer": "რას გთავაზობთ:",
+    "HeatingAndCooling": "გათბობა და გაგრილება",
+    "OptionalRentalSupport": "დამატებითი გაქირავების მხარდაჭერა"
   }
 }

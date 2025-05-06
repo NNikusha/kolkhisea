@@ -36,7 +36,7 @@ export default function WhyUsSection({
         <div className="flex mt-6 lg:mt-5 md:gap-10 2xl:gap-0 flex-col xl:flex-row">
           <div className="order-2 flex-1">
             <div className="hidden lg:flex">
-              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
+              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[80px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
                 <p>{t('OUR')}</p>
                 <p className="text-[#1C1C1E]">{t('PROJECT')}</p>
               </h2>
@@ -100,9 +100,9 @@ export default function WhyUsSection({
                     {t('OptionalRentalSupport')}
                     </h2>
                   </div>
-                <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full m-auto flex justify-center lg:mt-10 lg:m-0 xl:mt-[67px]">
+                <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full  m-auto flex justify-center md:justify-start lg:mt-10 lg:m-0 xl:mt-[67px]">
                   <Button
-                    className="gap-4 text-center flex justify-center w-full items-center"
+                    className="gap-4 text-center flex justify-center w-full lg:w-auto  items-center"
                     text={t('LearnMore')}
                     href="/about-us"
                   />

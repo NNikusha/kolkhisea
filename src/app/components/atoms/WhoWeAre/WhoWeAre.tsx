@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import faceIcone from '@/app/assets/faceIcone.svg';
 import { Locale, LocalizedContent } from '@/app/types/type';
 import { useTranslations } from 'next-intl';
 
@@ -23,28 +22,18 @@ const WhoWeAre = ({
     const t = useTranslations('Language');
 
     return (
-        <div className='container px-[16px] lg:px-[108px] mx-auto w-full bg-[#F3F6FB] mt-[100px] sm:mt-[250px] 2xl:mt-0'>
-            <div className='flex flex-col md:flex-row justify-between pb-[48px] gap-8'>
-                <div className='md:w-[50%]'>
-                    <h1 className='text-[#1C1C1E] text-[48px] md:text-[64px] font-normal pb-[24px]'>
-                        {t('BehindTheVision')}: <span className='text-[#ABABAB]'>{t('OurTeam')}</span>
+        <div className='container px-[16px] lg:px-[108px] mx-auto w-full bg-[#F3F6FB] mt-[calc(270px+40vw)] sm:mt-[800px] lg:mt-[810px] xl:mt-[570px] 2xl:mt-[660px]'>
+            <div className='flex flex-col pb-[48px] w-full'>
+                <div className='w-full flex items-center justify-center'>
+                    <h1 className='text-[#1C1C1E] text-[32px] md:text-[64px] font-normal pb-[24px] uppercase'>
+                        {t('Who')} <span className='text-[#ABABAB]'>{t('WeAre')}</span>
                     </h1>
-                    <p className='text-[#3D3D3D] text-base leading-relaxed'>
+                </div>
+                <div className='w-full flex flex-col lg:flex-row justify-between items-center gap-[32px] lg:gap-[64px]'>
+                    <p className='text-[#3D3D3D] text-base leading-relaxed max-w-full lg:max-w-[645px]  text-center lg:text-left'>
                         {whoWeAreText?.left && whoWeAreText.left[lang]}
                     </p>
-                </div>
-                <div className='md:w-[40%]'>
-                    <div className='flex justify-start items-center gap-2 pb-[24px] overflow-hidden'>
-                        <p className='text-[48px] md:text-[64px] text-[#000000] font-normal'>28+</p>
-                        <Image
-                            className=''
-                            src={faceIcone}
-                            width={224}
-                            height={80}
-                            alt='faceIcone'
-                        />
-                    </div>
-                    <p className='text-[#3D3D3D] text-base leading-relaxed'>
+                    <p className='text-[#3D3D3D] text-base leading-relaxed max-w-full lg:max-w-[425px] text-center lg:text-left'>
                         {whoWeAreText?.right && whoWeAreText.right[lang]}
                     </p>
                 </div>
