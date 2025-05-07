@@ -33,16 +33,16 @@ const ApartmentTypeSection: React.FC<ApartmentTypeSectionProps> = ({
             <MobileResetFilterBtn onClick={handleOpenModal} />
           </div>
           <div className="hidden md:flex justify-between items-end">
-            <div className="flex justify-between w-[65%] gap-2 xl:gap-4">
+            <div className="flex justify-between md:w-[80%] 2xl:w-[75%] gap-2 xl:gap-4">
               <FilterItem
                 label="The number of rooms"
-                options={["All", "Studio", "1BR"]}
+                options={["All", "Studio", "1BR", "2BR"]}
                 activeOption={room}
                 onSelect={setRoom}
               />
               <FilterItem
                 label="Specify the area, m²"
-                options={["30", "40", "50", "60"]}
+                options={["30-40", "50-70", "100+"]}
                 activeOption={area}
                 onSelect={setArea}
               />

@@ -88,7 +88,7 @@ export default function HeaderNav() {
             : "mt-4"
         }`}
       >
-        <div className="flex items-center justify-between container px-[16px] lg:px-[108px] m-auto">
+        <div className="flex items-center justify-between pointer container px-[16px] lg:px-[108px] m-auto">
           <Link href="/">
             {isFlatDetailPage ? (
               <LogoDark className="w-[120px] h-[32px] sm:w-[204px] sm:h-[40px]" />

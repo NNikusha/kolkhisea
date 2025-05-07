@@ -58,7 +58,7 @@ export interface Apartment {
   type?: {
     [key: string]: string;
   };
-  total_area: string | undefined;
+  total_area: string;
   status?: {
     [key: string]: string;
   };
