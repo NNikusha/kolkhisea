@@ -38,6 +38,7 @@ const FinishingApartment = ({
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const t = useTranslations('Language');
 
   const handleSlideChange = (index: number) => {
     if (swiperRef.current) {
@@ -46,7 +47,13 @@ const FinishingApartment = ({
     }
   };
 
-  const slideLabels = ['Living Room', 'Kitchen', 'Dining Area', 'Bedroom', 'Bathroom'];
+  const slideLabels = [
+    t('LivingRoom'), 
+    t('Kitchen'), 
+    t('DiningArea'), 
+    t('Bedroom'), 
+    t('Bathroom')
+  ];
 
   const slideImages = [
     livingRoomImage,
@@ -55,8 +62,6 @@ const FinishingApartment = ({
     bedroomImage,
     bathroomImage
   ];
-
-  const t = useTranslations('Language');
 
   return (
     <div className="w-full mt-[50px]">
@@ -77,7 +82,7 @@ const FinishingApartment = ({
           <p className="text-[#7E7E7E] text-sm md:text-base mb-6 hidden md:block">
             {finishingText && finishingText[lang]
               ? finishingText[lang]
-              : "Our premium apartments are designed with high-quality materials and elegant finishes to provide maximum comfort and luxury. Each unit is thoughtfully crafted with modern aesthetics and durable components, ensuring a stylish yet functional living space."}
+              : t('DefaultApartmentDescription')}
           </p>
         </div>
 
@@ -87,21 +92,22 @@ const FinishingApartment = ({
               className="flex gap-[16px] md:gap-[24px] justify-start items-center py-3"
               style={{ width: '506px' }}
             >
-              {slideLabels.map((label, index) => (
-                <button
-                  key={index}
-                  ref={(el) => {
-                    buttonRefs.current[index] = el;
-                  }}
-                  className={`cursor-pointer transition duration-300 ${activeIndex === index
-                      ? 'text-[#CB684D] font-[700] border-b-[3px] border-[#CB684D] pb-[5px]'
-                      : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-transparent'
-                    }`}
-                  onClick={() => handleSlideChange(index)}
-                >
-                  {label}
-                </button>
-              ))}
+          {slideLabels.map((label, index) => (
+  <button
+    key={index}
+    ref={(el) => {
+      buttonRefs.current[index] = el;
+    }}
+    className={`cursor-pointer transition duration-300 ${activeIndex === index
+      ? 'text-[#CB684D] font-[700] border-b-[3px] border-[#CB684D] pb-[5px]'
+      : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-transparent'
+    } whitespace-nowrap`}
+    onClick={() => handleSlideChange(index)}
+  >
+    {label}
+  </button>
+))}
+
             </div>
           </div>
           {/* Gradient Overlay */}

@@ -3,6 +3,7 @@ import { Swiper as SwiperType } from 'swiper';
 import Button from '../Button/Button';
 import LeftArrow from '@/app/assets/LeftArrow';
 import RightArrow from '@/app/assets/RightArrow';
+import { useTranslations } from 'next-intl';
 
 interface SectionHeaderProps {
     isMobile: boolean;
@@ -10,9 +11,7 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
-
-    // const t = useTranslations('Language');
-
+    const t = useTranslations('Language');
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
 
@@ -40,15 +39,15 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <div className='w-full'>
                 {/* <GrayBlueButton text={t('Collection')} /> */}
-                <h2 className="text-[32px] pb-[14px] md:pb-0 md:pt-[16px] font-bold text-[#1C1C1E]">APARTMENT TYPES</h2>
+                <h2 className="text-[32px] pb-[14px] md:pb-0 md:pt-[16px] font-bold text-[#1C1C1E]">{t('ApartmentTypes')}</h2>
                 <div className="flex justify-between w-full items-center">
                     <div className="flex items-center space-x-8">
                         <div className="relative">
-                            <button className="font-medium text-[#1C1C1E] text-[16px] pb-1">All</button>
+                            <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">{t('OneBedroom')}</button>
                             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
                         </div>
-                        <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">1BR</button>
-                        <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">Studio</button>
+                        <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">{t('TwoBedroom')}</button>
+                        <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">{t('Studio')}</button>
                     </div>
 
                     {isMobile ? (
@@ -56,7 +55,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                             <button
                                 className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${isBeginning ? 'bg-gray-300' : 'bg-[#1C1C1E]'
                                     }`}
-                                aria-label="Previous slide"
+                                aria-label={t('PreviousSlide')}
                                 onClick={() => swiper?.slidePrev()}
                                 disabled={isBeginning}
                             >
@@ -65,7 +64,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                             <button
                                 className={`w-[32px] h-[32px] rounded-full flex items-center justify-center z-10 transition duration-300 ${isEnd ? 'bg-gray-300' : 'bg-[#1C1C1E]'
                                     }`}
-                                aria-label="Next slide"
+                                aria-label={t('NextSlide')}
                                 onClick={() => swiper?.slideNext()}
                                 disabled={isEnd}
                             >
@@ -74,7 +73,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                         </div>
                     ) : (
                         <div className='pb-[30px]'>
-                            <Button text='See All Suggestions'
+                            <Button text={t('SeeAllSuggestions')}
                                 href='/apartment-types' />
                         </div>
                     )}
