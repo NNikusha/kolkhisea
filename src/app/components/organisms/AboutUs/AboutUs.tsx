@@ -7,7 +7,6 @@ import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg';
 import OurMission from '../../atoms/OurMission/OurMission';
 import BackGroundLine1 from '@/app/assets/BackGroundLine1';
 import BackGroundLine6 from '@/app/assets/BackGroundLine6';
-import SubscribeSection from '../SubscribeSection/SubscribeSection';
 import { fetchAboutUs } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
