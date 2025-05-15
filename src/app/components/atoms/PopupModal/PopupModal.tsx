@@ -1,8 +1,9 @@
-'use client';
-import React, { useEffect } from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
-import ModalCloseIcon from '@/app/assets/ModalCloseIcon.svg';
+"use client";
+import React, { useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion"; // Import AnimatePresence
+import ModalCloseIcon from "@/app/assets/ModalCloseIcon.svg";
+import flower from "../../../assets/flower.svg";
 
 type PopupModalProps = {
   isOpen: boolean;
@@ -10,17 +11,21 @@ type PopupModalProps = {
   children?: React.ReactNode;
 };
 
-const PopupModal: React.FC<PopupModalProps> = ({ isOpen, onClose, children }) => {
+const PopupModal: React.FC<PopupModalProps> = ({
+  isOpen,
+  onClose,
+  children,
+}) => {
   useEffect(() => {
     const body = document.body;
     if (isOpen) {
-      body.style.overflow = 'hidden';
+      body.style.overflow = "hidden";
     } else {
-      body.style.overflow = '';
+      body.style.overflow = "";
     }
 
     return () => {
-      body.style.overflow = '';
+      body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -35,7 +40,7 @@ const PopupModal: React.FC<PopupModalProps> = ({ isOpen, onClose, children }) =>
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="bg-white p-[24px] rounded-[16px] shadow-lg relative sm:max-w-[536px] w-full"
+            className="bg-white p-[24px] rounded-[16px] shadow-lg relative sm:max-w-[650px] w-full"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
@@ -45,13 +50,15 @@ const PopupModal: React.FC<PopupModalProps> = ({ isOpen, onClose, children }) =>
               onClick={onClose}
               className="absolute top-[24px] right-[24px] cursor-pointer"
             >
-              <Image
-                src={ModalCloseIcon}
-                alt="Close"
-                width={18}
-                height={18}
-              />
+              <Image src={ModalCloseIcon} alt="Close" width={18} height={18} />
             </button>
+
+            <Image
+              src={flower}
+              alt="flower image"
+              className="absolute top-27 right-0"
+            />
+
             {children}
           </motion.div>
         </motion.div>
