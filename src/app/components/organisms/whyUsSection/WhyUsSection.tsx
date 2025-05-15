@@ -26,20 +26,24 @@ export default function WhyUsSection({
     <>
       <section>
       <div className="block lg:hidden">
-              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
+              <div className="text-[32px] text-center w-[60%] m-auto sm:w-[100%] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
                 {t('OUR')}{" "}<br />
-                <span className="text-[#1C1C1E]">
+                <div className="text-[#1C1C1E] relative">
                   {t('PROJECT')}  
-                </span>
-              </h2>
+                  <div className="bg-[#B4D7D8]/50 w-[167px] h-[24px] absolute z-[-10] bottom-[-7px] left-[calc(50%-83px)]"></div>
+                </div>
+              </div>
             </div>
         <div className="flex mt-6 lg:mt-5 md:gap-10 2xl:gap-0 flex-col xl:flex-row">
-          <div className="order-2 flex-1">
+          <div className="flex flex-col order-2 flex-1 justify-between">
             <div className="hidden lg:flex">
-              <h2 className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[80px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
-                <p>{t('OUR')}</p>
-                <p className="text-[#1C1C1E]">{t('PROJECT')}</p>
-              </h2>
+              <div className="text-[32px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 flex gap-4 bottom-2 ">
+                <div>{t('OUR')}</div>
+                <div className="text-[#1C1C1E] relative">
+                  {t('PROJECT')}
+                  <div className="bg-[#B4D7D8]/50 w-[312px] h-[40px] absolute right-[-100px] bottom-[-10px] z-[-10]"></div>
+                </div>
+              </div>
             </div>
             <div className="mt-[32px] lg:mt-[30px]">
               <div>

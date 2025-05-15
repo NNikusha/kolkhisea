@@ -23,13 +23,17 @@ const OverviewSection = ({ overviewText, overviewImage, lang = 'en' }: OverviewS
   return (
     <div className="w-full rounded-t-[30px] relative z-10 pt-[600px] pb-[72px] md:py-16 mt-[calc(600px-90vh)] md:mt-[calc(1140px-90vh)] xl:mt-[calc(340px+(55vw-120vh))]">
       <div className="container mx-auto pt-[50px] md:pt-[52px] px-4 lg:px-[108px]">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-12 mb-12">
+        <div className="flex flex-col lg:justify-between items-center lg:flex-row lg:items-start lg:space-x-12 mb-12">
           <div className="text-center lg:w-1/4 mb-6 lg:mb-0">
-            <h2 className="text-[24px] md:text-[48px] text-[#1C1C1E] uppercase text-start">{t('ProjectOverview')}</h2>
+            <div className="text-[24px] lg:text-[48px] text-[#1C1C1E] uppercase text-start relative">
+              {t('ProjectOverview')}
+              <div className="bg-[#B4D7D8]/50 w-[167px] h-[24px] lg:w-[200px] lg:h-[40px] absolute z-[-10] bottom-[-7px] left-[calc(50%-83px)] lg:left-[70px]"></div>
+            </div>
+
           </div>
           
-          <div className="lg:w-3/4">
-            <p className="text-[14px] md:text-[16px] text-center md:text-start text-[#3D3D3D]">
+          <div className="lg:max-w-[648px] pl-8">
+            <p className="text-[14px] md:text-[16px] max-w-[648px] text-center md:text-start text-[#3D3D3D]">
               {overviewText && overviewText[lang] 
                 ? overviewText[lang]
                 : "Located in the heart of [City], [Project Name] is a premium 10-story apartment hotel designed for modern living. With stunning sea views, high-end amenities, and a prime location, it offers the perfect blend of comfort and luxury."}
