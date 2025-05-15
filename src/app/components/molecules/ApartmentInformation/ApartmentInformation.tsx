@@ -12,6 +12,7 @@ import CompassIcon from '@/app/assets/CompassIcon.svg';
 import ArrowLeft from '@/app/assets/arrow-left.svg';
 import CompassMobile from '@/app/assets/CompassMobile.svg';
 import { fetchFlatById } from '@/app/hooks/axios';
+import { useTranslations } from 'next-intl';
 
 interface Flat {
   id: number;
@@ -51,6 +52,7 @@ interface Flat {
 }
 
 const ApartmentInformation = () => {
+  const t = useTranslations('Language');
   const [activeButton, setActiveButton] = useState<'2D' | '3D'>('3D');
   const [flatData, setFlatData] = useState<Flat | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -104,25 +106,25 @@ const ApartmentInformation = () => {
           className='flex justify-center items-center text-[#B4B4B4] cursor-pointer hover:text-[#8A8A8A] transition duration-300 ease-in-out'
           onClick={() => router.push(`/${locale}`)}
         >
-          Main Page
+          {t('MainPage')}
         </div>
         <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
         <div 
           className='flex justify-center items-center text-[#B4B4B4] cursor-pointer hover:text-[#8A8A8A] transition duration-300 ease-in-out'
           onClick={() => router.push(`/${locale}/about-project`)}
         >
-          About Project
+          {t('AboutProject')}
         </div>
         <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
         <div 
           className='flex justify-center items-center text-[#B4B4B4] cursor-pointer hover:text-[#8A8A8A] transition duration-300 ease-in-out'
           onClick={() => router.push(`/${locale}/apartment-choose`)}
         >
-          Stare Plan
+          {t('FloorPlan')}
         </div>
         <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
         <div className='flex justify-center items-center text-[#1C1C1E] cursor-pointer'>
-          {loading ? 'Loading...' : `Apartment ${flatData?.number || ''}`}
+          {loading ? t('Loading') : `${t('Apartment')} ${flatData?.number || ''}`}
         </div>
       </div>
       
@@ -135,7 +137,7 @@ const ApartmentInformation = () => {
             >
               <Image 
                 src={ArrowLeft}
-                alt="Arrow Left"
+                alt={t('GoBack')}
                 width={19}
                 height={19} 
               />
@@ -144,7 +146,7 @@ const ApartmentInformation = () => {
               <button className='flex justify-center items-center w-[48px] h-[48px] rounded-full bg-white'>
                 <Image 
                   src={PrintIcon}
-                  alt="Print Icon"
+                  alt={t('Print')}
                   width={19}
                   height={19}
                 />
@@ -152,7 +154,7 @@ const ApartmentInformation = () => {
               <button className='flex justify-center items-center w-[48px] h-[48px] rounded-full bg-white'>
                 <Image 
                   src={ShareIcon}
-                  alt="Share Icon"
+                  alt={t('Share')}
                   width={19}
                   height={19} 
                 />
@@ -168,7 +170,7 @@ const ApartmentInformation = () => {
             ) : (
               <Image 
                 src={getImageSrc()}
-                alt={`Apartment ${flatData?.number || ''}`}
+                alt={`${t('Apartment')} ${flatData?.number || ''}`}
                 className='md:w-[536px] md:h-[448px] h-[283px]'
                 width={536}
                 height={448}
@@ -178,7 +180,7 @@ const ApartmentInformation = () => {
             <div className='flex xl:hidden w-full items-start'>
               <Image 
                 src={CompassMobile}
-                alt="Compass Icon"
+                alt={t('CompassIcon')}
                 width={72}
                 height={72} 
               />
@@ -204,7 +206,7 @@ const ApartmentInformation = () => {
           <div className='hidden xl:flex'>
             <Image 
               src={CompassIcon}
-              alt="Compass Icon"
+              alt={t('CompassIcon')}
               width={72}
               height={72} 
             />

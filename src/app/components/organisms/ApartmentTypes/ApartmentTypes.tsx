@@ -7,9 +7,10 @@ import ApartmentCardSection from "../../molecules/ApartmentCardSection/Apartment
 import ApartmentTypeBackground from "../../atoms/ApartmentTypeBackground/ApartmentTypeBackground";
 import { fetchApartmentTypes } from "@/app/hooks/axios";
 import { Apartment } from "@/app/types/type";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const ApartmentTypes = () => {
+  const t = useTranslations('Language');
   const [apartments, setApartments] = useState<Apartment[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   
@@ -112,6 +113,21 @@ const ApartmentTypes = () => {
     return filtered;
   }, [apartments, appliedRoom, appliedArea, locale]);
 
+  // Create translated options for the mobile filter modal
+  const roomOptions = [
+    { value: "All", label: t('All') },
+    { value: "Studio", label: t('Studio') },
+    { value: "1BR", label: t('OneBedroom') },
+    { value: "2BR", label: t('TwoBedroom') }
+  ];
+  
+  const areaOptions = [
+    { value: "All", label: t('All') },
+    { value: "30-40", label: t('Area30To40') },
+    { value: "50-70", label: t('Area50To70') },
+    { value: "100+", label: t('Area100Plus') }
+  ];
+
   return (
     <div className="flex flex-col w-full select-none">
       <ApartmentTypeBackground />
@@ -131,18 +147,18 @@ const ApartmentTypes = () => {
         height="58vh"
       >
         <div className="px-4 flex flex-col gap-8">
-          <h2 className="text-[20px] text-black">FILTER</h2>
+          <h2 className="text-[20px] text-black">{t('FilterTitle')}</h2>
 
           <div className="flex flex-col gap-6 w-full">
             <FilterItem
-              label="The number of rooms"
-              options={["All", "Studio", "1BR","2BR"]}
+              label={t('NumberOfRooms')}
+              options={roomOptions}
               activeOption={tempRoom}
               onSelect={setTempRoom}
             />
             <FilterItem
-              label="Specify the area, m²"
-              options={["All", "30-40", "50-70", "100+"]}
+              label={t('SpecifyArea')}
+              options={areaOptions}
               activeOption={tempArea}
               onSelect={setTempArea}
             />
@@ -153,13 +169,13 @@ const ApartmentTypes = () => {
               className="h-14 rounded-[16px] bg-[#CB684D] text-white font-medium text-center flex-1"
               onClick={handleApplyFilters}
             >
-              Filter
+              {t('FilterButton')}
             </button>
             <button
               className="h-14 rounded-[16px] bg-[#E8E8E8] text-[#1C1C1E] font-medium text-center flex-1"
               onClick={ResetTempFilters}
             >
-              Clear Filter
+              {t('ClearFilterButton')}
             </button>
           </div>
         </div>

@@ -8,6 +8,7 @@ import ApartmentCard from "../../molecules/ApartmentCard/ApartmentCard";
 import NavigationButton from "../../atoms/NavigationButton/NavigationButton";
 import { ApartmentType } from "@/app/types/type";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface ApartmentSwiperProps {
   apartments: ApartmentType[];
@@ -15,6 +16,7 @@ interface ApartmentSwiperProps {
 }
 
 const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments, lang }) => {
+  const t = useTranslations('Language');
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -66,15 +68,15 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments, lang }) =
         <div className="flex items-center space-x-8 block">
           <div className="relative">
             <button className="font-[800] text-[#CB684D] text-[16px] pb-1">
-              All
+              {t('OneBedroom')}
             </button>
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
           </div>
           <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">
-            1BR
+            {t('TwoBedroom')}
           </button>
           <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">
-            Studio
+            {t('Studio')}
           </button>
         </div>
         <div className="flex gap-4">
@@ -105,9 +107,9 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments, lang }) =
         {apartments.slice(0, 4).map((apartment, index) => (
           <SwiperSlide key={index} className="py-2">
             <ApartmentCard
-              type={apartment.type?.[lang] || "Unknown"}
+              type={apartment.type?.[lang] || t('Unknown')}
               total_area={apartment.total_area?.toString()}
-              status={apartment.status?.[lang] || "Unknown"}
+              status={apartment.status?.[lang] || t('Unknown')}
               availableFlats={apartment.available_flats}
               image={apartment.image}
             />
@@ -118,7 +120,7 @@ const ApartmentSwiper: React.FC<ApartmentSwiperProps> = ({ apartments, lang }) =
       <div className="mt-6 text-center w-full">
         <Link href="/apartment-types">
           <button className="bg-[#285260] text-[#F2F2F2] rounded-[16px] h-[58px] px-8 w-full">
-            View similar
+            {t('ViewSimilar')}
           </button>
         </Link>
       </div>

@@ -4,6 +4,7 @@ import ApartmentCard from "../../molecules/ApartmentCard/ApartmentCard";
 import SeeMoreApartment from "@/app/assets/MoreApartment.svg";
 import { ApartmentType } from "@/app/types/type";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface ApartmentGridProps {
   apartments: ApartmentType[];
@@ -16,6 +17,8 @@ const ApartmentGrid: React.FC<ApartmentGridProps> = ({
   isTablet,
   lang,
 }) => {
+  const t = useTranslations('Language');
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 sm:max-w-2xl lg:max-w-4xl 2xl:max-w-none mx-auto">
       {apartments.map((apartment, index) => (
@@ -24,9 +27,9 @@ const ApartmentGrid: React.FC<ApartmentGridProps> = ({
           className={`${index >= (isTablet ? 2 : 3) ? "hidden" : "block"}`}
         >
           <ApartmentCard
-            type={apartment.type?.[lang] || "Unknown"}
+            type={apartment.type?.[lang] || t('Unknown')}
             total_area={apartment.total_area?.toString()}
-            status={apartment.status?.[lang] || "Unknown"}
+            status={apartment.status?.[lang] || t('Unknown')}
             availableFlats={apartment.available_flats}
             image={apartment.image}
           />
@@ -40,22 +43,22 @@ const ApartmentGrid: React.FC<ApartmentGridProps> = ({
         <div className="p-[32px] pt-[48px] flex flex-col justify-between h-full">
           <Image
             src={SeeMoreApartment}
-            alt="See More Apartments"
+            alt={t('SeeMoreApartmentsAlt')}
             className="w-full h-auto"
           />
           <div className="mt-[32px] text-center">
             <h3 className="text-[24px] text-black leading-[1.3] uppercase">
-              See more apartments
+              {t('SeeMoreApartments')}
             </h3>
             <p className="text-[#7E7E7E] text-[16px] leading-[1.5] mt-[8px]">
-              Save to favorites
+              {t('SaveToFavorites')}
               <br />
-              for easy comparison
+              {t('ForEasyComparison')}
             </p>
           </div>
           <Link href="/apartment-types">
             <div className="bg-[#285260] flex items-center justify-center text-[#F2F2F2] rounded-[16px] h-[56px] mt-[18px]">
-              View similar
+              {t('ViewSimilar')}
             </div>
           </Link>
         </div>

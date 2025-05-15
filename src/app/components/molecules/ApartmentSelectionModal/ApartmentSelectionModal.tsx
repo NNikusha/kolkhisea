@@ -10,6 +10,7 @@ import SelectApartmentSeaLogo from "@/app/assets/SelectApartmentSeaLogo";
 import { fetchFloorPlans } from "@/app/hooks/axios";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 interface ApartmentModalProps {
   isOpen: boolean;
@@ -61,6 +62,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
   onClose,
   initialFloor = 10,
 }) => {
+  const t = useTranslations('Language');
   const [currentFloor, setCurrentFloor] = useState<number>(initialFloor);
   const [floorPlans, setFloorPlans] = useState<FloorPlan[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -218,7 +220,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
               <div className="flex flex-col justify-between h-full w-full mt-[40px] font-bold text-gray-800">
                 <div className="w-full flex items-center justify-between">
                   <div className="uppercase text-[32px] font-normal text-black">
-                    Select apartment
+                    {t('ChooseApartment')}
                   </div>
                   <div
                     className="bg-[#2852600D] px-[12px] py-[12px] rounded-full cursor-pointer"
@@ -261,7 +263,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.1 }}
                                 >
-                                  Apartment
+                                  {t('ApartmentTypes')}
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -277,7 +279,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.2 }}
                                 >
-                                  Apartment area, m²
+                                  {t('ApartmentTypes')}, {t('SquareMeters')}
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -293,7 +295,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.3 }}
                                 >
-                                  Price: $
+                                  {t('Price')}: $
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -309,7 +311,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.4 }}
                                 >
-                                  Status
+                                  {t('Status')}
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -347,7 +349,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
                               >
-                                Sold
+                                {t('Sold')}
                               </motion.div>
                               <motion.div
                                 className="py-[72px]"
@@ -377,7 +379,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.3, ease: "easeOut" }}
                             >
-                              Select an apartment from the plan on the right
+                              {t('SelectApartmentFromPlan')}
                             </motion.div>
                             <motion.div
                               className="py-[60px]"
@@ -408,7 +410,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                               src={currentPlan.image}
                               width={872}
                               height={500}
-                              alt={`Floor ${currentPlan.floor} Plan`}
+                              alt={`${t('Floor')} ${currentPlan.floor} ${t('Plan')}`}
                               className="block"
                               onLoad={handleImageLoad}
                               unoptimized={currentPlan.image.startsWith(
@@ -516,12 +518,12 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
 
                           <div className="flex justify-center items-center gap-[8px] mt-4">
                             <SelectApartmentSeaLogo />
-                            <h3 className="font-normal text-[#1C1C1E]">Sea</h3>
+                            <h3 className="font-normal text-[#1C1C1E]">{t('Sea')}</h3>
                           </div>
                         </>
                       ) : (
                         <div className="text-center">
-                          No floor plan available for floor {currentFloor}
+                          {t('NoFloorPlanAvailable')} {currentFloor}
                         </div>
                       )}
                     </div>
@@ -538,7 +540,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
 
                 <div className="w-full flex justify-between items-center">
                   <div className="text-[#9F9F9F] w-[170px] leading-[130%] font-normal">
-                    © 2025 KOLKHISEA. All Rights Reserved.
+                    {t('Copyright').replace('[Company Name]', 'KOLKHISEA')}
                   </div>
                   <div className="flex items-center gap-4">
                     <Image
@@ -549,7 +551,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                       className="fill-black"
                     />
                     <span className="font-normal underline pr-[24px]">
-                      Download PDF plan
+                      {t('DownloadPDFPlan')}
                     </span>
                     <Compas />
                   </div>
