@@ -23,7 +23,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   bottomPattern
 }) => {
   return (
-    <div className={`${bgColor} flex flex-col flex-1 rounded-[24px] shadow-sm pb-[20px] min-h-[296px] relative overflow-hidden`}>
+    <div className={`${bgColor} flex flex-col flex-1 rounded-[24px] shadow-sm 2xl:min-h-[296px] pb-[20px] xl:h-[336px] lg:h-[386px] relative overflow-hidden`}>
       <div className="absolute inset-0">
         <Image
           src={highlightSvg}
