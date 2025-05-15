@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { fetchFlats } from '@/app/hooks/axios';
 import ApartmentCard from '../ApartmentCard/ApartmentCard';
+import { useTranslations, useLocale } from 'next-intl';
 
 interface ApartmentCardProps {
   apartmentNumber: string;
@@ -62,6 +63,8 @@ interface Flat {
 }
 
 const ApartmentChoose: React.FC = () => {
+  const t = useTranslations('Language');
+  const locale = useLocale();
   const [flats, setFlats] = useState<Flat[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -85,18 +88,18 @@ const ApartmentChoose: React.FC = () => {
           setFloorPlanImage(floorPlanImage);
         } else {
           console.error("Unexpected data format:", data);
-          setError("Failed to load apartments. Please try again.");
+          setError(t('FailedToLoadApartments'));
         }
       } catch (error) {
         console.error("Error loading flats:", error);
-        setError("Failed to load apartments. Please try again.");
+        setError(t('FailedToLoadApartments'));
       } finally {
         setLoading(false);
       }
     };
     
     loadFlats();
-  }, [floor]);
+  }, [floor, t]);
 
   const handleFlatClick = (flatId: number) => {
     console.log(`Navigating to flat ID: ${flatId}`); // Debug log
@@ -105,17 +108,17 @@ const ApartmentChoose: React.FC = () => {
       // Get locale from URL path
       const pathname = window.location.pathname;
       const localeMatch = pathname.match(/^\/([a-z]{2})\//);
-      const locale = localeMatch ? localeMatch[1] : 'ka';
+      const currentLocale = localeMatch ? localeMatch[1] : locale;
       
       // Correct URL format as specified
-      const targetUrl = `/${locale}/flat-detail-page/${flatId}`;
+      const targetUrl = `/${currentLocale}/flat-detail-page/${flatId}`;
       console.log(`Navigating to: ${targetUrl}`); // Debug log
       
       router.push(targetUrl);
     } catch (err) {
       console.error("Navigation error:", err);
       // Fallback direct navigation
-      window.location.href = `/ka/flat-detail-page/${flatId}`;
+      window.location.href = `/${locale}/flat-detail-page/${flatId}`;
     }
   };
   
@@ -124,18 +127,18 @@ const ApartmentChoose: React.FC = () => {
     .map(flat => {
       const flatImage = flat.flat_image_3d || flat.floorplan_image || '';
       
-      let apartmentType = 'Studio';
+      let apartmentType = t('StudioApartment');
       if (flat.bedroom && flat.bedroom.length > 0) {
         apartmentType = flat.bedroom.length === 1 
-          ? '1 Bedroom' 
-          : `${flat.bedroom.length} Bedrooms`;
+          ? t('OneBedroomApartment') 
+          : t('BedroomsPlural', { count: flat.bedroom.length });
       }
       
       return {
         apartmentNumber: flat.number.toString(),
-        size: `${flat.total_area} m²`,
+        size: `${flat.total_area} ${t('SquareMeters')}`,
         type: apartmentType, 
-        status: flat.flat_conditions?.en || 'Standard',
+        status: flat.flat_conditions?.[locale as keyof typeof flat.flat_conditions] || "unknown",
         imageSrc: flatImage, 
         onClick: () => handleFlatClick(flat.id)
       };
@@ -145,11 +148,11 @@ const ApartmentChoose: React.FC = () => {
     <div className="h-full w-full bg-white 2xl:hidden">
       <div className='flex items-center gap-[16px] lg:flex pt-[124px] pb-[32px] px-4 bg-white'>
         <div className='flex justify-center items-center text-[#B4B4B4] cursor-pointer' onClick={() => router.push('/')}>
-          Main Page
+          {t('MainPage')}
         </div>
         <div className='bg-[#1C1C1E] w-[8px] h-[8px] rounded-full flex justify-center items-center'></div>
         <div className='flex justify-center items-center text-[#1C1C1E] cursor-pointer'>
-          {floor}th Floor
+          {t('FloorNumber', { floor })}
         </div>
       </div>
       
@@ -157,7 +160,7 @@ const ApartmentChoose: React.FC = () => {
         {floorPlanImage && (
           <Image 
             src={floorPlanImage}
-            alt={`${floor}th Floor Plan`}
+            alt={t('FloorNumber', { floor })}
             width={800}
             height={500}
           />
@@ -166,12 +169,12 @@ const ApartmentChoose: React.FC = () => {
       
       <div className='rounded-t-[32px] bg-[#F3F6FB] pb-[32px]'>
         <div className='px-4 pt-[32px]'>
-          <h1 className='text-[20px] font-normal text-[#1C1C1E]'>AVAILABLE APARTMENTS</h1>
-          <h3 className='font-normal text-[#7E7E7E] pb-[24px]'>{floor}th floor</h3>
+          <h1 className='text-[20px] font-normal text-[#1C1C1E]'>{t('AvailableApartments')}</h1>
+          <h3 className='font-normal text-[#7E7E7E] pb-[24px]'>{t('FloorNumberLowercase', { floor })}</h3>
           
           {loading ? (
             <div className="flex justify-center py-12">
-              <div className="animate-pulse">Loading apartments...</div>
+              <div className="animate-pulse">{t('LoadingApartments')}</div>
             </div>
           ) : error ? (
             <div className="text-red-500 text-center py-8">{error}</div>
@@ -199,7 +202,7 @@ const ApartmentChoose: React.FC = () => {
             </div>
           ) : (
             <div className="text-center py-8 text-gray-500">
-              No available apartments on this floor.
+              {t('NoAvailableApartments')}
             </div>
           )}
         </div>

@@ -4,30 +4,32 @@ import React, { useState } from 'react';
 import Button from '@/app/components/atoms/Button/Button';
 import PopUpForm from '../PopUpForm/PopUpForm';
 import { saveContact } from '@/app/hooks/axios';
+import { useTranslations } from 'next-intl';
 
 interface ModalContentProps {
   onSuccess: () => void;
 }
 
 const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
+  const t = useTranslations('Language');
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState('+1');
 
   const handleSubmit = async () => {
     if (!name.trim()) {
-      alert("Please enter your name.");
+      alert(t('NameError'));
       return;
     }
 
     if (!phoneNumber.trim()) {
-      alert("Please enter your phone number.");
+      alert(t('PhoneError'));
       return;
     }
 
     const rawNumber = phoneNumber.replace(/\D/g, '');
     if (rawNumber.length < 7) {
-      alert("Phone number is too short.");
+      alert(t('ShortPhoneError'));
       return;
     }
 
@@ -46,17 +48,17 @@ const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
       onSuccess();
     } catch (error) {
       console.error("Error sending form:", error);
-      alert("Something went wrong. Please try again.");
+      alert(t('RequestError'));
     }
   };
 
   return (
     <div>
       <h1 className='text-[#000000] sm:text-[32px] text-[18px] font-normal leading-[130%] pt-[56px]'>
-        WOULD YOU LIKE TO LEARN MORE ABOUT KOLKHISEA?
+        {t('ModalTitle')}
       </h1>
       <p className='font-normal sm:text-[16px] text-[14px] leading-[150%] text-[#3D3D3D] pt-4'>
-        Please provide your contact information, and our specialists will be in touch to discuss the details.
+        {t('ModalDescription')}
       </p>
 
       <PopUpForm
@@ -64,11 +66,13 @@ const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
         onNameChange={setName}
         phoneNumber={phoneNumber}
         onPhoneNumberChange={setPhoneNumber}
+        namePlaceholder={t('NamePlaceholder')}
+        phonePlaceholder={t('PhonePlaceholder')}
       />
 
       <div>
         <Button
-          text='Submit'
+          text={t('SubmitButton')}
           className="gap-[10px]"
           onClick={handleSubmit}
         />

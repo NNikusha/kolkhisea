@@ -38,18 +38,18 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
         {journeyOfCreationImageBefore && journeyOfCreationBefore && (
           <TheJourney
             imageBg={journeyOfCreationImageBefore}
-            about='Before'
-            title='What '
-            titleSpan='we started with'
+            about={t('Before')}
+            title={t('What')}
+            titleSpan={t('WeStartedWith')}
             text={journeyOfCreationBefore[lang]}
           />
         )}
         {journeyOfCreationImageAfter && journeyOfCreationAfter && (
           <TheJourney
             imageBg={journeyOfCreationImageAfter}
-            about='After'
-            title='What '
-            titleSpan='we created'
+            about={t('After')}
+            title={t('What')}
+            titleSpan={t('WeCreated')}
             text={journeyOfCreationAfter[lang]}
           />
         )}

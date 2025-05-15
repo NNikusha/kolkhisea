@@ -23,7 +23,7 @@ const MainPage = async () => {
           cloudText={data?.cloud_text}
           cloudTextSecondary={data?.cloud_text_secondary}
           lang={locale}
-          mainImg={data?.main_img} // Pass the main image from the fetched data
+          mainImg={data?.main_img}
         />
       </section>
       <div className="relative">

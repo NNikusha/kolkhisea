@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import DraggableModal from '../../molecules/DraggableModal/DraggableModal';
 import { fetchFlats } from '@/app/hooks/axios';
+import { useTranslations } from 'next-intl';
 
 const FLOORS: number[] = [3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -21,6 +22,7 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
   onClose: propOnClose,
   showButton = true
 }) => {
+  const t = useTranslations('Language');
   const [localIsOpen, setLocalIsOpen] = useState<boolean>(false);
   const [selectedFloor, setSelectedFloor] = useState<number | null>(null);
   const [flatsAvailable, setFlatsAvailable] = useState<FlatsAvailable>({});
@@ -84,9 +86,9 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
 
   return (
     <>
-    <div className='top-0 left-0 w-full h-full flex items-center justify-center'>
+      <div className='top-0 left-0 w-full h-full flex items-center justify-center'>
         {showButton && (
-          <div className="relative flex inline-flex  xl:hidden z-50">
+          <div className="relative flex inline-flex xl:hidden z-50">
             <button
               className="relative w-[102px] h-[102px] rounded-full flex flex-col items-center justify-center cursor-pointer overflow-hidden group"
               onClick={() => setLocalIsOpen(true)}
@@ -100,8 +102,7 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
                 style={{ borderWidth: '1px' }}
               />
               <div className="z-20 text-white text-center text-[14px]">
-                <div>Select</div>
-                <div>Flat</div>
+                <div>{t('SelectFlat')}</div>
               </div>
             </button>
           </div>
@@ -115,14 +116,12 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
               <DraggableModal isOpen={isOpen} onClose={handleClose}>
                 <div className="p-6">
                   <h2 className="text-2xl text-black font-semibold mb-6">
-                    SELECT THE FLOOR
+                    {t('SelectTheFloor')}
                   </h2>
 
                   {loading ? (
-                    <div className="flex justify-center  items-center">
-<div className="flex justify-center items-center h-[179px]">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
-            </div>
+                    <div className="flex justify-center items-center h-[179px]">
+                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
                     </div>
                   ) : (
                     <div className="grid grid-cols-4 gap-3 mb-6">
@@ -146,15 +145,17 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
                     <div>
                       {selectedFloor ? (
                         <span className="text-xl text-black font-medium uppercase">
-                          {selectedFloor}TH FLOOR
+                          {t('FloorWithNumber', { floor: selectedFloor })}
                         </span>
                       ) : (
-                        <span className="text-gray-500 uppercase">NO FLOOR CHOSEN</span>
+                        <span className="text-gray-500 uppercase">
+                          {t('NoFloorChosen')}
+                        </span>
                       )}
                     </div>
                     {selectedFloor && flatsAvailable[selectedFloor] && (
                       <div className="text-green-500 font-medium">
-                        {flatsAvailable[selectedFloor]} flats are available
+                        {t('FlatsAvailable', { count: flatsAvailable[selectedFloor] })}
                       </div>
                     )}
                   </div>
@@ -169,13 +170,13 @@ const MobileChoose: React.FC<MobileChooseProps> = ({
                       onClick={handleSelect}
                       disabled={!selectedFloor}
                     >
-                      Select
+                      {t('SelectButton')}
                     </button>
                     <button
                       className="h-[56px] rounded-lg bg-[#E8E8E8] text-[#1C1C1E] font-medium"
                       onClick={handleClose}
                     >
-                      Close
+                      {t('CloseButton')}
                     </button>
                   </div>
                 </div>
