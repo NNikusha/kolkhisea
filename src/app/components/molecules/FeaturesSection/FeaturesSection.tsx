@@ -33,16 +33,17 @@ const FeaturesSection = ({ features, lang = 'en' }: FeaturesSectionProps) => {
           </span>
         </div> */}
 
-        <div className="text-center md:text-start pt-4">
-          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#B4B4B4] uppercase">
-            {t('Project')}
+        <div className="text-center lg:text-start pt-4">
+          <h2 className="text-[24px] lg:text-[48px] font-normal text-[#B4B4B4] uppercase">
+            {t('ModernConveniences')}
           </h2>
         </div>
 
-        <div className="text-center md:text-start">
-          <h2 className="text-[24px] lg:text-[32px] xl:text-[48px] font-normal text-[#1C1C1E] uppercase">
+        <div className="text-center lg:text-start relative">
+          <h2 className="text-[24px] lg:text-[48px] font-normal text-[#1C1C1E] uppercase">
             {t('Characteristics')}
           </h2>
+          <div className="bg-[#B4D7D8]/50 w-[167px] h-[24px] lg:w-[200px] lg:h-[40px] absolute z-[-1] bottom-[-7px] left-[calc(50%-83px)] lg:left-[400px]"></div>
         </div>
 
         <div className="pt-[40px] flex flex-col gap-4">
