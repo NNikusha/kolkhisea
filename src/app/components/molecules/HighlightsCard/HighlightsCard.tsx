@@ -2,18 +2,20 @@ import React from 'react';
 import HighlightLine from "@/app/assets/HighLightLine.svg";
 import HighlightLine2 from "@/app/assets/HighLightLine1.svg";
 import HighlightLine3 from "@/app/assets/HighLightLine2.svg";
+import CardPatternGray from "@/app/assets/CardPatternGray.png";
+import CardPatternOrange from "@/app/assets/CardPatternOrange.png";
+import CardPatternBlue from "@/app/assets/CardPatternBlue.png";
 import { FeatureCard } from '../../atoms/FeatureCard/FeatureCard';
 import { SectionTitle } from '../../atoms/SectionTitle/SectionTitle';
 import { HighlightsCardProps, Insight } from '@/app/types/type';
 import { useTranslations } from 'next-intl';
 
 const highlightSvgs = [HighlightLine, HighlightLine2, HighlightLine3];
+const bottomPatterns = [CardPatternGray, CardPatternOrange, CardPatternBlue];
 const bgColors = ["bg-white", "bg-[#CB684D]", "bg-[#285260]"];
-const borderColors = ["border-[#E3E3E3]", "border-white border-opacity-30", "border-white border-opacity-30"];
 const textColors = ["text-gray-800", "", ""];
 
 export const HighlightsCard: React.FC<HighlightsCardProps> = ({ insights = [], lang = 'en' }) => {
-
   const t = useTranslations('Language');
 
   return (
@@ -34,7 +36,7 @@ export const HighlightsCard: React.FC<HighlightsCardProps> = ({ insights = [], l
               number={`0${index + 1}`}
               description={item.insight?.[lang] ?? ''}
               highlightSvg={highlightSvgs[index]}
-              borderColor={borderColors[index]}
+              bottomPattern={bottomPatterns[index]}
               svgOpacity={index === 2 ? "mt-[27px]" : ""}
             />
           ))}

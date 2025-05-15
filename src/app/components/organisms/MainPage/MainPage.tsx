@@ -35,7 +35,7 @@ const MainPage = async () => {
         </div>
         
         <div className="container px-[16px] lg:px-[108px] mx-auto">
-          <section className="w-full py-12 md:py-16 lg:py-24">
+          <section className="w-full sm:py-[180px] md:py-16 lg:py-24">
             <HighlightsCard
               insights={data?.insights}
               lang={locale}
