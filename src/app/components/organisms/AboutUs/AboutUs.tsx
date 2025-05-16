@@ -5,12 +5,13 @@ import OurMissionSection from '../../molecules/OurMissionSection/OurMissionSecti
 import WhoWeAre from '../../atoms/WhoWeAre/WhoWeAre';
 import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg';
 import OurMission from '../../atoms/OurMission/OurMission';
-import BackGroundLine1 from '@/app/assets/BackGroundLine1';
-import BackGroundLine6 from '@/app/assets/BackGroundLine6';
 import { fetchAboutUs } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
 import GetInTouchSection from '../../molecules/GetInTouchSection/GetInTouchSection';
+import Flower1AboutUs from '@/app/assets/Flower1AboutUs';
+import Image from 'next/image';
+import Flower2AboutUs from '@/app/assets/Flower2AboutUs.png'
 
 const AboutUs = async () => {
     const locale = await getLocale() as Locale;
@@ -29,8 +30,12 @@ const AboutUs = async () => {
 
             <div className="relative">
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-                    <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none z-[-1]" />
-                    <BackGroundLine1 className="absolute top-[30%] w-full h-auto max-w-none z-[0]" />
+                    <Flower1AboutUs className="absolute xl:top-[15%] top-[23%] xl:left-[20%] left-[10%] md:block hidden"/>
+                    <Image
+                        className="absolute top-[54%] md:block hidden"
+                        alt="MainApartment"
+                        src={Flower2AboutUs}                                
+                    />
                 </div>
 
                 <section className="w-full mt-[424px] sm:mt-[604px] xl:mt-[228px] 2xl:mt-[540px]">

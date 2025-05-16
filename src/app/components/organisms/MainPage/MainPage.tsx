@@ -3,13 +3,12 @@ import HighlightsCard from '../../molecules/HighlightsCard/HighlightsCard';
 import LuxuryCard from '../../molecules/LuxuryCard/LuxuryCard';
 import ApartmentSection from '../apartmentSection/ApartmentSection';
 import WhyUsSection from '../whyUsSection/WhyUsSection';
-import BackGroundLine1 from '@/app/assets/BackGroundLine1';
-import BackGroundLine2 from '@/app/assets/BackGroundLine2';
-import BackGroundLine4 from '@/app/assets/BackGroundLine4';
 import { fetchMain } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
 import GetInTouchSection from '../../molecules/GetInTouchSection/GetInTouchSection';
+import FlowerMainPage from '@/app/assets/FlowerMainPage';
+import FlowerMainPageMobile from '@/app/assets/FlowerMainPageMobile';
 
 const MainPage = async () => {
   const locale = await getLocale() as Locale;
@@ -28,10 +27,8 @@ const MainPage = async () => {
       </section>
       <div className="relative">
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <BackGroundLine1 className="absolute bottom-[10%] w-full h-auto max-w-none" />
-          <BackGroundLine2 className="absolute bottom-[5%] w-full h-auto max-w-none" />
-          <BackGroundLine2 className="absolute lg:top-[35%] top-[47%] w-full h-auto max-w-none" />
-          <BackGroundLine4 className="absolute xl:top-[5%] lg:top-[20%] top-[35%] w-full h-auto max-w-none" />
+          <FlowerMainPage className="absolute top-[51%] lg:block hidden " />
+          <FlowerMainPageMobile className="absolute md:top-[52%] top-[60%] lg:hidden block" />
         </div>
         
         <div className="container px-[16px] lg:px-[108px] mx-auto">
