@@ -12,7 +12,7 @@ export default function NavList({ text, link, isFlatDetailPage }: NavListProps) 
     <li className="relative group pb-1">
       <Link
         href={link}
-        className={`block pb-[1px] ${
+        className={`block md:text-[13px] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] pb-[1px] ${
           isFlatDetailPage ? 'text-[#1C1C1E]' : 'text-white'
         } transition-all duration-300`}
       >
