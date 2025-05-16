@@ -99,7 +99,7 @@ export default function HeaderNav() {
         <div className="flex items-center justify-between container px-[16px] lg:px-[108px] m-auto">
           <Link href="/">
             {isFlatDetailPage ? (
-              <Logo className="w-[120px] h-[32px] sm:w-[204px] xl:w-[164px] 2xl:w-[204px] mb-[7px] sm:h-[40px]" />
+              <LogoDark className="w-[120px] h-[32px] sm:w-[204px] xl:w-[164px] 2xl:w-[204px] mb-[7px] sm:h-[40px]" />
             ) : (
               <Logo className="w-[120px] h-[32px] sm:w-[204px] xl:w-[164px] 2xl:w-[204px] mb-[7px] sm:h-[40px]" />
             )}
