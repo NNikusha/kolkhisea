@@ -24,10 +24,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative flex flex-col md:flex-row md:min-h-[352px] items-center bg-white rounded-[32px] p-[24px]  shadow-md md:w-full mx-auto overflow-hidden transition-all duration-500 ${
+      className={`relative flex flex-col md:flex-row md:min-h-[352px] items-center bg-white rounded-[32px] p-[24px] shadow-md md:w-full mx-auto overflow-hidden transition-all duration-500 ${
         index === 0 ? 'z-0' : 'z-10'
-      }`}
-      style={{ top: '0px' }}
+      } sticky top-[0px]`}
     >
       {/* Pattern Image - Mobile Only */}
       <div className="absolute left-0 bottom-0 md:w-[88px] w-[82px]  h-full z-0 sm:block hidden">
