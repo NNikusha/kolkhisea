@@ -20,8 +20,7 @@ export default function MainHeadLine({
   width,
   centered = false,
   firstTextColor = "",
-  secondTextColor = "",
-  showTestSpan = true,
+  secondTextColor = ""
 }: MainHeadLineProp) {
   let widthClass = fullWidth ? 'w-full' : 'xl:w-[70.5%]';
   
@@ -34,8 +33,7 @@ export default function MainHeadLine({
       <h1
         className={`uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] ${widthClass} xl:text-[64px] ${className}`}
       >
-        <span style={{ color: firstTextColor || 'inherit' }}>{firstText}</span>{" "}
-        {showTestSpan && <span className="test"></span>}{" "}
+        <span style={{ color: firstTextColor || 'inherit' }}>{firstText}</span>
         <span style={{ color: secondTextColor || 'inherit' }}>{secondText}</span>
       </h1>
     </div>

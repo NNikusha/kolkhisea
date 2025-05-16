@@ -15,6 +15,7 @@ import { fetchFlatById } from '@/app/hooks/axios';
 import PopupModal from '../PopupModal/PopupModal';
 import ModalContent from '../ModalContent/ModalContent';
 import GetInTouchSuccess from '../../molecules/GetInTouchSuccess/GetInTouchSuccess';
+import { useTranslations } from 'next-intl';
 
 interface Flat {
   id: number;
@@ -60,6 +61,7 @@ interface ApartmentInformationCardProps {
 }
 
 const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ flatData: propsFlatData }) => {
+  const t = useTranslations('Language');
   const params = useParams();
   const flatId = params?.id as string;
   const locale = (params?.locale as string)?.toLowerCase() || 'en';
@@ -69,7 +71,6 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
   const [error, setError] = useState<string | null>(null);
 
   const [isPopupOpen, setPopupOpen] = useState(false)
-
   
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
@@ -124,7 +125,7 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
 
   const getBedroomArea = () => {
     if (!flatData.bedroom || flatData.bedroom.length === 0) {
-      return "N/A";
+      return t('NA');
     }
 
     // If there are multiple bedrooms, we'll show the total
@@ -133,12 +134,12 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       totalArea += parseFloat(bedroom.area) || 0;
     });
 
-    return `${totalArea} m²`;
+    return `${totalArea} ${t('SquareMeters')}`;
   };
 
   const getBathroomArea = () => {
     if (!flatData.bathroom || flatData.bathroom.length === 0) {
-      return "N/A";
+      return t('NA');
     }
 
     // If there are multiple bathrooms, we'll show the total
@@ -147,12 +148,12 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       totalArea += parseFloat(bathroom.area) || 0;
     });
 
-    return `${totalArea} m²`;
+    return `${totalArea} ${t('SquareMeters')}`;
   };
 
   const getBalconyArea = () => {
     if (!flatData.balcony || flatData.balcony.length === 0) {
-      return "N/A";
+      return t('NA');
     }
 
     // If there are multiple balconies, we'll show the total
@@ -161,31 +162,29 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       totalArea += parseFloat(balcony.area) || 0;
     });
 
-    return `${totalArea} m²`;
+    return `${totalArea} ${t('SquareMeters')}`;
   };
 
   const getApartmentType = () => {
     if (!flatData.bedroom || flatData.bedroom.length === 0) {
-      return "Studio";
+      return t('Studio');
     }
     return flatData.bedroom.length === 1
-      ? "1 Bedroom"
-      : `${flatData.bedroom.length} Bedrooms`;
+      ? t('OneBedroom')
+      : `${flatData.bedroom.length} ${t('Bedrooms')}`;
   };
-
-
 
   const getCondition = () => {
     return flatData.flat_conditions?.[locale as keyof typeof flatData.flat_conditions] ||
       flatData.flat_conditions?.en ||
-      "Standard";
+      t('Standard');
   };
 
   return (
     <div className="flex w-full lg:max-w-[536px] flex-col justify-center items-start bg-white rounded-[56px] px-4 lg:px-[32px] py-[48px] text-black mb-[72px] lg:mb-0 relative">
       <div className="flex justify-between items-center w-full pb-[32px] border-b border-[#D3D3D3] border-b-[1px]">
         <div>
-          <h1 className="text-[32px]">Flat {flatData.total_area} m²</h1>
+          <h1 className="text-[32px]">{t('Flat')} {flatData.total_area} {t('SquareMeters')}</h1>
         </div>
         <div className="p-[16px] bg-[#2852600D] rounded-[25px] text-[#285260]">
           {getCondition()}
@@ -196,8 +195,8 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         {/* FLOOR */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={FloorIcon} alt="Floor Icon" width={24} height={24} />
-            FLOOR:
+            <Image src={FloorIcon} alt={t('FloorIcon')} width={24} height={24} />
+            {t('FloorLabel')}:
           </div>
           <div>{flatData.floor}</div>
         </div>
@@ -205,8 +204,8 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         {/* APARTMENT */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={ApartmentIcon} alt="Apartment Icon" width={24} height={24} />
-            APARTMENT:
+            <Image src={ApartmentIcon} alt={t('ApartmentIcon')} width={24} height={24} />
+            {t('ApartmentLabel')}:
           </div>
           <div>{flatData.number}</div>
         </div>
@@ -214,8 +213,8 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         {/* TYPE */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={TypeIcon} alt="Type Icon" width={24} height={24} />
-            TYPE:
+            <Image src={TypeIcon} alt={t('TypeIcon')} width={24} height={24} />
+            {t('TypeLabel')}:
           </div>
           <div>{getApartmentType()}</div>
         </div>
@@ -225,17 +224,17 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         {/* LIVING SPACE */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={LivingRoomIcon} alt="Living Space Icon" width={24} height={24} />
-            LIVINGSPACE:
+            <Image src={LivingRoomIcon} alt={t('LivingRoomIcon')} width={24} height={24} />
+            {t('LivingSpaceLabel')}:
           </div>
-          <div>{flatData.living_space} m²</div>
+          <div>{flatData.living_space} {t('SquareMeters')}</div>
         </div>
 
         {/* BEDROOM */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={BedroomIcon} alt="Bedroom Icon" width={24} height={24} />
-            BEDROOM:
+            <Image src={BedroomIcon} alt={t('BedroomIcon')} width={24} height={24} />
+            {t('BedroomLabel')}:
           </div>
           <div>{getBedroomArea()}</div>
         </div>
@@ -243,8 +242,8 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         {/* BATHROOM */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={BathroomIcon} alt="Bathroom Icon" width={24} height={24} />
-            BATHROOM:
+            <Image src={BathroomIcon} alt={t('BathroomIcon')} width={24} height={24} />
+            {t('BathroomLabel')}:
           </div>
           <div>{getBathroomArea()}</div>
         </div>
@@ -252,19 +251,19 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         {/* BALCONY */}
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
-            <Image src={BalconyIcon} alt="Balcony Icon" width={24} height={24} />
-            BALCONY:
+            <Image src={BalconyIcon} alt={t('BalconyIcon')} width={24} height={24} />
+            {t('BalconyLabel')}:
           </div>
           <div>{getBalconyArea()}</div>
         </div>
       </div>
 
       <button className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer">
-        <Image src={DownloadIcon} alt="Download Icon" width={24} height={24} />
-        <p className="underline">Download PDF</p>
+        <Image src={DownloadIcon} alt={t('DownloadIcon')} width={24} height={24} />
+        <p className="underline">{t('DownloadPDF')}</p>
       </button>
       <button className="relative w-full flex justify-center bg-[#CB684D] rounded-[16px] py-[20px] text-[#F2F2F2] cursor-pointer overflow-hidden group" onClick={() => setPopupOpen(true)}>
-        <span className="relative z-10">Consultation</span>
+        <span className="relative z-10">{t('Consultation')}</span>
         <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
       <PopupModal

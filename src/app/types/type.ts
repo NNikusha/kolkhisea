@@ -42,10 +42,10 @@ export interface DropdownProps {
 }
 
 export interface FilterItemProps {
-  label?: string;
-  options?: string[];
-  activeOption?: string;
-  onSelect?: (option: string) => void;
+  label: string;
+  options: Array<string | { value: string; label: string }>;
+  activeOption: string;
+  onSelect: (option: string) => void;
 }
 
 export interface ButtonProps {
@@ -58,7 +58,7 @@ export interface Apartment {
   type?: {
     [key: string]: string;
   };
-  total_area: string | undefined;
+  total_area: string;
   status?: {
     [key: string]: string;
   };
@@ -72,14 +72,14 @@ export interface ApartmentCardSectionProps {
   lang: string;
 }
 export interface ApartmentTypeSectionProps {
-  ResetFilters?: () => void;
-  handleOpenModal?: () => void;
-  room?: string;
-  setRoom?: (value: string) => void;
-  area?: string;
-  setArea?: (value: string) => void;
   delivery?: string;
   setDelivery?: (value: string) => void;
+  ResetFilters: () => void;
+  handleOpenModal: () => void;
+  room: string;
+  setRoom: (value: string) => void;
+  area: string;
+  setArea: (value: string) => void;
 }
 
 export interface MobileFilterBtnProps {

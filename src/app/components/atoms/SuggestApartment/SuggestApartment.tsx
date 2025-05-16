@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import GrayBlueButton from "../GrayBlueButton/GrayBlueButton";
 import { ApartmentType } from "@/app/types/type";
 import ApartmentGrid from "../../molecules/ApartmentGrid/ApartmentGrid";
 import ApartmentSwiper from "../../molecules/ApartmentSwiper/ApartmentSwiper";
 import { fetchApartmentTypes } from "@/app/hooks/axios";
-import { useLocale } from "next-intl"; 
+import { useLocale, useTranslations } from "next-intl";
 
 const SuggestApartment: React.FC = () => {
+  const t = useTranslations('Language');
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isTablet, setIsTablet] = useState<boolean>(false);
   const [apartmentTypes, setApartmentTypes] = useState<ApartmentType[]>([]);
@@ -41,10 +41,9 @@ const SuggestApartment: React.FC = () => {
     <section className="w-full py-12 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-[108px] relative">
         <div className="md:text-start pb-[14px] md:pb-0 ">
-          <GrayBlueButton text="Apartment Options" />
+          {/* <GrayBlueButton text="Apartment Options" /> */}
           <h2 className="text-[24px] md:text-[32px] lg:text-[48px] md:pb-0 md:pt-[16px] font-bold text-[#1C1C1E] uppercase lg:mb-[54px] mt-[16px]">
-            Apartments <br />{" "}
-            <span className="text-[#CB684D]">you may like</span>
+            {t('Apartments')} <span className="text-[#CB684D]">{t('YouMayLike')}</span>
           </h2>
         </div>
 

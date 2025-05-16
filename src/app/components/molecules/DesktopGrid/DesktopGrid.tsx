@@ -1,6 +1,7 @@
 import { ApartmentType } from "@/app/types/type";
 import React from "react";
 import ApartmentCard from "../ApartmentCard/ApartmentCard";
+import { useTranslations } from 'next-intl';
 
 // Create an extended interface that includes the is_favourite property
 interface ExtendedApartmentType extends ApartmentType {
@@ -18,10 +19,11 @@ const DesktopGrid: React.FC<DesktopGridProps> = ({
   isMobile,
   lang,
 }) => {
+  const t = useTranslations('Language');
   const favoriteApartments = (apartmentTypes as ExtendedApartmentType[]).filter(
     (apartment) => apartment.is_favourite === 1
   );
-
+  
   return (
     <div className={`${isMobile ? "hidden" : "block"}`}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 sm:max-w-2xl lg:max-w-4xl 2xl:max-w-none mx-auto">
@@ -31,9 +33,9 @@ const DesktopGrid: React.FC<DesktopGridProps> = ({
             className={index === 3 ? "hidden 2xl:block" : ""}
           >
             <ApartmentCard
-              type={apartment.type?.[lang] || "Unknown"}
+              type={apartment.type?.[lang] || t('Unknown')}
               total_area={apartment.total_area?.toString()}
-              status={apartment.status?.[lang] || "Unknown"}
+              status={apartment.status?.[lang] || t('Unknown')}
               availableFlats={apartment.available_flats}
               image={apartment.image}
             />
