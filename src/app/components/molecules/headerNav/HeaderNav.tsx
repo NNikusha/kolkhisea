@@ -14,13 +14,13 @@ import LogoDark from "@/app/assets/LogoDark";
 import Link from "next/link";
 
 const LANGUAGE_LABELS: Record<string, string> = {
-  "EN": "ENG",
-  "KA": "GEO",
-  "RU": "RUS",
+  EN: "ENG",
+  KA: "GEO",
+  RU: "RUS",
 };
 
 export default function HeaderNav() {
-  const t = useTranslations('Language');
+  const t = useTranslations("Language");
   const pathname = usePathname();
   const router = useRouter();
 
@@ -31,13 +31,15 @@ export default function HeaderNav() {
   const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">("EN");
 
   const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage = /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
+  const isFlatDetailPage =
+    /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
 
   const NavBar = [
-    { id: "1", link: "/", text: t('MainPage') },
-    { id: "2", link: "/about-project", text: t('AboutProject') },
-    { id: "3", link: "/about-us", text: t('AboutUs') },
-    { id: "4", link: "/contact", text: t('Contacts') },
+    { id: "1", link: "/", text: t("MainPage") },
+    { id: "2", link: "/about-project", text: t("AboutProject") },
+    { id: "3", link: "/about-us", text: t("AboutUs") },
+    { id: "4", link: "/contact", text: t("Contacts") },
+    { id: "5", link: "/gallery", text: t("Gallery") },
   ];
 
   useEffect(() => {
@@ -46,8 +48,11 @@ export default function HeaderNav() {
     };
 
     const detectLanguage = () => {
-      const segments = pathname.split('/');
-      if (segments.length > 1 && ["EN", "KA", "RU"].includes(segments[1].toUpperCase())) {
+      const segments = pathname.split("/");
+      if (
+        segments.length > 1 &&
+        ["EN", "KA", "RU"].includes(segments[1].toUpperCase())
+      ) {
         setCurrentLang(segments[1].toUpperCase() as "EN" | "KA" | "RU");
       }
     };
@@ -68,14 +73,17 @@ export default function HeaderNav() {
     const typedLang = lang.toUpperCase() as "EN" | "KA" | "RU";
     setCurrentLang(typedLang);
 
-    const segments = pathname.split('/');
-    if (segments.length > 1 && ["EN", "KA", "RU"].includes(segments[1].toUpperCase())) {
+    const segments = pathname.split("/");
+    if (
+      segments.length > 1 &&
+      ["EN", "KA", "RU"].includes(segments[1].toUpperCase())
+    ) {
       segments[1] = lang.toLowerCase();
     } else {
       segments.splice(1, 0, lang.toLowerCase());
     }
 
-    const newPath = segments.join('/');
+    const newPath = segments.join("/");
     router.push(newPath);
   };
 
@@ -91,16 +99,21 @@ export default function HeaderNav() {
         <div className="flex items-center justify-between pointer container px-[16px] lg:px-[108px] m-auto">
           <Link href="/">
             {isFlatDetailPage ? (
-              <LogoDark className="w-[120px] h-[32px] sm:w-[204px] sm:h-[40px]" />
+              <LogoDark className="w-[120px] h-[32px] sm:w-[204px] xl:w-[164px] 2xl:w-[204px] mb-[7px] sm:h-[40px]" />
             ) : (
-              <Logo className="w-[120px] h-[32px] sm:w-[204px] sm:h-[40px]" />
+              <Logo className="w-[120px] h-[32px] sm:w-[204px] xl:w-[164px] 2xl:w-[204px] mb-[7px] sm:h-[40px]" />
             )}
           </Link>
 
           <nav className="hidden xl:flex">
-            <ul className="flex gap-12 font-medium">
+            <ul className="flex gap-10 font-medium">
               {NavBar.map((item) => (
-                <NavList key={item.id} text={item.text} link={item.link} isFlatDetailPage={isFlatDetailPage} />
+                <NavList
+                  key={item.id}
+                  text={item.text}
+                  link={item.link}
+                  isFlatDetailPage={isFlatDetailPage}
+                />
               ))}
             </ul>
           </nav>
@@ -125,16 +138,28 @@ export default function HeaderNav() {
             <div className="flex items-center gap-[19px]">
               {!isAboutProjectPage && (
                 <div onClick={handleOpenModal}>
-                  <OrangeButton text={t('SeeTheProject')} />
+                  <OrangeButton text={t("SeeTheProject")} />
                 </div>
               )}
               <div
                 className="flex xl:hidden flex-col gap-[11px]"
                 onClick={handleOpenBurgerMenu}
               >
-                <div className={`w-[19px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`} />
-                <div className={`w-[26px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`} />
-                <div className={`w-[15px] h-[3px] rounded-[16px] ${isFlatDetailPage ? "bg-black" : "bg-white"}`} />
+                <div
+                  className={`w-[19px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                />
+                <div
+                  className={`w-[26px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                />
+                <div
+                  className={`w-[15px] h-[3px] rounded-[16px] ${
+                    isFlatDetailPage ? "bg-black" : "bg-white"
+                  }`}
+                />
               </div>
             </div>
           </div>

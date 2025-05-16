@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
 import Button from '@/app/components/atoms/Button/Button';
@@ -11,6 +11,7 @@ interface ModalContentProps {
 }
 
 const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
+
   const t = useTranslations('Language');
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -27,7 +28,7 @@ const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
       return;
     }
 
-    const rawNumber = phoneNumber.replace(/\D/g, '');
+    const rawNumber = phoneNumber.replace(/\D/g, "");
     if (rawNumber.length < 7) {
       alert(t('ShortPhoneError'));
       return;
@@ -41,9 +42,9 @@ const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
         phone_number: formattedPhone,
       });
 
-      setName('');
-      setPhoneNumber('');
-      setCountryCode('+1');
+      setName("");
+      setPhoneNumber("");
+      setCountryCode("+1");
 
       onSuccess();
     } catch (error) {
@@ -54,6 +55,7 @@ const ModalContent: React.FC<ModalContentProps> = ({ onSuccess }) => {
 
   return (
     <div>
+
       <h1 className='text-[#000000] sm:text-[32px] text-[18px] font-normal leading-[130%] pt-[56px]'>
         {t('ModalTitle')}
       </h1>

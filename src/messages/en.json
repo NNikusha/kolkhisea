@@ -1,3 +1,4 @@
+
 {
   "Language": {
     "MainPage": "Home",
@@ -176,7 +177,15 @@
     "BedroomsPlural": "{count} Bedrooms",
     "StandardStatus": "Standard",
     "ApartmentWithColon": "APARTMENT:",
-    "BlockWithColon": "Block:"
-
+    "BlockWithColon": "Block:",
+    "BehindTheVision": "Behind the Vision",
+    "OurTeam": "Our Team",
+    "WhereCraftsmanship": "Where Craftsmanship",
+    "MeetsComfort": "Meets Comfort",
+    "ProfessionalGardening": "Professional Gardening",
+    "ExploreKolkhisea": "Explore Kolkhisea",
+    "Gallery": "Gallery",
+    "GalleryTitle": "Gallery",
+    "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING"
   }
 }
