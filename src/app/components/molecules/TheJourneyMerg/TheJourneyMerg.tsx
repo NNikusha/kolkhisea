@@ -24,7 +24,7 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
   const t = useTranslations('Language');
 
   return (
-    <div className='relative container lg:px-[108px] mx-auto w-full mb-[50px] md:mb-[200px] z-[2]'>
+    <div className='relative container lg:px-[108px] mx-auto w-full  z-[2]'>
       <div>
         <h1 className='flex flex-col lg:flex-row uppercase justify-between items-center lg:text-4xl text-[24px] text-[#B4B4B4]'>
           <span>{t('TheJourney')}</span>

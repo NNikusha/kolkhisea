@@ -7,10 +7,10 @@ import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg';
 import OurMission from '../../atoms/OurMission/OurMission';
 import BackGroundLine1 from '@/app/assets/BackGroundLine1';
 import BackGroundLine6 from '@/app/assets/BackGroundLine6';
-import SubscribeSection from '../SubscribeSection/SubscribeSection';
 import { fetchAboutUs } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
+import GetInTouchSection from '../../molecules/GetInTouchSection/GetInTouchSection';
 
 const AboutUs = async () => {
     const locale = await getLocale() as Locale;
@@ -60,15 +60,18 @@ const AboutUs = async () => {
                     lang={locale}
                 />
 
+            </section>
+            <section className='bg-white pb-[56px]'>
                 <TheJourneyMerg
                     journeyOfCreationBefore={data?.journey_of_creation_before}
                     journeyOfCreationImageBefore={data?.journey_of_creation_image_before}
                     journeyOfCreationAfter={data?.journey_of_creation_after}
                     journeyOfCreationImageAfter={data?.journey_of_creation_image_after}
                     lang={locale}
-                />            </section>
-            <section className="relative h-fit lg:h-fit w-full z-[10]">
-                <SubscribeSection />
+                />
+            </section>
+            <section className="relative  w-full z-[10] pt-[168px]">
+                <GetInTouchSection/>
             </section>
         </div>
     );

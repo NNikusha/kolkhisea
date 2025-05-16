@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import FlowersImage from "@/app/assets/FlowersImage.png";
+import GetInTouchSmallFlower from "@/app/assets/GetInTouchSmallFlower.png";
+import GetInTouchBigFlower from "@/app/assets/GetInTouchBigFlower.png";
+import GetInTouchFlowerMobile from '@/app/assets/GetInTouchFlowerMobile.png'
 import GetInTouchForm from "../../atoms/GetInTouchForm/GetInTouchForm";
 import Button from "../../atoms/Button/Button";
 import { saveContact } from "@/app/hooks/axios";
@@ -18,55 +20,74 @@ const GetInTouchSection = () => {
 
   const handleSendRequest = async () => {
     if (!name.trim()) {
-      alert(t("NameError"))
-      return
+      alert(t("NameError"));
+      return;
     }
 
     if (!phoneNumber.trim()) {
-      alert(t("PhoneError"))
-      return
+      alert(t("PhoneError"));
+      return;
     }
 
-    const rawNumber = phoneNumber.replace(/\D/g, '');
+    const rawNumber = phoneNumber.replace(/\D/g, "");
     if (rawNumber.length < 7) {
-      alert(t("ShortPhoneError"))
-      return
+      alert(t("ShortPhoneError"));
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     try {
-      const formattedPhoneNumber = `+${phoneNumber}`
+      const formattedPhoneNumber = `+${phoneNumber}`;
 
       await saveContact({
         name: name,
-        phone_number: formattedPhoneNumber
-      })
+        phone_number: formattedPhoneNumber,
+      });
 
-      setIsSuccess(true)
-      setName('')
-      setPhoneNumber('')
+      setIsSuccess(true);
+      setName("");
+      setPhoneNumber("");
       setTimeout(() => {
-        setIsSubmitting(false)
-      }, 500)
+        setIsSubmitting(false);
+      }, 500);
     } catch (error) {
-      console.error('Error sending contact request:', error)
-      alert(t('RequestError'));
-      setIsSubmitting(false)
+      console.error("Error sending contact request:", error);
+      alert(t("RequestError"));
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <div className="bg-[#FFFFFF] w-full relative">
-      <div className="container mx-auto flex sm:flex-row flex-col justify-between">
-        <div className="px-[16px] lg:pl-[108px] xl:pl-[108px]">
+    <div className="container mx-auto px-[16px] lg:pl-[108px] sm:pb-[168px] pb-[72px] w-full relative">
+      <div className="bg-white rounded-[32px] flex flex-row  justify-between relative z-20 overflow-hidden">
+
+        <Image
+          src={GetInTouchSmallFlower}
+          alt="Small Flower"
+          className="absolute xl:w-[180px] w-[140px] lg:block hidden top-0 left-0 z-10 pointer-events-none"
+        />
+
+        <Image
+          src={GetInTouchBigFlower}
+          alt="Big Flower"
+          className="absolute xl:w-[474px] md:w-[303px] top-0 xl:right-[67px] right-0 z-10 pointer-events-none hidden md:block"
+        />
+
+        <Image
+          src={GetInTouchFlowerMobile}
+          alt="Small Flower"
+          className="absolute block md:hidden top-0 right-0 z-10 pointer-events-none"
+        />
+
+        <div className="px-[16px] lg:pl-[108px] xl:pl-[180px] relative z-20">
           <h1 className="sm:text-[48px] text-[24px] font-normal text-[#1C1C1E] pt-[50px]">
             {t("Title")}
           </h1>
           <p className="text-[#3D3D3D] font-normal pt-4 sm:text-[16px] text-[14px]">
             {t("Description")}
           </p>
-          <GetInTouchForm 
+          <GetInTouchForm
             nameValue={name}
             onNameChange={setName}
             phoneValue={phoneNumber}
@@ -74,7 +95,7 @@ const GetInTouchSection = () => {
             namePlaceholder={t("NamePlaceholder")}
             phonePlaceholder={t("PhonePlaceholder")}
           />
-          <div className='xl:pb-[64px] pb-[32px]'>
+          <div className="xl:pb-[64px] pb-[32px]">
             {isSubmitting ? (
               <div className="flex justify-center items-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
@@ -90,19 +111,12 @@ const GetInTouchSection = () => {
           </div>
         </div>
 
-        <div className="flex px-[0px] lg:pr-[108px] flex justify-center items-center">
-          <div className="bg-[#285260] h-full 2xl:flex hidden w-[24px]"></div>
-          <div className="">
-            <div className="bg-[#285260] h-[20px] 2xl:hidden w-full"></div>
-            <div className="w-full 2xl:h-[548px] ">
-              <Image src={FlowersImage} alt="Flowers Image" />
-            </div>
-          </div>
-        </div>
+        
       </div>
+
       {isSuccess && <GetInTouchSuccess onClose={() => setIsSuccess(false)} />}
     </div>
-  )
-}
+  );
+};
 
-export default GetInTouchSection
+export default GetInTouchSection;
