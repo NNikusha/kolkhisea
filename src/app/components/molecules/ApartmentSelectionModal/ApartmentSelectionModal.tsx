@@ -151,7 +151,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
   };
 
   const isApartmentAvailable = (apartment: ShapeData) => {
-    return apartment.flat.status === "1";
+    return apartment?.flat?.status === "1";
   };
 
   const handleMouseEnter = (apartment: ShapeData) => {
@@ -508,7 +508,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                       {hoveredApartment?.shapeNumber ===
                                       shape.shapeNumber
                                         ? ""
-                                        : shape.flat.number}
+                                        : shape.flat?.number}
                                     </div>
                                   );
                                 })}
