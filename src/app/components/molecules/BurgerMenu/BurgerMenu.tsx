@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -10,7 +11,7 @@ import flowers from "../../../assets/Layer_1.svg";
 interface NavItem {
   id: string;
   text: string;
-  link: string;
+  link: string; 
 }
 
 interface BurgerMenuProps {
@@ -59,15 +60,14 @@ const BurgerMenu = ({
                 <Image src={CloseIcon} alt="close" width={24} height={24} />
               </button>
             </div>
+
             <div className="flex flex-col gap-8">
               <p className="font-bold text-[#7E7E7E] uppercase">Menu</p>
               <div className="flex flex-col gap-6 text-[24px]">
                 {navItems.map((item, index) => {
                   const isActive =
-                    (pathname.replace(/^\/[^\/]+/, "") || "/").replace(
-                      /\/$/,
-                      ""
-                    ) === item.link.replace(/\/$/, "");
+                    pathname.replace(/\/$/, '') === item.link.replace(/\/$/, '');
+
                   return (
                     <div key={item.id} className="flex flex-col gap-6">
                       <p
@@ -87,7 +87,7 @@ const BurgerMenu = ({
                   );
                 })}
               </div>
-              {/* Now we just use the updated LanguageDropDown component */}
+
               <LanguageDropDown />
             </div>
           </div>

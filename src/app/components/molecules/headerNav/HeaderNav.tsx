@@ -1,6 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
+
 import OrangeButton from "../../atoms/orangeButton/OrangeButton";
 import NavList from "../../atoms/navList/NavList";
 import ChangeLangHeader from "../../atoms/changeLangHeader/ChangeLangHeader";
@@ -8,10 +12,8 @@ import FullscreenApartmentModal from "../ApartmentSelectionModal/ApartmentSelect
 import MobileChoose from "../../atoms/MobileChoose/MobileChoose";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import LanguageModal from "../../atoms/LanguageModal/LanguageModa";
-import { useTranslations } from "next-intl";
 import Logo from "@/app/assets/Logo";
 import LogoDark from "@/app/assets/LogoDark";
-import Link from "next/link";
 
 const LANGUAGE_LABELS: Record<string, string> = {
   EN: "ENG",
@@ -20,6 +22,7 @@ const LANGUAGE_LABELS: Record<string, string> = {
 };
 
 export default function HeaderNav() {
+  const locale = useLocale();
   const t = useTranslations("Language");
   const pathname = usePathname();
   const router = useRouter();
@@ -28,41 +31,29 @@ export default function HeaderNav() {
   const [isMobile, setIsMobile] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const [isLangModalOpen, setIsLangModalOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">("EN");
+  const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">(locale.toUpperCase() as "EN" | "KA" | "RU");
 
-  const isAboutProjectPage = pathname === "/about-project";
-  const isFlatDetailPage =
-    /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
+  const isAboutProjectPage = pathname?.includes("/about-project");
+  const isFlatDetailPage = /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
 
   const NavBar = [
-    { id: "1", link: "/", text: t("MainPage") },
-    { id: "2", link: "/about-project", text: t("AboutProject") },
-    { id: "3", link: "/about-us", text: t("AboutUs") },
-    { id: "4", link: "/contact", text: t("Contacts") },
-    { id: "5", link: "/gallery", text: t("Gallery") },
+    { id: "1", link: `/${locale}`, text: t("MainPage") },
+    { id: "2", link: `/${locale}/about-project`, text: t("AboutProject") },
+    { id: "3", link: `/${locale}/about-us`, text: t("AboutUs") },
+    { id: "4", link: `/${locale}/contact`, text: t("Contacts") },
+    { id: "5", link: `/${locale}/gallery`, text: t("Gallery") },
   ];
 
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 1280);
-    };
-
-    const detectLanguage = () => {
-      const segments = pathname.split("/");
-      if (
-        segments.length > 1 &&
-        ["EN", "KA", "RU"].includes(segments[1].toUpperCase())
-      ) {
-        setCurrentLang(segments[1].toUpperCase() as "EN" | "KA" | "RU");
-      }
-    };
-
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 1280);
     checkIsMobile();
-    detectLanguage();
-
     window.addEventListener("resize", checkIsMobile);
     return () => window.removeEventListener("resize", checkIsMobile);
-  }, [pathname]);
+  }, []);
+
+  useEffect(() => {
+    setCurrentLang(locale.toUpperCase() as "EN" | "KA" | "RU");
+  }, [locale]);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
@@ -73,17 +64,15 @@ export default function HeaderNav() {
     const typedLang = lang.toUpperCase() as "EN" | "KA" | "RU";
     setCurrentLang(typedLang);
 
-    const segments = pathname.split("/");
-    if (
-      segments.length > 1 &&
-      ["EN", "KA", "RU"].includes(segments[1].toUpperCase())
-    ) {
-      segments[1] = lang.toLowerCase();
+    const segments = pathname.split("/").filter(Boolean);
+
+    if (["en", "ka", "ru"].includes(segments[0])) {
+      segments[0] = lang.toLowerCase();
     } else {
-      segments.splice(1, 0, lang.toLowerCase());
+      segments.unshift(lang.toLowerCase());
     }
 
-    const newPath = segments.join("/");
+    const newPath = "/" + segments.join("/");
     router.push(newPath);
   };
 
@@ -97,7 +86,7 @@ export default function HeaderNav() {
         }`}
       >
         <div className="flex items-center justify-between pointer container px-[16px] lg:px-[108px] m-auto">
-          <Link href="/">
+          <Link href={`/${locale}`}>
             {isFlatDetailPage ? (
               <LogoDark className="w-[120px] h-[32px] sm:w-[204px] xl:w-[164px] 2xl:w-[204px] mb-[7px] sm:h-[40px]" />
             ) : (
