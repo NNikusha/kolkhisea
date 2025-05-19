@@ -3,7 +3,7 @@ import React from "react";
 
 const GoogleMap = () => {
   return (
-    <div className="w-full mt-[72px] mb-12">
+    <div className="w-full mt-[40px] mb-12 border border-[24px] rounded-[32px]">
         <div className="rounded-3xl overflow-hidden shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1Ac6YQLrQGZzszYdEKVSgHyUiMWJVJB4&q=Lubliana+Street,Tbilisi,Georgia"
