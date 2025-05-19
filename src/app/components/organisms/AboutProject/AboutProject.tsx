@@ -8,13 +8,10 @@ import FeaturesSection from '../../molecules/FeaturesSection/FeaturesSection';
 import OurFuture from '../../molecules/OurFuture/OurFuture';
 import MobileChoose from '../../atoms/MobileChoose/MobileChoose';
 import FloorHoverOverlay from '@/app/components/molecules/BuildingFloorsHighlight/BuildingFloorsHighlight';
-import BackGroundLine5 from '@/app/assets/BackGroundLine5';
-import BackGroundLine6 from '@/app/assets/BackGroundLine6';
-import BackGroundLine7 from '@/app/assets/BackGroundLine7';
-import BackGroundLine8 from '@/app/assets/BackGroundLine8';
 import { fetchProjectAbout, fetchFlats } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
+import FlowerAboutProject from '@/app/assets/FlowerAboutProject';
 
 interface MediaItem {
     id: number;
@@ -107,10 +104,7 @@ const AboutProject = async  () => {
 
             <div className="relative">
                 <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-                    <BackGroundLine6 className="absolute bottom-[0%] w-full h-auto max-w-none" />
-                    <BackGroundLine7 className="absolute bottom-[5%] w-full h-auto max-w-none" />
-                    <BackGroundLine5 className="absolute top-[30%] w-full h-auto max-w-none" />
-                    <BackGroundLine8 className="absolute top-[15%] w-full h-auto max-w-none" />
+                    <FlowerAboutProject className="absolute 2xl:top-[22%] xl:top-[20%] lg:top-[26%] right-0 lg:block hidden" />
                 </div>
 
                 <OverviewSection
