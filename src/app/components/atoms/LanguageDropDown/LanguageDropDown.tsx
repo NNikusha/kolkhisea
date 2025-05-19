@@ -1,13 +1,14 @@
-"use client";
-import React from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+'use client';
+
+import React from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const LanguageDropDown = () => {
   const pathname = usePathname();
   const router = useRouter();
   const t = useTranslations('Language');
-  
+
   const getCurrentLang = () => {
     const segments = pathname.split('/');
     if (segments.length > 1 && ["en", "ka", "ru"].includes(segments[1].toLowerCase())) {
@@ -15,9 +16,9 @@ const LanguageDropDown = () => {
     }
     return "en";
   };
-  
+
   const currentLang = getCurrentLang();
-  
+
   const languages = [
     { code: "en", label: "Eng" },
     { code: "ka", label: "Geo" },
@@ -26,11 +27,11 @@ const LanguageDropDown = () => {
 
   const handleSelectLang = (langCode: string) => {
     const segments = pathname.split('/');
-    
+
     if (segments.length > 1 && ["en", "ka", "ru"].includes(segments[1].toLowerCase())) {
-      segments[1] = langCode.toLowerCase();
+      segments[1] = langCode;
     } else {
-      segments.splice(1, 0, langCode.toLowerCase());
+      segments.splice(1, 0, langCode); 
     }
 
     const newPath = segments.join('/');
@@ -46,7 +47,7 @@ const LanguageDropDown = () => {
             key={lang.code}
             onClick={() => handleSelectLang(lang.code)}
             className={`text-[24px] transition-all ${
-              currentLang === lang.code.toLowerCase()
+              currentLang === lang.code
                 ? "font-extrabold text-white"
                 : "font-normal text-[#818181]"
             }`}
