@@ -186,6 +186,8 @@
     "ExploreKolkhisea": "Explore Kolkhisea",
     "Gallery": "Gallery",
     "GalleryTitle": "Gallery",
-    "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING"
+    "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING",
+    "GeneratingPDF": "Generating PDF...",
+    "PDFDownloadedSuccessfully": "PDF downloaded successfully!"
   }
 }

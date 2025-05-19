@@ -175,3 +175,14 @@ export const fetchGallery = async () => {
     throw error;
   }
 };
+
+
+export const downloadPdf = async (flatId: number | string) => {
+  try {
+    const response = await axios.post(requests.pdfDownload, { flat_id: flatId });
+    return response.data;
+  } catch (error) {
+    console.error("Error downloading PDF:", error);
+    throw error;
+  }
+};
