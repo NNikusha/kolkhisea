@@ -185,6 +185,9 @@
     "ExploreKolkhisea": "გამოიკვლიეთ Kolkhisea",
     "Gallery": "გალერეა",
     "GalleryTitle": "გალერეა",
-    "NotOnlyAboutBuilding": "მეტი ვიდრე შენობა"
+    "NotOnlyAboutBuilding": "ეს არ არის მხოლოდ მშენებლობაზე",
+  "GeneratingPDF": "PDF-ის გენერირება...",
+  "PDFDownloadedSuccessfully": "PDF წარმატებით ჩამოტვირთულია!"
+  
   }
 }

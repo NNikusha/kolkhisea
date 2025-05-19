@@ -181,6 +181,8 @@
     "OurTeam": "наша команда",
     "Gallery": "Галерея",
     "GalleryTitle": "Галерея",
-    "NotOnlyAboutBuilding": "Это не только про строительство"
+    "NotOnlyAboutBuilding": "Это не только о строительстве",
+  "GeneratingPDF": "Генерация PDF...",
+  "PDFDownloadedSuccessfully": "PDF успешно загружен!"
   }
 }

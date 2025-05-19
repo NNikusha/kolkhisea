@@ -28,6 +28,9 @@ const requests = {
   saveContact: `${baseUrl}/save-contact`,
 
   fetchGallery: `${baseUrl}/gallery`,
+  pdfDownload: `${baseUrl}/pdf/download`,
+
+
 };
 
 export default requests;
