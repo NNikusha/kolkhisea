@@ -69,7 +69,7 @@
     "SocialMedia": "Социальные сети",
     "ProjectName": "Название проекта",
     "Location": "РАСПОЛОЖЕНИЕ",
-    "Status": "СТАТУС",
+    "Status": "Статус",
     "CompletionDate": "ДАТА ЗАВЕРШЕНИЯ",
     "UnderConstruction": "В процессе строительства",
     "DefaultLocation": "Кобулети, Грузия",
@@ -79,7 +79,8 @@
     "Bedroom": "Спальня",
     "Bathroom": "Ванная",
     "DefaultApartmentDescription": "Наши премиальные апартаменты спроектированы с использованием высококачественных материалов и элегантной отделки, обеспечивающих максимальный комфорт и роскошь. Каждый блок тщательно продуман с современной эстетикой и долговечными компонентами, гарантируя стильное и функциональное жилое пространство.",
-    "ApartmentTypes": "ТИПЫ КВАРТИР",
+    "ApartmentArea": "Типы квартир",
+    "Type":"Тип",
     "OneBedroom": "1 спальня",
     "TwoBedroom": "2 спальни",
     "Studio": "Студия",
@@ -182,7 +183,8 @@
     "Gallery": "Галерея",
     "GalleryTitle": "Галерея",
     "NotOnlyAboutBuilding": "Это не только о строительстве",
-  "GeneratingPDF": "Генерация PDF...",
-  "PDFDownloadedSuccessfully": "PDF успешно загружен!"
+    "GeneratingPDF": "Генерация PDF...",
+    "PDFDownloadedSuccessfully": "PDF успешно загружен!",
+    "Floors": "Этажи"
   }
 }

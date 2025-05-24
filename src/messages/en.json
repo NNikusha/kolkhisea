@@ -70,7 +70,7 @@
     "SocialMedia": "Social media",
     "ProjectName": "Project Name",
     "Location": "LOCATION",
-    "Status": "STATUS",
+    "Status": "Status",
     "CompletionDate": "COMPLETION DATE",
     "UnderConstruction": "Under Construction",
     "DefaultLocation": "Kobuleti, Georgia",
@@ -80,7 +80,8 @@
     "Bedroom": "Bedroom",
     "Bathroom": "Bathroom",
     "DefaultApartmentDescription": "Our premium apartments are designed with high-quality materials and elegant finishes to provide maximum comfort and luxury. Each unit is thoughtfully crafted with modern aesthetics and durable components, ensuring a stylish yet functional living space.",
-    "ApartmentTypes": "APARTMENT TYPES",
+    "ApartmentArea": "Apartment area",
+    "Type":"Type",
     "OneBedroom": "1BR",
     "TwoBedroom": "2BR",
     "Studio": "Studio",
@@ -188,6 +189,7 @@
     "GalleryTitle": "Gallery",
     "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING",
     "GeneratingPDF": "Generating PDF...",
-    "PDFDownloadedSuccessfully": "PDF downloaded successfully!"
+    "PDFDownloadedSuccessfully": "PDF downloaded successfully!",
+    "Floors": "Floors"
   }
 }
