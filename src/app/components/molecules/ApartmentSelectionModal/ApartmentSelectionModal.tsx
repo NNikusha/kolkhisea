@@ -32,11 +32,7 @@ interface Flat {
   status: string;
   flat_conditions: string;
   per_square_price: string;
-  type: {
-  en: string;
-  ka: string;
-  ru: string;
-};
+  type: string;
   lang_status: {
     en: string;
     ka: string;
@@ -239,7 +235,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                 </div>
 
                 <div className="flex w-full justify-between items-center">
-                  <div className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[35%]">
+                  <div className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[350px] max-w-[350px] min-w-[350px] overflow-hidden break-words">
                     <motion.div
                       className="w-full"
                       layout
@@ -311,7 +307,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.35 }}
                                 >
-                                  {hoveredApartment?.flat?.type[locale]}
+                                  {t(hoveredApartment?.flat?.type || '')}
                                 </motion.h1>
                                 <motion.h3
                                   className="text-[#6A6A6A] font-normal pb-4"

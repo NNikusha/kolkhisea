@@ -19,8 +19,32 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
   block,
   status,
   imageSrc,
+  type
 }) => {
   const t = useTranslations('Language');
+
+  const typeKeyMap: Record<string, string> = {
+
+  "Studio": "studio",
+  "1 Bedroom": "1_room",
+  "2 Bedroom": "2_room",
+  "Bedroom": "Bedroom",
+
+
+  "სტუდიო": "studio",
+  "1 ოთახიანი": "1_room",
+  "1 საძინებელი": "1_room",
+  "2 ოთახიანი": "2_room",
+  "საძინებელი": "Bedroom",
+
+  "Студия": "studio",
+  "1-комнатная": "1_room",
+  "1 спальня": "1_room",
+  "2-комнатная": "2_room",
+  "Спальня": "Bedroom",
+  "Квартира:": "ApartmentWithColon",
+  "Тип:": "BlockWithColon"
+};
 
   return (
     <div className="bg-white rounded-[32px] p-4 shadow-md w-full">
@@ -42,10 +66,11 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
             {status}
           </span>
         </div>
-        <p className="text-[#636363] text-[14px] font-normal pt-[12px]">{size}</p>
         <p className="text-[#636363] text-[14px] font-normal pt-[9px] pb-4">
-          {t('BlockWithColon')} {block}
-        </p>      </div>
+          {t('Type')}: {type ? t(typeKeyMap[type] || type) : ''}
+        </p>
+        <p className="text-[#636363] text-[14px] font-normal pt-[12px]">{size}</p>      
+        </div>
     </div>
   );
 };

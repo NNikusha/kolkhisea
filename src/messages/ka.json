@@ -189,7 +189,10 @@
     "NotOnlyAboutBuilding": "ეს არ არის მხოლოდ მშენებლობაზე",
     "GeneratingPDF": "PDF-ის გენერირება...",
     "PDFDownloadedSuccessfully": "PDF წარმატებით ჩამოტვირთულია!",
-    "Floors": "სართულები"
+    "Floors": "სართულები",
+    "studio": "სტუდიო",
+    "1_room": "1 ოთახი",
+    "2_room": "2 ოთახი"
   
   }
 }

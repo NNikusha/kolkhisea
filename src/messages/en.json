@@ -190,6 +190,9 @@
     "NotOnlyAboutBuilding": "IT IS NOT ONLY ABOUT BUILDING",
     "GeneratingPDF": "Generating PDF...",
     "PDFDownloadedSuccessfully": "PDF downloaded successfully!",
-    "Floors": "Floors"
+    "Floors": "Floors",
+    "studio": "Studio",
+    "1_room": "1 Room",
+    "2_room": "2 Room"
   }
 }

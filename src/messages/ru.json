@@ -185,6 +185,9 @@
     "NotOnlyAboutBuilding": "Это не только о строительстве",
     "GeneratingPDF": "Генерация PDF...",
     "PDFDownloadedSuccessfully": "PDF успешно загружен!",
-    "Floors": "Этажи"
+    "Floors": "Этажи",
+    "studio": "Студия",
+    "1_room": "1 комната",
+    "2_room": "2 комнаты"
   }
 }
