@@ -16,7 +16,6 @@ interface ApartmentCardProps {
 const ApartmentCard: React.FC<ApartmentCardProps> = ({
   apartmentNumber,
   size,
-  block,
   status,
   imageSrc,
   type
