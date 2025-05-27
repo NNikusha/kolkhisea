@@ -161,16 +161,6 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
     );
   }
 
-  const getBedroomArea = () => {
-    if (!flatData.bedroom || flatData.bedroom.length === 0) {
-      return t('NA');
-    }
-    let totalArea = 0;
-    flatData.bedroom.forEach(bedroom => {
-      totalArea += parseFloat(bedroom.area) || 0;
-    });
-    return `${totalArea} ${t('SquareMeters')}`;
-  };
 
   const getBathroomArea = () => {
     if (!flatData.bathroom || flatData.bathroom.length === 0) {
@@ -255,13 +245,15 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
           <div>{flatData.living_space} {t('SquareMeters')}</div>
         </div>
 
-        <div className="flex gap-[8px] items-center justify-between lg:justify-start">
-          <div className="flex gap-[8px]">
-            <Image src={BedroomIcon} alt={t('BedroomIcon')} width={24} height={24} />
-            {t('BedroomLabel')}:
+        {flatData.bedroom && flatData.bedroom.length > 0 && flatData.bedroom.map((bedroom, index) => (
+          <div key={index} className="flex gap-[8px] items-center justify-between lg:justify-start">
+            <div className="flex gap-[8px]">
+              <Image src={BedroomIcon} alt={t('BedroomIcon')} width={24} height={24} />
+              {t('BedroomLabel')} {index + 1}:
+            </div>
+            <div>{parseFloat(bedroom.area) || 0} {t('SquareMeters')}</div>
           </div>
-          <div>{getBedroomArea()}</div>
-        </div>
+        ))}
 
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
@@ -280,7 +272,7 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         </div>
       </div>
 
-      <button 
+      <button
         className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
         onClick={handleDownloadPdf}
         disabled={pdfLoading}
@@ -290,7 +282,7 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
           {pdfLoading ? t('GeneratingPDF') : t('DownloadPDF')}
         </p>
       </button>
-      
+
       {pdfError && (
         <div className="text-red-500 text-sm mb-4 w-full">
           {pdfError}
@@ -301,7 +293,7 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         <span className="relative z-10">{t('Consultation')}</span>
         <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
-      
+
       <PopupModal
         isOpen={isPopupOpen}
         onClose={() => {
@@ -310,10 +302,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       >
         <ModalContent
           onSuccess={() => {
-            setPopupOpen(false); 
+            setPopupOpen(false);
             setTimeout(() => {
-              setShowSuccessModal(true); 
-            }, 300); 
+              setShowSuccessModal(true);
+            }, 300);
           }}
         />
       </PopupModal>

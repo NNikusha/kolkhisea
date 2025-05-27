@@ -186,8 +186,7 @@
     "Gallery": "გალერეა",
     "GalleryTitle": "გალერეა",
     "NotOnlyAboutBuilding": "ეს არ არის მხოლოდ მშენებლობაზე",
-  "GeneratingPDF": "PDF-ის გენერირება...",
-  "PDFDownloadedSuccessfully": "PDF წარმატებით ჩამოტვირთულია!"
-  
+    "GeneratingPDF": "PDF-ის გენერირება...",
+    "PDFDownloadedSuccessfully": "PDF წარმატებით ჩამოტვირთულია!"
   }
 }
