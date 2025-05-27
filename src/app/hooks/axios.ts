@@ -183,6 +183,9 @@ export const downloadPdf = async (flatId: number | string) => {
     throw error;
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

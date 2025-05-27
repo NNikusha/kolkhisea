@@ -10,6 +10,9 @@ import ContactCardPatternBlue from "@/app/assets/ContactCardPatternBlue.png";
 import ContactCardPatternGray from "@/app/assets/ContactCardPatternGray.png";
 import ContactCardPatternOrange from "@/app/assets/ContactCardPatternOrange.png";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -29,6 +32,9 @@ const ContactUsMarge = () => {
           We’d love to hear from you
           <div className="bg-[#B4D7D8]/50 sm:w-[167px] sm:block hidden h-[24px] lg:w-[312px] lg:h-[40px] absolute z-[-10] lg:bottom-[14px] bottom-[8px] left-[calc(72%-0px)] lg:left-[445px]"></div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -45,8 +51,11 @@ const ContactUsMarge = () => {
           about="example@gmail.com"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraWidthClass="w-full lg:w-[57%] xl:w-[66%]"
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           extraWidthClass="w-full"
@@ -61,8 +70,11 @@ const ContactUsMarge = () => {
           about="+995 599 457 899"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraWidthClass="w-full lg:w-[73%]"
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           extraWidthClass="w-full"
@@ -77,8 +89,11 @@ const ContactUsMarge = () => {
           about="Lubliana St 12A"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraWidthClass="w-full lg:w-[80%]"
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           extraWidthClass="w-full"
@@ -92,7 +107,10 @@ const ContactUsMarge = () => {
           text="See our updates right now"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraClasses="flex gap-[10px] underline mb-[5px]"
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

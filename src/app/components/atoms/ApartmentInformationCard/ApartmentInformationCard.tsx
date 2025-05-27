@@ -129,8 +129,11 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     // If there are multiple bedrooms, we'll show the total
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -141,7 +144,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
     });
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -244,7 +250,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         {/* BEDROOM */}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -278,8 +287,11 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <button className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer">
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       <button 
@@ -293,7 +305,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       </button>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       
@@ -310,6 +325,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       </button>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+      
+>>>>>>> Stashed changes
 =======
       
 >>>>>>> Stashed changes

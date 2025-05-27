@@ -82,6 +82,9 @@ const ContactUs: React.FC<ContactUsProps> = ({
 
 export default ContactUs;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
