@@ -68,7 +68,7 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
         <p className="text-[#636363] text-[14px] font-normal pt-[9px] pb-4">
           {t('Type')}: {type ? t(typeKeyMap[type] || type) : ''}
         </p>
-        <p className="text-[#636363] text-[14px] font-normal pt-[12px]">{size}</p>      
+        <p className="text-[#636363] text-[14px] font-normal ">{size}</p>      
         </div>
     </div>
   );
