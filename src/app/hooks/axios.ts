@@ -182,5 +182,8 @@ export const downloadPdf = async (flatId: number | string) => {
     console.error("Error downloading PDF:", error);
     throw error;
   }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 };

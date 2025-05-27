@@ -9,6 +9,9 @@ import socialLinks from "../../../assets/socialLinks.svg";
 import ContactCardPatternBlue from "@/app/assets/ContactCardPatternBlue.png";
 import ContactCardPatternGray from "@/app/assets/ContactCardPatternGray.png";
 import ContactCardPatternOrange from "@/app/assets/ContactCardPatternOrange.png";
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 const ContactUsMarge = () => {
@@ -25,6 +28,9 @@ const ContactUsMarge = () => {
         <h1 className="pt-[16px] pb-[16px] lg:pb-[24px] uppercase text-[#1C1C1E] lg:text-[40px] text-[24px] relative">
           We’d love to hear from you
           <div className="bg-[#B4D7D8]/50 sm:w-[167px] sm:block hidden h-[24px] lg:w-[312px] lg:h-[40px] absolute z-[-10] lg:bottom-[14px] bottom-[8px] left-[calc(72%-0px)] lg:left-[445px]"></div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </h1>
         <p className="text-[#3D3D3D] lg:text-[16px] text-[14px]">
@@ -38,8 +44,11 @@ const ContactUsMarge = () => {
           text="Our team can respond in real time"
           about="example@gmail.com"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraWidthClass="w-full lg:w-[57%] xl:w-[66%]"
 =======
+=======
+>>>>>>> Stashed changes
           extraWidthClass="w-full"
           pattern={ContactCardPatternGray}
 >>>>>>> Stashed changes
@@ -51,8 +60,11 @@ const ContactUsMarge = () => {
           text="Available during working hours"
           about="+995 599 457 899"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraWidthClass="w-full lg:w-[73%]"
 =======
+=======
+>>>>>>> Stashed changes
           extraWidthClass="w-full"
           pattern={ContactCardPatternBlue}
 >>>>>>> Stashed changes
@@ -64,8 +76,11 @@ const ContactUsMarge = () => {
           text="Our working time 9:00-19:00"
           about="Lubliana St 12A"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraWidthClass="w-full lg:w-[80%]"
 =======
+=======
+>>>>>>> Stashed changes
           extraWidthClass="w-full"
           pattern={ContactCardPatternOrange}
 >>>>>>> Stashed changes
@@ -76,7 +91,10 @@ const ContactUsMarge = () => {
           title="Check media"
           text="See our updates right now"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           extraClasses="flex gap-[10px] underline mb-[5px]"
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           aboutFb="Facebook"

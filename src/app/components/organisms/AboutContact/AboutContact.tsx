@@ -13,8 +13,11 @@ import GoogleMap from "../../molecules/GoogleMap/GoogleMap";
 import MainHeadLineAnimation from "../../atoms/MainHeadLineAnimation/MainHeadLineAnimation";
 import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/ContactPageElipseButtons";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import BackGroundLine6 from "@/app/assets/BackGroundLine6";
 import BackGroundLine7 from "@/app/assets/BackGroundLine7";
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -62,8 +65,13 @@ export default function AboutContact() {
 
           <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <BackGroundLine6 className="absolute bottom-[10%] w-full h-auto max-w-none z-[-10]" />
             <BackGroundLine7 className="absolute top-[8%] w-full h-auto max-w-none z-[-10]" />
+=======
+            {/* <BackGroundLine6 className="absolute bottom-[10%] w-full h-auto max-w-none z-[-10]" />
+            <BackGroundLine7 className="absolute top-[8%] w-full h-auto max-w-none z-[-10]" /> */}
+>>>>>>> Stashed changes
 =======
             {/* <BackGroundLine6 className="absolute bottom-[10%] w-full h-auto max-w-none z-[-10]" />
             <BackGroundLine7 className="absolute top-[8%] w-full h-auto max-w-none z-[-10]" /> */}

@@ -128,8 +128,11 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       return t('NA');
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     // If there are multiple bedrooms, we'll show the total
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     let totalArea = 0;
@@ -137,7 +140,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       totalArea += parseFloat(bedroom.area) || 0;
     });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     return `${totalArea} ${t('SquareMeters')}`;
@@ -237,7 +243,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         {/* BEDROOM */}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
@@ -268,8 +277,11 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
       </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <button className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer">
 =======
+=======
+>>>>>>> Stashed changes
       <button 
         className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
         onClick={handleDownloadPdf}
@@ -280,7 +292,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         <p className="underline">{t('DownloadPDF')}</p>
       </button>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
       
       {pdfError && (
         <div className="text-red-500 text-sm mb-4 w-full">
@@ -294,6 +309,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+      
+>>>>>>> Stashed changes
 =======
       
 >>>>>>> Stashed changes
