@@ -11,6 +11,7 @@ import { fetchFloorPlans } from "@/app/hooks/axios";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 interface ApartmentModalProps {
   isOpen: boolean;
@@ -31,9 +32,11 @@ interface Flat {
   status: string;
   flat_conditions: string;
   per_square_price: string;
+  type: string;
   lang_status: {
     en: string;
     ka: string;
+    ru: string;
   };
 }
 
@@ -74,6 +77,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const router = useRouter();
+  const locale = useLocale() as 'en' | 'ka' | 'ru';
 
   useEffect(() => {
     if (initialFloor) {
@@ -223,7 +227,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                     {t('ChooseApartment')}
                   </div>
                   <div
-                    className="bg-[#2852600D] px-[12px] py-[12px] rounded-full cursor-pointer"
+                    className="bg-[#2852600D] px-[20px] py-[20px] rounded-full cursor-pointer"
                     onClick={handleClose}
                   >
                     <CloseIcon />
@@ -231,7 +235,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                 </div>
 
                 <div className="flex w-full justify-between items-center">
-                  <div className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[35%]">
+                  <div className="border border-[#E7E7E7] rounded-[32px] px-[24px] w-[350px] max-w-[350px] min-w-[350px] overflow-hidden break-words">
                     <motion.div
                       className="w-full"
                       layout
@@ -263,7 +267,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.1 }}
                                 >
-                                  {t('ApartmentTypes')}
+                                  {t('Apartment')}
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -279,7 +283,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.2 }}
                                 >
-                                  {t('ApartmentTypes')}, {t('SquareMeters')}
+                                  {t('ApartmentArea')}, {t('SquareMeters')}
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -295,7 +299,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.3 }}
                                 >
-                                  {t('Price')}: $
+                                  {t('Type')}
                                 </motion.h3>
                                 <motion.h1
                                   className="text-[32px] text-[#1C1C1E] font-normal pb-6 break-words"
@@ -303,7 +307,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.35 }}
                                 >
-                                  {hoveredApartment.flat.price_total}
+                                  {t(hoveredApartment?.flat?.type || '')}
                                 </motion.h1>
                                 <motion.h3
                                   className="text-[#6A6A6A] font-normal pb-4"
@@ -319,7 +323,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ duration: 0.2, delay: 0.45 }}
                                 >
-                                  {hoveredApartment.flat.lang_status.en}
+                                  {hoveredApartment?.flat?.lang_status[locale]}
                                 </motion.h1>
                               </motion.div>
                               <motion.div
@@ -529,12 +533,20 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                     </div>
                   </div>
 
-                  <div className="flex-1 flex justify-end">
-                    <VerticalPagination
-                      onFloorChange={handleFloorChange}
-                      initialFloor={currentFloor}
-                      key={`pagination-${currentFloor}`}
-                    />
+                  <div className="flex items-center">
+                    <div className="flex-1 flex justify-end">
+                      <VerticalPagination
+                        onFloorChange={handleFloorChange}
+                        initialFloor={currentFloor}
+                        key={`pagination-${currentFloor}`}
+                      />
+                    </div>
+                    
+                    <div className="w-[24px] h-auto flex items-center justify-center ml-4">
+                      <div className="rotate-270 origin-center text-[24px] text-[#6A6A6A] font-normal">
+                        {t('Floors')}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
