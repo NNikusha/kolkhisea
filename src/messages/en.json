@@ -193,6 +193,11 @@
     "Floors": "Floors",
     "studio": "Studio",
     "1_room": "1 Room",
-    "2_room": "2 Room"
+    "2_room": "2 Room",
+    "ApartmentTypes": "Apartment Types",
+    "IfYouHaveAnyQuestions": "If you have any questions",
+    "ContactUs": "Contact Us",
+    "WriteUs": "Write Us",
+    "CallUs": "Call Us"
   }
 }

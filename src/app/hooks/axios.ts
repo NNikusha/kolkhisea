@@ -186,3 +186,13 @@ export const downloadPdf = async (flatId: number | string) => {
     throw error;
   }
 };
+
+export const fetchContactPage = async () => {
+  try {
+    const response = await axios.get(requests.fetchContactPage);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching contact page data:", error);
+    throw error;
+  }
+};
