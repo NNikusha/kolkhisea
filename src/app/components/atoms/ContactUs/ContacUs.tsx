@@ -31,7 +31,7 @@ const ContactUs: React.FC<ContactUsProps> = ({
         <Image
           className=" lg:m-0"
           src={icone}
-          alt="mail"
+          alt="contact icon"
           width={40}
           height={40}
         />
@@ -44,17 +44,18 @@ const ContactUs: React.FC<ContactUsProps> = ({
           {text}
         </p>
         <div
-          className={`pt-[24px] text-[14px] 2xl:text-[16px] text-[#285260] font-extrabold ${extraClasses}`}
+          className={`pt-[24px] text-[14px] 2xl:text-[16px] text-[#285260] font-extrabold ${extraClasses || ''}`}
         >
-          <p>{aboutFb}</p>
-          <p>{aboutIn}</p>
-          <p>{about}</p>
+          {aboutFb && <p>{aboutFb}</p>}
+          {aboutIn && <p>{aboutIn}</p>}
+          {about && <p>{about}</p>}
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[37px] z-10">
           <Image
             src={pattern}
             alt="Card bottom pattern"
             fill
+            loading="lazy"
             className="object-cover rounded-b-[16px]"
           />
         </div>

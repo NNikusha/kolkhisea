@@ -30,6 +30,9 @@ const requests = {
   fetchGallery: `${baseUrl}/gallery`,
   pdfDownload: `${baseUrl}/pdf/download`,
 
+  fetchContactPage: `${baseUrl}/contact-page`,
+
+
 
 };
 

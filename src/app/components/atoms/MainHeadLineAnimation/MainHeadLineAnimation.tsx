@@ -1,23 +1,30 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const MainHeadLineAnimation = () => {
+  const t = useTranslations('Language');
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const texts = ["Contact Us", "Write Us", "Call Us"];
+  
+  const texts = [
+    t('ContactUs'),
+    t('WriteUs'), 
+    t('CallUs')
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 1700);
-
-    
+        
     return () => clearInterval(interval);
-  }, []);
+  }, [texts.length]);
 
   return (
     <div className="relative flex flex-col justify-center items-center w-full">
-      <h1 className="uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] xl:text-[48px] text-center">
-        If you have any Questions
+      <h1 className="uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] xl:text-[48px] text-center text-white">
+        {t('IfYouHaveAnyQuestions')}
       </h1>
 
       <div className="relative flex justify-center items-center h-[40px] overflow-hidden xl:h-[60px] w-full mt-[16px] mb-[24px]">
