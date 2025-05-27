@@ -127,13 +127,19 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
     if (!flatData.bedroom || flatData.bedroom.length === 0) {
       return t('NA');
     }
+<<<<<<< Updated upstream
 
     // If there are multiple bedrooms, we'll show the total
+=======
+>>>>>>> Stashed changes
     let totalArea = 0;
     flatData.bedroom.forEach(bedroom => {
       totalArea += parseFloat(bedroom.area) || 0;
     });
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     return `${totalArea} ${t('SquareMeters')}`;
   };
 
@@ -230,7 +236,10 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
           <div>{flatData.living_space} {t('SquareMeters')}</div>
         </div>
 
+<<<<<<< Updated upstream
         {/* BEDROOM */}
+=======
+>>>>>>> Stashed changes
         <div className="flex gap-[8px] items-center justify-between lg:justify-start">
           <div className="flex gap-[8px]">
             <Image src={BedroomIcon} alt={t('BedroomIcon')} width={24} height={24} />
@@ -258,14 +267,36 @@ const ApartmentInformationCard: React.FC<ApartmentInformationCardProps> = ({ fla
         </div>
       </div>
 
+<<<<<<< Updated upstream
       <button className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer">
+=======
+      <button 
+        className="flex gap-[16px] items-center mt-[32px] mb-[40px] cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+        onClick={handleDownloadPdf}
+        disabled={pdfLoading}
+      >
+>>>>>>> Stashed changes
         <Image src={DownloadIcon} alt={t('DownloadIcon')} width={24} height={24} />
         <p className="underline">{t('DownloadPDF')}</p>
       </button>
+<<<<<<< Updated upstream
+=======
+      
+      {pdfError && (
+        <div className="text-red-500 text-sm mb-4 w-full">
+          {pdfError}
+        </div>
+      )}
+
+>>>>>>> Stashed changes
       <button className="relative w-full flex justify-center bg-[#CB684D] rounded-[16px] py-[20px] text-[#F2F2F2] cursor-pointer overflow-hidden group" onClick={() => setPopupOpen(true)}>
         <span className="relative z-10">{t('Consultation')}</span>
         <div className="absolute inset-0 bg-[radial-gradient(25%_50%_at_50%_90%,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       </button>
+<<<<<<< Updated upstream
+=======
+      
+>>>>>>> Stashed changes
       <PopupModal
         isOpen={isPopupOpen}
         onClose={() => {

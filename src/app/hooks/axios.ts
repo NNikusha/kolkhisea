@@ -159,4 +159,28 @@ export const saveContact = async (contactData: { name: string; phone_number: str
     console.error("Error saving contact information:", error);
     throw error;
   }
+<<<<<<< Updated upstream
+=======
+};
+
+export const fetchGallery = async () => {
+  try {
+    const response = await axios.get(requests.fetchGallery);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching Gallery", error);
+    throw error;
+  }
+};
+
+
+export const downloadPdf = async (flatId: number | string) => {
+  try {
+    const response = await axios.post(requests.pdfDownload, { flat_id: flatId });
+    return response.data;
+  } catch (error) {
+    console.error("Error downloading PDF:", error);
+    throw error;
+  }
+>>>>>>> Stashed changes
 };

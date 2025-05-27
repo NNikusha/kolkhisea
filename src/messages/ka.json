@@ -157,6 +157,7 @@
     "SuccessModalMessage": "ჩვენი სპეციალისტები მალე დაგიკავშირდებიან KolkhiSea-ს შესახებ დამატებითი ინფორმაციით.",
     "CleanFilter": "გასუფთავება",
     "FilterTitle": "ფილტრი",
+<<<<<<< Updated upstream
 "FilterButton": "გაფილტვრა",
 "ClearFilterButton": " გასუფთავება",
 "SelectFlat": "აირჩიეთ ბინა",
@@ -179,5 +180,40 @@
 "ApartmentWithColon": "ბინა:",
 "BlockWithColon": "ბლოკი:"
 
+=======
+    "FilterButton": "გაფილტვრა",
+    "ClearFilterButton": " გასუფთავება",
+    "SelectFlat": "აირჩიეთ ბინა",
+    "SelectTheFloor": "აირჩიეთ სართული",
+    "FloorWithNumber": "{floor} სართული",
+    "NoFloorChosen": "სართული არ არის არჩეული",
+    "FlatsAvailable": "ხელმისაწვდომია {count} ბინა",
+    "SelectButton": "არჩევა",
+    "CloseButton": "დახურვა",
+    "FloorNumber": "{floor} სართული",
+    "AvailableApartments": "ხელმისაწვდომი ბინები",
+    "FloorNumberLowercase": "{floor} სართული",
+    "LoadingApartments": "ბინების ჩატვირთვა...",
+    "NoAvailableApartments": "ამ სართულზე ხელმისაწვდომი ბინები არ არის.",
+    "FailedToLoadApartments": "ბინების ჩატვირთვა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.",
+    "StudioApartment": "სტუდიო",
+    "OneBedroomApartment": "1 საძინებელი",
+    "BedroomsPlural": "{count} საძინებელი",
+    "StandardStatus": "სტანდარტული",
+    "ApartmentWithColon": "ბინა:",
+    "BlockWithColon": "ბლოკი:",
+    "BehindTheVision": "ხედვის უკან",
+    "OurTeam": "ჩვენი გუნდი",
+    "WhereCraftsmanship": "სადაც ხელობა",
+    "MeetsComfort": "ხვდება კომფორტს",
+    "ProfessionalGardening": "პროფესიონალური მებაღეობა",
+    "ExploreKolkhisea": "გამოიკვლიეთ Kolkhisea",
+    "Gallery": "გალერეა",
+    "GalleryTitle": "გალერეა",
+    "NotOnlyAboutBuilding": "ეს არ არის მხოლოდ მშენებლობაზე",
+  "GeneratingPDF": "PDF-ის გენერირება...",
+  "PDFDownloadedSuccessfully": "PDF წარმატებით ჩამოტვირთულია!"
+  
+>>>>>>> Stashed changes
   }
 }

@@ -24,6 +24,13 @@ const requests = {
 
   saveContact: `${baseUrl}/save-contact`,
 
+<<<<<<< Updated upstream
+=======
+  fetchGallery: `${baseUrl}/gallery`,
+  pdfDownload: `${baseUrl}/pdf/download`,
+
+
+>>>>>>> Stashed changes
 };
 
 export default requests;
