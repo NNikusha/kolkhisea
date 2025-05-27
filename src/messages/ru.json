@@ -182,7 +182,7 @@
     "Gallery": "Галерея",
     "GalleryTitle": "Галерея",
     "NotOnlyAboutBuilding": "Это не только о строительстве",
-  "GeneratingPDF": "Генерация PDF...",
-  "PDFDownloadedSuccessfully": "PDF успешно загружен!"
+    "GeneratingPDF": "Генерация PDF...",
+    "PDFDownloadedSuccessfully": "PDF успешно загружен!"
   }
 }
