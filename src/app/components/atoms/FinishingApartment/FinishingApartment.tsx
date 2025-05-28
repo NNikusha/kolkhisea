@@ -72,13 +72,22 @@ const FinishingApartment = ({
               {t('Details')}
             </h3>
           </div> */}
-          <h1 className="text-3xl md:text-4xl lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 md:hidden">
-            {t('InteriorAesthetics')}
-          </h1>
+          
+            <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] lg:hidden">
+              {t('Finishing')}</h1>
+            <div className='relative inline-block'>
+              <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 lg:hidden">
+                {t('OfApartments')}
+              </h1>
+            <div className="absolute lg:hidden flex bg-[#B4D7D8]/50 h-[24px] w-[167px] right-[-55px] top-[18px] z-[-1]"></div>
+          </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 hidden md:block">
-            {t('InteriorAesthetics')} 
-          </h1>
+          <div className='relative inline-block'>
+            <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 hidden lg:block">
+              {t('FinishingApartments')} 
+            </h1>
+            <div className="absolute hidden lg:flex bg-[#B4D7D8]/50 h-[40px] w-[200px] right-[-70px] top-[39px] z-[-1]"></div>
+          </div>
           <p className="text-[#7E7E7E] text-sm md:text-base mb-6 hidden md:block">
             {finishingText && finishingText[lang]
               ? finishingText[lang]
