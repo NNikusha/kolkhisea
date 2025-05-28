@@ -14,11 +14,11 @@ const Description: React.FC<DescriptionProps> = ({
   const defaultDescription = "Experience the perfect blend of elegance and comfort with our premium seaside apartment hotel. Designed for those who seek breathtaking views and modern living, this 10-story masterpiece offers unparalleled oceanfront luxury.";
 
   return (
-    <div className="flex flex-col justify-center w-full md:w-1/2 py-6 px-4 md:px-0 md:pl-8 text-center md:text-left">
-      <p className="text-[#3D3D3D] text-sm md:text-base mb-8">
+    <div className="flex flex-col justify-between w-full lg:w-1/2 px-4 lg:px-0 lg:pl-8 text-center lg:text-left">
+      <p className="text-[#3D3D3D] text-sm lg:text-base mb-8">
         {title && title[lang] ? title[lang] : defaultDescription}
       </p>
-      <div className="hidden md:flex justify-start">
+      <div className="hidden lg:flex justify-start">
         <Button 
           text={t('SeeTheGallery')}
           href="/about-project"

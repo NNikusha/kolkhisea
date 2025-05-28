@@ -17,15 +17,15 @@ const LuxuryCard: React.FC<LuxuryCardProps> = ({
   const t = useTranslations('Language');
 
   return (
-    <div className="flex flex-col h-auto md:h-[704px] overflow-hidden md:bg-transparent rounded-[32px] md:rounded-none">
-      <div className="flex flex-col md:flex-row h-auto md:h-[40%]">
+    <div className="flex flex-col h-auto lg:h-[754px] lg:h-[854px] xl:h-[734px] overflow-hidden lg:bg-transparent rounded-[32px] lg:rounded-none gap-6">
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[40%]">
         <ProjectInfo />
         <Description title={title} lang={lang} />
       </div>
       <ProjectImage image={image} imageText={imageText} lang={lang} />
-      <div className="md:hidden py-6">
+      <div className="lg:hidden py-6">
         <Button
-          className="gap-4 text-center flex justify-center w-full items-center" 
+          className="gap-4 text-center flex justify-center w-full items-center mb-[20px]" 
           text={t('ForModernLiving')}
           href="/about-project"
         />
