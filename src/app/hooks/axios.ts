@@ -176,10 +176,11 @@ export const fetchGallery = async () => {
   }
 };
 
-
 export const downloadPdf = async (flatId: number | string) => {
   try {
-    const response = await axios.post(requests.pdfDownload, { flat_id: flatId });
+    const response = await axios.post(requests.pdfDownload, {
+      flat_id: flatId,
+    });
     return response.data;
   } catch (error) {
     console.error("Error downloading PDF:", error);
@@ -193,6 +194,17 @@ export const fetchContactPage = async () => {
     return response.data;
   } catch (error) {
     console.error("Error fetching contact page data:", error);
+    throw error;
+  }
+};
+
+export const fetchFlatDetailCards = async () => {
+  try {
+    const response = await axios.get(requests.fetchFlatDetailCards);
+    console.log("flat detail card response: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching flat detail cards", error);
     throw error;
   }
 };

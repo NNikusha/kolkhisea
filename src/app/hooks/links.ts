@@ -32,8 +32,7 @@ const requests = {
 
   fetchContactPage: `${baseUrl}/contact-page`,
 
-
-
+  fetchFlatDetailCards: `${baseUrl}/flat-detail`,
 };
 
 export default requests;
