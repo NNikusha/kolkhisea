@@ -39,7 +39,11 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <div className='w-full'>
                 {/* <GrayBlueButton text={t('Collection')} /> */}
-                <h2 className="text-[32px] pb-[14px] md:pb-0 md:pt-[16px] font-bold text-[#1C1C1E]">{t('ApartmentTypes')}</h2>
+                <div className='relative inline-block'>
+                    <h2 className="text-[24px] lg:text-[48px] pb-[14px] md:pb-0 text-[#1C1C1E] uppercase">{t('ApartmentTypes')}</h2>
+                    <div className="absolute hidden lg:flex bg-[#B4D7D8]/50 h-[40px] w-[200px] right-[-80px] top-[39px] z-[-1]"></div>
+                    <div className="absolute lg:hidden flex bg-[#B4D7D8]/50 h-[24px] w-[167px] left-[80px] top-[18px] z-[-1]"></div>
+                </div>
                 <div className="flex justify-between w-full items-center">
                     <div className="flex items-center space-x-8">
                         <div className="relative">
