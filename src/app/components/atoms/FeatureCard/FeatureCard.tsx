@@ -34,7 +34,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 
   return (
     <div
-      className={`${bgColor} flex flex-col flex-1 w-[80%] md:w-[312px] rounded-[24px] border border-[#E4E4E4] shadow-sm pb-[20px] h-[208px] ${
+      className={`${bgColor} flex flex-col flex-1 w-[100%] md:w-[312px] rounded-[24px] border border-[#E4E4E4] shadow-sm pb-[20px] h-[208px] ${
         isFromHighlitsPage
           ? "md:h-[420px] xl:h-[350px] text-[13px] sm:text-[16px]"
           : "md:min-h-[297px]"
