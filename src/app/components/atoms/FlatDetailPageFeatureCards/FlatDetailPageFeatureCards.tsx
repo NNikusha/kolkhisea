@@ -1,42 +1,54 @@
-import React from 'react'
-import { FeatureCard } from '../FeatureCard/FeatureCard'
-import HighlightLine from "@/app/assets/HighLightLine.svg";
-import HighlightLine2 from "@/app/assets/HighLightLine1.svg";
-import HighlightLine3 from "@/app/assets/HighLightLine2.svg";
+"use client";
 
-const FlatDetailPageFeatureCards = () => {
-  return (
-    <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-4 lg:px-[108px] mb-[72px] md:mb-[168px]">
-      <FeatureCard 
-        bgColor="bg-white"
-        textColor="text-gray-800"
-        title="LAYOUT"
-        number="01"
-        description="Convenient ergonomic layouts with spacious kitchen-living areas."
-        highlightSvg={HighlightLine}
-        bottomPattern={HighlightLine3}
-      />
-      
-      <FeatureCard 
-        bgColor="bg-[#CB684D]"
-        title="FINISHING"
-        number="02"
-        description="Apartments with high-quality finishing and optional designer packages."
-        highlightSvg={HighlightLine2}
-        bottomPattern={HighlightLine3}
-      />
-      
-      <FeatureCard 
-        bgColor="bg-[#285260]"
-        title="SECURITY"
-        number="03"
-        description="Gated community with video surveillance and concierge service."
-        highlightSvg={HighlightLine3} 
-        svgOpacity="mt-[27px]"
-        bottomPattern={HighlightLine2}
-      />
-    </div>
-  )
+import React, { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
+import { FeatureCard } from "../FeatureCard/FeatureCard";
+import { fetchFlatDetailCards } from "@/app/hooks/axios";
+
+interface FeatureData {
+  title: { en: string; ka: string; ru: string };
+  text: { en: string; ka: string; ru: string };
 }
 
-export default FlatDetailPageFeatureCards
+const FlatDetailPageFeatureCards = () => {
+  const locale = useLocale() as "en" | "ka" | "ru";
+  const [features, setFeatures] = useState<FeatureData[]>([]);
+
+  useEffect(() => {
+    fetchFlatDetailCards()
+      .then((data) => {
+        console.log("API Response (Home Page):", data);
+        if (data?.content?.length >= 3) {
+          setFeatures(data.content);
+        } else {
+          console.error("Invalid data structure:", data);
+          setFeatures([]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setFeatures([]);
+      });
+  }, []);
+
+  return (
+    <div className="flex flex-col w-full relative">
+      <div className="container px-[16px] lg:px-[108px] mx-auto">
+        <section className="w-full py-3">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 pb-15">
+            {features.map((feature, i) => (
+              <FeatureCard
+                key={i}
+                feature={feature}
+                index={i}
+                locale={locale}
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default FlatDetailPageFeatureCards;

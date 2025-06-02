@@ -219,3 +219,18 @@ export interface GallerySectionProps {
   sectionIndex: number;
   locale: Locale;
 }
+
+export interface FeatureData {
+  title: { en: string; ka: string; ru: string };
+  text: { en: string; ka: string; ru: string };
+}
+
+export interface FeatureCardProps {
+  feature?: FeatureData;
+  index?: number;
+  locale?: Locale;
+  title?: string;
+  number?: string;
+  description?: string;
+  isFromHighlitsPage?: boolean;
+}
