@@ -4,7 +4,7 @@ import { routing } from '@/i18n/routing';
 import HeaderNav from '@/app/components/molecules/headerNav/HeaderNav';
 import Footer from '@/app/components/organisms/Footer/Footer';
 import '@/app/globals.css';
-import Head from 'next/head';
+import Script from "next/script";
 
 export const metadata = {
   title: "Create Next App",
@@ -24,28 +24,29 @@ export default async function LocaleLayout({
     notFound();
   }
 
+
   return (
     <html lang={locale}>
       <body>
+        {/* End Google Analytics */}
         <NextIntlClientProvider locale={locale}>
-          {/* Google Tag */}
-          <Head>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJHG3RS987"></script>
-            <script>
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'G-DJHG3RS987');
-              `}
-            </script>
-          </Head>
-
           <HeaderNav />
           {children}
           <Footer />
         </NextIntlClientProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DJHG3RS987"
+          strategy="afterInteractive"
+        />
+        {/* Google Analytics */}
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DJHG3RS987');
+          `}
+        </Script>
       </body>
     </html>
   );
