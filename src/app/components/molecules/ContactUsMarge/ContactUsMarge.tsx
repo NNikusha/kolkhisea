@@ -10,6 +10,7 @@ import ContactCardPatternGray from "@/app/assets/ContactCardPatternGray.png";
 import ContactCardPatternOrange from "@/app/assets/ContactCardPatternOrange.png";
 import { Locale, LocalizedContent } from '@/app/types/type';
 
+
 interface ContactUsMargeProps {
   title?: LocalizedContent;
   secondaryTitle?: LocalizedContent;
