@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AboutUsSection from '../../molecules/AboutUsSection/AboutUsSection';
-import ChooseUsSection from '../../molecules/ChooseUsSection/ChooseUsSection';
 import OurMissionSection from '../../molecules/OurMissionSection/OurMissionSection';
 import WhoWeAre from '../../atoms/WhoWeAre/WhoWeAre';
 import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg';
@@ -29,14 +28,9 @@ type AboutUsData = {
   journey_of_creation_image_before: string;
   journey_of_creation_after: LocalizedContent;
   journey_of_creation_image_after: string;
-  why_choose_us: ChooseUsItem[];
+  why_choose_us: string;
 };
 
-type ChooseUsItem = {
-  id: string;
-  title: LocalizedContent;
-  description: LocalizedContent;
-};
 
 
 const sectionVariants = {
@@ -118,7 +112,6 @@ const ClientAboutUs = ({
         variants={sectionVariants}
       >
         <OurMission />
-        <ChooseUsSection whyChooseUs={data.why_choose_us} lang={locale} />
       </motion.section>
 
       <motion.section

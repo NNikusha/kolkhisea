@@ -52,7 +52,7 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
 
   return (
     <motion.div
-      className="relative container lg:px-[108px] mx-auto w-full z-[2]"
+      className="relative container lg:px-[108px] mx-auto w-full z-[2] pt-[168px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
