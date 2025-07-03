@@ -16,6 +16,7 @@ const Gallery3ImageSection = ({
               description={items[0].text[locale] || ""}
               index={sectionIndex * 3 + 1}
               locale={locale}
+              delay={0}
             />
           )}
           {items[1] && (
@@ -24,6 +25,7 @@ const Gallery3ImageSection = ({
               description={items[1].text[locale] || ""}
               index={sectionIndex * 3 + 2}
               locale={locale}
+              delay={0.2}
             />
           )}
         </div>
@@ -34,7 +36,8 @@ const Gallery3ImageSection = ({
           description={items[2].text[locale] || ""}
           isMain
           index={sectionIndex * 3 + 3}
-          locale={locale} 
+          locale={locale}
+          delay={0.4}
         />
       )}
     </div>
