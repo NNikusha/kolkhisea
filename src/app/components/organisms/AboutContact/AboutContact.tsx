@@ -17,6 +17,7 @@ import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
 import AnimateOnScroll from "../../atoms/AnimateOnScroll/AnimateOnScroll";
 
+
 const AboutContact = async () => {
   const locale = await getLocale() as Locale;
   const data = await fetchContactPage();

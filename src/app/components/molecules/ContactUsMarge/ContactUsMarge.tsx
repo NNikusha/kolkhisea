@@ -11,6 +11,7 @@ import ContactCardPatternOrange from "@/app/assets/ContactCardPatternOrange.png"
 import { Locale, LocalizedContent } from '@/app/types/type';
 import AnimateOnScroll from "../../atoms/AnimateOnScroll/AnimateOnScroll";
 
+
 interface ContactUsMargeProps {
   title?: LocalizedContent;
   secondaryTitle?: LocalizedContent;
