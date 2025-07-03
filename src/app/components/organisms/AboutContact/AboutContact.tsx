@@ -15,7 +15,6 @@ import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/Conta
 import { fetchContactPage } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
-import AnimateOnScroll from "../../atoms/AnimateOnScroll/AnimateOnScroll";
 
 
 const AboutContact = async () => {
@@ -25,7 +24,7 @@ const AboutContact = async () => {
   return (
     <>
       <Header dynamicImage={MainApartment || ''} />
-<section className="container px-[16px] lg:px-[108px] mx-auto z-[-1]">
+      <section className="container px-[16px] lg:px-[108px] mx-auto z-[-1]">
         <div className="relative flex flex-col justify-center items-center">
           <div className="mt-[200px] lg:mt-[300px] flex flex-col justify-center items-center">
             <div
@@ -34,39 +33,33 @@ const AboutContact = async () => {
             >
               <Elipse />
             </div>
-              <ContactPageElipseButtons 
-                titles={data?.titles}
-                lang={locale}
+            <ContactPageElipseButtons 
+              titles={data?.titles}
+              lang={locale}
+            />
+            <div className="flex justify-center w-full">
+              <button className="bg-[#FFFFFF0D] text-[#FFFFFF] px-[16px] py-[16px] rounded-full mb-[16px] lg:mb-[0px]">
+                Contact us
+              </button>
+            </div>
+
+            <MainHeadLineAnimation />
+
+            <div className="flex justify-start items-center gap-2 pb-[24px]">
+              <Image
+                className=""
+                src={faceIcon}
+                width={224}
+                height={80}
+                alt="faceIcone"
               />
-            <AnimateOnScroll delay={0.1} from="up">
-              <div className="flex justify-center w-full">
-                <button className="bg-[#FFFFFF0D] text-[#FFFFFF] px-[16px] py-[16px] rounded-full mb-[16px] lg:mb-[0px]">
-                  Contact us
-                </button>
-              </div>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={0.2} from="up">
-              <MainHeadLineAnimation />
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={0.3} from="up">
-              <div className="flex justify-start items-center gap-2 pb-[24px]">
-                <Image
-                  className=""
-                  src={faceIcon}
-                  width={224}
-                  height={80}
-                  alt="faceIcone"
-                />
-              </div>
-            </AnimateOnScroll>
+            </div>
           </div>
         </div>
-        <AnimateOnScroll delay={0.4} from="up">
-          <DownScrollAnimation
-            DownScroll={DownScroll}
-            DownScrollArrow={DownScrollArrow}
-          />
-        </AnimateOnScroll>
+        <DownScrollAnimation
+          DownScroll={DownScroll}
+          DownScrollArrow={DownScrollArrow}
+        />
       </section>
       <div className="relative">
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">

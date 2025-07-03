@@ -3,9 +3,6 @@ import { GalleryItemProps } from "@/app/types/type";
 import Image from "next/image";
 import { useState } from "react";
 import translations from "@/messages/translations";
-import { motion } from "framer-motion";
-
-type GalleryMainImageProps = GalleryItemProps & { delay?: number };
 
 const GalleryMainImage = ({
   url,
@@ -14,8 +11,7 @@ const GalleryMainImage = ({
   index = 0,
   isMainImage = false,
   locale = "en",
-  delay = 0,
-}: GalleryMainImageProps) => {
+}: GalleryItemProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const getCaptionPosition = (index: number, isMain: boolean) => {
@@ -30,23 +26,21 @@ const GalleryMainImage = ({
     translations.en.Language;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: "easeOut", delay }}
-      className={`relative ${isMain ? "w-full" : "flex-1 min-w-0"} h-[${isMain ? 600 : 400}px] rounded-[8px]`}
-      style={{ minHeight: isMain ? 600 : 400 }}
+    <div
+      className={`relative ${
+        isMain ? "w-full" : "flex-1 w-full"
+      } rounded-[8px]`}
     >
       <Image
         src={url}
         alt="gallery img"
         width={isMain ? 1200 : 600}
         height={isMain ? 600 : 400}
-        className="object-cover w-full h-full rounded-[8px]"
+        className={`object-cover w-full rounded-[8px] ${
+          !isMain ? "h-full" : ""
+        }`}
         loading="lazy"
         onLoad={() => setImageLoaded(true)}
-        style={{ display: "block" }}
       />
       {isMainImage && imageLoaded && (
         <div className="absolute w-full flex flex-col gap-4 justify-center items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold transition-opacity duration-500 opacity-100">
@@ -70,7 +64,7 @@ const GalleryMainImage = ({
           <p>{description}</p>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
