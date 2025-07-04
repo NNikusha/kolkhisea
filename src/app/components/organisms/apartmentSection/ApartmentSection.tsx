@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import { ApartmentSectionProps } from "@/app/types/type";
 import Header from "../header/Header";
+import { motion } from "framer-motion";
 
 export default function ApartmentSection({
   secondaryTitle,
@@ -24,27 +25,44 @@ export default function ApartmentSection({
     <>
       <Header dynamicImage={mainImg} />
       <section className="container px-[20px] lg:px-[108px] mx-auto mt-[146px] xl:mt-[200px]">
-        <MainHeadLine
-          firstText={t('InspiredByThePastBuiltF')}
-          secondText={t('RtheFuture')}
-        />
-        {secondaryTitle && secondaryTitle[locale] && (
-          <MainParagraph
-            paragraph={secondaryTitle[locale]}
-            centered={false}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <MainHeadLine
+            firstText={t('InspiredByThePastBuiltF')}
+            secondText={t('RtheFuture')}
           />
+        </motion.div>
+        {secondaryTitle && secondaryTitle[locale] && (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <MainParagraph
+              paragraph={secondaryTitle[locale]}
+              centered={false}
+            />
+          </motion.div>
         )}
-        
-        <OpacityButton
-          text={t('DiscoverKolkhiSea')}
-          image={ArrowRight}
-          href="/about-project"
-        />
-        
-        <DownScrollAnimation
-          DownScroll={DownScroll}
-          DownScrollArrow={DownScrollArrow}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+        >
+          <OpacityButton
+            text={t('DiscoverKolkhiSea')}
+            image={ArrowRight}
+            href="/about-project"
+          />
+        </motion.div>
+     
+          <DownScrollAnimation
+            DownScroll={DownScroll}
+            DownScrollArrow={DownScrollArrow}
+          />
       </section>
     </>
   );

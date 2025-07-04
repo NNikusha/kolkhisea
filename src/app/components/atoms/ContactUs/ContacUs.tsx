@@ -27,15 +27,15 @@ const ContactUs: React.FC<ContactUsProps> = ({
 }) => {
   return (
     <>
-      <div className="p-4 rounded-[16px] bg-white w-full relative 2xl:h-[250px] xl:h-[270px] lg:h-[250px] md:h-[240px] h-[250px]">
+      <div className="p-4 rounded-[16px] bg-white w-full relative 2xl:h-[230px] xl:h-[210px] lg:h-[250px] md:h-[240px] h-[250px] flex flex-col items-center text-center lg:items-start lg:text-left">
         <Image
-          className=" lg:m-0"
+          className="lg:m-0 mb-2"
           src={icone}
           alt="contact icon"
           width={40}
           height={40}
         />
-        <h3 className="pt-[24px] pb-[8px] lg:text-[24px] text[20px] text-[#1C1C1E]">
+        <h3 className="pt-[24px] pb-[8px] lg:text-[24px] text-[20px] text-[#1C1C1E]">
           {title}
         </h3>
         <p
