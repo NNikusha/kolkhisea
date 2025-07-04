@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface DownScrollAnimationProp {
   DownScroll: string;
@@ -12,22 +12,12 @@ export default function DownScrollAnimation({
   DownScroll,
   DownScrollArrow,
 }: DownScrollAnimationProp) {
-  const [rotation, setRotation] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRotation((prevRotation) => prevRotation + 45);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <motion.div
       className="absolute left-1/2 -translate-x-1/2 top-[740px] sm:top-[880px] md:top-[880px] lg:top-[740px] xl:top-[830px]"
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.96 }}
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: "pointer" }}
     >
       <div className="flex flex-col items-center relative">
         {/* Pulsing outer circle */}
@@ -35,7 +25,7 @@ export default function DownScrollAnimation({
           className="absolute z-0 w-[109px] h-[109px] xl:w-[109px] xl:h-[109px] rounded-full bg-[#ffffff3a] opacity-30"
           initial={{ scale: 1, opacity: 0.5 }}
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.2, 0.5] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Rotating circle */}
         <motion.div
