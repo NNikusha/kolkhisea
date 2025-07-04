@@ -104,7 +104,7 @@ const ClientAboutUs = ({
       </div>
 
       <motion.section
-        className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]"
+        className="w-full bg-white relative rounded-t-[56px] lg:py-[5px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px] pb-[56px]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -112,16 +112,6 @@ const ClientAboutUs = ({
         variants={sectionVariants}
       >
         <OurMission />
-      </motion.section>
-
-      <motion.section
-        className="bg-white pb-[56px]"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        custom={4}
-        variants={sectionVariants}
-      >
         <TheJourneyMerg
           journeyOfCreationBefore={data.journey_of_creation_before}
           journeyOfCreationImageBefore={data.journey_of_creation_image_before}

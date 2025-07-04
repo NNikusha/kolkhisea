@@ -52,7 +52,7 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
 
   return (
     <motion.div
-      className="relative container lg:px-[108px] mx-auto w-full z-[2] pt-[168px]"
+      className="relative container lg:px-[108px] px-4 mx-auto w-full z-[2] pt-[168px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
@@ -74,7 +74,7 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
         variants={containerVariants}
       >
         {journeyOfCreationImageBefore && journeyOfCreationBefore && (
-          <motion.div variants={cardVariants}>
+          <motion.div variants={cardVariants} className='mx-auto lg:w-1/2'>
             <TheJourney
               imageBg={journeyOfCreationImageBefore}
               about={t('Before')}
@@ -86,7 +86,7 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
         )}
 
         {journeyOfCreationImageAfter && journeyOfCreationAfter && (
-          <motion.div variants={cardVariants}>
+          <motion.div variants={cardVariants} className='mx-auto lg:w-1/2'>
             <TheJourney
               imageBg={journeyOfCreationImageAfter}
               about={t('After')}
