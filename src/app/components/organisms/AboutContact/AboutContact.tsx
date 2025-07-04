@@ -71,16 +71,16 @@ const AboutContact = async () => {
           title={data?.title}
           secondaryTitle={data?.secondary_title}
           writeUsTitle={data?.write_us_title}
-          writeUsSubtitle={data?.write_us_subtitle}
+          // writeUsSubtitle={data?.write_us_subtitle}
           writeUsExtra={data?.write_us_extra}
           callUsTitle={data?.call_us_title}
-          callUsSubtitle={data?.call_us_subtitle}
+          // callUsSubtitle={data?.call_us_subtitle}
           callUsExtra={data?.call_us_extra}
           visitUsTitle={data?.visit_us_title}
-          visitUsSubtitle={data?.visit_us_subtitle}
+          // visitUsSubtitle={data?.visit_us_subtitle}
           visitUsExtra={data?.visit_us_extra}
           socialLinkTitle={data?.social_link_title}
-          socialLinkSubtitle={data?.social_link_subtitle}
+          // socialLinkSubtitle={data?.social_link_subtitle}
           socialLinkExtra={data?.social_link_extra}
           lang={locale}
           />
