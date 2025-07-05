@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { Locale } from '@/app/types/type';
+import { motion } from "framer-motion";
 
 interface ContactPageElipseButtonsProps {
   titles?: Array<{
@@ -23,7 +24,7 @@ const ContactPageElipseButtons = ({
 
   const positions = [
     "lg:left-[-70px] lg:bottom-[-150px] xl:left-[30px] xl:bottom-[-140px] 2xl:left-[150px] 2xl:bottom-[-100px]",
-    "lg:left-[-90px] lg:bottom-[400px] xl:left-[0px] xl:bottom-[410px] 2xl:left-[10px] 2xl:bottom-[410px]",
+    "lg:left-[10px] lg:bottom-[350px] xl:left-[130px] xl:bottom-[410px] 2xl:left-[230px] 2xl:bottom-[410px]",
     "lg:right-[-90px] lg:bottom-[295px] xl:right-[0px] xl:bottom-[340px] 2xl:right-[70px] 2xl:bottom-[350px]",
     "lg:right-[-70px] lg:bottom-[-70px] xl:right-[0px] xl:bottom-[-100px] 2xl:right-[130px] 2xl:bottom-[-38px]"
   ];
@@ -35,13 +36,17 @@ const ContactPageElipseButtons = ({
   return (
     <div>
       {titles.map((titleData, index) => (
-        <button
+        <motion.button
           key={index}
           className={`${buttonStyles.base} ${positions[index] || ''}`}
           style={{ boxShadow: buttonStyles.boxShadow }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
         >
           {titleData[lang]}
-        </button>
+        </motion.button>
       ))}
     </div>
   );
