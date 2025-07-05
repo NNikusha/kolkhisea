@@ -6,8 +6,6 @@ import MainApartment from "@/app/assets/Main-Apartment.svg";
 import DownScrollAnimation from "../../molecules/downScrollAnimation/DownScrollAnimation";
 import Header from "../../organisms/header/Header";
 import Elipse from "@/app/assets/Elipse";
-import faceIcon from "../../../assets/faceIcone.svg";
-import Image from "next/image";
 import ContactUsMarge from "../../molecules/ContactUsMarge/ContactUsMarge";
 import GoogleMap from "../../molecules/GoogleMap/GoogleMap";
 import MainHeadLineAnimation from "../../atoms/MainHeadLineAnimation/MainHeadLineAnimation";
@@ -15,6 +13,8 @@ import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/Conta
 import { fetchContactPage } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
+import ContactUsButton from "../../atoms/ContactUsButton/ContactUsButton";
+import ContactUsFaceIcon from "../../atoms/ContactUsFaceIcon/ContactUsFaceIcon";
 
 const AboutContact = async () => {
   const locale = await getLocale() as Locale;
@@ -36,23 +36,11 @@ const AboutContact = async () => {
               titles={data?.titles}
               lang={locale}
             />
-            <div className="flex justify-center w-full">
-              <button className="bg-[#FFFFFF0D] text-[#FFFFFF] px-[16px] py-[16px] rounded-full mb-[16px] lg:mb-[0px]">
-                Contact us
-              </button>
-            </div>
+            <ContactUsButton />
 
             <MainHeadLineAnimation />
 
-            <div className="flex justify-start items-center gap-2 pb-[24px]">
-              <Image
-                className=""
-                src={faceIcon}
-                width={224}
-                height={80}
-                alt="faceIcone"
-              />
-            </div>
+            <ContactUsFaceIcon />
           </div>
         </div>
         <DownScrollAnimation

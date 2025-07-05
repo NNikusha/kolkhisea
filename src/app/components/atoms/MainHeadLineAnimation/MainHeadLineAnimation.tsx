@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 const MainHeadLineAnimation = () => {
   const t = useTranslations('Language');
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  
+
   const texts = [
     t('ContactUs'),
     t('WriteUs'), 
@@ -17,12 +17,18 @@ const MainHeadLineAnimation = () => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 1700);
-        
+
     return () => clearInterval(interval);
   }, [texts.length]);
 
   return (
-    <div className="relative flex flex-col justify-center items-center w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="relative flex flex-col justify-center items-center w-full"
+    >
       <h1 className="uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] xl:text-[48px] text-center text-white">
         {t('IfYouHaveAnyQuestions')}
       </h1>
@@ -41,7 +47,7 @@ const MainHeadLineAnimation = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
