@@ -17,11 +17,7 @@ export default function DownScrollAnimation({
       className="absolute left-1/2 -translate-x-1/2 top-[740px] sm:top-[880px] md:top-[880px] lg:top-[740px] xl:top-[830px]"
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.96 }}
-      style={{ cursor: 'pointer' }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ cursor: "pointer" }}
     >
       <div className="flex flex-col items-center relative">
         {/* Pulsing outer circle */}
@@ -29,7 +25,7 @@ export default function DownScrollAnimation({
           className="absolute z-0 w-[109px] h-[109px] xl:w-[109px] xl:h-[109px] rounded-full bg-[#ffffff3a] opacity-30"
           initial={{ scale: 1, opacity: 0.5 }}
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.2, 0.5] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Rotating circle */}
         <motion.div

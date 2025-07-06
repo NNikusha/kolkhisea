@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import ChooseUsCard from '../ChooseUsCard/ChooseUsCard';
-import { Locale, LocalizedContent } from '@/app/types/type';
-import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import React from "react";
+import ChooseUsCard from "../ChooseUsCard/ChooseUsCard";
+import { Locale, LocalizedContent } from "@/app/types/type";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 interface ChooseUsItem {
   title: LocalizedContent;
@@ -32,16 +32,16 @@ const fadeInUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 1, ease: [0.04, 0.62, 0.23, 0.98] as const },
   },
 };
 
 const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
   whyChooseUs,
   whyChooseUsText,
-  lang = 'en',
+  lang = "en",
 }) => {
-  const t = useTranslations('Language');
+  const t = useTranslations("Language");
 
   if (!whyChooseUs || whyChooseUs.length === 0) {
     return null;
@@ -49,8 +49,8 @@ const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
 
   const transformedData = whyChooseUs.map((item, index) => ({
     number: `0${index + 1}`,
-    title: item.title[lang] || '',
-    description: item.why_choose_us[lang] || '',
+    title: item.title[lang] || "",
+    description: item.why_choose_us[lang] || "",
     imageSrc: item.image_url,
   }));
 
@@ -68,8 +68,8 @@ const ChooseUsSection: React.FC<ChooseUsSectionProps> = ({
           variants={fadeInUp}
         >
           <h2 className="2xl:text-[48px] xl:text-[36px] text-[24px] font-normal leading-[130%] xl:pr-[106px] pr-[0px]">
-            <span className="text-[#ABABAB] uppercase pr-4">{t('Why')}</span>
-            <span className="text-[#CB684D] uppercase">{t('Kobuleti')}?</span>
+            <span className="text-[#ABABAB] uppercase pr-4">{t("Why")}</span>
+            <span className="text-[#CB684D] uppercase">{t("Kobuleti")}?</span>
           </h2>
 
           {whyChooseUsText && whyChooseUsText[lang] && (

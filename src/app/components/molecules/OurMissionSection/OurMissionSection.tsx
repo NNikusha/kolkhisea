@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import MissionImage from '../../atoms/MissionImage/MissionImage';
-import { Locale, LocalizedContent } from '@/app/types/type';
-import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import React from "react";
+import MissionImage from "../../atoms/MissionImage/MissionImage";
+import { Locale, LocalizedContent } from "@/app/types/type";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 interface OurMissionSectionProps {
   ourMissionTitle?: LocalizedContent;
@@ -27,7 +27,7 @@ const fadeInUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 2, ease: 'easeOut' },
+    transition: { duration: 2, ease: [0.04, 0.62, 0.23, 0.98] as const },
   },
 };
 
@@ -35,9 +35,9 @@ const OurMissionSection: React.FC<OurMissionSectionProps> = ({
   ourMissionTitle,
   ourMissionImage,
   ourMissionImageSecondary,
-  lang = 'en',
+  lang = "en",
 }) => {
-  const t = useTranslations('Language');
+  const t = useTranslations("Language");
 
   return (
     <motion.div
@@ -64,8 +64,12 @@ const OurMissionSection: React.FC<OurMissionSectionProps> = ({
             variants={fadeInUp}
           >
             <h2 className="md:text-[48px] text-[24px] pt-4 font-normal leading-[130%]">
-              <span className="text-[#1C1C1E] pr-[10px] uppercase">{t('Our')}</span>
-              <span className="text-[#B4B4B4] pr-[10px] uppercase">{t('Story')}</span>
+              <span className="text-[#1C1C1E] pr-[10px] uppercase">
+                {t("Our")}
+              </span>
+              <span className="text-[#B4B4B4] pr-[10px] uppercase">
+                {t("Story")}
+              </span>
             </h2>
             <p className="font-normal md:text-[16px] text-[14px] text-[#7E7E7E] leading-[150%] lg:w-[105%] md:w-[115%] w-[120%] pt-[24px]">
               {ourMissionTitle && ourMissionTitle[lang]}
