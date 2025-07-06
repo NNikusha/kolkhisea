@@ -1,17 +1,17 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import AboutUsSection from '../../molecules/AboutUsSection/AboutUsSection';
-import OurMissionSection from '../../molecules/OurMissionSection/OurMissionSection';
-import WhoWeAre from '../../atoms/WhoWeAre/WhoWeAre';
-import TheJourneyMerg from '../../molecules/TheJourneyMerg/TheJourneyMerg';
-import OurMission from '../../atoms/OurMission/OurMission';
-import GetInTouchSection from '../../molecules/GetInTouchSection/GetInTouchSection';
-import Flower1AboutUs from '@/app/assets/Flower1AboutUs';
-import Image from 'next/image';
-import Flower2AboutUs from '@/app/assets/Flower2AboutUs.png';
-import { Locale } from '@/app/types/type';
-import { LocalizedContent } from '@/app/types/type';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import AboutUsSection from "../../molecules/AboutUsSection/AboutUsSection";
+import OurMissionSection from "../../molecules/OurMissionSection/OurMissionSection";
+import WhoWeAre from "../../atoms/WhoWeAre/WhoWeAre";
+import TheJourneyMerg from "../../molecules/TheJourneyMerg/TheJourneyMerg";
+import OurMission from "../../atoms/OurMission/OurMission";
+import GetInTouchSection from "../../molecules/GetInTouchSection/GetInTouchSection";
+import Flower1AboutUs from "@/app/assets/Flower1AboutUs";
+import Image from "next/image";
+import Flower2AboutUs from "@/app/assets/Flower2AboutUs.png";
+import { Locale } from "@/app/types/type";
+import { LocalizedContent } from "@/app/types/type";
 
 type AboutUsData = {
   title_secondary: LocalizedContent;
@@ -31,8 +31,6 @@ type AboutUsData = {
   why_choose_us: string;
 };
 
-
-
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({
@@ -41,7 +39,7 @@ const sectionVariants = {
     transition: {
       delay: i * 0.01,
       duration: 1.2,
-      ease: 'easeOut',
+      ease: [0.04, 0.62, 0.23, 0.98] as const,
     },
   }),
 };

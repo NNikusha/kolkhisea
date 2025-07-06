@@ -1,11 +1,11 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 import GetInTouchSmallFlower from "@/app/assets/GetInTouchSmallFlower.png";
 import GetInTouchBigFlower from "@/app/assets/GetInTouchBigFlower.png";
-import GetInTouchFlowerMobile from '@/app/assets/GetInTouchFlowerMobile.png';
+import GetInTouchFlowerMobile from "@/app/assets/GetInTouchFlowerMobile.png";
 
 import GetInTouchForm from "../../atoms/GetInTouchForm/GetInTouchForm";
 import Button from "../../atoms/Button/Button";
@@ -18,7 +18,11 @@ const containerVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { staggerChildren: 0.3, ease: 'easeOut', duration: 1 },
+    transition: {
+      staggerChildren: 0.3,
+      ease: [0.04, 0.62, 0.23, 0.98] as const,
+      duration: 1,
+    },
   },
 };
 

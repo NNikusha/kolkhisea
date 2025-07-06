@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import TheJourney from '../../atoms/TheJourney/TheJourney';
-import { Locale, LocalizedContent } from '@/app/types/type';
-import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import React from "react";
+import TheJourney from "../../atoms/TheJourney/TheJourney";
+import { Locale, LocalizedContent } from "@/app/types/type";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 interface TheJourneyMergProps {
   journeyOfCreationBefore?: LocalizedContent;
@@ -28,7 +28,7 @@ const headingVariants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 1, ease: [0.04, 0.62, 0.23, 0.98] as const },
   },
 };
 
@@ -37,7 +37,7 @@ const cardVariants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1, ease: 'easeOut' },
+    transition: { duration: 1, ease: [0.04, 0.62, 0.23, 0.98] as const },
   },
 };
 
@@ -46,9 +46,9 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
   journeyOfCreationImageBefore,
   journeyOfCreationAfter,
   journeyOfCreationImageAfter,
-  lang = 'en',
+  lang = "en",
 }) => {
-  const t = useTranslations('Language');
+  const t = useTranslations("Language");
 
   return (
     <motion.div
@@ -60,12 +60,12 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
     >
       <motion.div variants={headingVariants}>
         <h1 className="flex flex-col gap-4 lg:gap-0 lg:flex-row uppercase justify-between items-center lg:text-4xl text-[24px] text-[#B4B4B4]">
-          <span>{t('TheJourney')}</span>
+          <span>{t("TheJourney")}</span>
           {/* <span className='pt-[15px] pb-[15px] lg:pt-[0] lg:pb-[0]'>
             <LineSvg />
           </span> */}
           <div className="bg-[#B4D7D8]/50 h-[24px] lg:h-[40px] w-[167px] lg:w-[200px] xl:w-[312px] 2x:w-[424px] z-[-1]" />
-          <span className="text-[#1C1C1E]">{t('ThroughTime')}</span>
+          <span className="text-[#1C1C1E]">{t("ThroughTime")}</span>
         </h1>
       </motion.div>
 
@@ -74,24 +74,24 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
         variants={containerVariants}
       >
         {journeyOfCreationImageBefore && journeyOfCreationBefore && (
-          <motion.div variants={cardVariants} className='mx-auto lg:w-1/2'>
+          <motion.div variants={cardVariants} className="mx-auto lg:w-1/2">
             <TheJourney
               imageBg={journeyOfCreationImageBefore}
-              about={t('Before')}
-              title={t('What')}
-              titleSpan={t('WeStartedWith')}
+              about={t("Before")}
+              title={t("What")}
+              titleSpan={t("WeStartedWith")}
               text={journeyOfCreationBefore[lang]}
             />
           </motion.div>
         )}
 
         {journeyOfCreationImageAfter && journeyOfCreationAfter && (
-          <motion.div variants={cardVariants} className='mx-auto lg:w-1/2'>
+          <motion.div variants={cardVariants} className="mx-auto lg:w-1/2">
             <TheJourney
               imageBg={journeyOfCreationImageAfter}
-              about={t('After')}
-              title={t('What')}
-              titleSpan={t('WeCreated')}
+              about={t("After")}
+              title={t("What")}
+              titleSpan={t("WeCreated")}
               text={journeyOfCreationAfter[lang]}
             />
           </motion.div>
