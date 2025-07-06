@@ -1,5 +1,21 @@
+'use client';
+
 import { GallerySectionProps } from "@/app/types/type";
 import GalleryMainImage from "../GalleryMainImage/GalleryMainImage";
+import { motion, Variants } from "framer-motion";
+
+const itemVariants = (delay = 0): Variants => ({
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay,
+      ease: [0.42, 0, 0.58, 1], 
+    },
+  },
+});
 
 const Gallery3ImageSection = ({
   items,
@@ -11,31 +27,54 @@ const Gallery3ImageSection = ({
       {(items[0] || items[1]) && (
         <div className="flex gap-6 md:flex-row flex-col">
           {items[0] && (
-            <GalleryMainImage
-              url={items[0].image_url}
-              description={items[0].text[locale] || ""}
-              index={sectionIndex * 3 + 1}
-              locale={locale}
-            />
+            <motion.div
+              className="flex-1 min-w-0"
+              variants={itemVariants(0)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <GalleryMainImage
+                url={items[0].image_url}
+                description={items[0].text[locale] || ""}
+                index={sectionIndex * 3 + 1}
+                locale={locale}
+              />
+            </motion.div>
           )}
           {items[1] && (
-            <GalleryMainImage
-              url={items[1].image_url}
-              description={items[1].text[locale] || ""}
-              index={sectionIndex * 3 + 2}
-              locale={locale}
-            />
+            <motion.div
+              className="flex-1 min-w-0"
+              variants={itemVariants(0.2)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <GalleryMainImage
+                url={items[1].image_url}
+                description={items[1].text[locale] || ""}
+                index={sectionIndex * 3 + 2}
+                locale={locale}
+              />
+            </motion.div>
           )}
         </div>
       )}
       {items[2] && (
-        <GalleryMainImage
-          url={items[2].image_url}
-          description={items[2].text[locale] || ""}
-          isMain
-          index={sectionIndex * 3 + 3}
-          locale={locale} 
-        />
+        <motion.div
+          variants={itemVariants(0)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <GalleryMainImage
+            url={items[2].image_url}
+            description={items[2].text[locale] || ""}
+            isMain
+            index={sectionIndex * 3 + 3}
+            locale={locale}
+          />
+        </motion.div>
       )}
     </div>
   );

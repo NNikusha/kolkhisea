@@ -25,7 +25,7 @@ export default function DownScrollAnimation({
           className="absolute z-0 w-[109px] h-[109px] xl:w-[109px] xl:h-[109px] rounded-full bg-[#ffffff3a] opacity-30"
           initial={{ scale: 1, opacity: 0.5 }}
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.2, 0.5] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: [0.42, 0, 0.58, 1] }}
         />
         {/* Rotating circle */}
         <motion.div
@@ -44,7 +44,7 @@ export default function DownScrollAnimation({
         <motion.div
           className="absolute top-[60%] z-20"
           animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: [0.42, 0, 0.58, 1] }}
         >
           <Image
             alt="InsideView"

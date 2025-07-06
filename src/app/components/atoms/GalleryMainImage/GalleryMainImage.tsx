@@ -35,9 +35,9 @@ const GalleryMainImage = ({
         src={url}
         alt="gallery img"
         width={isMain ? 1200 : 600}
-        height={isMain ? 600 : 400}
+        height={isMain ? 600 : 600}
         className={`object-cover w-full rounded-[8px] ${
-          !isMain ? "h-full" : ""
+          !isMain ? "md:h-[600px] h-[405px]" : ""
         }`}
         loading="lazy"
         onLoad={() => setImageLoaded(true)}

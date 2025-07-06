@@ -259,7 +259,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                 className="text-[#1C1C1E] leading-[150%] font-normal flex-1 pr-6 py-[32px]"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3, ease: "easeOut" }}
+                                transition={{ duration: 0.3, ease: [0.42, 0, 0.58, 1] }}
                               >
                                 <motion.h3
                                   className="text-[#6A6A6A] font-normal pb-4"
@@ -351,7 +351,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                 className="text-[#6A6A6A] leading-[150%] font-normal text-[20px] py-[72px]"
                                 initial={{ opacity: 0, scale: 1.1 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3, ease: "easeOut" }}
+                                transition={{ duration: 0.3, ease: [0.42, 0, 0.58, 1] }}
                               >
                                 {t('Sold')}
                               </motion.div>
@@ -381,7 +381,7 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                               className="text-[#6A6A6A] leading-[150%] font-normal py-[60px]"
                               initial={{ opacity: 0, y: -10 }}
                               animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.3, ease: "easeOut" }}
+                              transition={{ duration: 0.3, ease: [0.42, 0, 0.58, 1] }}
                             >
                               {t('SelectApartmentFromPlan')}
                             </motion.div>

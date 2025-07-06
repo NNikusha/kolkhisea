@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 import GetInTouchSmallFlower from "@/app/assets/GetInTouchSmallFlower.png";
 import GetInTouchBigFlower from "@/app/assets/GetInTouchBigFlower.png";
@@ -26,9 +26,13 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1 },
+  },
 };
 
 const GetInTouchSection = () => {
