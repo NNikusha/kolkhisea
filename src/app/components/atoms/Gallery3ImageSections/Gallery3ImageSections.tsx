@@ -2,15 +2,18 @@
 
 import { GallerySectionProps } from "@/app/types/type";
 import GalleryMainImage from "../GalleryMainImage/GalleryMainImage";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-
-const itemVariants = (delay = 0) => ({
+const itemVariants = (delay = 0): Variants => ({
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay, ease: [0.42, 0, 0.58, 1] },
+    transition: {
+      duration: 0.8,
+      delay,
+      ease: [0.42, 0, 0.58, 1], 
+    },
   },
 });
 
@@ -62,7 +65,6 @@ const Gallery3ImageSection = ({
           variants={itemVariants(0)}
           initial="hidden"
           whileInView="visible"
-          
           viewport={{ once: true, amount: 0.3 }}
         >
           <GalleryMainImage

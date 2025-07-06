@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import ContactUs from "../../atoms/ContactUs/ContacUs";
 import mailIcone from "../../../assets/mail.svg";
 import call from "../../../assets/call.svg";
@@ -11,7 +11,8 @@ import ContactCardPatternGray from "@/app/assets/ContactCardPatternGray.png";
 import ContactCardPatternOrange from "@/app/assets/ContactCardPatternOrange.png";
 import { Locale, LocalizedContent } from '@/app/types/type';
 
-const itemVariants = (delay = 0) => ({
+
+const itemVariants = (delay = 0): Variants => ({
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -77,6 +78,7 @@ const ContactUsMarge = ({
           {secondaryTitle?.[lang]}
         </motion.p>
       </div>
+
       <div className="grid gap-[24px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full">
         <motion.div
           variants={itemVariants(0)}
@@ -93,6 +95,7 @@ const ContactUsMarge = ({
             pattern={ContactCardPatternGray}
           />
         </motion.div>
+
         <motion.div
           variants={itemVariants(0.1)}
           initial="hidden"
@@ -108,6 +111,7 @@ const ContactUsMarge = ({
             pattern={ContactCardPatternBlue}
           />
         </motion.div>
+
         <motion.div
           variants={itemVariants(0.2)}
           initial="hidden"
@@ -123,6 +127,7 @@ const ContactUsMarge = ({
             pattern={ContactCardPatternOrange}
           />
         </motion.div>
+
         <motion.div
           variants={itemVariants(0.3)}
           initial="hidden"
