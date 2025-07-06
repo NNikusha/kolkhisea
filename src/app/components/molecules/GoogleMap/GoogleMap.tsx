@@ -9,7 +9,7 @@ const GoogleMap = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
         className="border border-[24px] rounded-[32px] overflow-hidden shadow-lg"
       >
         <iframe

@@ -4,13 +4,13 @@ import { GallerySectionProps } from "@/app/types/type";
 import GalleryMainImage from "../GalleryMainImage/GalleryMainImage";
 import { motion } from "framer-motion";
 
-// Item fade-in from bottom
+
 const itemVariants = (delay = 0) => ({
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay, ease: 'easeOut' },
+    transition: { duration: 0.8, delay, ease: [0.42, 0, 0.58, 1] },
   },
 });
 

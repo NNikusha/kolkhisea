@@ -26,7 +26,7 @@ const MainHeadLineAnimation = () => {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
       className="relative flex flex-col justify-center items-center w-full"
     >
       <h1 className="uppercase text-[28px] sm:min-w-[350px] font-medium xl:leading-[87px] xl:text-[48px] text-center text-white">
