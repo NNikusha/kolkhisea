@@ -12,8 +12,8 @@ export const HighlightsCard: React.FC<HighlightsCardProps> = ({
   const t = useTranslations("Language");
 
   return (
-    <div className="bg-[#F3F6FB] py-16 flex flex-col items-center justify-center rounded-[48px]">
-      <MotionWrapper delay={0.1}>
+    <MotionWrapper delay={0.1}>
+      <div className="bg-[#F3F6FB] py-16 flex flex-col items-center justify-center rounded-[48px]">
         <div className="w-full">
           <SectionTitle
             mainText={t("Key")}
@@ -34,8 +34,8 @@ export const HighlightsCard: React.FC<HighlightsCardProps> = ({
             ))}
           </div>
         </div>
-      </MotionWrapper>
-    </div>
+      </div>
+    </MotionWrapper>
   );
 };
 

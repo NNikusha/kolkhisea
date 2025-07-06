@@ -24,8 +24,8 @@ export default function WhyUsSection({
 
   return (
     <>
-      <section>
-        <MotionWrapper delay={0.1}>
+      <MotionWrapper delay={0.1}>
+        <section>
           <div className="block lg:hidden">
             <div className="text-[32px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 relative bottom-2">
               <p>{t("OUR")} </p>
@@ -156,8 +156,8 @@ export default function WhyUsSection({
               </div>
             </div>
           </div>
-        </MotionWrapper>
-      </section>
+        </section>
+      </MotionWrapper>
     </>
   );
 }
