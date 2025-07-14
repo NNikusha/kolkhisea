@@ -164,19 +164,24 @@ const ApartmentInformation = () => {
 
           <div className='flex flex-col justify-center items-center w-full lg:w-auto'>
             {loading ? (
-             <div className="flex justify-center items-center h-[250px]">
-             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
-           </div>
-            ) : (
-              <Image 
-                src={getImageSrc()}
-                alt={`${t('Apartment')} ${flatData?.number || ''}`}
-                className='md:w-[536px] md:h-[448px] h-[283px]'
-                width={536}
-                height={448}
-                priority
-              />
-            )}
+            <div className="relative md:w-[536px] md:h-[448px] h-[283px]">
+              {/* Spinner centered in the space where image would go */}
+              <div className="absolute inset-0 flex justify-center items-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CB684D]"></div>
+              </div>
+              {/* Invisible placeholder div to maintain layout */}
+              <div className="w-full h-full invisible"></div>
+            </div>
+          ) : (
+            <Image 
+              src={getImageSrc()}
+              alt={`${t('Apartment')} ${flatData?.number || ''}`}
+              className="md:w-[536px] md:h-[448px] h-[283px]"
+              width={536}
+              height={448}
+              priority
+            />
+          )}
             <div className='flex xl:hidden w-full items-start'>
               <Image 
                 src={CompassMobile}
