@@ -4,6 +4,7 @@ import Reception from "@/app/assets/Reception.svg";
 import Security from "@/app/assets/Security.svg";
 import Gardening from "@/app/assets/Gardening.svg";
 import Support from "@/app/assets/Support.svg";
+import SmartHome from "@/app/assets/SmartHome.png";
 import Image from "next/image";
 import Button from "../../atoms/Button/Button";
 import OpacityButton from "../../atoms/opacityButton/OpacityButton";
@@ -95,15 +96,29 @@ export default function WhyUsSection({
                       </h2>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 mt-6 lg:mt-5 w-[100%]">
-                    <Image
-                      alt="Optional Rental Support"
-                      src={Support}
-                      className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
-                    />
-                    <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
-                      {t("OptionalRentalSupport")}
-                    </h2>
+                  <div className="flex flex-row items-center gap-[30px] mt-6 lg:mt-5 lg:gap-10">
+                    <div className="flex items-center gap-3 w-[100%] sm:w-[237px]">
+                      <Image
+                        alt="Optional Rental Support"
+                        src={Support}
+                        className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
+                      />
+                      <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
+                        {t("OptionalRentalSupport")}
+                      </h2>
+                    </div>
+
+                    <div className="flex items-center gap-3 w-[100%] sm:w-[237px]">
+                      <Image
+                        alt="Optional Rental Support"
+                        src={SmartHome}
+                        className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
+                      />
+                      <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
+                        {t("SmartHome")}
+                      </h2>
+                    </div>
+
                   </div>
                   <div className="w-full mt-10 lg:w-[290px] lg:mt-4 w-full  m-auto flex justify-center md:justify-start lg:mt-10 lg:m-0 xl:mt-[67px]">
                     <Button

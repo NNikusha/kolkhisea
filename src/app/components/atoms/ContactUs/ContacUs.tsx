@@ -44,7 +44,7 @@ const ContactUs: React.FC<ContactUsProps> = ({
           {text}
         </p>
         <div
-          className={`pt-[24px] text-[14px] 2xl:text-[16px] text-[#285260] font-extrabold ${extraClasses || ''}`}
+          className={` text-sm 2xl:text-[16px] text-[#285260] font-extrabold ${extraClasses || ''}`}
         >
           {aboutFb && <p>{aboutFb}</p>}
           {aboutIn && <p>{aboutIn}</p>}

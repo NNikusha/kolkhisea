@@ -1,44 +1,61 @@
 import { Phase } from '@/app/types/type';
 import Image from 'next/image';
-import StatusBadge from '../StatusBadge/StatusBadge';
 import TaskItem from '../TaskItem/TaskItem';
 
 const PhaseItem = ({ phase }: { phase: Phase }) => {
-  const imageSource = phase.image ;
-  
+  const imageSource = phase.image;
+
   return (
-    <div className="flex justify-between items-center">
-      <div className='w-[32px] h-[522px] lg:w-[32px] lg:h-[330px] 2xl:w-[112px] 2xl:h-[336px] flex items-center justify-center pl-[7px] pr-[13px] 2xl:pl-0 2xl:pr-0'>
-        <div className='w-[1px] h-[522px] lg:h-[370px] 2xl:h-[330px] bg-[#E3EDFF] relative'>
-          <div className='w-[16px] h-[16px] bg-[#285260] rounded-full absolute left-[-8px] top-[3px] lg:left-[-8px] lg:top-[11px] 2xl:top-[19px] 2xl:left-[-7px]'></div>
-        </div>
+    <div className="flex items-start gap-0">
+      {/* Timeline - Clean left start */}
+      <div className="flex flex-col items-center w-8 2xl:w-16 flex-shrink-0">
+        {/* Timeline dot */}
+        <div className="w-4 h-4 bg-[#285260] rounded-full z-10 mt-6 lg:mt-8 2xl:mt-10"></div>
+        {/* Timeline vertical line */}
+        <div className="w-px bg-[#E3EDFF] flex-1 min-h-[400px] lg:min-h-[300px] 2xl:min-h-[320px]"></div>
       </div>
-      <div className='flex max-lg:flex-col lg:mb-[40px] 2xl:mb-0'>
-        <div className='2xl:pb-10 pb-[4px] pr-[30px]'>
-          <p className="text-[14px] lg:text-[16px] 2xl:text-[24px] text-[#CB684D] mb-[8px] 2xl:mb-4 uppercase">{phase.dateRange}</p>
-          <div className="flex flex-row max-2xl:flex-col 2xl:items-center mb-[16px] 2xl:mb-4 gap-[8px] 2xl:gap-4">
-            <h2 className="text-black text-[16px] 2xl:text-[24px] uppercase">{phase.phase}</h2>
-            <StatusBadge status={phase.status} />
+
+      {/* Content - Symmetrical layout */}
+      <div className="flex-1 pl-6 2xl:pl-8">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8 2xl:gap-12">
+          
+          {/* Left content */}
+          <div className="flex-1 lg:max-w-md 2xl:max-w-2xl">
+            <p className="text-sm lg:text-base 2xl:text-2xl text-[#1C1C1E] mb-2 2xl:mb-4 uppercase font-medium">
+              {phase.dateRange}
+            </p>
+            
+            <ul className="list-decimal pl-5 space-y-1 text-sm 2xl:text-base leading-relaxed">
+              {phase.tasks.map((task) => (
+                <TaskItem key={task.id} task={task} />
+              ))}
+            </ul>
           </div>
-          <ul className="list-decimal pl-5 mb-4 lg:mb-0 lg:max-w-[438px] 2xl:max-w-[648px] text-[14px] 2xl:text-[16px]">
-            {phase.tasks.map((task) => (
-              <TaskItem key={task.id} task={task} />
-            ))}
-          </ul>
-        </div>
-        <div className="relative w-[315px] lg:w-[470px] 2xl:w-[536px] rounded-[16px] overflow-hidden">
-          <div className="relative w-full h-auto aspect-[536/256]">
-            <Image 
-              src={imageSource} 
-              alt={phase.phase} 
-              className="object-cover w-full h-full"
-              width={536}
-              height={256}
-            />
-            <div className="absolute inset-0 bg-black/20 pointer-events-none rounded-[16px]"></div>
-          </div>
-          <div className="inline-block lg:px-[24px] px-[16px] lg:py-[12px] py-[7px] bg-[#F4EDE6]/40 backdrop-blur-[10px] rounded-[200px] absolute top-[16px] left-[16px] 2xl:top-[24px] 2xl:left-[24px] z-20">
-            <p className="text-white text-[12px] lg:text-[16px]">{phase.progress}</p>
+
+          {/* Right content - Image with progress overlay */}
+          <div className="flex-shrink-0">
+            <div className="relative w-[315px] lg:w-[470px] 2xl:w-[536px] rounded-2xl overflow-hidden">
+              <div className="relative w-full aspect-[536/256]">
+                <Image
+                  src={imageSource}
+                  alt={phase.phase}
+                  className="object-cover w-full h-full"
+                  width={536}
+                  height={256}
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
+              </div>
+              
+              {/* Progress badge */}
+              <div className="absolute top-4 left-4 2xl:top-6 2xl:left-6 z-20">
+                <div className="px-4 lg:px-6 py-2 lg:py-3 bg-[#F4EDE6]/40 backdrop-blur-[10px] rounded-full">
+                  <p className="text-white text-xs lg:text-base font-medium">
+                    {phase.progress}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

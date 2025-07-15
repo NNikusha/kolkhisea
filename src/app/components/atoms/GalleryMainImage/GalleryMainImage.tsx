@@ -48,9 +48,9 @@ const GalleryMainImage = ({
             {t.Gallery}
           </div>
           <KolkhiseaGallery className="w-[144px] h-[19px] md:w-[296px] md:h-[48px]" />
-          <p className="text-[12px] sm:text-[14px] md:text-[16px] font-normal">
+          {/* <p className="text-[12px] sm:text-[14px] md:text-[16px] font-normal">
             {t.NotOnlyAboutBuilding}
-          </p>
+          </p> */}
         </div>
       )}
       {!isMainImage && index !== undefined && description && (

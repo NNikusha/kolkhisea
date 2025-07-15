@@ -109,9 +109,9 @@ const ProjectInfoSection: React.FC<ProjectInfoSectionProps> = ({ building }) => 
               </div>
 
               <div className="hidden md:flex ml-4">
-                <div className="bg-[#FFFFFF1A] text-white p-3 rounded-full">
+                {/* <div className="bg-[#FFFFFF1A] text-white p-3 rounded-full">
                   <ShareSvg />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

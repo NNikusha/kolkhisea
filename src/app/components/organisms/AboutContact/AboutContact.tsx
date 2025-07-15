@@ -13,7 +13,6 @@ import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/Conta
 import { fetchContactPage } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
-import ContactUsButton from "../../atoms/ContactUsButton/ContactUsButton";
 import ContactUsFaceIcon from "../../atoms/ContactUsFaceIcon/ContactUsFaceIcon";
 
 const AboutContact = async () => {
@@ -22,7 +21,7 @@ const AboutContact = async () => {
 
   return (
     <>
-      <Header dynamicImage={MainApartment || ''} />
+      <Header dynamicImage={MainApartment} />
       <section className="container px-[16px] lg:px-[108px] mx-auto z-[-1]">
         <div className="relative flex flex-col justify-center items-center">
           <div className="mt-[200px] lg:mt-[300px] flex flex-col justify-center items-center">
@@ -36,7 +35,7 @@ const AboutContact = async () => {
               titles={data?.titles}
               lang={locale}
             />
-            <ContactUsButton />
+            {/* <ContactUsButton /> */}
 
             <MainHeadLineAnimation />
 
