@@ -176,7 +176,7 @@ const ApartmentInformation = () => {
             <Image 
               src={getImageSrc()}
               alt={`${t('Apartment')} ${flatData?.number || ''}`}
-              className="md:w-[536px] md:h-[448px] h-[283px]"
+              className="md:w-[536px] md:h-[448px] h-[283px]  object-cover"
               width={536}
               height={448}
               priority

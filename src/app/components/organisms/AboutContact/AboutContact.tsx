@@ -22,7 +22,7 @@ const AboutContact = async () => {
 
   return (
     <>
-      <Header dynamicImage={MainApartment || ''} />
+      <Header dynamicImage={MainApartment} />
       <section className="container px-[16px] lg:px-[108px] mx-auto z-[-1]">
         <div className="relative flex flex-col justify-center items-center">
           <div className="mt-[200px] lg:mt-[300px] flex flex-col justify-center items-center">
@@ -36,7 +36,7 @@ const AboutContact = async () => {
               titles={data?.titles}
               lang={locale}
             />
-            <ContactUsButton />
+            {/* <ContactUsButton /> */}
 
             <MainHeadLineAnimation />
 
