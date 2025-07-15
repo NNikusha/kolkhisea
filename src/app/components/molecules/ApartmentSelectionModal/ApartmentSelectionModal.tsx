@@ -480,23 +480,23 @@ const FullscreenApartmentModal: React.FC<ApartmentModalProps> = ({
                                         width:
                                           hoveredApartment?.shapeNumber ===
                                           shape.shapeNumber
-                                            ? "24px"
-                                            : "40px",
+                                            ? "22px"
+                                            : "34px",
                                         height:
                                           hoveredApartment?.shapeNumber ===
                                           shape.shapeNumber
-                                            ? "24px"
-                                            : "40px",
+                                            ? "22px"
+                                            : "34px",
                                         padding:
                                           hoveredApartment?.shapeNumber ===
                                           shape.shapeNumber
                                             ? "0"
-                                            : "10px",
+                                            : "8px",
                                         fontSize:
                                           hoveredApartment?.shapeNumber ===
                                           shape.shapeNumber
                                             ? "0"
-                                            : "12px",
+                                            : "11px",
                                         cursor: "pointer",
                                         lineHeight: "1",
                                         textAlign: "center",
