@@ -13,7 +13,6 @@ import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/Conta
 import { fetchContactPage } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
-import ContactUsButton from "../../atoms/ContactUsButton/ContactUsButton";
 import ContactUsFaceIcon from "../../atoms/ContactUsFaceIcon/ContactUsFaceIcon";
 
 const AboutContact = async () => {

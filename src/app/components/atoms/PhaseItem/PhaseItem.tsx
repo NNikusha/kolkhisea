@@ -1,6 +1,5 @@
 import { Phase } from '@/app/types/type';
 import Image from 'next/image';
-import StatusBadge from '../StatusBadge/StatusBadge';
 import TaskItem from '../TaskItem/TaskItem';
 
 const PhaseItem = ({ phase }: { phase: Phase }) => {
