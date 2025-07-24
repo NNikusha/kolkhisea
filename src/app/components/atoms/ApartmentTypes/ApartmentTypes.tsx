@@ -8,12 +8,17 @@ import SectionHeader from "../SectionHeader/SectionHeader";
 import { fetchApartmentTypes } from "@/app/hooks/axios";
 import { useLocale } from "next-intl";
 
+interface ExtendedApartmentType extends ApartmentType {
+  is_favourite?: number;
+}
+
 const ApartmentTypesIntegrated: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [apartmentTypes, setApartmentTypes] = useState<ApartmentType[]>([]);
+  const [selectedFilter, setSelectedFilter] = useState<string>("All");
   
-  const locale = useLocale();  // Get the current locale (language)
+  const locale = useLocale();
   
   useEffect(() => {
     const checkIsMobile = (): void => {
@@ -42,20 +47,54 @@ const ApartmentTypesIntegrated: React.FC = () => {
     
     fetchData();
   }, []);
+
+  // Filter apartments based on selected filter
+  const filteredApartments = apartmentTypes.filter((apartment) => {
+    // If "All" is selected, show only favorite apartments (original behavior)
+    if (selectedFilter === "All") {
+      return (apartment as ExtendedApartmentType).is_favourite === 1;
+    }
+    
+    // If a specific filter is selected, show all apartments of that type
+    const apartmentType = apartment.type?.[locale] || apartment.type?.en || "";
+    
+    switch (selectedFilter) {
+      case "Studio":
+        return apartmentType.toLowerCase().includes("studio") || 
+               apartmentType.toLowerCase().includes("სტუდიო");
+      case "1BR":
+        return apartmentType.toLowerCase().includes("1 room") || 
+               apartmentType.toLowerCase().includes("1 ოთახიანი");
+      case "2BR":
+        return apartmentType.toLowerCase().includes("2 room") || 
+               apartmentType.toLowerCase().includes("2 ოთახიანი");
+      default:
+        return true;
+    }
+  });
+
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilter(filter);
+  };
   
   return (
     <section className="w-full py-12 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-[108px] relative">
-        <SectionHeader isMobile={isMobile} swiper={swiper} />
+        <SectionHeader 
+          isMobile={isMobile} 
+          swiper={swiper} 
+          selectedFilter={selectedFilter}
+          onFilterChange={handleFilterChange}
+        />
         
         <DesktopGrid
           isMobile={isMobile}
-          apartmentTypes={apartmentTypes}
+          apartmentTypes={filteredApartments}
           lang={locale}
         />
         <MobileSwiper
           isMobile={isMobile}
-          apartmentTypes={apartmentTypes}
+          apartmentTypes={filteredApartments}
           setSwiper={setSwiper}
           lang={locale}
         />
