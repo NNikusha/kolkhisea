@@ -8,9 +8,16 @@ import { useTranslations } from 'next-intl';
 interface SectionHeaderProps {
     isMobile: boolean;
     swiper?: SwiperType | null;
+    selectedFilter?: string;
+    onFilterChange?: (filter: string) => void;
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
+const SectionHeader: React.FC<SectionHeaderProps> = ({ 
+    isMobile, 
+    swiper, 
+    selectedFilter = "All",
+    onFilterChange 
+}) => {
     const t = useTranslations('Language');
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
@@ -35,6 +42,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
         };
     }, [swiper]);
 
+    const handleFilterClick = (filter: string) => {
+        if (onFilterChange) {
+            onFilterChange(filter);
+        }
+    };
+
     return (
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <div className='w-full'>
@@ -47,11 +60,65 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ isMobile, swiper }) => {
                 <div className="flex justify-between w-full items-center">
                     <div className="flex items-center space-x-8">
                         <div className="relative">
-                            <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">{t('OneBedroom')}</button>
-                            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
+                            <button 
+                                className={`font-medium text-[16px] pb-1 transition-all duration-300 cursor-pointer ${
+                                    selectedFilter === "All" 
+                                        ? "text-[#CB684D] font-semibold" 
+                                        : "text-[#1C1C1E] opacity-60 hover:opacity-80"
+                                }`}
+                                onClick={() => handleFilterClick("All")}
+                            >
+                                {t('All')}
+                            </button>
+                            {selectedFilter === "All" && (
+                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
+                            )}
                         </div>
-                        <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">{t('TwoBedroom')}</button>
-                        <button className="font-medium text-[#1C1C1E] opacity-60 text-[16px] pb-1">{t('Studio')}</button>
+                        <div className="relative">
+                            <button 
+                                className={`font-medium text-[16px] pb-1 transition-all duration-300 cursor-pointer ${
+                                    selectedFilter === "1BR" 
+                                        ? "text-[#CB684D] font-semibold" 
+                                        : "text-[#1C1C1E] opacity-60 hover:opacity-80"
+                                }`}
+                                onClick={() => handleFilterClick("1BR")}
+                            >
+                                {t('OneBedroom')}
+                            </button>
+                            {selectedFilter === "1BR" && (
+                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
+                            )}
+                        </div>
+                        <div className="relative">
+                            <button 
+                                className={`font-medium text-[16px] pb-1 transition-all duration-300 cursor-pointer ${
+                                    selectedFilter === "2BR" 
+                                        ? "text-[#CB684D] font-semibold" 
+                                        : "text-[#1C1C1E] opacity-60 hover:opacity-80"
+                                }`}
+                                onClick={() => handleFilterClick("2BR")}
+                            >
+                                {t('TwoBedroom')}
+                            </button>
+                            {selectedFilter === "2BR" && (
+                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
+                            )}
+                        </div>
+                        <div className="relative">
+                            <button 
+                                className={`font-medium text-[16px] pb-1 transition-all duration-300 cursor-pointer ${
+                                    selectedFilter === "Studio" 
+                                        ? "text-[#CB684D] font-semibold" 
+                                        : "text-[#1C1C1E] opacity-60 hover:opacity-80"
+                                }`}
+                                onClick={() => handleFilterClick("Studio")}
+                            >
+                                {t('Studio')}
+                            </button>
+                            {selectedFilter === "Studio" && (
+                                <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#CB684D]"></div>
+                            )}
+                        </div>
                     </div>
 
                     {isMobile ? (

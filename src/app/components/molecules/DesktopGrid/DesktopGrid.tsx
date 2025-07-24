@@ -3,11 +3,6 @@ import React from "react";
 import ApartmentCard from "../ApartmentCard/ApartmentCard";
 import { useTranslations } from 'next-intl';
 
-// Create an extended interface that includes the is_favourite property
-interface ExtendedApartmentType extends ApartmentType {
-  is_favourite?: number;
-}
-
 interface DesktopGridProps {
   apartmentTypes: ApartmentType[];
   isMobile: boolean;
@@ -20,14 +15,14 @@ const DesktopGrid: React.FC<DesktopGridProps> = ({
   lang,
 }) => {
   const t = useTranslations('Language');
-  const favoriteApartments = (apartmentTypes as ExtendedApartmentType[]).filter(
-    (apartment) => apartment.is_favourite === 1
-  );
+  
+  // Show only first 4 apartments for the grid layout (original behavior)
+  const displayApartments = apartmentTypes.slice(0, 4);
   
   return (
     <div className={`${isMobile ? "hidden" : "block"}`}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 sm:max-w-2xl lg:max-w-4xl 2xl:max-w-none mx-auto">
-        {favoriteApartments.map((apartment, index) => (
+        {displayApartments.map((apartment, index) => (
           <div
             key={index}
             className={index === 3 ? "hidden 2xl:block" : ""}
