@@ -4,7 +4,7 @@ import Reception from "@/app/assets/Reception.svg";
 import Security from "@/app/assets/Security.svg";
 import Gardening from "@/app/assets/Gardening.svg";
 import Support from "@/app/assets/Support.svg";
-import SmartHome from "@/app/assets/SmartHome.svg";
+import SmartHomeIcon from "@/app/assets/smartHome.svg";
 import Image from "next/image";
 import Button from "../../atoms/Button/Button";
 import { WhyUsSectionProps } from "@/app/types/type"; // Import the types
@@ -107,8 +107,8 @@ export default function WhyUsSection({
 
                     <div className="flex items-center gap-3 w-[100%] sm:w-[237px]">
                       <Image
-                        alt="Optional Rental Support"
-                        src={SmartHome}
+                        alt="Smart Home Technology"
+                        src={SmartHomeIcon}
                         className="w-[32px] h-[32px] lg:min-w-[50px]  lg:min-h-[50px]"
                       />
                       <h2 className="text-black text-[14px] lg:text-[16px] w-[70%] sm:w-[100%] whitespace-wrap lg:whitespace-nowrap">
