@@ -4,21 +4,18 @@ import Reception from "@/app/assets/Reception.svg";
 import Security from "@/app/assets/Security.svg";
 import Gardening from "@/app/assets/Gardening.svg";
 import Support from "@/app/assets/Support.svg";
-import SmartHome from "@/app/assets/SmartHome.png";
+import SmartHome from "@/app/assets/SmartHome.svg";
 import Image from "next/image";
 import Button from "../../atoms/Button/Button";
-import OpacityButton from "../../atoms/opacityButton/OpacityButton";
 import { WhyUsSectionProps } from "@/app/types/type"; // Import the types
 import { useTranslations } from "next-intl";
 import MotionWrapper from "../MotionWrapper/MotionWrapper";
 
 const MainApartment = "/assets/Main-Apartment.svg";
-const defaultImageText = ["quality craftsmanship", "innovative solutions"];
 
 export default function WhyUsSection({
   title,
   image,
-  imageText = [],
   lang = "en",
 }: WhyUsSectionProps) {
   const t = useTranslations("Language");
@@ -150,7 +147,7 @@ export default function WhyUsSection({
                     priority
                   />
                 </div>
-                <div className="hidden 2xl:flex gap-4 w-full absolute bottom-10 left-4">
+                {/* <div className="hidden 2xl:flex gap-4 w-full absolute bottom-10 left-4">
                   <OpacityButton
                     text={
                       imageText && imageText[0]
@@ -167,7 +164,7 @@ export default function WhyUsSection({
                     }
                     className="hidden 2xl:flex mt-10 bg-white/0 rounded-[48px] px-6 py-3"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

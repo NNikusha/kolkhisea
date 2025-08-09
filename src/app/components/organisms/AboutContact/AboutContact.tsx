@@ -9,7 +9,6 @@ import Elipse from "@/app/assets/Elipse";
 import ContactUsMarge from "../../molecules/ContactUsMarge/ContactUsMarge";
 import GoogleMap from "../../molecules/GoogleMap/GoogleMap";
 import MainHeadLineAnimation from "../../atoms/MainHeadLineAnimation/MainHeadLineAnimation";
-import ContactPageElipseButtons from "../../atoms/ContactPageElipseButtons/ContactPageElipseButtons";
 import { fetchContactPage } from '@/app/hooks/axios';
 import { getLocale } from 'next-intl/server';
 import { Locale } from '@/app/types/type';
@@ -31,10 +30,10 @@ const AboutContact = async () => {
             >
               <Elipse />
             </div>
-            <ContactPageElipseButtons 
+            {/* <ContactPageElipseButtons 
               titles={data?.titles}
               lang={locale}
-            />
+            /> */}
             {/* <ContactUsButton /> */}
 
             <MainHeadLineAnimation />

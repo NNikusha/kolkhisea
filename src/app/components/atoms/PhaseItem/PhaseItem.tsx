@@ -49,11 +49,11 @@ const PhaseItem = ({ phase }: { phase: Phase }) => {
               
               {/* Progress badge */}
               <div className="absolute top-4 left-4 2xl:top-6 2xl:left-6 z-20">
-                <div className="px-4 lg:px-6 py-2 lg:py-3 bg-[#F4EDE6]/40 backdrop-blur-[10px] rounded-full">
+                {/* <div className="px-4 lg:px-6 py-2 lg:py-3 bg-[#F4EDE6]/40 backdrop-blur-[10px] rounded-full">
                   <p className="text-white text-xs lg:text-base font-medium">
                     {phase.progress}
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

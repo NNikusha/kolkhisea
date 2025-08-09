@@ -145,7 +145,7 @@ const GetInTouchSection = () => {
               <Button
                 text={t("ButtonText")}
                 disabled={isSubmitting}
-                className="gap-[10px] lg:text-[16px] text-[14px] sm:w-[203px] w-full sm:justify-start justify-center"
+                className="gap-[10px] lg:text-[16px] text-[14px] px-2 w-auto sm:justify-start justify-center"
                 onClick={handleSendRequest}
               />
             )}
