@@ -41,7 +41,6 @@ interface ContactUsMargeProps {
 
 const ContactUsMarge = ({
   title,
-  secondaryTitle,
   writeUsTitle,
   writeUsSubtitle,
   writeUsExtra,
@@ -59,7 +58,7 @@ const ContactUsMarge = ({
     <>
       <div className="flex flex-col lg:items-start items-center lg:text-left text-center pb-[24px] lg:b-[0px] pt-[50px] lg:pt-0 ">
         <motion.h1
-          className="pt-[16px] pb-[16px] lg:pb-[24px] uppercase text-[#1C1C1E] lg:text-[40px] text-[24px] relative"
+          className={`pt-[16px] pb-[16px] lg:pb-[24px] uppercase text-[#1C1C1E] lg:text-[40px] text-[24px] relative ${lang === 'ka' ? 'font-bold' : ''}`}
           variants={itemVariants(0)}
           initial="hidden"
           whileInView="visible"
@@ -68,7 +67,7 @@ const ContactUsMarge = ({
           {title?.[lang]}
           <div className="bg-[#B4D7D8]/50 sm:w-[167px] sm:block hidden h-[24px] lg:w-[312px] lg:h-[40px] absolute z-[-10] lg:bottom-[14px] bottom-[8px] left-[calc(72%-0px)] lg:left-[245px]"></div>
         </motion.h1>
-        <motion.p
+        {/* <motion.p
           className="text-[#3D3D3D] lg:text-[16px] text-[14px]"
           variants={itemVariants(0.1)}
           initial="hidden"
@@ -76,7 +75,7 @@ const ContactUsMarge = ({
           viewport={{ once: true, amount: 0.3 }}
         >
           {secondaryTitle?.[lang]}
-        </motion.p>
+        </motion.p> */}
       </div>
 
       <div className="grid gap-[24px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full">

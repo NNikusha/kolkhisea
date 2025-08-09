@@ -78,7 +78,7 @@ const TheJourneyMerg: React.FC<TheJourneyMergProps> = ({
             <TheJourney
               imageBg={journeyOfCreationImageBefore}
               about={t("Before")}
-              title={t("What")}
+              title={t("What1")}
               titleSpan={t("WeStartedWith")}
               text={journeyOfCreationBefore[lang]}
             />

@@ -53,11 +53,11 @@ export default function AboutUsSection({
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <motion.div variants={fadeInUp} className="flex justify-center w-full">
+        {/* <motion.div variants={fadeInUp} className="flex justify-center w-full">
           <button className="bg-[#FFFFFF0D] text-[#FFFFFF] px-[16px] py-[16px] rounded-full mb-[40px]">
             {t("AboutUsButton")}
           </button>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div variants={fadeInUp}>
           <MainHeadLine

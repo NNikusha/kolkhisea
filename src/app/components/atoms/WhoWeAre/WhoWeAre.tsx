@@ -65,17 +65,17 @@ const WhoWeAre = ({
       </motion.div>
 
       <motion.div
-        className="w-full flex flex-col lg:flex-row justify-between items-center gap-[32px] lg:gap-[64px]"
+        className="w-full flex flex-col lg:flex-row justify-center items-center gap-[32px] text-center 2 lg:gap-[64px]"
         variants={containerVariants}
       >
         <motion.p
-          className="text-[#3D3D3D] text-base leading-relaxed max-w-full lg:max-w-[645px] text-center lg:text-left"
+          className="text-[#3D3D3D] text-base leading-relaxed max-w-full lg:max-w-[1145px] text-center lg:text-center"
           variants={fadeInUp}
         >
           {whoWeAreText?.left && whoWeAreText.left[lang]}
         </motion.p>
         <motion.p
-          className="text-[#3D3D3D] text-base leading-relaxed max-w-full lg:max-w-[425px] text-center lg:text-left"
+          className="text-[#3D3D3D] text-base leading-relaxed max-w-full lg:max-w-[425px] text-center lg:text-center"
           variants={fadeInUp}
         >
           {whoWeAreText?.right && whoWeAreText.right[lang]}

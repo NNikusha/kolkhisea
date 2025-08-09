@@ -30,6 +30,7 @@ export default function Header({ dynamicImage }: HeaderProps) {
               fill
               style={{ objectFit: "cover" }}
               priority
+              loading="eager"
             />
           </div>
         </section>
