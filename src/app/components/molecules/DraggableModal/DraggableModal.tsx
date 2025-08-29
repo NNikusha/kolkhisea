@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from "react";
 
 interface DraggableModalProps {
   isOpen: boolean;
@@ -7,30 +7,30 @@ interface DraggableModalProps {
   height?: string;
 }
 
-const DraggableModal: React.FC<DraggableModalProps> = ({ 
-  isOpen, 
-  onClose, 
+const DraggableModal: React.FC<DraggableModalProps> = ({
+  isOpen,
+  onClose,
   children,
-  height = "466px" 
+  height = "466px",
 }) => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [startY, setStartY] = useState<number>(0);
   const [offsetY, setOffsetY] = useState<number>(0);
   const [isClosing, setIsClosing] = useState<boolean>(false);
-  
+
   const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       setOffsetY(0);
       setIsClosing(false);
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
-    
+
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -43,34 +43,37 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
 
   const handleDragStart = (e: React.TouchEvent | React.MouseEvent): void => {
     setIsDragging(true);
-    
-    if ('touches' in e) {
+
+    if ("touches" in e) {
       setStartY(e.touches[0].clientY);
     } else {
       setStartY(e.clientY);
     }
   };
 
-  const handleDrag = useCallback((e: TouchEvent | MouseEvent): void => {
-    if (!isDragging) return;
-    
-    let currentY: number;
-    if ('touches' in e) {
-      currentY = e.touches[0].clientY;
-    } else {
-      currentY = e.clientY;
-    }
-    
-    const diff = currentY - startY;
-    
-    if (diff > 0) {
-      setOffsetY(diff);
-    }
-  }, [isDragging, startY]);
+  const handleDrag = useCallback(
+    (e: TouchEvent | MouseEvent): void => {
+      if (!isDragging) return;
+
+      let currentY: number;
+      if ("touches" in e) {
+        currentY = e.touches[0].clientY;
+      } else {
+        currentY = e.clientY;
+      }
+
+      const diff = currentY - startY;
+
+      if (diff > 0) {
+        setOffsetY(diff);
+      }
+    },
+    [isDragging, startY]
+  );
 
   const handleDragEnd = useCallback((): void => {
     setIsDragging(false);
-    
+
     if (offsetY > 150) {
       handleClose();
     } else {
@@ -80,17 +83,17 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener('mousemove', handleDrag);
-      window.addEventListener('touchmove', handleDrag);
-      window.addEventListener('mouseup', handleDragEnd);
-      window.addEventListener('touchend', handleDragEnd);
+      window.addEventListener("mousemove", handleDrag);
+      window.addEventListener("touchmove", handleDrag);
+      window.addEventListener("mouseup", handleDragEnd);
+      window.addEventListener("touchend", handleDragEnd);
     }
-    
+
     return () => {
-      window.removeEventListener('mousemove', handleDrag);
-      window.removeEventListener('touchmove', handleDrag);
-      window.removeEventListener('mouseup', handleDragEnd);
-      window.removeEventListener('touchend', handleDragEnd);
+      window.removeEventListener("mousemove", handleDrag);
+      window.removeEventListener("touchmove", handleDrag);
+      window.removeEventListener("mouseup", handleDragEnd);
+      window.removeEventListener("touchend", handleDragEnd);
     };
   }, [isDragging, handleDrag, handleDragEnd]);
 
@@ -98,32 +101,32 @@ const DraggableModal: React.FC<DraggableModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[11]">
-      <div 
+      <div
         className="absolute inset-0 bg-black/50 transition-opacity duration-300"
         style={{ opacity: isClosing ? 0 : 1 }}
         onClick={handleClose}
       />
-      
-      <div 
+
+      <div
         ref={sheetRef}
         className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl transition-all duration-300 ease-out z-[11]"
-        style={{ 
-          boxShadow: '0px -4px 25px rgba(0, 0, 0, 0.1)',
-          transform: isClosing 
-            ? 'translateY(100%)' 
+        style={{
+          boxShadow: "0px -4px 25px rgba(0, 0, 0, 0.1)",
+          transform: isClosing
+            ? "translateY(100%)"
             : `translateY(${offsetY}px)`,
-          transition: isDragging ? 'none' : 'transform 0.3s ease-out',
-          height
+          transition: isDragging ? "none" : "transform 0.3s ease-out",
+          height,
         }}
       >
-        <div 
+        <div
           className="w-full h-8 flex items-center justify-center cursor-grab"
           onMouseDown={handleDragStart}
           onTouchStart={handleDragStart}
         >
           <div className="w-10 h-1 bg-gray-300 rounded-full"></div>
         </div>
-        
+
         {children}
       </div>
     </div>
