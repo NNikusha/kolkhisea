@@ -3,9 +3,19 @@ import React from "react";
 import House from "../../../assets/ModernHouseRender.svg";
 import HouseMobile from "../../../assets/ModernHouseMobile.svg";
 
-const ApartmentTypeBackground = () => {
+interface ApartmentTypeBackgroundProps {
+  fullHeight?: boolean;
+}
+
+const ApartmentTypeBackground: React.FC<ApartmentTypeBackgroundProps> = ({
+  fullHeight = false,
+}) => {
   return (
-    <div className="absolute inset-0 -z-10 h-[50%] md:h-[80%] blur-[2px] md:blur-[1px]">
+    <div
+      className={`absolute inset-0 -z-10 h-[50%] ${
+        fullHeight ? "md:h-full" : "md:h-[80%]"
+      } blur-[2px] md:blur-[1px]`}
+    >
       <Image
         src={House}
         alt="House Background"

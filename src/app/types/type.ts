@@ -1,4 +1,5 @@
 export type Locale = "en" | "ka" | "ru";
+import { MouseEventHandler } from "react";
 
 export interface LocalizedContent {
   en?: string;
@@ -178,12 +179,27 @@ export interface HeaderProps {
   mobileMainImage?: string | React.ReactNode; // Changed from 'any' to string or ReactNode
 }
 
+export interface Flat {
+  id: number;
+  number: number | string;
+  total_area: number | string;
+  floor?: number;
+  bedroom?: unknown[] | null;
+  flat_image_3d?: string | null;
+  floorplan_image?: string | null;
+  flat_conditions?: Record<string, string>;
+}
+
 export interface ApartmentCardProps {
   type?: string;
   total_area?: string;
   status?: string;
   availableFlats?: number | string;
   image?: string;
+  showAvailableLabel?: boolean;
+  floor?: number;
+  flat?: Flat;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 export interface GalleryItem {

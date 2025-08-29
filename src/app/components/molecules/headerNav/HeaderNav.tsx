@@ -31,10 +31,15 @@ export default function HeaderNav() {
   const [isMobile, setIsMobile] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const [isLangModalOpen, setIsLangModalOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">(locale.toUpperCase() as "EN" | "KA" | "RU");
+  const [currentLang, setCurrentLang] = useState<"EN" | "KA" | "RU">(
+    locale.toUpperCase() as "EN" | "KA" | "RU"
+  );
 
   const isAboutProjectPage = pathname?.includes("/about-project");
-  const isFlatDetailPage = /flat-detail-page|apartment-types|apartment-choose/.test(pathname);
+  const isFlatDetailPage =
+    /flat-detail-page|apartment-types|apartment-choose|apartments/.test(
+      pathname
+    );
 
   const NavBar = [
     { id: "1", link: `/${locale}`, text: t("MainPage") },
@@ -42,6 +47,7 @@ export default function HeaderNav() {
     { id: "3", link: `/${locale}/about-us`, text: t("AboutUs") },
     { id: "4", link: `/${locale}/contact`, text: t("Contacts") },
     { id: "5", link: `/${locale}/gallery`, text: t("Gallery") },
+    { id: "6", link: `/${locale}/apartments`, text: t("Apartments") },
   ];
 
   useEffect(() => {
