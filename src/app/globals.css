@@ -27,7 +27,25 @@
 body{
   background-color:#F3F6FB;
   color: white;
-  font-family: 'PP Neue Machina', sans-serif;
+  font-family: "Noto Sans Georgian", "PP Neue Machina", system-ui, sans-serif;
+  font-feature-settings: "case" on;
+}
+
+/* Georgian text support with proper uppercase functionality */
+.georgian-text {
+  font-feature-settings: "case" on;
+}
+
+/* Utility class for Georgian uppercase */
+.georgian-uppercase {
+  font-feature-settings: "case" on;
+}
+
+/* Global Georgian uppercase handling - automatically applied */
+[lang="ka"] .uppercase,
+body[data-locale="ka"] .uppercase {
+  text-transform: none !important;
+  font-feature-settings: "case" on;
 }
 
 

@@ -37,7 +37,7 @@ export default function WhyUsSection({
             <div className="order-2 flex-1 flex flex-col justify-between">
               <div className="hidden lg:flex">
                 <div className="text-[24px] text-center w-[60%] m-auto sm:w-[100%] lg:text-start lg:text-[48px] leading-[130%] font-medium uppercase text-gray-300 bottom-2 flex gap-3">
-                  <p>{t("OUR")} </p>
+                  <p className="  text-black">{t("OUR")} </p>
                   <div className="relative inline-block">
                     <p className="text-[#1C1C1E]">{t("PROJECT")}</p>
                     <div className="absolute bg-[#B4D7D8]/50 h-[40px] w-[312px] left-[-3px] top-[33px] z-[-1]"></div>

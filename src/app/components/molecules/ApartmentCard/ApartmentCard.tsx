@@ -31,6 +31,7 @@ const ApartmentCard: React.FC<ApartmentCardProps> = ({
               alt={t('ApartmentAlt', { type: type })}
               fill
               style={{ objectFit: "cover", borderRadius: "32px" }}
+              loading="eager"
             />
           </div>
         </div>
