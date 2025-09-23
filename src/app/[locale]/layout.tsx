@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import HeaderNav from '@/app/components/molecules/headerNav/HeaderNav';
 import Footer from '@/app/components/organisms/Footer/Footer';
+import GeorgianUppercaseProvider from '@/app/components/providers/GeorgianUppercaseProvider';
 import '@/app/globals.css';
 import Script from "next/script";
 
@@ -27,9 +28,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <body data-locale={locale}>
         {/* End Google Analytics */}
         <NextIntlClientProvider locale={locale}>
+          <GeorgianUppercaseProvider />
           <HeaderNav />
           {children}
           <Footer />
