@@ -5,7 +5,6 @@ import AboutUsSection from "../../molecules/AboutUsSection/AboutUsSection";
 import OurMissionSection from "../../molecules/OurMissionSection/OurMissionSection";
 import WhoWeAre from "../../atoms/WhoWeAre/WhoWeAre";
 import TheJourneyMerg from "../../molecules/TheJourneyMerg/TheJourneyMerg";
-import OurMission from "../../atoms/OurMission/OurMission";
 import GetInTouchSection from "../../molecules/GetInTouchSection/GetInTouchSection";
 import Flower1AboutUs from "@/app/assets/Flower1AboutUs";
 import Image from "next/image";
@@ -109,7 +108,7 @@ const ClientAboutUs = ({
         custom={3}
         variants={sectionVariants}
       >
-        <OurMission />
+        {/* <OurMission /> */}
         <TheJourneyMerg
           journeyOfCreationBefore={data.journey_of_creation_before}
           journeyOfCreationImageBefore={data.journey_of_creation_image_before}

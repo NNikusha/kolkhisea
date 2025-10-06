@@ -21,7 +21,7 @@ const Description: React.FC<DescriptionProps> = ({
       <div className="hidden lg:flex justify-start">
         <Button 
           text={t('SeeTheGallery')}
-          href="/about-project"
+          href="/gallery"
         />
       </div>
     </div>
