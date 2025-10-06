@@ -5,7 +5,7 @@
     "AboutUs": "ჩვენს შესახებ",
     "Contacts": "კონტაქტი",
     "ChooseApartment": "აირჩიე ბინა",
-    "SeeTheProject": "აირჩიე ბინა",
+    "SeeTheProject": "შეარჩიე აპარტამენტი",
     "Key": "ძირითადი",
     "Investment": "საინვესტიციო",
     "Highlights": "ელემენტები",
@@ -39,7 +39,7 @@
     "Restaurant&Bar": "რესტორანი და ბარი",
     "Concierge&Reception": "კონსიერი და რესეფშენი",
     "24/7Security": "24/7 უსაფრთხოება",
-    "HeatingAndCooling": "გათბობა და გაგრილება",
+    "HeatingAndCooling": "საცურაო აუზი",
     "OptionalRentalSupport": "გაქირავების სერვისები",
     "LearnMore": "გაიგე მეტი",
     "OurConcept": "ჩვენი კონცეფცია",
@@ -199,12 +199,11 @@
     "studio": "სტუდიო",
     "1_room": "1 ოთახი",
     "2_room": "2 ოთახი",
-    "ApartmentTypes": "აპარტამენტის ტიპები",
+    "ApartmentTypes": "აპარტამენტების ტიპები",
     "IfYouHaveAnyQuestions": "თუ გსურთ გაეცნოთ დეტალებს",
     "ContactUs": "დაგვიკავშირდით",
     "WriteUs": "მოგვწერეთ",
     "CallUs": "დაგვირეკეთ",
-    "SmartHome":"ჭკვიანი სახლი",
-    "SocialMedia": "სოციალური მედია"
+    "SmartHome":"ჭკვიანი სახლი"
   }
 }

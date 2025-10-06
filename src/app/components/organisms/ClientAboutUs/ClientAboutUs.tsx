@@ -109,7 +109,7 @@ const ClientAboutUs = ({
         custom={3}
         variants={sectionVariants}
       >
-        <OurMission />
+        {/* <OurMission /> */}
         <TheJourneyMerg
           journeyOfCreationBefore={data.journey_of_creation_before}
           journeyOfCreationImageBefore={data.journey_of_creation_image_before}
