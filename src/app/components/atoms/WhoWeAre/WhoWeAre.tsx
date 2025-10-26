@@ -89,7 +89,7 @@ const WhoWeAre = ({
         {whoWeAreImage && (
           <Image
             src={whoWeAreImage}
-            className="w-full object-fit relative h-[240px] md:h-[450px]"
+            className="w-full object-cover relative h-[240px] md:h-[450px]"
             width={1200}
             height={450}
             alt="Modern building"

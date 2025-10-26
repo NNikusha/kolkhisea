@@ -57,7 +57,12 @@ const OurFuture = ({
          
         <div className="mt-10">
           {transformedPhases.map((phase, index) => (
-            <PhaseItem key={index} phase={phase} />
+            <PhaseItem 
+              key={index} 
+              phase={phase} 
+              isFirst={index === 0}
+              isLast={index === transformedPhases.length - 1}
+            />
           ))}
         </div>
       </div>

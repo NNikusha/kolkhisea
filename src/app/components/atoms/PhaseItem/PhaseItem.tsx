@@ -2,17 +2,31 @@ import { Phase } from '@/app/types/type';
 import Image from 'next/image';
 import TaskItem from '../TaskItem/TaskItem';
 
-const PhaseItem = ({ phase }: { phase: Phase }) => {
+interface PhaseItemProps {
+  phase: Phase;
+  isFirst?: boolean;
+  isLast?: boolean;
+}
+
+const PhaseItem = ({ phase, isFirst = false, isLast = false }: PhaseItemProps) => {
   const imageSource = phase.image;
 
   return (
     <div className="flex items-start gap-0">
-      {/* Timeline - Clean left start */}
+      {/* Timeline - Connected dots */}
       <div className="flex flex-col items-center w-8 2xl:w-16 flex-shrink-0">
+        {/* Timeline line above dot (hidden for first item) */}
+        {!isFirst && (
+          <div className="w-px bg-[#E3EDFF] h-6 lg:h-8 2xl:h-10"></div>
+        )}
+        
         {/* Timeline dot */}
-        <div className="w-4 h-4 bg-[#285260] rounded-full z-10 mt-6 lg:mt-8 2xl:mt-10"></div>
-        {/* Timeline vertical line */}
-        <div className="w-px bg-[#E3EDFF] flex-1 min-h-[400px] lg:min-h-[300px] 2xl:min-h-[320px]"></div>
+        <div className="w-4 h-4 bg-[#285260] rounded-full z-10"></div>
+        
+        {/* Timeline line below dot (hidden for last item) */}
+        {!isLast && (
+          <div className="w-px bg-[#E3EDFF] flex-1 min-h-[400px] lg:min-h-[300px] 2xl:min-h-[320px]"></div>
+        )}
       </div>
 
       {/* Content - Symmetrical layout */}
