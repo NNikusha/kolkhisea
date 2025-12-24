@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    domains: ['admin.kolkhisea.ge'], // added your production domain
+    domains: ['admin.kolkhisea.ge', 'apartment-back-dtwnoq39.on-forge.com'], // added your production domain and forge backend
   },
 };
 
