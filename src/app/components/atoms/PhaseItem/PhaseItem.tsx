@@ -12,16 +12,18 @@ const PhaseItem = ({ phase, isFirst = false, isLast = false }: PhaseItemProps) =
   const imageSource = phase.image;
 
   return (
-    <div className="flex items-start gap-0">
+    <div className="flex gap-0">
       {/* Timeline - Connected dots */}
       <div className="flex flex-col items-center w-8 2xl:w-16 flex-shrink-0">
-        {/* Timeline line above dot (hidden for first item) */}
-        {!isFirst && (
+        {/* Timeline line above dot - spacer for first item to match others */}
+        {isFirst ? (
+          <div className="w-px bg-transparent h-6 lg:h-8 2xl:h-12"></div>
+        ) : (
           <div className="w-px bg-[#E3EDFF] h-6 lg:h-8 2xl:h-10"></div>
         )}
         
-        {/* Timeline dot */}
-        <div className="w-4 h-4 bg-[#285260] rounded-full z-10"></div>
+        {/* Timeline dot - aligned with header text */}
+        <div className="w-4 h-4 bg-[#285260] rounded-full z-10 flex-shrink-0"></div>
         
         {/* Timeline line below dot (hidden for last item) */}
         {!isLast && (

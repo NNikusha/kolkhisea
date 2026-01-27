@@ -66,7 +66,7 @@ export default function AboutUsSection({
             centered={true}
             firstText={t("BuildingTheFuture")}
             secondText={t("WithExcellence")}
-            firstTextColor="#FFFFFF50"
+            firstTextColor="#ffffff6e"
           />
         </motion.div>
 
