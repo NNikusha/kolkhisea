@@ -18,7 +18,7 @@ const LuxuryCard: React.FC<LuxuryCardProps> = ({
   return (
     <MotionWrapper delay={0.1}>
       <div className="flex flex-col h-auto lg:h-[754px] lg:h-[854px] xl:h-[734px] overflow-hidden lg:bg-transparent rounded-[32px] lg:rounded-none gap-6">
-        <div className="flex flex-col lg:flex-row h-auto lg:h-[30%]">
+        <div className="flex flex-col lg:flex-row h-auto lg:h-[35%]">
           <ProjectInfo />
           <Description title={title} lang={lang} />
         </div>

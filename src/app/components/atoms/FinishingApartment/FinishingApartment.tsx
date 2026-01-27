@@ -48,10 +48,10 @@ const FinishingApartment = ({
   };
 
   const slideLabels = [
-    t('LivingRoom'), 
-    t('Kitchen'), 
-    t('DiningArea'), 
-    t('Bedroom'), 
+    t('LivingRoom'),
+    t('Kitchen'),
+    t('DiningArea'),
+    t('Bedroom'),
     t('Bathroom')
   ];
 
@@ -64,7 +64,7 @@ const FinishingApartment = ({
   ];
 
   return (
-    <div className="w-full mt-[50px]">
+    <div className="w-full lg:mt-[120px] mt-[50px]">
       <div className="container mx-auto px-4 lg:px-[108px]">
         <div className="max-w-[690px]">
           {/* <div className="px-4 py-3 md:py-4 mb-4 flex justify-center items-center bg-[#285260]/5 inline-block rounded-4xl">
@@ -72,19 +72,19 @@ const FinishingApartment = ({
               {t('Details')}
             </h3>
           </div> */}
-          
-            <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] lg:hidden">
-              {t('Finishing')}</h1>
-            <div className='relative inline-block'>
-              <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 lg:hidden">
-                {t('OfApartments')}
-              </h1>
+
+          <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] lg:hidden">
+            {t('Finishing')}</h1>
+          <div className='relative inline-block'>
+            <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 lg:hidden">
+              {t('OfApartments')}
+            </h1>
             <div className="absolute lg:hidden flex bg-[#B4D7D8]/50 h-[24px] w-[167px] right-[-55px] top-[18px] z-[-1]"></div>
           </div>
 
           <div className='relative inline-block'>
             <h1 className="text-[24px] lg:text-[48px] uppercase font-medium text-[#1C1C1E] mb-6 hidden lg:block">
-              {t('FinishingApartments')} 
+              {t('FinishingApartments')}
             </h1>
             <div className="absolute hidden lg:flex bg-[#B4D7D8]/50 h-[40px] w-[200px] right-[-70px] top-[39px] z-[-1]"></div>
           </div>
@@ -101,21 +101,21 @@ const FinishingApartment = ({
               className="flex gap-[16px] md:gap-[24px] justify-start items-center py-3"
               style={{ width: '506px' }}
             >
-          {slideLabels.map((label, index) => (
-  <button
-    key={index}
-    ref={(el) => {
-      buttonRefs.current[index] = el;
-    }}
-    className={`cursor-pointer transition duration-300 ${activeIndex === index
-      ? 'text-[#CB684D] font-[700] border-b-[3px] border-[#CB684D] pb-[5px]'
-      : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-transparent'
-    } whitespace-nowrap`}
-    onClick={() => handleSlideChange(index)}
-  >
-    {label}
-  </button>
-))}
+              {slideLabels.map((label, index) => (
+                <button
+                  key={index}
+                  ref={(el) => {
+                    buttonRefs.current[index] = el;
+                  }}
+                  className={`cursor-pointer transition duration-300 ${activeIndex === index
+                    ? 'text-[#CB684D] font-[700] border-b-[3px] border-[#CB684D] pb-[5px]'
+                    : 'text-[#7E7E7E] hover:text-[#E88B72] pb-[5px] border-b-[3px] border-transparent'
+                    } whitespace-nowrap`}
+                  onClick={() => handleSlideChange(index)}
+                >
+                  {label}
+                </button>
+              ))}
 
             </div>
           </div>
@@ -126,9 +126,9 @@ const FinishingApartment = ({
           ></div>
         </div>
 
-        <div className='relative h-[200px] md:h-[300px] xl:h-[400px] w-full mb-[16px] rounded-[32px]'>
+        <div className='relative h-[200px] md:h-[300px] xl:h-[550px] w-full mb-[16px] rounded-[32px]'>
           <Swiper
-            className="h-[200px] md:h-[300px] xl:h-[400px] w-full mb-[16px] rounded-[32px]"
+            className="h-[200px] md:h-[300px] xl:h-[550px] w-full mb-[16px] rounded-[32px]"
             modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
             spaceBetween={50}
             slidesPerView={1}

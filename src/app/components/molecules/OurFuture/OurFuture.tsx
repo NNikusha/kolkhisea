@@ -8,7 +8,7 @@ interface OurFutureProps {
   timelineDescription?: LocalizedContent;
   timelinePhases?: Array<{
     phase_name: LocalizedContent;
-    date_range: string;
+    date_range: LocalizedContent | string;
     status: string;
     sales_progress: string;
     tasks: Array<{
@@ -27,18 +27,25 @@ const OurFuture = ({
 }: OurFutureProps) => {
   // const t = useTranslations('Language');
   
-  const transformedPhases: Phase[] = timelinePhases?.map(item => ({
-    dateRange: item.date_range,
-    phase: item.phase_name?.[lang] || "PLANNING PHASE",
-    status: item.status,
-    tasks: item.tasks.map((taskItem, index) => ({
-      id: (index + 1).toString(),
-      name: `Task ${index + 1}`,
-      description: taskItem.task?.[lang] || "",
-    })),
-    progress: item.sales_progress,
-    image: item.image_url,
-  })) || [];
+  const transformedPhases: Phase[] = timelinePhases?.map(item => {
+    const phaseName = typeof item.phase_name?.[lang] === 'string' 
+      ? item.phase_name[lang] 
+      : typeof item.date_range === 'string' 
+        ? item.date_range 
+        : "";
+    return {
+      dateRange: lang === 'ka' && phaseName ? phaseName.toUpperCase() : phaseName,
+      phase: item.phase_name?.[lang] || "PLANNING PHASE",
+      status: item.status,
+      tasks: item.tasks.map((taskItem, index) => ({
+        id: (index + 1).toString(),
+        name: `Task ${index + 1}`,
+        description: taskItem.task?.[lang] || "",
+      })),
+      progress: item.sales_progress,
+      image: item.image_url,
+    };
+  }) || [];
   
   return (
     <div className="w-full bg-white rounded-t-[56px] py-[32px] lg:py-[45px] 2xl:py-[80px] mt-[72px] 2xl:mt-[168px]">

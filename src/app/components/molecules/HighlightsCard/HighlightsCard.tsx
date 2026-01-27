@@ -13,7 +13,7 @@ export const HighlightsCard: React.FC<HighlightsCardProps> = ({
 
   return (
     <MotionWrapper delay={0.1}>
-      <div className="bg-[#F3F6FB] py-16 flex flex-col items-center justify-center rounded-[48px]">
+      <div className="bg-[#F3F6FB] pt-16 pb-0 flex flex-col items-center justify-center rounded-[48px]">
         <div className="w-full">
           <SectionTitle
             mainText={t("Key")}

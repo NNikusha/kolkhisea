@@ -6,6 +6,51 @@ import { Locale, LocalizedContent } from "@/app/types/type";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
+// Helper function to convert URLs in text to clickable links
+const parseTextWithLinks = (text: string) => {
+  if (!text) return text;
+  
+  // Regex to match URLs (http, https, www)
+  const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+  const parts: (string | React.ReactElement)[] = [];
+  let lastIndex = 0;
+  let match;
+  
+  // Reset regex lastIndex
+  urlRegex.lastIndex = 0;
+  
+  while ((match = urlRegex.exec(text)) !== null) {
+    // Add text before the URL
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    
+    // Add the URL as a link
+    const url = match[0];
+    const href = url.startsWith('http') ? url : `https://${url}`;
+    parts.push(
+      <a
+        key={match.index}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#285260] underline"
+      >
+        {url}
+      </a>
+    );
+    
+    lastIndex = match.index + match[0].length;
+  }
+  
+  // Add remaining text after the last URL
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+  
+  return parts.length > 0 ? parts : text;
+};
+
 interface OurMissionSectionProps {
   ourMissionTitle?: LocalizedContent;
   ourMissionImage?: string;
@@ -72,7 +117,7 @@ const OurMissionSection: React.FC<OurMissionSectionProps> = ({
               </span>
             </h2>
             <p className="font-normal md:text-[16px] text-[14px] text-[#7E7E7E] leading-[150%] lg:w-[105%] md:w-[115%] w-[120%] pt-[24px]">
-              {ourMissionTitle && ourMissionTitle[lang]}
+              {ourMissionTitle && parseTextWithLinks(ourMissionTitle[lang] || "")}
             </p>
           </motion.div>
         </div>

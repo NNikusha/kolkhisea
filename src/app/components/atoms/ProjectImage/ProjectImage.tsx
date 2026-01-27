@@ -7,7 +7,7 @@ import { ProjectImageProps } from '@/app/types/type';
 const ProjectImage: React.FC<ProjectImageProps> = ({ 
   image, 
 }) => (
-  <div className="relative h-[240px] lg:h-[50%] mt-0 lg:mt-4">
+  <div className="relative h-[240px] lg:h-[70%] mt-0 lg:mt-4">
     <div className="h-full w-full overflow-hidden rounded-[32px] lg:rounded-[48px] relative">
       <Image
         src={image || MyImage}
