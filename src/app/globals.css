@@ -13,6 +13,14 @@
   --reddish-Gray: rgba(255, 255, 255, 0.2);;
   --foreground: #F3F6FB;
   --grayMixGreen: #285260;
+  
+  /* WhatsApp Chat Colors */
+  --whatsapp-green: #25D366;
+  --whatsapp-dark-green: #128C7E;
+  --whatsapp-light-green: #DCF8C6;
+  --whatsapp-gray: #E5E5E5;
+  --whatsapp-dark: #075E54;
+  --whatsapp-bg: #E5DDD5;
 }
 
 @theme inline {
@@ -213,4 +221,124 @@ body[data-locale="ka"] .uppercase {
 
 .animate-popupSlideIn {
   animation: popupSlideIn 0.3s ease-in-out;
+}
+
+/* WhatsApp-style Chat Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Chat message markdown styling */
+.prose {
+  color: inherit;
+  max-width: none;
+}
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: inherit;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+/* Custom scrollbar for chat messages */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsive adjustments for chat */
+@media (max-width: 640px) {
+  .fixed.bottom-24.right-6 {
+    bottom: 90px;
+    right: 16px;
+    left: 16px;
+    width: calc(100% - 32px);
+    max-width: none;
+  }
+  
+  .fixed.bottom-6.right-6 {
+    bottom: 20px;
+    right: 20px;
+  }
 }

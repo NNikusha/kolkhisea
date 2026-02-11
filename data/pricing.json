@@ -1,0 +1,79 @@
+{
+  "currency": "USD",
+  "pricePerSqm": 1200,
+  "apartments": [
+    {
+      "apartmentId": "studio",
+      "priceRange": {
+        "min": 42000,
+        "max": 54000
+      },
+      "averagePrice": 48000
+    },
+    {
+      "apartmentId": "2br",
+      "priceRange": {
+        "min": 78000,
+        "max": 102000
+      },
+      "averagePrice": 90000
+    },
+    {
+      "apartmentId": "3br",
+      "priceRange": {
+        "min": 114000,
+        "max": 144000
+      },
+      "averagePrice": 129000
+    }
+  ],
+  "paymentPlans": [
+    {
+      "name": "Full Payment",
+      "discount": 5,
+      "description": "Pay the full amount upfront and receive 5% discount"
+    },
+    {
+      "name": "Installment Plan",
+      "description": "30% down payment, remaining amount in 24 monthly installments",
+      "downPayment": 30,
+      "installmentMonths": 24,
+      "interestRate": 0
+    },
+    {
+      "name": "Extended Plan",
+      "description": "20% down payment, remaining amount in 36 monthly installments",
+      "downPayment": 20,
+      "installmentMonths": 36,
+      "interestRate": 3
+    }
+  ],
+  "additionalCosts": [
+    {
+      "name": "Additional Parking Space",
+      "price": 15000
+    },
+    {
+      "name": "Storage Room",
+      "price": 8000
+    },
+    {
+      "name": "Premium Finishing Package",
+      "price": 12000,
+      "description": "Italian marble, smart home system, premium appliances"
+    }
+  ],
+  "investorDiscounts": [
+    {
+      "minUnits": 3,
+      "discount": 8,
+      "description": "8% discount for purchasing 3 or more units"
+    },
+    {
+      "minUnits": 5,
+      "discount": 12,
+      "description": "12% discount for purchasing 5 or more units"
+    }
+  ]
+}
+

@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import HeaderNav from '@/app/components/molecules/headerNav/HeaderNav';
 import Footer from '@/app/components/organisms/Footer/Footer';
 import GeorgianUppercaseProvider from '@/app/components/providers/GeorgianUppercaseProvider';
+import { ChatWidget } from '@/app/components/chat';
 import '@/app/globals.css';
 import Script from "next/script";
 import { Metadata } from 'next';
@@ -267,6 +268,7 @@ export default async function LocaleLayout({
           <HeaderNav />
           {children}
           <Footer />
+          <ChatWidget />
         </NextIntlClientProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DJHG3RS987"
