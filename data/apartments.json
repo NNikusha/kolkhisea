@@ -1,0 +1,67 @@
+{
+  "apartments": [
+    {
+      "id": "studio",
+      "name": "Studio Apartment",
+      "type": "Studio",
+      "size": {
+        "min": 35,
+        "max": 45,
+        "unit": "sqm"
+      },
+      "features": [
+        "Sea view balcony",
+        "Open kitchen concept",
+        "Modern bathroom",
+        "Built-in wardrobes",
+        "Smart home ready"
+      ],
+      "floors": "3-12",
+      "description": "Perfect for singles or couples seeking a luxury seaside lifestyle. Every studio features panoramic Black Sea views and modern finishing."
+    },
+    {
+      "id": "2br",
+      "name": "Two-Bedroom Apartment",
+      "type": "2BR",
+      "size": {
+        "min": 65,
+        "max": 85,
+        "unit": "sqm"
+      },
+      "features": [
+        "Spacious sea-view balconies",
+        "Master bedroom with en-suite",
+        "Guest bedroom",
+        "Large living room",
+        "Separate kitchen",
+        "Two bathrooms",
+        "Parking space included"
+      ],
+      "floors": "2-12",
+      "description": "Ideal for families or professionals. Spacious layout with separate rooms and premium amenities inspired by ancient Kolkhi heritage."
+    },
+    {
+      "id": "3br",
+      "name": "Three-Bedroom Premium Apartment",
+      "type": "3BR",
+      "size": {
+        "min": 95,
+        "max": 120,
+        "unit": "sqm"
+      },
+      "features": [
+        "Panoramic sea and mountain views",
+        "Master suite with walk-in closet",
+        "Two additional bedrooms",
+        "3 bathrooms",
+        "Premium Italian finishes",
+        "Large terrace",
+        "Two parking spaces",
+        "Storage room"
+      ],
+      "floors": "4-12 (Top floors)",
+      "description": "Ultimate luxury living with breathtaking views of the Black Sea and ancient Colchis coastline. Perfect for large families or investment."
+    }
+  ]
+}
+

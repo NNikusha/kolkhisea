@@ -1,0 +1,107 @@
+{
+  "name": "KolkhiSea",
+  "tagline": "Where Ancient Kolkhi Heritage Meets Modern Luxury",
+  "description": "Luxury Black Sea apartments in Kobuleti, Georgia. Built on the ancient land of Colchis, where history and modern living converge.",
+  "contact": {
+    "phone": "+995 599 123 456",
+    "email": "sales@kolkhisea.ge",
+    "whatsapp": "+995 599 123 456",
+    "address": "Kobuleti, Adjara, Georgia",
+    "website": "https://kolkhisea.ge"
+  },
+  "location": {
+    "city": "Kobuleti",
+    "region": "Adjara",
+    "country": "Georgia",
+    "coordinates": {
+      "latitude": 41.8225,
+      "longitude": 41.7767
+    },
+    "nearbyAttractions": [
+      "Black Sea Beach - 50m walking distance",
+      "Kobuleti Boulevard - 5 minutes",
+      "Batumi International Airport - 25km",
+      "Ancient Colchis Archaeological Sites - nearby"
+    ]
+  },
+  "workingHours": {
+    "weekdays": "Monday - Friday: 9:00 AM - 7:00 PM",
+    "saturday": "Saturday: 10:00 AM - 6:00 PM",
+    "sunday": "Sunday: 11:00 AM - 5:00 PM (By appointment)",
+    "timezone": "GMT+4"
+  },
+  "projectStatus": {
+    "phase": "Under Construction",
+    "completionDate": "Q4 2026",
+    "currentProgress": "65%"
+  },
+  "services": [
+    {
+      "id": "consultation",
+      "name": "Free Consultation",
+      "description": "Meet with our sales team to discuss your requirements",
+      "price": 0,
+      "duration": "30-60 minutes"
+    },
+    {
+      "id": "site-visit",
+      "name": "Site Visit",
+      "description": "Visit the construction site and see the progress",
+      "price": 0,
+      "includes": ["Personal tour", "Floor plan viewing", "Material samples"]
+    },
+    {
+      "id": "virtual-tour",
+      "name": "Virtual 3D Tour",
+      "description": "Experience your future apartment through VR technology",
+      "price": 0
+    },
+    {
+      "id": "interior-design",
+      "name": "Interior Design Consultation",
+      "description": "Professional interior design assistance",
+      "price": 500,
+      "refundable": true
+    },
+    {
+      "id": "legal-support",
+      "name": "Legal Documentation Support",
+      "description": "We help with all paperwork and legal processes",
+      "included": true
+    }
+  ],
+  "sellingPoints": [
+    "Beachfront luxury apartments with panoramic Black Sea views",
+    "Built on ancient Colchis land with rich archaeological heritage",
+    "Modern European architecture with Georgian cultural elements",
+    "Flexible payment plans with 0% interest options",
+    "Perfect investment opportunity in Georgia's growing tourism sector",
+    "Foreigners can freely purchase property - no restrictions",
+    "High rental income potential from tourists",
+    "Quality construction by experienced developers",
+    "Premium location in Kobuleti - Georgia's beach resort town"
+  ],
+  "faqs": [
+    {
+      "question": "Can foreigners buy property in Georgia?",
+      "answer": "Yes! Georgia welcomes foreign property investors. There are no restrictions on foreigners buying apartments. The process is straightforward and we provide full legal support."
+    },
+    {
+      "question": "What is the expected completion date?",
+      "answer": "The project is scheduled for completion in Q4 2026. We are currently 65% complete and on schedule."
+    },
+    {
+      "question": "Are pets allowed?",
+      "answer": "Yes, pets are welcome in KolkhiSea apartments. We love furry friends!"
+    },
+    {
+      "question": "What about rental management?",
+      "answer": "We offer property management services to help you rent out your apartment when you're not using it. Kobuleti is a popular tourist destination with high rental demand."
+    },
+    {
+      "question": "Is parking included?",
+      "answer": "Studio apartments can purchase parking separately ($15,000). Two-bedroom apartments include 1 parking space. Three-bedroom apartments include 2 parking spaces."
+    }
+  ]
+}
+

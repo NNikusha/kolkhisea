@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "axios": "^1.8.4",
     "framer-motion": "^12.22.0",
     "next": "15.2.8",
     "next-intl": "^4.0.2",
+    "openai": "^6.21.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
     "react-modal-sheet": "^4.0.1",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
